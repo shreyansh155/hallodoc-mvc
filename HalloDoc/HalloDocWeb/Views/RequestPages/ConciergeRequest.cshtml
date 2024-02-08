@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "ConciergeRequest";
+}
+@await Html.PartialAsync("warningModal")
+@await Html.PartialAsync("header")
+<div class="mt-3">
+    <a asp-controller="Patient" asp-action="PatientSubmitRequest">
+        <button class="btn btn-outline-info float-end">
+            <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">&#60; Back</span>
+        </button>
+    </a>
+</div>
+<div class="container">
+
+<form>
+    <!-- patient Information -->
+    <div class=" row form-group">
+        <h2>Concierge Information</h2>
+
+        <!-- firstname -->
+
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Your Firstname</label>
+
+        </div>
+        <!-- Lastname -->
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Your Lastname</label>
+        </div>
+
+        <!-- Phone Number -->
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="tel" class="form-control" row="1" id="floatingInput">
+            <label for="floatingInput">Number</label>
+        </div>
+
+        <!-- Email -->
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+
+            <input type="email" class="form-control" id="floatingInput">
+            <label for="floatingInput">Email</label>
+
+        </div>
+
+        <!-- Relation with patient -->
+
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Hotel/Property Name</label>
+
+        </div>
+
+        <div class="row mt-3">
+            <h2>Concierge Location</h2>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">Street</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">City</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">State</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="number" class="form-control" id="floatingInput">
+            <label for="floatingInput">Zip Code</label>
+        </div>
+
+        <h2>Patient Information</h2>
+
+        <!-- symptoms -->
+
+        <div class="col-lg-12 col-md-12 col sm-12 col-12 ">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter brief details of symptoms (optional)"></textarea>
+        </div>
+
+        <!-- firstname -->
+
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Your Firstname</label>
+
+        </div>
+        <!-- Lastname -->
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1">Your Lastname</label>
+        </div>
+
+        <!-- Date of birth -->
+
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3">
+            <input type="date" class="form-control" id="exampleFormControlInput1">
+        </div>
+
+
+        <!-- Patient Contact Info -->
+        <div class="row mt-3">
+            <h2>Patient Contact Information</h2>
+        </div>
+        <!-- Email -->
+        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+
+            <input type="email" class="form-control" id="floatingInput">
+            <label for="floatingInput">Email</label>
+
+        </div>
+
+        <!-- Phone Number -->
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="tel" class="form-control" id="floatingInput">
+            <label for="floatingInput">Number</label>
+        </div>
+
+        <!-- Patient Location -->
+
+        <div class="row mt-3">
+            <h2>Patient Location</h2>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">Street</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">City</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">State</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="number" class="form-control" id="floatingInput">
+            <label for="floatingInput">Zip Code</label>
+        </div>
+        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <input type="text" class="form-control" id="floatingInput">
+            <label for="floatingInput">Room #/Suit (Optional)</label>
+        </div>
+        <div class="row mt-3">
+            <h2>(Optional) Upload Photo or Document</h2>
+        </div>
+        <div class="form mb-3 col-lg-12 col-md-12 col-sm-12 d-flex">
+
+            <input type="file" class="form-control" name="" id="" placeholder="Select File">
+            <div>
+                <button class="btn btn-outline-primary" type="file" id="button-addon1"><i class="bi bi-cloud-arrow-up m-1"></i>Upload</button>
+            </div>
+
+        </div>
+
+        <!-- Submit and Cancel button -->
+        <div class="d-flex justify-content-end mt-3 gap-1">
+            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+        
+</form>
+</div>
+
+<br />
+@await Html.PartialAsync("footer")

@@ -1,0 +1,72 @@
+﻿.selectbtn {
+    cursor: pointer;
+}
+
+.patient-div {
+    width: 350px;
+    height: 50px;
+    background-color: #e8eaf1;
+    border: 1px solid #4367d3;
+    border-radius: 5px;
+}
+
+    .patient-div h4 {
+        color: #4367d3;
+    }
+
+.family-friend-div {
+    width: 350px;
+    height: 50px;
+    background-color: #e5f3f8;
+    border: 1px solid #00adef;
+    border-radius: 5px;
+}
+
+    .family-friend-div h4 {
+        color: #00adef;
+    }
+
+.concierge-div {
+    width: 350px;
+    height: 50px;
+    background-color: #e8f0e8;
+    border: 1px solid #228b22;
+    border-radius: 5px;
+}
+
+    .concierge-div h4 {
+        color: #228b22;
+    }
+
+.business-partners-div {
+    width: 350px;
+    height: 50px;
+    background-color: #f6e6ef;
+    border: 1px solid #d90f81;
+    border-radius: 5px;
+}
+
+    .business-partners-div h4 {
+        color: #d90f81;
+    }
+
+.footer-bg {
+    background-color: #282828;
+    color: #282828;
+}
+
+.btn {
+    float: right;
+}
+
+    .btn:hover {
+        background-color: #e3e3e3;
+    }
+
+#logo-icon {
+    height: 100px;
+}
+
+a{
+    text-decoration:none;
+}

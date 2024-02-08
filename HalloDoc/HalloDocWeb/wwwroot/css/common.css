@@ -1,0 +1,14 @@
+﻿body {
+    height: 100vh;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(../../images/bg-image.png);
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: -1;
+}

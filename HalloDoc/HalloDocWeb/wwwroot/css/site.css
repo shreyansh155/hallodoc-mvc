@@ -1,0 +1,66 @@
+body{
+    margin:0;
+    align-items:center;
+    justify-content:center;
+    
+}
+#logo {
+    width: 400px;
+    height: 200px;
+}
+
+
+
+.main-container {
+    height: 100%;
+}
+
+
+
+
+div.vertical-line {
+    width: 1px;
+    background-color: rgb(92, 92, 92);
+    height: 100%;
+    float: left;
+}
+
+footer {
+    background-color: #282828;
+    color: #282828;
+}
+
+button {
+    margin: 10px;
+    width: 500px;
+}
+
+#submitRequest {
+    background-color: rgb(20, 156, 156);
+    color: white;
+}
+
+#patientLogin {
+    background-color: rgb(33, 33, 105);
+    color: white;
+}
+
+.footer{
+    text-align:center;
+    color:white;
+}
+
+.navbar{
+    display:inline-flex;
+    float:right;
+
+}
+.toggleimg{
+    height:35px;
+    width:35px;
+}
+
+a {
+    color: white
+}
+

@@ -1,0 +1,41 @@
+﻿
+.btn {
+    float: right;
+}
+
+    .btn:hover {
+        background-color: #e3e3e3;
+    }
+
+.modal-dialog {
+    height: 90%;
+    margin: 150px 300px;
+}
+
+#warning-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.warning-icon {
+    position: relative;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    border: 2px solid #FF5733;
+    /* background-color: #FF5733; */
+}
+
+#closebtn {
+    color: #10bce9;
+}
+
+    #closebtn:hover {
+        color: #fff
+    }
