@@ -189,7 +189,7 @@ namespace HalloDocWeb.Controllers
             Business business = new()
             {
                 Name = userDetails.FirstName + " " + userDetails.LastName,
-                Createdby = DateTime.Now.ToString()
+                Createddate = DateTime.Now
 
             };
 
