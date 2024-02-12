@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\patient\\PatientSubmitRequest.css"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\phone.css",
+      "PackagePath": "staticwebassets\\css\\patient\\phone.css"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -670,6 +670,36 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "DataAccess": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.15",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
+      "DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.15",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccess.dll": {}
+        }
       }
     }
   },
@@ -1741,10 +1771,22 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../../BusinessLogic/BusinessLogic.csproj"
+    },
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../../DataAccess/DataAccess.csproj",
+      "msbuildProject": "../../DataAccess/DataAccess.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BusinessLogic >= 1.0.0",
+      "DataAccess >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 7.0.15",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.15",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.15",
@@ -1783,7 +1825,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj"
+            },
+            "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

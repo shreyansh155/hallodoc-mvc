@@ -1,6 +1,7 @@
 ﻿
-.btn {
+#closebtn {
     float: right;
+    width: 60px;
 }
 
     .btn:hover {

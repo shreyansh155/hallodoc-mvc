@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Aspnetuser
+@{
     ViewData["Title"] = "PatientLogin";
 }
 <link rel="stylesheet" href="~/css/patient/PatientLogin.css" asp-append-version="true" />
@@ -21,10 +22,10 @@
     <div class="d-flex flex-column">
         <a class="m-0 text-decoration-none" asp-action="Index" asp-controller="Home"><span>&#60;Back</span></a>
         <h2>Login To Your Account</h2>
-        <form>
-            <input type="email" class="form-control my-3 bg-transparent" id="patientLoginEmailId" placeholder="Email">
-            <input type="password" class="form-control my-3 bg-transparent" id="patientLoginPassword" placeholder="Password">
-            <button class="btn btn-primary w-100" type="button">Login</button>
+        <form method="post">
+            <input asp-for="Username" type="text" class="form-control my-3 bg-transparent" id="patientLoginEmailId" placeholder="Email">
+            <input asp-for="Passwordhash" type="password" class="form-control my-3 bg-transparent" id="patientLoginPassword" placeholder="Password">
+            <button class="btn btn-primary w-100" type="submit">Login</button>
         </form>
         <div class="w-100 d-flex justify-content-center my-3">
             <a class="m-0 text-decoration-none" asp-controller="Patient" asp-action="PatientForgotPassword">Forgot Password?</a>

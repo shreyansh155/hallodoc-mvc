@@ -369,3 +369,8 @@ G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\zh-Hant\Microsoft.CodeA
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.csproj.AssemblyReference.cache
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.MvcApplicationPartsAssemblyInfo.cs
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.csproj.CopyComplete
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.sourcelink.json
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\BusinessLogic.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\DataAccess.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\BusinessLogic.pdb
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\DataAccess.pdb
