@@ -8,7 +8,7 @@
 
 
 
-@await Html.PartialAsync("warningModal")
+@* @await Html.PartialAsync("warningModal") *@
 
 @await Html.PartialAsync("header")
 <div class="mt-3">
@@ -141,12 +141,14 @@
             </div>
             <div class="form mb-3 col-lg-12 col-md-12 col-sm-12 d-flex">
 
-                <input type="file" class="form-control" name="" id="" placeholder="Select File">
-                <div>
-                    <button class="btn btn-outline-primary"s id="button-addon1"><i class="bi bi-cloud-arrow-up m-1"></i>Upload</button>
-                </div>
+                    <input asp-for="FileUpload" type="file" class="form-control" name="FileUpload" id="" placeholder="Select File">
+                 @* <div>
+                    <button type="button" class="btn btn-outline-primary"s id="button-addon1"><i class="bi bi-cloud-arrow-up m-1"></i>Upload
+                        </button>
+                </div> *@
+ 
+            </div> 
 
-            </div>
 
             <!-- Submit and Cancel button -->
             <div class="d-flex justify-content-end mt-3 gap-1">

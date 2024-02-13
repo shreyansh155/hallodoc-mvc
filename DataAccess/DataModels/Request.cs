@@ -34,8 +34,6 @@ public partial class Request
 
     public string? Declinedby { get; set; }
 
-    public BitArray Isurgentemailsent { get; set; } = null!;
-
     public DateTime? Lastwellnessdate { get; set; }
 
     public BitArray? Ismobile { get; set; }
@@ -61,6 +59,8 @@ public partial class Request
     public string? Patientaccountid { get; set; }
 
     public int? Createduserid { get; set; }
+
+    public bool Isurgentemailsent { get; set; }
 
     public virtual ICollection<Emaillog> Emaillogs { get; set; } = new List<Emaillog>();
 

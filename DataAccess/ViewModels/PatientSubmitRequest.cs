@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,6 @@ namespace DataAccess.ViewModels
         public string ZipCode { get; set; }
         public string Room { get; set; }
         public string Document { get; set; }
+        public IFormFile FileUpload { get; set; }
     }
 }

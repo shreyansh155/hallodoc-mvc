@@ -58,24 +58,47 @@ namespace HalloDocWeb.Controllers
                 Modifieddate = DateTime.Now
             };
 
-            //Request request = new()
-            //{
-            //    Requesttypeid=2,
-            //    Userid=user1.Userid,
-            //    Firstname = userDetails.FirstName,
-            //    Lastname = userDetails.LastName,
-            //    Email = userDetails.Email,
-            //    Status=1, //To be dynamically assigned when admin side is created
-            //    Phonenumber = userDetails.Phone,
-            //    Createddate = DateTime.Now,
+            Request request = new()
+            {
+                Requesttypeid=2,
+                Userid=user1.Userid,
+                Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Status=1, //To be dynamically assigned when admin side is created
+                Phonenumber = userDetails.Phone,
+                Createddate = DateTime.Now,
+                
+            };
 
+            //uploading files
+            if (userDetails.FileUpload != null && userDetails.FileUpload.Length > 0)
+            {
+                //get file name
+                var fileName = Path.GetFileName(userDetails.FileUpload.FileName);
 
-            //};
+                //define path
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
 
+                // Copy the file to the desired location
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    userDetails.FileUpload.CopyTo(stream);
+                }
+                Requestwisefile requestwisefile = new()
+                {
+                    Filename = fileName,
+                    Requestid = request.Requestid,
+                    Createddate = DateTime.Now
+                };
+
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            }
 
             _context.Aspnetusers.Add(user);
             _context.Users.Add(user1);
-            //_context.Requests.Add(request);
+            _context.Requests.Add(request);
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
@@ -166,6 +189,8 @@ namespace HalloDocWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
+        //Business Request
         public IActionResult BusinessRequest()
         {
             return View();
@@ -176,15 +201,18 @@ namespace HalloDocWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult BusinessRequest(BusinessSubmitRequest userDetails)
         {
-            Guid id = new();
+            Guid g = Guid.NewGuid();
+
             Aspnetuser user = new()
             {
-                Id = id.ToString(),
+                Id = g.ToString(),
                 Username = userDetails.FirstName,
                 Createddate = DateTime.Now,
                 Modifieddate = DateTime.Now,
                 Email = userDetails.Email
             };
+            _context.Aspnetusers.Add(user);
+            _context.SaveChanges();
 
             Business business = new()
             {
@@ -192,9 +220,13 @@ namespace HalloDocWeb.Controllers
                 Createddate = DateTime.Now
 
             };
+            _context.Businesses.Add(business);
+            _context.SaveChanges();
 
+             
             User user1 = new()
             {
+                Aspnetuserid = g.ToString(),
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
@@ -211,21 +243,24 @@ namespace HalloDocWeb.Controllers
             Request request = new()
             {
                 Requesttypeid = 1,
-                //request.Userid = user.Userid;
+                //Userid = user.Userid;
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
                 Status = 4,
-                Createddate = DateTime.Now
+                Createddate = DateTime.Now,
+                Isurgentemailsent=true
             };
-            //request.Isurgentemailsent = false;
+            _context.Requests.Add(request);
+            _context.SaveChanges();
 
             Requestbusiness requestbusiness = new()
             {
                 //requestbusiness.Businessid = business.Id;
-                Requestid = request.Requestid
+                Requestid = request.Requestid,
+                Businessid=business.Businessid,
+                
             };
-            _context.Requestbusinesses.Add(requestbusiness);
 
             Requeststatuslog requeststatuslog = new()
             {
@@ -235,11 +270,54 @@ namespace HalloDocWeb.Controllers
             };
 
 
-            _context.Aspnetusers.Add(user);
+            Requesttype requesttype = new()
+            {
+                Name=userDetails.FirstName+" "+ userDetails.LastName
+            };
+
+
+            if (userDetails.FileUpload != null && userDetails.FileUpload.Length > 0)
+            {
+                //get file name
+                var fileName = Path.GetFileName(userDetails.FileUpload.FileName);
+                 
+                //define path
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
+
+                // Copy the file to the desired location
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    userDetails.FileUpload.CopyTo(stream);
+                }
+
+                Requestwisefile requestwisefile = new()
+                {
+                    Filename = fileName,
+                    Requestid = request.Requestid,
+                    Createddate = DateTime.Now
+                };
+
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            };
+
+
+            //Requestclient requestclient = new()
+            //{ 
+            //    Requestid = request.Requestid,
+            //    Notes = userDetails.Symptoms,
+            //    Firstname = userDetails.PatientFirstName,
+            //    Lastname = userDetails.PatientLastName,
+            //    Phonenumber = userDetails.PatientPhone,
+            //    Email = userDetails.PatientEmail,
+            //};
+            //_context.Requestclients.Add(requestclient);
+
+
+            _context.Requesttypes.Add(requesttype);
             _context.Users.Add(user1);
             _context.Requeststatuslogs.Add(requeststatuslog);
-            _context.Requests.Add(request);
-            _context.Businesses.Add(business);
+            _context.Requestbusinesses.Add(requestbusiness);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");

@@ -849,9 +849,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ismobile)
                 .HasColumnType("bit(1)")
                 .HasColumnName("ismobile");
-            entity.Property(e => e.Isurgentemailsent)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isurgentemailsent");
+            entity.Property(e => e.Isurgentemailsent).HasColumnName("isurgentemailsent");
             entity.Property(e => e.Lastname)
                 .HasMaxLength(100)
                 .HasColumnName("lastname");

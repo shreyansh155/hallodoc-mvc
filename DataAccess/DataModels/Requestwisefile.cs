@@ -10,7 +10,7 @@ public partial class Requestwisefile
 
     public int Requestid { get; set; }
 
-    public string Filename { get; set; } = null!;
+    public string Filename { get; set; } 
 
     public DateTime Createddate { get; set; }
 

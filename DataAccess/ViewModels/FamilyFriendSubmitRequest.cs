@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,7 @@ public class FamilyFriendSubmitRequest
         public string State { get; set;}
         public string ZipCode { get; set;}
         public string Room { get; set;}
-
-
+        public IFormFile FileUpload { get; set; }
 
     }
 }

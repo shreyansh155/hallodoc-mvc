@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace DataAccess.ViewModels
         public string PatientState { get; set; }
         public string PatientZipCode { get; set; }
         public string PatientRoom { get; set; }
-
+        public IFormFile FileUpload { get; set; }
 
 
     }
