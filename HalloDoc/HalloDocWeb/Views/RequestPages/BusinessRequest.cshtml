@@ -18,7 +18,7 @@
 </div>
 <div class="container">
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <!-- patient Information -->
     <div class=" row form-group">
         <h2>Business/Partner Information</h2>
@@ -40,7 +40,7 @@
         <!-- Phone Number -->
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group mt-3 form-floating">
 
-                <input asp-for="Phone"  type="tel" class="form-control phone" id="floatingInput" placeholder="(555) 555-5555">
+                <input asp-for="Phone"  type="tel" class="form-control phone" id="business-phone" placeholder="(555) 555-5555">
             </div>
 
         <!-- Email -->
@@ -108,7 +108,7 @@
 
             <!-- Phone Number -->
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group mt-3 form-floating">
-                    <input asp-for="PatientPhone" type="tel" class="form-control phone" id="floatingInput" placeholder="(555) 555-5555">
+                    <input asp-for="PatientPhone" type="tel" class="form-control phone" id="patient-phone" placeholder="(555) 555-5555">
                 </div>
 
             <!-- Patient Location -->
@@ -141,7 +141,7 @@
             </div>
             <div class="form mb-3 col-lg-12 col-md-12 col-sm-12 d-flex">
 
-                    <input asp-for="FileUpload" type="file" class="form-control" name="FileUpload" id="" placeholder="Select File">
+                    <input type="file" asp-for="File" class="form-control" placeholder="Select File">
                  @* <div>
                     <button type="button" class="btn btn-outline-primary"s id="button-addon1"><i class="bi bi-cloud-arrow-up m-1"></i>Upload
                         </button>
@@ -164,8 +164,15 @@
 
 
 <script>
-    const input = document.querySelector("input[type='tel']");
-    window.intlTelInput(input, {
-        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/utils.js",
+    var phoneInputField = document.querySelector("#business-phone");
+    var phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    var phoneInputField = document.querySelector("#patient-phone");
+    var phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
 </script>

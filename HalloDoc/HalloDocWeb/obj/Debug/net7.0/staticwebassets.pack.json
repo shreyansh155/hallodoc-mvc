@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\HalloDocWeb.bundle.scp.css"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\11116016_415.jpg",
+      "PackagePath": "staticwebassets\\UploadedFiles\\11116016_415.jpg"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\logo.png",
+      "PackagePath": "staticwebassets\\UploadedFiles\\logo.png"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\common.css",
       "PackagePath": "staticwebassets\\css\\common.css"
     },
@@ -27,6 +35,10 @@
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientSubmitRequest.css",
       "PackagePath": "staticwebassets\\css\\patient\\PatientSubmitRequest.css"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\patient\\dashboard.css"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\phone.css",

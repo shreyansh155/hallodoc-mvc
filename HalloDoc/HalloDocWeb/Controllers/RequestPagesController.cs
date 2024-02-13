@@ -197,8 +197,9 @@ namespace HalloDocWeb.Controllers
         }
 
 
+
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult BusinessRequest(BusinessSubmitRequest userDetails)
         {
             Guid g = Guid.NewGuid();
@@ -276,10 +277,10 @@ namespace HalloDocWeb.Controllers
             };
 
 
-            if (userDetails.FileUpload != null && userDetails.FileUpload.Length > 0)
+            if (userDetails.File != null && userDetails.File.Length > 0)
             {
                 //get file name
-                var fileName = Path.GetFileName(userDetails.FileUpload.FileName);
+                var fileName = Path.GetFileName(userDetails.File.FileName);
                  
                 //define path
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
@@ -287,7 +288,7 @@ namespace HalloDocWeb.Controllers
                 // Copy the file to the desired location
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    userDetails.FileUpload.CopyTo(stream);
+                    userDetails.File.CopyTo(stream);
                 }
 
                 Requestwisefile requestwisefile = new()

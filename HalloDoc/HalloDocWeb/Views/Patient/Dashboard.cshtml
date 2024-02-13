@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Request>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<link rel="stylesheet" href="~/css/patient/dashboard.css" asp-append-version="true" />
+
+
+@await Html.PartialAsync("patientheader")
+
+<div class="container-fluid">
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#tab1" class="nav-link" data-bs-toggle="tab"> Dashboard </a>
+        </li>
+        <li class="nav-item">
+            <a href="#tab2" class="nav-link" data-bs-toggle="tab"> Profile </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <!-- Dashboard -->
+        <div class="tab-pane fade show active" id="tab1">
+            <h2>Medical History</h2>
+            <div class="newrequest bg-secondary">
+                <a class="btn btn-outline-info " onclick="location.href='patient-submit-request.html'">
+                    <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">Create New Request</span>
+                </a>
+            </div>
+            <br><br>
+            <div class="table-responsive small ">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th style="width:20%">Created Date <span>&#8595;</span></th>
+                            <th style="width:60%">Current Status</th>
+                            <th style="width:20%">Document</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var obj in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @obj.Createddate
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Profile -->
+        <div class="tab-pane fade" id="tab2">
+        </div>
+    </div>
+    <script src="js\bootstrap.bundle.min.js"></script>
+</div>
