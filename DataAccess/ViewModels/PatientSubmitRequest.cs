@@ -23,6 +23,6 @@ namespace DataAccess.ViewModels
         public string ZipCode { get; set; }
         public string Room { get; set; }
         public string Document { get; set; }
-        public IFormFile FileUpload { get; set; }
+        public IFormFile File { get; set; }
     }
 }

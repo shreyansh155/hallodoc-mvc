@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\UploadedFiles\\11116016_415.jpg"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\back.png",
+      "PackagePath": "staticwebassets\\UploadedFiles\\back.png"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\bg-image.png",
+      "PackagePath": "staticwebassets\\UploadedFiles\\bg-image.png"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\darkmode.png",
+      "PackagePath": "staticwebassets\\UploadedFiles\\darkmode.png"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\lightmode.png",
+      "PackagePath": "staticwebassets\\UploadedFiles\\lightmode.png"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\logo.png",
       "PackagePath": "staticwebassets\\UploadedFiles\\logo.png"
     },

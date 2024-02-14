@@ -34,7 +34,7 @@ namespace DataAccess.ViewModels
         public string PatientState { get; set; }
         public string PatientZipCode { get; set; }
         public string PatientRoom { get; set; }
-        public IFormFile FileUpload { get; set; }
+        public IFormFile File { get; set; }
 
 
     }

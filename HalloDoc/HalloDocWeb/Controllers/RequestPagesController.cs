@@ -38,6 +38,9 @@ namespace HalloDocWeb.Controllers
                 Email = userDetails.Email
             };
 
+            _context.Aspnetusers.Add(user);
+            _context.SaveChanges();
+
             User user1 = new()
             {
                 Aspnetuserid = id.ToString(),
@@ -49,33 +52,65 @@ namespace HalloDocWeb.Controllers
                 City = userDetails.City,
                 State = userDetails.State,
                 Zip = userDetails.ZipCode,
-                Strmonth = DateTime.Now.Month.ToString(),
-                Intyear = DateTime.Now.Year,
-                Intdate = DateTime.Now.Day,
-                Createdby = userDetails.FirstName,
+                Createdby ="admin",
                 Createddate = DateTime.Now,
                 Modifiedby = userDetails.FirstName,
                 Modifieddate = DateTime.Now
             };
+            _context.Users.Add(user1);
+            _context.SaveChanges();
+
+            //Request request = new()
+            //{
+            //    Userid=user1.Userid,
+            //    Firstname = userDetails.FirstName,
+            //    Lastname = userDetails.LastName,
+            //    Email = userDetails.Email,
+            //    Status=1, //To be dynamically assigned when admin side is created
+            //    Phonenumber = userDetails.Phone,
+            //    Createddate = DateTime.Now,
+                
+            //};
+            //_context.Requests.Add(request);
+            //_context.SaveChanges();
 
             Request request = new()
             {
-                Requesttypeid=2,
-                Userid=user1.Userid,
+                Requesttypeid = 1,
+                //Userid = user.Userid;
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
-                Status=1, //To be dynamically assigned when admin side is created
-                Phonenumber = userDetails.Phone,
+                Status = 4,
                 Createddate = DateTime.Now,
-                
+                Isurgentemailsent = true
             };
+            _context.Requests.Add(request);
+            _context.SaveChanges();
+
+
+            Requeststatuslog requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 4,
+                Createddate = DateTime.Now
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.SaveChanges();
+
+
+            Requesttype requesttype = new()
+            {
+                Name = userDetails.FirstName + " " + userDetails.LastName
+            };
+            _context.Requesttypes.Add(requesttype);
+            _context.SaveChanges();
 
             //uploading files
-            if (userDetails.FileUpload != null && userDetails.FileUpload.Length > 0)
+            if (userDetails.File != null && userDetails.File.Length > 0)
             {
                 //get file name
-                var fileName = Path.GetFileName(userDetails.FileUpload.FileName);
+                var fileName = Path.GetFileName(userDetails.File.FileName);
 
                 //define path
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
@@ -83,7 +118,7 @@ namespace HalloDocWeb.Controllers
                 // Copy the file to the desired location
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    userDetails.FileUpload.CopyTo(stream);
+                    userDetails.File.CopyTo(stream);
                 }
                 Requestwisefile requestwisefile = new()
                 {
@@ -96,10 +131,7 @@ namespace HalloDocWeb.Controllers
                 _context.SaveChanges();
             }
 
-            _context.Aspnetusers.Add(user);
-            _context.Users.Add(user1);
-            _context.Requests.Add(request);
-            _context.SaveChanges();
+                _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 
@@ -114,7 +146,7 @@ namespace HalloDocWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult FamilyFriendRequest(FamilyFriendSubmitRequest userDetails)
         {
-            Guid id = new();
+            Guid id = Guid.NewGuid();
             Aspnetuser user = new()
             {
                 Id = id.ToString(),
@@ -143,22 +175,65 @@ namespace HalloDocWeb.Controllers
                 Modifiedby = userDetails.FirstName + userDetails.LastName,
                 Modifieddate = DateTime.Now
             };
+            Request request = new()
+            {
+                Requesttypeid = 1,
+                //Userid = user.Userid;
+                Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Status = 4,
+                Createddate = DateTime.Now,
+                Isurgentemailsent = true
+            };
+            _context.Requests.Add(request);
+            _context.SaveChanges();
+            
+            if (userDetails.File != null && userDetails.File.Length > 0)
+            {
+                //get file name
+                var fileName = Path.GetFileName(userDetails.File.FileName);
+
+                //define path
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
+
+                // Copy the file to the desired location
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    userDetails.File.CopyTo(stream);
+                }
+
+                Requestwisefile requestwisefile = new()
+                {
+                    Filename = fileName,
+                    Requestid = request.Requestid,
+                    Createddate = DateTime.Now
+                };
+
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            };
+
+
             _context.Aspnetusers.Add(user);
             _context.Users.Add(user1);
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 
+
         //GET
         public IActionResult ConciergeRequest()
         {
             return View();
         }
+
+        //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult ConciergeRequest(ConciergeSubmitRequest userDetails)
         {
-            Guid id = new();
+            Guid id = Guid.NewGuid();
             Aspnetuser user = new()
             {
                 Id = id.ToString(),
@@ -167,11 +242,30 @@ namespace HalloDocWeb.Controllers
                 Modifieddate = DateTime.Now,
                 Email = userDetails.Email
             };
+            _context.Aspnetusers.Add(user);
+            _context.SaveChanges(); 
+
+            Request request = new()
+            {
+                Requesttypeid = 1,
+                //Userid = user.Userid;
+                Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Status = 4,
+                Createddate = DateTime.Now,
+                Isurgentemailsent = true
+            };
+            _context.Requests.Add(request);
+            _context.SaveChanges();
+
             Region region = new()
             {
-                Regionid = 1,
                 Name = userDetails.City,
             };
+            _context.Regions.Add(region);
+            _context.SaveChanges();
+
             Concierge concierge = new()
             {
                 Conciergename = userDetails.FirstName + userDetails.LastName,
@@ -182,9 +276,33 @@ namespace HalloDocWeb.Controllers
                 Createddate = DateTime.Now,
                 Regionid = region.Regionid
             };
-            _context.Aspnetusers.Add(user);
-            _context.Regions.Add(region);
             _context.Concierges.Add(concierge);
+            _context.SaveChanges();
+
+            if (userDetails.File != null && userDetails.File.Length > 0)
+            {
+                //get file name
+                var fileName = Path.GetFileName(userDetails.File.FileName);
+
+                //define path
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
+
+                // Copy the file to the desired location
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    userDetails.File.CopyTo(stream);
+                }
+
+                Requestwisefile requestwisefile = new()
+                {
+                    Filename = fileName,
+                    Requestid = request.Requestid,
+                    Createddate = DateTime.Now
+                };
+
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            };
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }

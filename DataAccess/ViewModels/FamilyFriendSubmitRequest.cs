@@ -29,7 +29,7 @@ public class FamilyFriendSubmitRequest
         public string State { get; set;}
         public string ZipCode { get; set;}
         public string Room { get; set;}
-        public IFormFile FileUpload { get; set; }
+        public IFormFile File { get; set; }
 
     }
 }

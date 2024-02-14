@@ -17,7 +17,7 @@
 <div class="container">
 
 
-<form method="post">
+    <form method="post" enctype="multipart/form-data">
     <!-- patient Information -->
     <div class=" row form-group">
 
@@ -99,13 +99,11 @@
         </div>
 
 
-        <div class="form mb-3 col-lg-12 col-md-12 col-sm-12 d-flex">
+            <div class="form mb-3 col-lg-12 col-md-12 col-sm-12 d-flex">
 
-            <input asp-for="FileUpload" type="file" class="form-control" name="" placeholder="Select File">
-            <div>
-                <button class="btn btn-outline-primary" id="button-addon1"><i class="bi bi-cloud-arrow-up m-1"></i>Upload</button>
+                <input type="file" asp-for="File" class="form-control" placeholder="Select File">
+
             </div>
-        </div> 
 
         <!-- Submit and Cancel button -->
         <div class="d-flex justify-content-end mt-3 gap-1">

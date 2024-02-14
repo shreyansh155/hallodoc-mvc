@@ -50,12 +50,14 @@ namespace HalloDocWeb.Controllers
             return View();
         }
         
+        
         public IActionResult Dashboard()
         {
             IEnumerable<Request>  obj = _context.Requests;
             return View(obj);
         }
 
+      
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
