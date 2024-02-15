@@ -1,4 +1,4 @@
-﻿@model Aspnetuser
+﻿@model PatientLogin
 @{
     ViewData["Title"] = "PatientLogin";
 }
@@ -23,8 +23,11 @@
         <a class="m-0 text-decoration-none" asp-action="Index" asp-controller="Home"><span>&#60;Back</span></a>
         <h2>Login To Your Account</h2>
         <form method="post">
-            <input asp-for="Username" type="text" class="form-control my-3 bg-transparent" id="patientLoginEmailId" placeholder="Email">
-            <input asp-for="Passwordhash" type="password" class="form-control my-3 bg-transparent" id="patientLoginPassword" placeholder="Password">
+            <input asp-for="Email" type="text" class="form-control my-3 bg-transparent" id="patientLoginEmailId" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <input asp-for="Password" type="password" class="form-control my-3 bg-transparent" id="patientLoginPassword" placeholder="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+
             <button class="btn btn-primary w-100" type="submit">Login</button>
         </form>
         <div class="w-100 d-flex justify-content-center my-3">
