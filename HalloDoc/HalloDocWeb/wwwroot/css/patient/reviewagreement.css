@@ -1,0 +1,18 @@
+﻿body{
+    background:#a0a0a0
+}
+.agreement {
+    background: #b2bec2;
+    text-align: match-parent;
+    font-size: 25px;
+    margin: 250px auto;
+    padding: 35px;
+    width: 1250px
+    /*    height:50px;*/
+}
+
+
+.btns{
+    display:flex;
+    justify-content:space-around; 
+}

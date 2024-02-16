@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\css\\header.css"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\CreateNewRequest.css",
+      "PackagePath": "staticwebassets\\css\\patient\\CreateNewRequest.css"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientForgotPassword.css",
       "PackagePath": "staticwebassets\\css\\patient\\PatientForgotPassword.css"
     },
@@ -59,6 +63,10 @@
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\phone.css",
       "PackagePath": "staticwebassets\\css\\patient\\phone.css"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\reviewagreement.css",
+      "PackagePath": "staticwebassets\\css\\patient\\reviewagreement.css"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\site.css",

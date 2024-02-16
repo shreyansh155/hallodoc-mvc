@@ -6,6 +6,9 @@
 }
 
 <link rel="stylesheet" href="~/css/patient/dashboard.css" asp-append-version="true" />
+
+
+@* DataTables links *@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" asp-append-version="true" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -16,8 +19,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 
-  @await Html.PartialAsync("patientheader")  
-
+@await Html.PartialAsync("patientheader")
 
 
 <div class="container-fluid">
@@ -25,7 +27,7 @@
 
     <ul class="nav nav-tabs">
         <li class="nav-item active">
-            <a href="#tab1" class="nav-link" data-bs-toggle="tab"> Dashboard </a>
+            <a href="#tab1" class="nav-link active" data-bs-toggle="tab"> Dashboard </a>
         </li>
         <li class="nav-item">
             <a href="#tab2" class="nav-link" data-bs-toggle="tab"> Profile </a>
@@ -36,18 +38,18 @@
         <div class="tab-pane fade show active" id="tab1">
             <h2>Medical History</h2>
             <div class="newrequest bg-secondary">
-                <a class="btn btn-outline-info " onclick="location.href='patient-submit-request.html'">
+                <a class="btn btn-outline-info " id="newRequest" data-bs-target="#createNewRequest" data-bs-toggle="show">
                     <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">Create New Request</span>
                 </a>
             </div>
             <br><br>
             <div class="table-responsive large ">
                 <table class="table table-hover table-lg" id="table_dashboard">
-                        <colgroup>
-                            <col span="1" style="width: 20%;">
-                            <col span="1" style="width: 60%;">
-                            <col span="1" style="width: 20%;">
-                        </colgroup>
+                    <colgroup>
+                        <col span="1" style="width: 20%;">
+                        <col span="1" style="width: 60%;">
+                        <col span="1" style="width: 20%;">
+                    </colgroup>
 
                     <thead>
                         <tr>
@@ -58,7 +60,7 @@
                     </thead>
 
                     <tbody class="align-middle">
-                        @for (int i=0;i<Model.requests.Count;i++)
+                        @for (int i = 0; i < Model.requests.Count; i++)
                         {
                             <tr>
                                 <td>
@@ -67,78 +69,78 @@
                                 @switch (Model.requests[i].Status)
                                 {
                                     case 1:
-                                        <td >
+                                        <td>
                                             Processing
                                         </td>
                                         break;
                                     case 2:
-                                        <td >
+                                        <td>
                                             Accepted
                                         </td>
                                         break;
                                     case 3:
-                                        <td >
+                                        <td>
                                             Cancelled
                                         </td>
                                         break;
                                     case 4:
-                                        <td >
+                                        <td>
                                             Reserving
                                         </td>
 
                                         break;
                                     case 5:
-                                        <td >
+                                        <td>
                                             MD Is En Route
                                         </td>
                                         break;
                                     case 6:
-                                        <td >
+                                        <td>
                                             MD On Site
                                         </td>
                                         break;
                                     case 7:
-                                        <td >
+                                        <td>
                                             Follow Up
                                         </td>
                                         break;
                                     case 8:
-                                        <td >
+                                        <td>
                                             Closed
                                         </td>
                                         break;
                                     case 9:
-                                        <td >
+                                        <td>
                                             Locked
                                         </td>
                                         break;
                                     case 10:
-                                        <td >
+                                        <td>
                                             Declined
                                         </td>
                                         break;
                                     case 11:
-                                        <td >
+                                        <td>
                                             Consult
                                         </td>
                                         break;
                                     case 12:
-                                        <td >
+                                        <td>
                                             Clear
                                         </td>
                                         break;
                                     case 13:
-                                        <td >
+                                        <td>
                                             Cancelled By Provider
                                         </td>
                                         break;
                                     case 14:
-                                        <td >
+                                        <td>
                                             CC Uploaded By Client
                                         </td>
                                         break;
                                     case 15:
-                                        <td >
+                                        <td>
                                             CC Approved By Admin
                                         </td>
                                         break;
@@ -146,9 +148,9 @@
                                 <td>
                                     @if (Model.File[i] > 0)
                                     {
-                                    <a asp-controller="Patient" asp-action="ViewDocument" asp-route-id="@Model.requests[i].Requestid">
-                                    (@Model.File[i]) Documents
-                                    </a>                                        
+                                        <a asp-controller="Patient" asp-action="ViewDocument" asp-route-id="@Model.requests[i].Requestid">
+                                            (@Model.File[i]) Documents
+                                        </a>
                                     }
                                 </td>
                             </tr>
@@ -158,193 +160,208 @@
             </div>
         </div>
 
-
         <div class="tab-pane fade" id="tab2">
-    <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
 
-    </div>
-    <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-        <div class="mt-5 row justify-content-center container-fluid">
+                <div class="mt-5 row justify-content-center container-fluid">
 
-            <div class="col-10">
+                    <div class="col-10">
 
-                <div class="d-flex justify-content-between">
-                    <h3>User Profile</h3>
+                        <div class="d-flex justify-content-between">
+                            <h3>User Profile</h3>
 
-                    <button onclick="history.go(-1)" class="btn btn-outline-info shadow-none night-mode-btn">
-                        <span>Back</span>
-                    </button>
-                </div>
-
-                <div class="shadow dashboard-card mt-3 p-3">
-
-                    <h4>General Information</h4>
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="form-floating mt-3">
-                                <input asp-for="FirstName" class="form-control" placeholder="Edit Your First Name" disabled
-                                       id="floatingTextarea2"/>
-                                <label for="floatingTextarea2">First Name</label>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="form-floating mt-3">
-                                <input asp-for="LastName" class="form-control" placeholder="Edit Your Last Name" disabled
-                                       id="floatingTextarea2"/>
-                                <label for="floatingTextarea2">Last Name</label>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-
-                            <div class="form-floating mt-3">
-                                <input class="form-control" type="date" disabled
-                                       id="date-of-birth">
-                                <label for="floatingTextarea2">Date of Birth:</label>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <h4 class="mt-3">Contact Information</h4>
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-2 col-12">
-                            <div class="form-floating mt-3">
-                                <select disabled class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                                    <option value="Mobile" selected>Mobile</option>
-                                    <option value="Telephone">Telephone</option>
-                                </select>
-                                <label for="floatingSelectGrid">Type</label>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <div class="form-floating mt-3">
-                                        <input id="patient-phone" asp-for="PhoneNumber" class="form-control" type="tel" placeholder="Edit Your Phone Number" disabled/>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-
-                            <div class="form-floating mt-3">
-
-                                        <input asp-for="Email" class="form-control" placeholder="Edit Your Email" disabled
-                                       id="floatingTextarea2">
-                                <label for="floatingTextarea2">Email</label>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <h4 class="mt-3">Location Information</h4>
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="form-floating mt-3">
-                                <input asp-for="Street" class="form-control" placeholder="Street" disabled
-                                       id="floatingTextarea2"/>
-                                <label for="floatingTextarea2">Street</label>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="form-floating mt-3">
-                                <input asp-for="City" class="form-control" placeholder="City" disabled/>
-                                <label for="floatingTextarea2">City</label>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-
-                            <div class="form-floating mt-3">
-
-                                <input asp-for="State" class="form-control" placeholder="State" disabled
-                                       id="floatingTextarea2">
-                                <label for="floatingTextarea2">State</label>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-12">
-
-                            <div class="form-floating mt-3">
-
-                                <input asp-for="ZipCode" class="form-control" placeholder="Zip Code" disabled
-                                       id="floatingTextarea2">
-                                <label for="floatingTextarea2">Zip Code</label>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-4 col-md-2 col-12 mt-3">     
-                            <button onclick="" class="btn btn-outline-info shadow-none night-mode-btn h-100">
-                                <div class="d-flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" /></svg>
-                                    <span>Map</span>
-                                </div>
-
+                            <button onclick="history.go(-1)" class="btn btn-outline-info shadow-none night-mode-btn">
+                                <span>Back</span>
                             </button>
                         </div>
 
+                        <div class="shadow dashboard-card mt-3 p-3">
+
+                            <h4>General Information</h4>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-floating mt-3">
+                                        <input asp-for="FirstName" class="form-control" placeholder="Edit Your First Name" disabled
+                                               id="floatingTextarea2" />
+                                        <label for="floatingTextarea2">First Name</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-floating mt-3">
+                                        <input asp-for="LastName" class="form-control" placeholder="Edit Your Last Name" disabled
+                                               id="floatingTextarea2" />
+                                        <label for="floatingTextarea2">Last Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+
+                                    <div class="form-floating mt-3">
+                                        <input class="form-control" type="date" disabled
+                                               id="date-of-birth">
+                                        <label for="floatingTextarea2">Date of Birth:</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <h4 class="mt-3">Contact Information</h4>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-2 col-12">
+                                    <div class="form-floating mt-3">
+                                        <select disabled class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                            <option value="Mobile" selected>Mobile</option>
+                                            <option value="Telephone">Telephone</option>
+                                        </select>
+                                        <label for="floatingSelectGrid">Type</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-12">
+                                    <div class="form-floating mt-3">
+                                        <input id="patient-phone" asp-for="PhoneNumber" class="form-control" type="tel" placeholder="Edit Your Phone Number" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+
+                                    <div class="form-floating mt-3">
+
+                                        <input asp-for="Email" class="form-control" placeholder="Edit Your Email" disabled
+                                               id="floatingTextarea2">
+                                        <label for="floatingTextarea2">Email</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <h4 class="mt-3">Location Information</h4>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-floating mt-3">
+                                        <input asp-for="Street" class="form-control" placeholder="Street" disabled
+                                               id="floatingTextarea2" />
+                                        <label for="floatingTextarea2">Street</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-floating mt-3">
+                                        <input asp-for="City" class="form-control" placeholder="City" disabled />
+                                        <label for="floatingTextarea2">City</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+
+                                    <div class="form-floating mt-3">
+
+                                        <input asp-for="State" class="form-control" placeholder="State" disabled
+                                               id="floatingTextarea2">
+                                        <label for="floatingTextarea2">State</label>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-12">
+
+                                    <div class="form-floating mt-3">
+
+                                        <input asp-for="ZipCode" class="form-control" placeholder="Zip Code" disabled
+                                               id="floatingTextarea2">
+                                        <label for="floatingTextarea2">Zip Code</label>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-2 col-12 mt-3">
+                                    <button onclick="" class="btn btn-outline-info shadow-none night-mode-btn h-100">
+                                        <div class="d-flex">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" /></svg>
+                                            <span>Map</span>
+                                        </div>
+
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+
+                                <button id="editBtn" onclick="editDetails()" class="btn my-4 py-2 px-4" style="background-color: #10bce9; color: white;">
+                                    Edit
+                                </button>
+
+                                <button id="saveBtn" onclick="saveDetails()" class="btn my-4 py-2 px-4" style="background-color: #10bce9; color: white; display:none;">
+                                    Save
+                                </button>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="d-flex justify-content-end">
-
-                        <button id="editBtn" onclick="editDetails()" class="btn my-4 py-2 px-4" style="background-color: #10bce9; color: white;">
-                            Edit
-                        </button>
-
-                        <button id="saveBtn" onclick="saveDetails()" class="btn my-4 py-2 px-4" style="background-color: #10bce9; color: white; display:none;">
-                            Save
-                        </button>
-
-                    </div>
 
                 </div>
-
             </div>
 
+            <!-- Profile -->
+
+
+
+
+
+
 
         </div>
     </div>
 
-        <!-- Profile -->
+</div>
+<link rel="stylesheet" href="~/css/warningModal.css" asp-append-version="true" />
 
 
+<div class="modal" id="createNewRequest" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Here, I want to create new request for...</p>
+                <button type="button" class="btn btn-primary">Me</button>
+                <button type="button" class="btn btn-primary">Someone Else</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Continue</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
  
-        </div>
-    </div>
-
-    </div>
-@* <script type="text/javascript">
-
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-    }
-
-    var date = @Model.Intyear.ToString() + "-" + padTo2Digits( @Model.Strmonth ) + "-" + padTo2Digits(@Model.Intdate);
-    var dob = document.getElementById("date-of-birth");
-    dob.value = date;
-
-</script>  *@
-
-
 <script>
 
     const phoneInputField = document.getElementById("patient-phone");
@@ -408,16 +425,14 @@
 
     }
 </script>
-
 <script type="text/javascript">
 
     $(window).on('load', function () {
         new DataTable('#table_dashboard', {
             paging: true,
-            ordering:false,
-            scrollX:false,
-            searching:false
+            ordering: false,
+            scrollX: false,
+            searching: false
         });
-    }); 
+    });
 </script>
- 

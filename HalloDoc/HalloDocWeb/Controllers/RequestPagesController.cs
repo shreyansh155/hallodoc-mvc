@@ -29,6 +29,7 @@ namespace HalloDocWeb.Controllers
         public IActionResult PatientRequest(PatientSubmitRequest userDetails)
         {
             Guid id = Guid.NewGuid();
+            
             Aspnetuser user = new()
             {
                 Id = id.ToString(),
@@ -314,24 +315,31 @@ namespace HalloDocWeb.Controllers
             return View();
         }
 
-
-
+        public Task<bool> IsEmailExists(string email)
+        {
+            bool isExist = _context.Aspnetusers.Any(x => x.Email == email);
+            if (isExist)
+            {
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false);
+        }
 
         [HttpPost]
         public IActionResult BusinessRequest(BusinessSubmitRequest userDetails)
         {
             Guid g = Guid.NewGuid();
 
-            Aspnetuser user = new()
-            {
-                Id = g.ToString(),
-                Username = userDetails.FirstName,
-                Createddate = DateTime.Now,
-                Modifieddate = DateTime.Now,
-                Email = userDetails.Email
-            };
-            _context.Aspnetusers.Add(user);
-            _context.SaveChanges();
+            //Aspnetuser user = new()
+            //{
+            //    Id = g.ToString(),
+            //    Username = userDetails.FirstName,
+            //    Createddate = DateTime.Now,
+            //    Modifieddate = DateTime.Now,
+            //    Email = userDetails.Email
+            //};
+            //_context.Aspnetusers.Add(user);
+            //_context.SaveChanges();
 
             Business business = new()
             {
@@ -419,19 +427,6 @@ namespace HalloDocWeb.Controllers
                 _context.Requestwisefiles.Add(requestwisefile);
                 _context.SaveChanges();
             };
-
-
-            //Requestclient requestclient = new()
-            //{ 
-            //    Requestid = request.Requestid,
-            //    Notes = userDetails.Symptoms,
-            //    Firstname = userDetails.PatientFirstName,
-            //    Lastname = userDetails.PatientLastName,
-            //    Phonenumber = userDetails.PatientPhone,
-            //    Email = userDetails.PatientEmail,
-            //};
-            //_context.Requestclients.Add(requestclient);
-
 
             _context.Requesttypes.Add(requesttype);
             _context.Users.Add(user1);

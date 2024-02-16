@@ -40,6 +40,49 @@ namespace HalloDocWeb.Controllers
             _context = context;
         }
 
+        public IActionResult CreateNewAccount()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateNewAccount(CreateNewAccount newAccount)
+        {
+            Guid id = Guid.NewGuid();
+
+
+
+            if (newAccount.Password == newAccount.ConfirmPassword)
+            {
+                var hashedPassword= GenerateSHA256(newAccount.Password);
+                Aspnetuser aspnetuser = new()
+                {
+                    Id = id.ToString(),
+                    Passwordhash = hashedPassword,
+                    Createddate = DateTime.Now, 
+                    Username= newAccount.UserName, 
+                    Email= newAccount.Email,
+
+                };
+                _context.Aspnetusers.Add(aspnetuser);
+                _context.SaveChanges();
+                User user = new()
+                {
+                    Aspnetuserid = aspnetuser.Id,
+                    Email = newAccount.Email,
+                    Firstname=newAccount.UserName,
+                    Createddate=DateTime.Now,
+                    Createdby = newAccount.UserName,
+
+                };
+                _context.Users.Add(user);
+                _context.SaveChanges();
+                return RedirectToAction("PatientLogin");
+            }
+            return View();
+        }
+
         public IActionResult PatientLogin()
         {
             return View();
@@ -54,7 +97,7 @@ namespace HalloDocWeb.Controllers
             {
                 var obj = _context.Aspnetusers.ToList();
 
-                string hashPassword= GenerateSHA256(patient.Password);
+                string hashPassword = GenerateSHA256(patient.Password);
                 //match the email and pw with database entry
                 foreach (var item in obj)
                 {
@@ -80,12 +123,20 @@ namespace HalloDocWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                //Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
-                //var user = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
-                PatientResetPassword patientResetPassword = new PatientResetPassword();
-                patientResetPassword.Email = model.Email;
-                return RedirectToAction("ResetPassword", patientResetPassword);
-                //return RedirectToAction("ResetPassword","Patient", model.Email);
+                Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
+                if (obj == null)
+                {
+                    return View(model);
+                }
+                else
+                {
+                    var user = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
+                    PatientResetPassword patientResetPassword = new()
+                    {
+                        Email = model.Email
+                    };
+                    return RedirectToAction("ResetPassword", patientResetPassword);
+                }
             };
             return View(model);
         }
@@ -103,15 +154,13 @@ namespace HalloDocWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 if (patientResetPassword.Password == patientResetPassword.ConfirmPassword)
                 {
                     Aspnetuser user1 = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == patientResetPassword.Email);
                     string hashPassword = GenerateSHA256(patientResetPassword.Password);
-                    user1.Passwordhash=hashPassword;
+                    user1.Passwordhash = hashPassword;
                     _context.Aspnetusers.Update(user1);
                     _context.SaveChanges();
-
                 }
             }
             return View();
@@ -159,6 +208,12 @@ namespace HalloDocWeb.Controllers
             return View(fileList);
         }
 
+
+
+        public IActionResult ReviewAgreement()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

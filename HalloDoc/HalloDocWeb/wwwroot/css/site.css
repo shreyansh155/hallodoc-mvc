@@ -8,23 +8,13 @@ body{
     width: 400px;
     height: 200px;
 }
-
-
-
+/*
 .main-container {
     height: 100%;
-}
+}*/
 
 .dark-mode{
     background-color:#282828
-}
-
-
-div.vertical-line {
-    width: 1px;
-    background-color: rgb(92, 92, 92);
-    height: 100%;
-    float: left;
 }
 
 footer {
@@ -32,19 +22,22 @@ footer {
     color: #282828;
 }
 
-
-#submitRequest {
+#submitRequest {    
     background-color: rgb(20, 156, 156);
     color: white;
+    width: 350px;
+    margin: 15px;
+    text-decoration:none;
 }
-
 #patientLogin {
     background-color: rgb(33, 33, 105);
     color: white;
+    width: 350px;
+    margin:15px;
+    text-decoration: none;
 }
-button{
-    width:500px
-}
+
+
 .footer{
     text-align:center;
     color:white;
@@ -59,8 +52,3 @@ button{
     height:35px;
     width:35px;
 }
-
-a {
-    color: white
-}
-

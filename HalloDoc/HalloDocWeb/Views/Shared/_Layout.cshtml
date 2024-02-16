@@ -4,13 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HalloDocWeb</title>
+
+    @* International Phone Number JS Plugin *@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/css/intlTelInput.css">
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/intlTelInput.min.js"></script>
+
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/css/patient/phone.css" />
-    <link rel="stylesheet" href="~/HalloDocWeb.styles.css" asp-append-version="true" />
 
+    @* <link rel="stylesheet" href="~/HalloDocWeb.styles.css" asp-append-version="true" /> *@
  
 
       <script src="https://cdn.datatables.net/1.13.10/js/jquery.dataTables.min.js"></script>
@@ -27,12 +31,12 @@
 </head>
 <body>
 
-
-    <div class="container-fluid">
-        <main role="main" class="pb-3">
             @RenderBody()
+
+@*     <div class="container-fluid">
+        <main role="main" class="pb-3">
         </main>
-    </div>
+    </div> *@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
