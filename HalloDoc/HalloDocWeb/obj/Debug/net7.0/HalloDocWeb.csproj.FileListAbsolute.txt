@@ -44,8 +44,6 @@ G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCo
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Cors.dll
-G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.DataProtection.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -138,7 +136,6 @@ G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensio
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Hosting.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Http.dll
-G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Identity.Core.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Identity.Stores.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\refs\Microsoft.Extensions.Localization.dll
@@ -374,3 +371,7 @@ G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\BusinessLogic.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\DataAccess.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\BusinessLogic.pdb
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\DataAccess.pdb
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
