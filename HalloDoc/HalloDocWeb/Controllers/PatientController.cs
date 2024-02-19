@@ -55,14 +55,14 @@ namespace HalloDocWeb.Controllers
 
             if (newAccount.Password == newAccount.ConfirmPassword)
             {
-                var hashedPassword= GenerateSHA256(newAccount.Password);
+                var hashedPassword = GenerateSHA256(newAccount.Password);
                 Aspnetuser aspnetuser = new()
                 {
                     Id = id.ToString(),
                     Passwordhash = hashedPassword,
-                    Createddate = DateTime.Now, 
-                    Username= newAccount.UserName, 
-                    Email= newAccount.Email,
+                    Createddate = DateTime.Now,
+                    Username = newAccount.UserName,
+                    Email = newAccount.Email,
 
                 };
                 _context.Aspnetusers.Add(aspnetuser);
@@ -71,8 +71,8 @@ namespace HalloDocWeb.Controllers
                 {
                     Aspnetuserid = aspnetuser.Id,
                     Email = newAccount.Email,
-                    Firstname=newAccount.UserName,
-                    Createddate=DateTime.Now,
+                    Firstname = newAccount.UserName,
+                    Createddate = DateTime.Now,
                     Createdby = newAccount.UserName,
 
                 };
@@ -172,6 +172,16 @@ namespace HalloDocWeb.Controllers
             return View();
         }
         public IActionResult PatientRequest()
+        {
+            return View();
+        }
+
+        public IActionResult SubmitInfoAboutMe()
+        {
+            return View();
+        }
+
+        public IActionResult SomeoneElseInfo()
         {
             return View();
         }

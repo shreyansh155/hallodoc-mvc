@@ -21,6 +21,29 @@
 
 @await Html.PartialAsync("patientheader")
 
+<div class="modal fade" id="createNewRequest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="margin:0 auto">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create New Request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Here, I want to create a new request for...
+                <br />
+                <div class="align-items-center float-inherit" role="group" aria-label="Toggle Buttons">
+                    <button type="button" class="btn btn-outline-info" onclick="toggleButton(1)" id="btn1">Me</button>
+                    <button type="button" class="btn btn-outline-info" onclick="toggleButton(2)" id="btn2">Someone Else</button>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="redirectPage()">Continue</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
 
@@ -38,7 +61,7 @@
         <div class="tab-pane fade show active" id="tab1">
             <h2>Medical History</h2>
             <div class="newrequest bg-secondary">
-                <a class="btn btn-outline-info " id="newRequest" data-bs-target="#createNewRequest" data-bs-toggle="show">
+                <a class="btn btn-outline-info " id="newRequest" data-bs-toggle="modal" data-bs-target="#createNewRequest">
                     <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">Create New Request</span>
                 </a>
             </div>
@@ -334,34 +357,13 @@
 <link rel="stylesheet" href="~/css/warningModal.css" asp-append-version="true" />
 
 
-<div class="modal" id="createNewRequest" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Create New Request</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Here, I want to create new request for...</p>
-                <button type="button" class="btn btn-primary">Me</button>
-                <button type="button" class="btn btn-primary">Someone Else</button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Continue</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
- 
+
 <script>
 
     const phoneInputField = document.getElementById("patient-phone");
@@ -435,4 +437,35 @@
             searching: false
         });
     });
+</script>
+<script>
+    var activeButton = 0;
+    function toggleButton(buttonNumber) {
+        // Reset styles for both buttons
+        document.getElementById('btn1').classList.remove('active');
+        document.getElementById('btn2').classList.remove('active');
+
+        // Toggle the active button
+        if (activeButton !== buttonNumber) {
+            activeButton = buttonNumber;
+            document.getElementById('button' + buttonNumber).classList.add('active btn-primary');
+        } else {
+            activeButton = 0;
+            let otherbtn = activeButton = 1 ? 2 : 1;
+            document.getElementById('button' + otherbtn).classList.remove('active btn-primary');
+        }
+    }
+    function redirectPage() {
+        // Redirect based on the active button
+        if (activeButton === 1) {
+            // Redirect logic for Button 1
+            window.location.href = '@Url.Action("SubmitInfoAboutMe", "Patient")';
+        } else if (activeButton === 2) {
+            // Redirect logic for Button 2
+            window.location.href = '@Url.Action("SomeoneElseInfo", "Patient")';
+        } else {
+            // Handle case when no button is active
+            alert('Please select a button before redirecting.');
+        }
+    }
 </script>
