@@ -1,6 +1,8 @@
 using DataAccess.DataContext;
 using DataAccess.DataModels;
+using BusinessLogic.Interface;
 using Microsoft.EntityFrameworkCore;
+using BusinessLogic.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("HallodocDbContext")));
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 var app = builder.Build();
