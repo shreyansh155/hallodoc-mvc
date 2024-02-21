@@ -10,7 +10,12 @@ namespace BusinessLogic.Interface
 {
     public interface IPatientService
     {
-        PatientDashboard GetMedicalHistory(User user);
+
+        void PatientRequest(PatientSubmitRequest userDetails);
+        void FamilyFriendRequest(FamilyFriendSubmitRequest userDetails);
+        void ConciergeRequest(ConciergeSubmitRequest userDetails);
+        void BusinessRequest(BusinessSubmitRequest userDetails);
+        List<PatientDashboard> GetMedicalHistory(User user);
 
     }
 }

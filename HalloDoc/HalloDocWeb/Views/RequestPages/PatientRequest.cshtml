@@ -4,7 +4,7 @@
 }
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/css/intlTelInput.css">
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/intlTelInput.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/intlTelInput.min.js"></script>
 
 
 
@@ -18,85 +18,115 @@
 
 
     <form method="post" enctype="multipart/form-data">
-    <!-- patient Information -->
-    <div class=" row form-group">
+        <!-- patient Information -->
+        <div class=" row form-group">
 
-        <h2>Patient Information</h2>
+            <h2>Patient Information</h2>
 
-        <!-- symptoms -->
+            <!-- symptoms -->
 
-        <div class="col-lg-12 col-md-12 col sm-12 col-12 ">
+            <div class="col-lg-12 col-md-12 col sm-12 col-12 ">
                 <textarea asp-for="Symptoms" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter brief details of symptoms (optional)"></textarea>
-        </div>
+            </div>
 
-        <!-- firstname -->
+            <!-- firstname -->
 
-        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
 
-            <input asp-for="FirstName" type="text" class="form-control" id="exampleFormControlInput1">
-            <label for="exampleFormControlInput1">Your Firstname</label>
+                <input asp-for="FirstName" type="text" class="form-control" id="exampleFormControlInput1">
+                <label for="exampleFormControlInput1">Your Firstname</label>
+                 <span class="text-danger" asp-validation-for="FirstName"></span> 
 
-        </div>
-        <!-- Lastname -->
-        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="LastName" type="text" class="form-control" id="exampleFormControlInput1">
-            <label for="exampleFormControlInput1">Your Lastname</label>
-        </div>
+            </div>
+            <!-- Lastname -->
+            <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="LastName" type="text" class="form-control" id="exampleFormControlInput1">
+                <label for="exampleFormControlInput1">Your Lastname</label>
+                @* <span class="text-danger" asp-validation-for="LastName"></span> *@
 
-        <!-- Date of birth -->
+            </div>
 
-        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="DateOfBirth" type="date" class="form-control" id="exampleFormControlInput1">
-            <label for="exampleFormControlInput1">Date Of Birth</label>
-        </div>
+            <!-- Date of birth -->
+
+            <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="DateOfBirth" type="date" class="form-control" id="exampleFormControlInput1">
+                <label for="exampleFormControlInput1">Date Of Birth</label>
+                @* <span class="text-danger" asp-validation-for="DateOfBirth"></span> *@
+
+            </div>
 
 
-        <!-- Patient Contact Info -->
-        <div class="row mt-3">
-            <h2>Patient Contact Information</h2>
-        </div>
-        <!-- Email -->
-        <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+            <!-- Patient Contact Info -->
+            <div class="row mt-3">
+                <h2>Patient Contact Information</h2>
+            </div>
+            <!-- Email -->
+            <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
 
-            <input asp-for="Email" type="email" class="form-control" id="floatingInput">
-            <label for="floatingInput">Email</label>
+                <input asp-for="Email" type="email" class="form-control" id="floatingInputemail">
+                <label for="floatingInputemail">Email</label>
+                <span class="text-danger" asp-validation-for="Email"></span>
 
-        </div>
 
-         <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group mt-3 form-floating">
+            </div>
 
-            <input asp-for="Phone" type="tel" class="form-control phone" id="floatingInput" placeholder="(555) 555-5555">
-         </div>
-        
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group mt-3 form-floating">
 
-        <!-- Patient Location -->
+                <input asp-for="Phone" type="tel" class="form-control phone" id="floatingInput" placeholder="(555) 555-5555">
+            </div>
 
-        <div class="row mt-3">
-            <h2>Patient Location</h2>
-        </div>
-        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="Street" type="text" class="form-control" id="floatingInput">
-            <label for="floatingInput">Street</label>
-        </div>
-        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="City" type="text" class="form-control" id="floatingInput">
-            <label for="floatingInput">City</label>
-        </div>
-        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="State" type="text" class="form-control" id="floatingInput">
-            <label for="floatingInput">State</label>
-        </div>
-        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="ZipCode" type="number" class="form-control" id="floatingInput">
-            <label for="floatingInput">Zip Code</label>
-        </div>
-        <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
-            <input asp-for="Room" type="text" class="form-control" id="floatingInput">
-            <label for="floatingInput">Room #/Suit (Optional)</label>
-        </div>
-        <div class="row mt-3">
-            <h2>(Optional) Upload Photo or Document</h2>
-        </div>
+
+            <div class="row" id="hiddendiv" style="display:none">
+
+                <div class="col-md-6 col-12">
+                    <div class="form-floating mt-3">
+                        <input asp-for="Password" class="form-control" placeholder="Leave a comment here"
+                               id="floatingTextarea2" />
+                        <label for="floatingTextarea2">Password</label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12">
+                    <div class="form-floating mt-3">
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Leave a comment here"
+                               id="floatingTextarea2"/>
+                        <label for="floatingTextarea2">Confirm Password</label>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- Patient Location -->
+
+            <div class="row mt-3">
+                <h2>Patient Location</h2>
+            </div>
+            <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="Street" type="text" class="form-control" id="floatingInput">
+                <label for="floatingInput">Street</label>
+            </div>
+            <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="City" type="text" class="form-control" id="floatingInput">
+                <label for="floatingInput">City</label>
+            </div>
+            <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="State" type="text" class="form-control" id="floatingInput">
+                <label for="floatingInput">State</label>
+            </div>
+            <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="ZipCode" type="number" class="form-control" id="floatingInput">
+                <label for="floatingInput">Zip Code</label>
+            </div>
+            <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                <input asp-for="Room" type="text" class="form-control" id="floatingInput">
+                <label for="floatingInput">Room #/Suit (Optional)</label>
+            </div>
+            <div class="row mt-3">
+                <h2>(Optional) Upload Photo or Document</h2>
+            </div>
 
 
             <div class="form mb-3 col-lg-12 col-md-12 col-sm-12 d-flex">
@@ -105,15 +135,15 @@
 
             </div>
 
-        <!-- Submit and Cancel button -->
-        <div class="d-flex justify-content-end mt-3 gap-1">
+            <!-- Submit and Cancel button -->
+            <div class="d-flex justify-content-end mt-3 gap-1">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 </div>
-<br />  
+<br />
 @await Html.PartialAsync("footer")
 
 
@@ -121,5 +151,27 @@
     const input = document.querySelector("input[type='tel']");
     window.intlTelInput(input, {
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/utils.js",
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#floatingInputemail').on('blur', function () {
+            var email = $(this).val();
+            $.ajax({
+                url: '/RequestPages/PatientCheckEmail',
+                type: 'POST',
+                data: { email: email },
+                success: function (data) {
+                    if (!data.exists) {
+                        $('#hiddendiv').show();
+                    }
+                    else {
+                        $('#hiddendiv').hide();
+                    }
+                }
+            });
+        });
     });
 </script>

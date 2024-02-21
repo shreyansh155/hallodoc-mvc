@@ -162,7 +162,7 @@
                                         break;
                                 }
                                 <td>
-                                    @if (Model.File[i] > 0)
+                                    @if (Model.FileCount[i] > 0)
                                     {
                                         <a asp-controller="Patient" asp-action="ViewDocument" asp-route-id="@Model.requests[i].Requestid">
                                             (@Model.File[i]) Documents

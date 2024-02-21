@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L+T9GxiqEhG5dmYJQksIOMcAGDeT5ijZ5UeRZXv0cZw=",
+  "Hash": "1KQcOiqsEbOAp9vHNh/AMldsEBPHpIHwmOizTKCdCX8=",
   "Source": "HalloDocWeb",
   "BasePath": "_content/HalloDocWeb",
   "Mode": "Default",
@@ -4328,6 +4328,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UploadedFiles\\11116016_415.jpg"
+    },
+    {
+      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\84e64fb9-1925-488f-8fb5-3b99dc3ee482\\Fig2. Forgot Password.jpg",
+      "SourceId": "HalloDocWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
+      "BasePath": "_content/HalloDocWeb",
+      "RelativePath": "UploadedFiles/84e64fb9-1925-488f-8fb5-3b99dc3ee482/Fig2. Forgot Password.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadedFiles\\84e64fb9-1925-488f-8fb5-3b99dc3ee482\\Fig2. Forgot Password.jpg"
     },
     {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\back.png",

@@ -49,5 +49,9 @@ namespace BusinessLogic.Repository
             string hashPassword = GenerateSHA256(patientLogin.Password);
             return _context.Aspnetusers.Any(Au => Au.Email == patientLogin.Email && Au.Passwordhash == hashPassword);
         }
+
+
+
+
     }
 }

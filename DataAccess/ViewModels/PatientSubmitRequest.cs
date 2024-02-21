@@ -13,24 +13,30 @@ namespace DataAccess.ViewModels
 {
     public class PatientSubmitRequest
     {
-        public string Symptoms { get; set; }
-        [Required]
+        public string? Symptoms { get; set; }
+        [Required(ErrorMessage = "Please Enter Your Firstname")]
         public string FirstName { get; set; }
-        [Required]
-        public string LastName { get; set; }
-        [Required]
-        public DateTime DateOfBirth { get; set; }
-        [Required]
+
+        public string? LastName { get; set; }
+
+        public DateTime? DateOfBirth { get; set; }
+        
+        [Required(ErrorMessage = "Please Enter Your Email")]
         public string Email { get; set; }
-        [Required]
-        public string Phone { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string ZipCode { get; set; }
-        public string Room { get; set; }
-        public string Document { get; set; }
-        public IFormFile File { get; set; }
+        public string? Phone { get; set; }
+        //[Required(AllowEmptyStrings = true)]
+        //[DataType(DataType.Password)]
+        public string? Password { get; set; }
+
+        //[Required(AllowEmptyStrings = true)]
+        //[DataType(DataType.Password)]
+        public string? ConfirmPassword { get; set; }
+        public string? Street { get; set; }
+        public string? City { get; set; }
+        public string? State { get; set; }
+        public string? ZipCode { get; set; }
+        public string? Room { get; set; }
+        public IFormFile? File { get; set; }
     }
     public class BusinessSubmitRequest
     {
@@ -112,6 +118,7 @@ namespace DataAccess.ViewModels
         public int reqId { get; set; }
         public string Name { get; set; }
         public DateTime Createddate { get; set; }
+        public List<string> File { get; set; }
         public List<int> FileCount { get; set; }
         public string Status { get; set; }
         public List<Request> requests { get; set; }

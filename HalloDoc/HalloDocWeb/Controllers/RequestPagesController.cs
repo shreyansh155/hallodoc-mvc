@@ -1,4 +1,5 @@
 ﻿
+using BusinessLogic.Interface;
 using DataAccess.DataContext;
 using DataAccess.DataModels;
 using DataAccess.ViewModels;
@@ -12,10 +13,15 @@ namespace HalloDocWeb.Controllers
     public class RequestPagesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IAuthService _authService;
+        private readonly IPatientService _patientService;
 
-        public RequestPagesController(ApplicationDbContext context)
+
+        public RequestPagesController(ApplicationDbContext context, IAuthService authService, IPatientService patientService)
         {
             _context = context;
+            _authService = authService;
+            _patientService = patientService;
         }
         //GET
         public IActionResult PatientRequest()
@@ -28,112 +34,18 @@ namespace HalloDocWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult PatientRequest(PatientSubmitRequest userDetails)
         {
-            Guid id = Guid.NewGuid();
-            
-            Aspnetuser user = new()
+            if (ModelState.IsValid)
             {
-                Id = id.ToString(),
-                Username = userDetails.FirstName,
-                Createddate = DateTime.Now,
-                Modifieddate = DateTime.Now,
-                Email = userDetails.Email
-            };
-
-            _context.Aspnetusers.Add(user);
-            _context.SaveChanges();
-
-            User user1 = new()
-            {
-                Aspnetuserid = id.ToString(),
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Mobile = userDetails.Phone,
-                Street = userDetails.Street,
-                City = userDetails.City,
-                State = userDetails.State,
-                Zip = userDetails.ZipCode,
-                Createdby ="admin",
-                Createddate = DateTime.Now,
-                Modifiedby = userDetails.FirstName,
-                Modifieddate = DateTime.Now
-            };
-            _context.Users.Add(user1);
-            _context.SaveChanges();
-
-            //Request request = new()
-            //{
-            //    Userid=user1.Userid,
-            //    Firstname = userDetails.FirstName,
-            //    Lastname = userDetails.LastName,
-            //    Email = userDetails.Email,
-            //    Status=1, //To be dynamically assigned when admin side is created
-            //    Phonenumber = userDetails.Phone,
-            //    Createddate = DateTime.Now,
-                
-            //};
-            //_context.Requests.Add(request);
-            //_context.SaveChanges();
-
-            Request request = new()
-            {
-                Requesttypeid = 1,
-                //Userid = user.Userid;
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Status = 4,
-                Createddate = DateTime.Now,
-                Isurgentemailsent = true
-            };
-            _context.Requests.Add(request);
-            _context.SaveChanges();
-
-
-            Requeststatuslog requeststatuslog = new()
-            {
-                Requestid = request.Requestid,
-                Status = 4,
-                Createddate = DateTime.Now
-            };
-            _context.Requeststatuslogs.Add(requeststatuslog);
-            _context.SaveChanges();
-
-
-            Requesttype requesttype = new()
-            {
-                Name = userDetails.FirstName + " " + userDetails.LastName
-            };
-            _context.Requesttypes.Add(requesttype);
-            _context.SaveChanges();
-
-            //uploading files
-            if (userDetails.File != null && userDetails.File.Length > 0)
-            {
-                //get file name
-                var fileName = Path.GetFileName(userDetails.File.FileName);
-
-                //define path
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
-
-                // Copy the file to the desired location
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    userDetails.File.CopyTo(stream);
-                }
-                Requestwisefile requestwisefile = new()
-                {
-                    Filename = fileName,
-                    Requestid = request.Requestid,
-                    Createddate = DateTime.Now
-                };
-
-                _context.Requestwisefiles.Add(requestwisefile);
-                _context.SaveChanges();
+                _patientService.PatientRequest(userDetails);
+                return RedirectToAction("Index", "Home");
             }
-
-                _context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return View(userDetails);
+        }
+        [HttpPost]
+        public JsonResult PatientCheckEmail(string email)
+        {
+            bool emailExists = _context.Users.Any(u => u.Email == email);
+            return Json(new { exists = emailExists });
         }
 
         //GET
@@ -189,7 +101,7 @@ namespace HalloDocWeb.Controllers
             };
             _context.Requests.Add(request);
             _context.SaveChanges();
-            
+
             if (userDetails.File != null && userDetails.File.Length > 0)
             {
                 //get file name
@@ -244,7 +156,7 @@ namespace HalloDocWeb.Controllers
                 Email = userDetails.Email
             };
             _context.Aspnetusers.Add(user);
-            _context.SaveChanges(); 
+            _context.SaveChanges();
 
             Request request = new()
             {
@@ -350,7 +262,7 @@ namespace HalloDocWeb.Controllers
             _context.Businesses.Add(business);
             _context.SaveChanges();
 
-             
+
             User user1 = new()
             {
                 Aspnetuserid = g.ToString(),
@@ -376,7 +288,7 @@ namespace HalloDocWeb.Controllers
                 Email = userDetails.Email,
                 Status = 4,
                 Createddate = DateTime.Now,
-                Isurgentemailsent=true
+                Isurgentemailsent = true
             };
             _context.Requests.Add(request);
             _context.SaveChanges();
@@ -385,8 +297,8 @@ namespace HalloDocWeb.Controllers
             {
                 //requestbusiness.Businessid = business.Id;
                 Requestid = request.Requestid,
-                Businessid=business.Businessid,
-                
+                Businessid = business.Businessid,
+
             };
 
             Requeststatuslog requeststatuslog = new()
@@ -399,7 +311,7 @@ namespace HalloDocWeb.Controllers
 
             Requesttype requesttype = new()
             {
-                Name=userDetails.FirstName+" "+ userDetails.LastName
+                Name = userDetails.FirstName + " " + userDetails.LastName
             };
 
 
@@ -407,7 +319,7 @@ namespace HalloDocWeb.Controllers
             {
                 //get file name
                 var fileName = Path.GetFileName(userDetails.File.FileName);
-                 
+
                 //define path
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", fileName);
 

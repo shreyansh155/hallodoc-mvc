@@ -2,13 +2,13 @@
 using DataAccess.DataModels;
 using DataAccess.DataContext;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using BusinessLogic.Interface;
 using DataAccess.ViewModels;
 using System.Text;
-using Microsoft.AspNetCore.Identity;
 using System.Security.Cryptography;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using BusinessLogic.Repository;
-using BusinessLogic.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -18,7 +18,6 @@ namespace HalloDocWeb.Controllers
     {
 
         private readonly ApplicationDbContext _context;
-        /*private readonly IPatientService _patientService*/
         private readonly IAuthService _authService;
         private readonly IPatientService _patientService;
 
@@ -147,11 +146,11 @@ namespace HalloDocWeb.Controllers
 //        {
 //            if (ModelState.IsValid)
 //            {
-//                //Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
-//                //if (obj == null)
-//                //{
-//                //    return View(model);
-//                //}
+                //Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
+                //if (obj == null)
+                //{
+                //    return View(model);
+                //}
 //                //else
 //                //{
 //                //    var user = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
