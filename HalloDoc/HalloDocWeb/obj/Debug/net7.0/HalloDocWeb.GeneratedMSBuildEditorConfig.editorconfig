@@ -94,12 +94,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGhlYWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Shared/PatientDashboardHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhdGllbnREYXNoYm9hcmRIZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Shared/warningModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXHdhcm5pbmdNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Shared/_PatientDashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYXRpZW50RGFzaGJvYXJkLmNzaHRtbA==
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Shared/_PatientDashboardLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYXRpZW50RGFzaGJvYXJkTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -13,5 +13,9 @@ namespace BusinessLogic.Interface
     public interface IAuthService
     {
         bool PatientLogin(PatientLogin patientLogin);
+        bool PatientForgotPassword(PatientForgotPassword patientForgotPassword);
+        void PatientResetPassword(PatientResetPassword patientResetPassword);
+        void CreateNewAccount(CreateNewAccount createNewAccount);
+
     }
 }

@@ -45,6 +45,14 @@ namespace HalloDocWeb.Controllers
             }
         }
 
+        public IActionResult PatientRequest()
+        {
+            return View();
+        }
+        public IActionResult PatientSubmitRequest()
+        {
+            return View();
+        }
         public IActionResult PatientLogin()
         {
             return View();
@@ -52,25 +60,53 @@ namespace HalloDocWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PatientLogin(PatientLogin patientLogin )
+        public IActionResult PatientLogin(PatientLogin patientLogin)
         {
             if (ModelState.IsValid)
             {
                 if (_authService.PatientLogin(patientLogin))
                 {
-                    User user=_context.Users.FirstOrDefault(Au => Au.Email == patientLogin.Email);
-                    return RedirectToAction("Dashboard",user);
+                    User user = _context.Users.FirstOrDefault(Au => Au.Email == patientLogin.Email);
+                    HttpContext.Session.SetInt32("userId",user.Userid);
+                    return RedirectToAction("Dashboard"); 
                 }
             }
             return View();
         }
 
-        public IActionResult PatientSubmitRequest()
+        public IActionResult PatientForgotPassword()
         {
             return View();
         }
-        public IActionResult PatientRequest()
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult PatientForgotPassword(PatientForgotPassword model)
         {
+            if (ModelState.IsValid)
+            {
+                if (_authService.PatientForgotPassword(model))
+                {
+                    return RedirectToAction("ResetPassword", model);
+                }
+            }
+            return View(model);
+        }
+
+        public IActionResult ResetPassword(PatientResetPassword model)
+        {
+            return View(model);
+        }
+
+        [HttpPost, ActionName("ResetPassword")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Resetpassword(PatientResetPassword patientResetPassword)
+        {
+            if (ModelState.IsValid)
+            {
+                _authService.PatientResetPassword(patientResetPassword);
+                return RedirectToAction("PatientLogin");
+            }
             return View();
         }
 
@@ -83,174 +119,119 @@ namespace HalloDocWeb.Controllers
         {
             return View();
         }
-        public IActionResult Dashboard(User user)
-        {
-            _patientService.GetMedicalHistory(user);
-       
-            //List<int> fileCount = new();
-            //for (int i = 0; i < obj.Count; i++)
-            //{
-            //    int count = _context.Requestwisefiles.Count(rf => rf.Requestid == obj[i].Requestid);
-            //    fileCount.Add(count);
-            //}
-            return View();
-        }
+
+        //public IActionResult ViewDocument(User user) 
+        //{
+        //    _patientService.GetMedicalHistory(user);
+
+        //    //List<int> fileCount = new();
+        //    //for (int i = 0; i < obj.Count; i++)
+        //    //{
+        //    //    int count = _context.Requestwisefiles.Count(rf => rf.Requestid == obj[i].Requestid);
+        //    //    fileCount.Add(count);
+        //    //}
+        //    return View();
+        //}
 
         public IActionResult Profile()
         {
+            int? userId = HttpContext.Session.GetInt32("userId");
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
+
+            if (user != null)
+            {
+                string dobDate = user.Intyear + "-" + user.Strmonth + "-" + user.Intdate;
+
+                PatientProfile model = new()
+                {
+                    UserId = user.Userid,
+                    FirstName = user.Firstname,
+                    LastName = user.Lastname,
+                    Type = "Mobile",
+                    Phone = user.Mobile,
+                    Email = user.Email,
+                    Street = user.Street,
+                    City = user.City,
+                    State = user.State,
+                };
+
+                return View("Profile", model);
+            }
+            return RedirectToAction("Error");
+        }
+
+
+        public IActionResult CreateNewAccount()
+        {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateNewAccount(CreateNewAccount newAccount)
+        {
+            if (ModelState.IsValid)
+            {
+                _authService.CreateNewAccount(newAccount);
+                return RedirectToAction("PatientLogin");
+            }
+            return View();
+        }
+
+
+        public IActionResult Dashboard()
+        {
+            int? userId = HttpContext.Session.GetInt32("userId");
+
+            if (userId == null)
+            {
+                return View("Error");
+            }
+
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
+
+            if (user != null)
+            {
+                PatientDashboard dashboardVM = new PatientDashboard();
+                dashboardVM.UserId = user.Userid;
+                dashboardVM.UserName = user.Firstname + " " + user.Lastname;
+                dashboardVM.Requests = _context.Requests.Where(req => req.Userid == user.Userid).ToList();
+                List<int> fileCounts = new List<int>();
+                foreach (var request in dashboardVM.Requests)
+                {
+                    int count = _context.Requestwisefiles.Count(reqFile => reqFile.Requestid == request.Requestid);
+                    fileCounts.Add(count);
+                }
+                dashboardVM.DocumentCount = fileCounts;
+                return View("Dashboard", dashboardVM);
+            }
+
+            return View("Error");
+        }
+
+
+
+
+        //View Document Page
+        public IActionResult ViewDocument(int requestId)
+        {
+            IEnumerable<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == requestId);
+
+            return View(fileList);
+        }
+
+
+
+        public IActionResult ReviewAgreement()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
     }
 }
-//Function tp Generate Password hash
-
-
-
-//        public PatientController(ApplicationDbContext context)
-//        {
-//            _context = context;
-//        }
-
-
-
-//        public IActionResult CreateNewAccount()
-//        {
-//            return View();
-//        }
-
-
-
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public IActionResult CreateNewAccount(CreateNewAccount newAccount)
-//        {
-
-//            return RedirectToAction("PatientLogin");
-//        }
-
-//        public IActionResult PatientLogin()
-//        {
-//            return View();
-//        }
-
-//        public IActionResult PatientForgotPassword()
-//        {
-
-//            return View();
-//        }
-
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public IActionResult PatientForgotPassword(PatientForgotPassword model)
-//        {
-//            if (ModelState.IsValid)
-//            {
-                //Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
-                //if (obj == null)
-                //{
-                //    return View(model);
-                //}
-//                //else
-//                //{
-//                //    var user = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
-//                //    PatientResetPassword patientResetPassword = new()
-//                //    {
-//                //        Email = model.Email
-//                //    };
-//                //    return RedirectToAction("ResetPassword", patientResetPassword);
-//            }
-//            return View(model);
-//        }
-
-//    //public IActionResult ResetPassword(PatientResetPassword patientResetPassword)
-//    //{
-//    //    //PatientResetPassword patientResetPassword = new PatientResetPassword();
-//    //    //patientResetPassword.Email = Email;
-//    //    //return View(patientResetPassword);
-//    //    return View(patientResetPassword);
-//    //}
-
-//    [HttpPost, ActionName("ResetPassword")]
-//    [ValidateAntiForgeryToken]
-//    public IActionResult Resetpassword(PatientResetPassword patientResetPassword)
-//    {
-//        if (ModelState.IsValid)
-//        {
-//            //if (patientResetPassword.Password == patientResetPassword.ConfirmPassword)
-//            //{
-//            //    Aspnetuser user1 = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == patientResetPassword.Email);
-//            //    string hashPassword = GenerateSHA256(patientResetPassword.Password);
-//            //    user1.Passwordhash = hashPassword;
-//            //    _context.Aspnetusers.Update(user1);
-//            //    _context.SaveChanges();
-//            //}
-//        }
-//        return View();
-//    }
-
-
-//    public IActionResult PatientSubmitRequest()
-//    {
-//        return View();
-//    }
-//    public IActionResult PatientRequest()
-//    {
-//        return View();
-//    }
-
-//    public IActionResult SubmitInfoAboutMe()
-//    {
-//        return View();
-//    }
-
-//    public IActionResult SomeoneElseInfo()
-//    {
-//        return View();
-//    }
-
-
-//public IActionResult Dashboard(User user)
-//{
-//    PatientDashboard patientDashboard = new();
-
-//    List<Request> obj = _context.Requests.Where(req => req.Userid == user.Userid).ToList();
-//    List<int> fileCount = new();
-//    for (int i = 0; i < obj.Count; i++)
-//    {
-//        int count = _context.Requestwisefiles.Count(rf => rf.Requestid == obj[i].Requestid);
-//        fileCount.Add(count);
-//    }
-
-//    patientDashboard.requests = obj;
-
-//    patientDashboard.File = fileCount;
-
-//    patientDashboard.Name = user.Firstname;
-//    return View(patientDashboard);
-//}
-
-
-
-
-//    //View Document Page
-//    public IActionResult ViewDocument(int id)
-//    {
-//        IEnumerable<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == id);
-
-//        return View(fileList);
-//    }
-
-
-
-//    public IActionResult ReviewAgreement()
-//    {
-//        return View();
-//    }
-
-//    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-//    public IActionResult Error()
-//    {
-//        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-//    }
-//}

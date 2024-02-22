@@ -1,171 +1,84 @@
 ﻿@model PatientDashboard
-
 @{
+    Layout = "_PatientDashboardLayout";
     ViewData["Title"] = "Dashboard";
-    ViewData["User Name"] = Model.Name;
+    ViewData["User Name"] = Model.UserName;
 }
 
-<link rel="stylesheet" href="~/css/patient/dashboard.css" asp-append-version="true" />
+@*
+<script src="https://cdn.datatables.net/1.13.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.0/js/dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.13.10/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.10/css/dataTables.bootstrap5.min.css"></script>
+ *@
 
-
-@* DataTables links *@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" asp-append-version="true" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-
-
-@await Html.PartialAsync("patientheader")
-
-<div class="modal fade" id="createNewRequest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="margin:0 auto">
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create New Request</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-info">
+                <div class="modal-dark modal-title text-white" id="exampleModalLongTitle">Create New Request</div>
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
-                Here, I want to create a new request for...
-                <br />
-                <div class="align-items-center float-inherit" role="group" aria-label="Toggle Buttons">
-                    <button type="button" class="btn btn-outline-info" onclick="toggleButton(1)" id="btn1">Me</button>
-                    <button type="button" class="btn btn-outline-info" onclick="toggleButton(2)" id="btn2">Someone Else</button>
+            <form>
+                <div class="modal-body">
+                    <span class="modal-head">Here, I want to create new request for ...</span>
+                    <div class="modal-flex d-flex justify-content-center my-3">
+                        <div class="btn create-request-active create-request-btn border border-1 border-info" onclick="toggleCreateRequest(this)"> Me </div>
+                        <a id="request-me-anchor" asp-controller="Patient" asp-action="RequestForMe" hidden></a>
+                        <div class="btn ms-2 border border-1 someone-else-btn create-request-btn border-info" onclick="toggleCreateRequest(this)"> Some One Else</div>
+                        <a id="request-someone-else-anchor" asp-controller="Patient" asp-action="RequestForSomeoneElse" hidden></a>
+                    </div>
                 </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="redirectPage()">Continue</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-info text-white" data-bs-dismiss="modal" onclick="redirect()">Continue</a>
+                    <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="px-4">
+    <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
 
+        <h4 class="mt-5">Medical History</h4>
 
+        <div class="shadow dashboard-card mt-4">
 
-    <div class="tab-content">
-        <!-- Dashboard -->
-        <div class="tab-pane fade show active" id="tab1">
-            <h2>Medical History</h2>
-            <div class="newrequest bg-secondary">
-                <a class="btn btn-outline-info " id="newRequest" data-bs-toggle="modal" data-bs-target="#createNewRequest">
-                    <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">Create New Request</span>
+            <div class="p-3 d-flex justify-content-end">
+                <a class="btn btn-outline-info shadow-none night-mode-btn" data-bs-toggle="modal" data-bs-target="#myModal1">
+                    <span>Create New Request</span>
                 </a>
             </div>
-            <br><br>
-            <div class="table-responsive large ">
-                <table class="table table-hover table-lg" id="table_dashboard">
+            <div>
+                <table class="table" id="table_dashboard">
                     <colgroup>
-                        <col span="1" style="width: 20%;">
-                        <col span="1" style="width: 60%;">
-                        <col span="1" style="width: 20%;">
+                        <col span="1" style="width: 15%;">
+                        <col span="1" style="width: 70%;">
+                        <col span="1" style="width: 15%;">
                     </colgroup>
 
-                    <thead>
+                    <thead class="table-head align-middle">
                         <tr>
-                            <th>Created Date <span>&#8595;</span></th>
+                            <th>Created Date</th>
                             <th>Current Status</th>
                             <th>Document</th>
                         </tr>
                     </thead>
-
-                    <tbody class="align-middle">
-                        @for (int i = 0; i < Model.requests.Count; i++)
+                    <tbody class="table-body align-middle">
+                        @for (int i = 0; i < Model.Requests.Count; i++)
                         {
-                            <tr>
+                            <tr class="table-row">
                                 <td>
-                                    @Model.requests[i].Createddate
+                                    @Model.Requests[i].Createddate.ToString("MMM dd, yyyy")
                                 </td>
-                                @switch (Model.requests[i].Status)
-                                {
-                                    case 1:
-                                        <td>
-                                            Processing
-                                        </td>
-                                        break;
-                                    case 2:
-                                        <td>
-                                            Accepted
-                                        </td>
-                                        break;
-                                    case 3:
-                                        <td>
-                                            Cancelled
-                                        </td>
-                                        break;
-                                    case 4:
-                                        <td>
-                                            Reserving
-                                        </td>
-
-                                        break;
-                                    case 5:
-                                        <td>
-                                            MD Is En Route
-                                        </td>
-                                        break;
-                                    case 6:
-                                        <td>
-                                            MD On Site
-                                        </td>
-                                        break;
-                                    case 7:
-                                        <td>
-                                            Follow Up
-                                        </td>
-                                        break;
-                                    case 8:
-                                        <td>
-                                            Closed
-                                        </td>
-                                        break;
-                                    case 9:
-                                        <td>
-                                            Locked
-                                        </td>
-                                        break;
-                                    case 10:
-                                        <td>
-                                            Declined
-                                        </td>
-                                        break;
-                                    case 11:
-                                        <td>
-                                            Consult
-                                        </td>
-                                        break;
-                                    case 12:
-                                        <td>
-                                            Clear
-                                        </td>
-                                        break;
-                                    case 13:
-                                        <td>
-                                            Cancelled By Provider
-                                        </td>
-                                        break;
-                                    case 14:
-                                        <td>
-                                            CC Uploaded By Client
-                                        </td>
-                                        break;
-                                    case 15:
-                                        <td>
-                                            CC Approved By Admin
-                                        </td>
-                                        break;
-                                }
+                                <td>@Model.Requests[i].Status</td>
                                 <td>
-                                    @if (Model.FileCount[i] > 0)
+                                    @if (Model.DocumentCount[i] >= 0)
                                     {
-                                        <a asp-controller="Patient" asp-action="ViewDocument" asp-route-id="@Model.requests[i].Requestid">
-                                            (@Model.File[i]) Documents
+                                        <a asp-controller="Patient" asp-action="ViewDocument" asp-route-requestId="@Model.Requests[i].Requestid" class="btn btn-outline-info shadow-none night-mode-btn">
+                                            <span>(@Model.DocumentCount[i]) Documents</span>
                                         </a>
                                     }
                                 </td>
@@ -174,84 +87,70 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
+
+        <div style="height: 20px;"></div>
 
     </div>
 
 </div>
-<link rel="stylesheet" href="~/css/warningModal.css" asp-append-version="true" />
 
 
+<script src="/js/site.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
+<script>
+    setTimeout(function () {
+        console.log("null successfull");
+        TempData["success"] = null;
+    }, 5000);
+</script>
 
 <script>
 
-    const phoneInputField = document.getElementById("patient-phone");
-    var patientPhoneInput = window.intlTelInput(phoneInputField, {
-        utilsScript:
-            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        preferredCountries: ["in"],
-        separateDialCode: true,
-        initialCountry: "in"
-    });
+    var isMeRequest = true;
 
+    function toggleCreateRequest(element) {
+        if (element.classList.contains("someone-else-btn")) {
+            isMeRequest = false;
+        }
+        else {
+            isMeRequest = true;
+        }
 
-    function changeCountryCode() {
-        var countryCode = document.getElementById("patient-phone-country");
-        countryCode.value = patientPhoneInput.getSelectedCountryData().dialCode;
-        console.log(countryCode.value);
+        if (!element.classList.contains("create-request-active")) {
+            $(".create-request-btn").removeClass("create-request-active");
+            element.classList.add("create-request-active");
+        }
     }
+
+    function redirect() {
+
+        if (isMeRequest) {
+            console.log("hi");
+            document.getElementById("request-me-anchor").click();
+        }
+        else {
+            document.getElementById("request-someone-else-anchor").click();
+        }
+
+    }
+
 
 </script>
 <script>
+    var profile = document.getElementById("profile-tab");
+    var dashboard = document.getElementById("dashboard-tab");
 
-
-    function editDetails() {
-
-        var inputs = document.getElementsByTagName("input");
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = false;
-        }
-
-        var selects = document.getElementsByTagName("select");
-        for (var i = 0; i < selects.length; i++) {
-            selects[i].disabled = false;
-        }
-
-        var editBtn = document.getElementById("editBtn");
-        editBtn.style.display = "none";
-
-        var saveBtn = document.getElementById("saveBtn");
-        saveBtn.style.display = "block";
-
-    }
-
-    function saveDetails() {
-
-        var inputs = document.getElementsByTagName("input");
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = true;
-        }
-
-        var selects = document.getElementsByTagName("select");
-        for (var i = 0; i < selects.length; i++) {
-            selects[i].disabled = true;
-        }
-
-
-        var editBtn = document.getElementById("editBtn");
-        editBtn.style.display = "block";
-
-        var saveBtn = document.getElementById("saveBtn");
-        saveBtn.style.display = "none";
-
-    }
+    profile.classList.remove("active");
+    dashboard.classList.add("active");
 </script>
+
+
 <script type="text/javascript">
 
     $(window).on('load', function () {
@@ -262,35 +161,5 @@
             searching: false
         });
     });
-</script>
-<script>
-    var activeButton = 0;
-    function toggleButton(buttonNumber) {
-        // Reset styles for both buttons
-        document.getElementById('btn1').classList.remove('active');
-        document.getElementById('btn2').classList.remove('active');
 
-        // Toggle the active button
-        if (activeButton !== buttonNumber) {
-            activeButton = buttonNumber;
-            document.getElementById('button' + buttonNumber).classList.add('active btn-primary');
-        } else {
-            activeButton = 0;
-            let otherbtn = activeButton = 1 ? 2 : 1;
-            document.getElementById('button' + otherbtn).classList.remove('active btn-primary');
-        }
-    }
-    function redirectPage() {
-        // Redirect based on the active button
-        if (activeButton === 1) {
-            // Redirect logic for Button 1
-            window.location.href = '@Url.Action("SubmitInfoAboutMe", "Patient")';
-        } else if (activeButton === 2) {
-            // Redirect logic for Button 2
-            window.location.href = '@Url.Action("SomeoneElseInfo", "Patient")';
-        } else {
-            // Handle case when no button is active
-            alert('Please select a button before redirecting.');
-        }
-    }
 </script>

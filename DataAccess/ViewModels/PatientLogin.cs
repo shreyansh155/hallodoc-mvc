@@ -17,6 +17,12 @@ namespace DataAccess.ViewModels
         public string Password { get; set; } = null!;
         
     }
+    public class PatientForgotPassword
+    {
+        [Required]
+        public string Email { get; set; }
+
+    }
     public class PatientResetPassword
     {
         [Required]
@@ -25,12 +31,6 @@ namespace DataAccess.ViewModels
         public string Password { get; set; }
         [Required]
         public string ConfirmPassword { get; set; }
-
-    }
-    public class PatientForgotPassword
-    {
-        [Required]
-        public string Email { get; set; }
 
     }
     public class CreateNewAccount
