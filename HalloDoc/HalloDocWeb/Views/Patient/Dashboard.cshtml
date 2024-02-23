@@ -25,13 +25,13 @@
                     <span class="modal-head">Here, I want to create new request for ...</span>
                     <div class="modal-flex d-flex justify-content-center my-3">
                         <div class="btn create-request-active create-request-btn border border-1 border-info" onclick="toggleCreateRequest(this)"> Me </div>
-                        <a id="request-me-anchor" asp-controller="Patient" asp-action="RequestForMe" hidden></a>
+                        <a id="request-me-anchor" asp-controller="Patient" asp-action="SubmitInfoAboutMe" hidden></a>
                         <div class="btn ms-2 border border-1 someone-else-btn create-request-btn border-info" onclick="toggleCreateRequest(this)"> Some One Else</div>
-                        <a id="request-someone-else-anchor" asp-controller="Patient" asp-action="RequestForSomeoneElse" hidden></a>
+                        <a id="request-someone-else-anchor" asp-controller="Patient" asp-action="SomeoneElseInfo" hidden></a>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a type="button" class="btn btn-info text-white" data-bs-dismiss="modal" onclick="redirect()">Continue</a>
+                    <button type="button" class="btn btn-info text-white" data-bs-dismiss="modal" onclick="redirect()">Continue</button>
                     <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
@@ -124,7 +124,7 @@
 
         if (!element.classList.contains("create-request-active")) {
             $(".create-request-btn").removeClass("create-request-active");
-            element.classList.add("create-request-active");
+            element.classList.add("create-request-active btn-primary");
         }
     }
 

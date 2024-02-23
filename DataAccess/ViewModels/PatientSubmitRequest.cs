@@ -20,7 +20,7 @@ namespace DataAccess.ViewModels
         public string? LastName { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
-        
+
         [Required(ErrorMessage = "Please Enter Your Email")]
         public string Email { get; set; }
         public string? Phone { get; set; }
@@ -40,24 +40,24 @@ namespace DataAccess.ViewModels
     }
     public class FamilyFriendSubmitRequest
     {
-        [Required(ErrorMessage ="Enter Your FirstName")]
+        [Required(ErrorMessage = "Enter Your FirstName")]
         public string FirstName { get; set; }
         public string? LastName { get; set; }
-        [Required(ErrorMessage ="Enter Your Phone Number")]
+        [Required(ErrorMessage = "Enter Your Phone Number")]
         public string Phone { get; set; }
-        [Required(ErrorMessage ="Enter Your Email")]
+        [Required(ErrorMessage = "Enter Your Email")]
         public string Email { get; set; }
-        [Required(ErrorMessage ="Enter Your Relationship with Patient")]
+        [Required(ErrorMessage = "Enter Your Relationship with Patient")]
         public string RelationWithPatient { get; set; }
         public string? Symptoms { get; set; }
-        [Required(ErrorMessage ="Enter Patient's FirstName")]
+        [Required(ErrorMessage = "Enter Patient's FirstName")]
         public string PatientFirstName { get; set; }
         public string? PatientLastName { get; set; }
-        [Required(ErrorMessage ="Enter Patient's Date of birth")]
+        [Required(ErrorMessage = "Enter Patient's Date of birth")]
         public DateTime DateOfBirth { get; set; }
-        [Required(ErrorMessage ="Enter Patient's Email")]
+        [Required(ErrorMessage = "Enter Patient's Email")]
         public string PatientEmail { get; set; }
-        [Required(ErrorMessage ="Enter Patient's Phone Number")]
+        [Required(ErrorMessage = "Enter Patient's Phone Number")]
         public string PatientPhone { get; set; }
         public string? Street { get; set; }
         public string? City { get; set; }
@@ -128,7 +128,6 @@ namespace DataAccess.ViewModels
         public List<Request> Requests { get; set; }
         public List<int> DocumentCount { get; set; }
     }
-
     public class PatientProfile
     {
         public int? UserId { get; set; }
@@ -145,5 +144,12 @@ namespace DataAccess.ViewModels
         public string? ZipCode { get; set; }
         public string? Location { get; set; }
     }
-
+    public class ViewDocument
+    {
+        public string UserName { get; set; }
+        public int RequestId { get; set; }
+        public string ConfirmationNumber { get; set; }
+        public List<Requestwisefile> requestwisefiles { get; set; }
+        public IFormFile File { get; set; }
+    }
 }

@@ -25,9 +25,9 @@ namespace BusinessLogic.Repository
         private readonly DataAccess.DataContext.ApplicationDbContext _context;
 
 
-        public AuthService(DataAccess.DataContext.ApplicationDbContext db)
+        public AuthService(DataAccess.DataContext.ApplicationDbContext context)
         {
-            _context = db;
+            _context = context;
 
         }
         //Generate Password Hash function
@@ -57,7 +57,7 @@ namespace BusinessLogic.Repository
         {
             Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == patientForgotPassword.Email);
 
-            var user = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == patientForgotPassword.Email);
+
             return _context.Aspnetusers.Any(x => x.Email == patientForgotPassword.Email);
 
         }

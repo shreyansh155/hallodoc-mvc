@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using System.Runtime.Intrinsics.X86;
+using Microsoft.AspNetCore.Http;
 
 namespace BusinessLogic.Repository
 {
@@ -40,6 +41,7 @@ namespace BusinessLogic.Repository
                 return sb.ToString();
             }
         }
+
 
         public List<PatientDashboard> GetMedicalHistory(User user)
         {
@@ -87,7 +89,7 @@ namespace BusinessLogic.Repository
                     {
                         Id = id.ToString(),
                         Username = userDetails.FirstName,
-                        Passwordhash = userDetails.Password,
+                        Passwordhash = GenerateSHA256(userDetails.Password),
                         Createddate = DateTime.Now,
                         Email = userDetails.Email,
                         Phonenumber = userDetails.Phone,
@@ -96,34 +98,36 @@ namespace BusinessLogic.Repository
                     _context.Aspnetusers.Add(aspnetuser);
                     _context.SaveChanges();
                     user = aspnetuser;
+
+                    User user1 = new()
+                    {
+                        Aspnetuserid = user.Id,
+                        Firstname = userDetails.FirstName,
+                        Lastname = userDetails.LastName,
+                        Email = userDetails.Email,
+                        Mobile = userDetails.Phone,
+                        Street = userDetails.Street,
+                        City = userDetails.City,
+                        State = userDetails.State,
+                        Zip = userDetails.ZipCode,
+                        Createdby = "admin",
+                        Createddate = DateTime.Now,
+                        Modifiedby = userDetails.FirstName,
+                        Modifieddate = DateTime.Now
+                    };
+                    _context.Users.Add(user1);
+                    _context.SaveChanges();
                 }
 
             }
 
-            User user1 = new()
-            {
-                Aspnetuserid = user.Id,
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Mobile = userDetails.Phone,
-                Street = userDetails.Street,
-                City = userDetails.City,
-                State = userDetails.State,
-                Zip = userDetails.ZipCode,
-                Createdby = "admin",
-                Createddate = DateTime.Now,
-                Modifiedby = userDetails.FirstName,
-                Modifieddate = DateTime.Now
-            };
-            _context.Users.Add(user1);
-            _context.SaveChanges();
 
+            User user2 = _context.Users.First(x => x.Email == userDetails.Email);
 
             Request request = new()
             {
                 Requesttypeid = 4,
-                Userid = user1.Userid,
+                Userid = user2.Userid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
@@ -142,6 +146,14 @@ namespace BusinessLogic.Repository
                 Createddate = DateTime.Now
             };
             _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.SaveChanges();
+
+            Requestclient requestclient = new()
+            {
+                Requestid = request.Requestid,
+                Firstname = userDetails.FirstName,
+            };
+            _context.Requestclients.Add(requestclient);
             _context.SaveChanges();
 
 
@@ -540,6 +552,74 @@ namespace BusinessLogic.Repository
             _context.SaveChanges();
 
         }
+        public void ViewDocument(ViewDocument viewDocument)
+        {
+            if (viewDocument.File != null && viewDocument.File.Length > 0)
+            {
+                //get file name
+                var obj= _context.Requests.FirstOrDefault(x => x.Requestid == viewDocument.RequestId);
+                User? user = _context.Users.First(x => x.Userid == obj.Userid);
+                var fileName = Path.GetFileName(viewDocument.File.FileName);
 
+                string rootPath = _environment.WebRootPath + "/UploadedFiles";
+
+
+                string userId = user.Userid.ToString();
+
+                string userFolder = Path.Combine(rootPath, userId);
+
+                if (!Directory.Exists(userFolder))
+                {
+                    Directory.CreateDirectory(userFolder);
+                }
+
+
+                //define path
+                string filePath = Path.Combine(userFolder, fileName);
+
+
+                // Copy the file to the desired location
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    viewDocument.File.CopyTo(stream)
+;
+                }
+
+
+                Requestwisefile requestwisefile = new()
+                {
+                    Filename = fileName,
+                    Requestid = obj.Requestid,
+                    Createddate = DateTime.Now
+                };
+
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            }
+        }
+
+        public void SubmitInfoAboutMe(PatientSubmitRequest u) 
+        {
+                        
+        }
+
+        public IActionResult Profile(PatientProfile patientProfile)
+        {
+            //string dobDate = user.Intyear + "-" + patientProfile.Strmonth + "-" + patientProfile.Intdate;
+
+            PatientProfile model = new()
+            {
+                //UserId = patientProfile.Userid,
+                FirstName = patientProfile.LastName,
+                LastName = patientProfile.LastName,
+                Type = "Mobile",
+                Phone = patientProfile.Phone,
+                Email = patientProfile.Email,
+                Street = patientProfile.Street,
+                City = patientProfile.City,
+                State = patientProfile.State,
+            };
+            return (IActionResult)model;
+        }
     }
 }

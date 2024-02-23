@@ -13,6 +13,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("HallodocDbContext")));
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 
 builder.Services.AddSession(options =>

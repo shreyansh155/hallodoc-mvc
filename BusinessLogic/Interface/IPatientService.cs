@@ -1,5 +1,6 @@
 ﻿using DataAccess.DataModels;
 using DataAccess.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace BusinessLogic.Interface
         void ConciergeRequest(ConciergeSubmitRequest userDetails);
         void BusinessRequest(BusinessSubmitRequest userDetails);
         List<PatientDashboard> GetMedicalHistory(User user);
+        void ViewDocument(ViewDocument viewDocument);
+        void SubmitInfoAboutMe(PatientSubmitRequest userDetails);
 
+        IActionResult Profile(PatientProfile patientProfile);
     }
 }

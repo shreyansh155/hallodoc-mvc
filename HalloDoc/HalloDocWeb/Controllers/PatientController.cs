@@ -87,7 +87,8 @@ namespace HalloDocWeb.Controllers
             {
                 if (_authService.PatientForgotPassword(model))
                 {
-                    return RedirectToAction("ResetPassword", model);
+                    var user = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == model.Email);
+                    return RedirectToAction("ResetPassword", user);
                 }
             }
             return View(model);
@@ -114,49 +115,32 @@ namespace HalloDocWeb.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SubmitInfoAboutMe(PatientSubmitRequest userDetails)
+        {
+            if (ModelState.IsValid)
+            {
+                _patientService.PatientRequest(userDetails);
+            }
+            return View();
+        }
 
         public IActionResult SomeoneElseInfo()
         {
             return View();
         }
 
-        //public IActionResult ViewDocument(User user) 
-        //{
-        //    _patientService.GetMedicalHistory(user);
-
-        //    //List<int> fileCount = new();
-        //    //for (int i = 0; i < obj.Count; i++)
-        //    //{
-        //    //    int count = _context.Requestwisefiles.Count(rf => rf.Requestid == obj[i].Requestid);
-        //    //    fileCount.Add(count);
-        //    //}
-        //    return View();
-        //}
-
         public IActionResult Profile()
         {
             int? userId = HttpContext.Session.GetInt32("userId");
-            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
+            User?  user = _context.Users.FirstOrDefault(u => u.Userid == userId);
 
-            if (user != null)
-            {
-                string dobDate = user.Intyear + "-" + user.Strmonth + "-" + user.Intdate;
-
-                PatientProfile model = new()
-                {
-                    UserId = user.Userid,
-                    FirstName = user.Firstname,
-                    LastName = user.Lastname,
-                    Type = "Mobile",
-                    Phone = user.Mobile,
-                    Email = user.Email,
-                    Street = user.Street,
-                    City = user.City,
-                    State = user.State,
-                };
-
-                return View("Profile", model);
-            }
+            //if (user != null)
+            //{
+            //    _patientService.Profile(user);
+            //    return View("Profile");
+            //}
             return RedirectToAction("Error");
         }
 
@@ -192,11 +176,13 @@ namespace HalloDocWeb.Controllers
 
             if (user != null)
             {
-                PatientDashboard dashboardVM = new PatientDashboard();
-                dashboardVM.UserId = user.Userid;
-                dashboardVM.UserName = user.Firstname + " " + user.Lastname;
-                dashboardVM.Requests = _context.Requests.Where(req => req.Userid == user.Userid).ToList();
-                List<int> fileCounts = new List<int>();
+                PatientDashboard dashboardVM = new()
+                {
+                    UserId = user.Userid,
+                    UserName = user.Firstname + " " + user.Lastname,
+                    Requests = _context.Requests.Where(req => req.Userid == user.Userid).ToList()
+                };
+                List<int> fileCounts = new();
                 foreach (var request in dashboardVM.Requests)
                 {
                     int count = _context.Requestwisefiles.Count(reqFile => reqFile.Requestid == request.Requestid);
@@ -210,16 +196,33 @@ namespace HalloDocWeb.Controllers
         }
 
 
-
-
         //View Document Page
         public IActionResult ViewDocument(int requestId)
         {
-            IEnumerable<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == requestId);
+            int? userid = HttpContext.Session.GetInt32("userId");
+            User user = _context.Users.FirstOrDefault(u => u.Userid == userid);
+            Request request = _context.Requests.FirstOrDefault( r => r.Requestid == requestId );
+            List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == requestId).ToList();
 
-            return View(fileList);
+            ViewDocument document = new() { 
+                requestwisefiles = fileList,
+                RequestId = requestId,
+
+                ConfirmationNumber = request.Confirmationnumber,
+                UserName = user.Firstname + " " + user.Lastname,
+            };
+            return View(document);
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ViewDocument(ViewDocument document)
+        {
+            if (document != null)
+            {
+                _patientService.ViewDocument(document); 
+            }
+            return ViewDocument(document.RequestId);  
+        }
 
 
         public IActionResult ReviewAgreement()
