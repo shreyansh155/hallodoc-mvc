@@ -19,7 +19,8 @@ namespace BusinessLogic.Interface
         List<PatientDashboard> GetMedicalHistory(User user);
         void ViewDocument(ViewDocument viewDocument);
         void SubmitInfoAboutMe(PatientSubmitRequest userDetails);
-
-        IActionResult Profile(PatientProfile patientProfile);
+        PatientDashboard PatientDashboard(int  userId);
+        PatientProfile Profile(int userId);
+        void ProfileUpdate(PatientProfile profile, int userId);
     }
 }

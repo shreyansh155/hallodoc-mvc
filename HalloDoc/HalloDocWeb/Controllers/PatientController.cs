@@ -67,8 +67,8 @@ namespace HalloDocWeb.Controllers
                 if (_authService.PatientLogin(patientLogin))
                 {
                     User user = _context.Users.FirstOrDefault(Au => Au.Email == patientLogin.Email);
-                    HttpContext.Session.SetInt32("userId",user.Userid);
-                    return RedirectToAction("Dashboard"); 
+                    HttpContext.Session.SetInt32("userId", user.Userid);
+                    return RedirectToAction("Dashboard");
                 }
             }
             return View();
@@ -134,14 +134,27 @@ namespace HalloDocWeb.Controllers
         public IActionResult Profile()
         {
             int? userId = HttpContext.Session.GetInt32("userId");
-            User?  user = _context.Users.FirstOrDefault(u => u.Userid == userId);
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
 
-            //if (user != null)
-            //{
-            //    _patientService.Profile(user);
-            //    return View("Profile");
-            //}
+            if (user != null)
+            {
+               var patientDetails= _patientService.Profile((int)userId);
+                return View("Profile",patientDetails);
+            }
             return RedirectToAction("Error");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Profile(PatientProfile profile)
+        {
+            int? userId = HttpContext.Session.GetInt32("userId");
+
+            if (ModelState.IsValid)
+            {
+                _patientService.ProfileUpdate(profile, (int)userId);
+            }
+            return View();
         }
 
 
@@ -176,19 +189,7 @@ namespace HalloDocWeb.Controllers
 
             if (user != null)
             {
-                PatientDashboard dashboardVM = new()
-                {
-                    UserId = user.Userid,
-                    UserName = user.Firstname + " " + user.Lastname,
-                    Requests = _context.Requests.Where(req => req.Userid == user.Userid).ToList()
-                };
-                List<int> fileCounts = new();
-                foreach (var request in dashboardVM.Requests)
-                {
-                    int count = _context.Requestwisefiles.Count(reqFile => reqFile.Requestid == request.Requestid);
-                    fileCounts.Add(count);
-                }
-                dashboardVM.DocumentCount = fileCounts;
+                var dashboardVM = _patientService.PatientDashboard((int)userId);
                 return View("Dashboard", dashboardVM);
             }
 
@@ -201,10 +202,11 @@ namespace HalloDocWeb.Controllers
         {
             int? userid = HttpContext.Session.GetInt32("userId");
             User user = _context.Users.FirstOrDefault(u => u.Userid == userid);
-            Request request = _context.Requests.FirstOrDefault( r => r.Requestid == requestId );
+            Request request = _context.Requests.FirstOrDefault(r => r.Requestid == requestId);
             List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == requestId).ToList();
 
-            ViewDocument document = new() { 
+            ViewDocument document = new()
+            {
                 requestwisefiles = fileList,
                 RequestId = requestId,
 
@@ -219,9 +221,9 @@ namespace HalloDocWeb.Controllers
         {
             if (document != null)
             {
-                _patientService.ViewDocument(document); 
+                _patientService.ViewDocument(document);
             }
-            return ViewDocument(document.RequestId);  
+            return ViewDocument(document.RequestId);
         }
 
 
@@ -235,6 +237,5 @@ namespace HalloDocWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
     }
 }

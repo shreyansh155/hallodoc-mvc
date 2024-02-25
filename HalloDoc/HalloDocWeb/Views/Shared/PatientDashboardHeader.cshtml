@@ -21,7 +21,7 @@
     </li>
 </ul>
 
-<script> 
+<script>
 
     $(document).ready(function () {
         $('.nav-link').on('click', function () {
@@ -32,4 +32,12 @@
             $(this).addClass('active');
         });
     });
+</script>
+<script>
+    myFunction = () => {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+        var img = element.querySelector(".lightmode")
+        img.src.includes("darkmode") ? img.src = "~/wwwroot/images/lightmode.png" : img.src = "~/wwwroot/images/darkmode.png";
+    }
 </script>

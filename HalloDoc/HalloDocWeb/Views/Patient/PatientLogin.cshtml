@@ -6,41 +6,37 @@
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 
-<div class="container-fluid">
 
-    <div class="background"></div>
+<div class="background"></div>
 
-    <div class="d-flex justify-content-center">
-        <div>
-            <img class="logo" src="../../images/logo.png" alt="logo">
-        </div>
-        <div>
-            <img class="lightmode" id="togglebtn-icon" onclick="myFunction()" src="../../images/darkmode.png" alt="">
-        </div>
+<div class="d-flex justify-content-center">
+    <div>
+        <img class="logo" src="../../images/logo.png" alt="logo">
     </div>
-    <br />
-    <br />
-    <br />
-    <div class="content py-3">
-        <div class="d-flex flex-column">
-            <a class="m-0 text-decoration-none" asp-action="Index" asp-controller="Home"><span>&#60;Back</span></a>
-            <h2>Login To Your Account</h2>
-            <form method="post">
-                <input asp-for="Email" type="text" class="form-control my-3 bg-transparent" id="patientLoginEmailId" placeholder="Email">
-                <span asp-validation-for="Email" class="text-danger"></span>
-                <input asp-for="Password" type="password" class="form-control my-3 bg-transparent" id="patientLoginPassword" placeholder="Password">
-                <span asp-validation-for="Password" class="text-danger"></span>
+    <div>
+        <img class="lightmode" id="togglebtn-icon" onclick="myFunction()" src="../../images/darkmode.png" alt="">
+    </div>
+</div>
+<br />
+<br />
+<br />
+<div class="content py-3">
+    <div class="d-flex flex-column">
+        <a class="m-0 text-decoration-none" asp-action="Index" asp-controller="Home"><span>&#60;Back</span></a>
+        <h2>Login To Your Account</h2>
+        <form method="post">
+            <input asp-for="Email" type="text" class="form-control my-3 bg-transparent" id="patientLoginEmailId" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <input asp-for="Password" type="password" class="form-control my-3 bg-transparent" id="patientLoginPassword" placeholder="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
 
-                <button class="btn btn-primary w-100" type="submit">Login</button>
-            </form>
-            <div class="w-100 d-flex justify-content-center my-3">
-                <a class="m-0 text-decoration-none" asp-controller="Patient" asp-action="CreateNewAccount">Don't Have Account? Create Now</a>
-            </div> 
-            <div class="w-100 d-flex justify-content-center my-3">
-                <a class="m-0 text-decoration-none" asp-controller="Patient" asp-action="PatientForgotPassword">Forgot Password?</a>
-            </div>
+            <button class="btn btn-primary w-100" type="submit">Login</button>
+        </form>
+        <div class="w-100 d-flex justify-content-center my-3">
+            <a class="m-0 text-decoration-none" asp-controller="Patient" asp-action="CreateNewAccount">Don't Have Account? Create Now</a>
+        </div>
+        <div class="w-100 d-flex justify-content-center my-3">
+            <a class="m-0 text-decoration-none" asp-controller="Patient" asp-action="PatientForgotPassword">Forgot Password?</a>
         </div>
     </div>
 </div>
-
-

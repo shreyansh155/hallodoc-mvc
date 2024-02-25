@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace BusinessLogic.Repository
 {
@@ -25,7 +26,6 @@ namespace BusinessLogic.Repository
             _context = context;
             _environment = webHostEnvironment;
         }
-
         public static string GenerateSHA256(string input)
         {
             var bytes = Encoding.UTF8.GetBytes(input);
@@ -41,8 +41,6 @@ namespace BusinessLogic.Repository
                 return sb.ToString();
             }
         }
-
-
         public List<PatientDashboard> GetMedicalHistory(User user)
         {
             var medicalhistory = new List<PatientDashboard>();
@@ -67,12 +65,10 @@ namespace BusinessLogic.Repository
             //}
             return medicalhistory;
         }
-
         public List<PatientDashboard> GetPatientInfos()
         {
             return new List<PatientDashboard> { };
         }
-
         public void PatientRequest(PatientSubmitRequest userDetails)
         {
             Guid id = Guid.NewGuid();
@@ -112,13 +108,13 @@ namespace BusinessLogic.Repository
                         Zip = userDetails.ZipCode,
                         Createdby = "admin",
                         Createddate = DateTime.Now,
-                        Modifiedby = userDetails.FirstName,
-                        Modifieddate = DateTime.Now
+                        Strmonth = userDetails.DateOfBirth?.ToString("MMMM"),
+                        Intdate = userDetails.DateOfBirth?.Day,
+                        Intyear = userDetails.DateOfBirth?.Year,
                     };
                     _context.Users.Add(user1);
                     _context.SaveChanges();
                 }
-
             }
 
 
@@ -126,7 +122,7 @@ namespace BusinessLogic.Repository
 
             Request request = new()
             {
-                Requesttypeid = 4,
+                Requesttypeid = 2,
                 Userid = user2.Userid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
@@ -557,7 +553,7 @@ namespace BusinessLogic.Repository
             if (viewDocument.File != null && viewDocument.File.Length > 0)
             {
                 //get file name
-                var obj= _context.Requests.FirstOrDefault(x => x.Requestid == viewDocument.RequestId);
+                var obj = _context.Requests.FirstOrDefault(x => x.Requestid == viewDocument.RequestId);
                 User? user = _context.Users.First(x => x.Userid == obj.Userid);
                 var fileName = Path.GetFileName(viewDocument.File.FileName);
 
@@ -597,29 +593,86 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
             }
         }
-
-        public void SubmitInfoAboutMe(PatientSubmitRequest u) 
+        public void SubmitInfoAboutMe(PatientSubmitRequest u)
         {
-                        
-        }
 
-        public IActionResult Profile(PatientProfile patientProfile)
+        }
+        public PatientDashboard PatientDashboard(int userId)
+        {
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
+            PatientDashboard dashboardVM = new()
+            {
+                UserId = user.Userid,
+                UserName = user.Firstname + " " + user.Lastname,
+                Requests = _context.Requests.Where(req => req.Userid == user.Userid).ToList()
+            };
+            List<int> fileCounts = new();
+            foreach (var request in dashboardVM.Requests)
+            {
+                int count = _context.Requestwisefiles.Count(reqFile => reqFile.Requestid == request.Requestid);
+                fileCounts.Add(count);
+            }
+            dashboardVM.DocumentCount = fileCounts;
+            return dashboardVM;
+        }
+        public PatientProfile Profile(int userId)
         {
             //string dobDate = user.Intyear + "-" + patientProfile.Strmonth + "-" + patientProfile.Intdate;
 
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
             PatientProfile model = new()
             {
-                //UserId = patientProfile.Userid,
-                FirstName = patientProfile.LastName,
-                LastName = patientProfile.LastName,
+                FirstName = user.Firstname,
+                LastName = user.Lastname,
                 Type = "Mobile",
-                Phone = patientProfile.Phone,
-                Email = patientProfile.Email,
-                Street = patientProfile.Street,
-                City = patientProfile.City,
-                State = patientProfile.State,
+                Phone = user.Mobile,
+                Email = user.Email,
+                Street = user.Street,
+                City = user.City,
+                State = user.State,
             };
-            return (IActionResult)model;
+            return model;
+        }
+        public void ProfileUpdate(PatientProfile profile, int userId)
+        {
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
+
+            Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(x=>x.Id==user.Aspnetuserid);
+
+            obj.Email = profile.Email;
+            obj.Modifieddate = DateTime.Now;
+            obj.Phonenumber = profile.Phone;
+            obj.Username = profile.FirstName + " " + profile.LastName;
+
+            _context.Aspnetusers.Update(obj);
+            _context.SaveChanges();
+
+            user.Firstname = profile.FirstName;
+            user.Lastname = profile.LastName;
+            user.Email = profile.Email;
+            user.Mobile = profile.Phone;
+            user.Street = profile.Street;
+            user.City = profile.City;
+            user.State = profile.State;
+            user.Zip = profile.ZipCode;
+            user.Modifiedby = profile.FirstName;
+            user.Modifieddate = DateTime.Now;
+            user.Strmonth = profile.Date?.ToString("MMMM");
+            user.Intdate = profile.Date?.Day;
+            user.Intyear = profile.Date?.Year;
+
+            _context.Users.Update(user);
+            _context.SaveChanges();
+
+            Request request = _context.Requests.Where(x => x.Userid == user.Userid).FirstOrDefault();
+            request.Requesttypeid = 2;
+            request.Firstname = profile.FirstName;
+            request.Lastname = profile.LastName;
+            request.Email = profile.Email;
+            request.Phonenumber = profile.Phone;
+
+            _context.Requests.Update(request);
+            _context.SaveChanges();
         }
     }
 }
