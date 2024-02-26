@@ -1,247 +1,325 @@
-﻿@using DataAccess.ViewModels;
+﻿@model AdminDashboard
 @{
+    Layout = "_AdminDashboardLayout";
     ViewData["Title"] = "AdminDashboard";
 }
-@model List<AdminDashboard>; 
+<link rel="stylesheet" href="~/css/Admin/AdminDashboard.css" asp-append-version="true" />
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="px-2 px-lg-4">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <div class="row mt-3 nav nav-tabs">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-            integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
+        <div class="col-6 col-md-4 col-lg-2 d-flex mb-2 mb-lg-0 flex-column status-tab active align-items-center" id="status-new-tab"
+             data-bs-toggle="tab" data-bs-target="#newTab" type="button" role="tab" aria-controls="newTab" aria-selected="true">
 
-    <link rel="stylesheet" href="~/css/Admin/AdminDashboard.css">
-</head>
-
-
-<body>
-    <!-- navbar -->
-    <nav class="bg-white navbr navbar navbar-expand w-100 ">
-
-        <div class="container-fluid">
-            <div class="d-flex align-items-center">
-                <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation" style="height: 50%;">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <img class="navbar-brand ms-3" id="logo" src="/images/hallodoc.png" alt="logo">
-
+            <div class="py-2 ps-2 w-100 status-new">
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                         fill="currentcolor">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    <span class="ms-2 text-uppercase">new</span>
+                </div>
+                @* <span class="fw-bold">@Model.countRequestViewModel.newCount</span> *@
             </div>
-            <div>
-                <ul class="navbar-nav ms-auto d-flex flex-nowrap align-items-center gap-2">
-                    <div class="d-none d-sm-flex  justify-content-center align-items-center ">
-                    <li class="nav-item">
-                        <span>Welcome</span>
-                    </li>
-                    <li class="nav-item p-2 fw-bolder">
-                        <span class="d-flex gap-1">
-                            <span>First</span>
-                            <span>Last</span>
-                        </span>
-                    </li>
+
+            <svg class="d-none" fill="#203f9a" height="10px" width="20px" viewBox="0 0 200 100">
+                <polygon points="0,0 100,100 200,0 " />
+            </svg>
+
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2 d-flex mb-2 mb-lg-0 flex-column status-tab align-items-center"
+             data-bs-toggle="tab" data-bs-target="#pendingTab" type="button" role="tab" aria-controls="pendingTab" aria-selected="true">
+            <div class="py-2 ps-2 w-100 status-pending">
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                         fill="currentcolor">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    <span class="ms-2 text-uppercase">pending</span>
+                </div>
+                @* <span class="fw-bold">@Model.countRequestViewModel.pendingCount</span> *@
             </div>
-            <li class="nav-item">
-                <a asp-controller="Admin" asp-action="admin_login">
-                    <button id="logout" class="px-2">
-                        <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
-                    </button>
-                </a>
 
-            </li>
-            <li class="nav-item">
-                <img onclick="myFunction()" class="light" src="/images/dark.png" alt="">
-            </li>
-            </ul>
-        </div>
+            <svg class="d-none" fill="#00adef" height="10px" width="20px" viewBox="0 0 200 100">
+                <polygon points="0,0 100,100 200,0 " />
+            </svg>
+
         </div>
 
-
-        <!-- tabs -->
-    </nav>
-
-    <hr class="m-0 hr_line d-none d-lg-block">
-    <nav class="navbr navbar navbar-expand-lg py-0 pt-2 bg-body" style="z-index: 10;">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class=" bg-white ps-5 nav nav-underline" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
-                                aria-selected="true">
-                            Dashboard
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="provider-location-tab" data-bs-toggle="tab"
-                                data-bs-target="#provider-location-tab-pane" type="button" role="tab"
-                                aria-controls="provider-location-tab-pane" aria-selected="false">
-                            Provider Location
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
-                                aria-selected="false">
-                            My Profile
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="provider-tab" data-bs-toggle="tab"
-                                data-bs-target="#provider-tab-pane" type="button" role="tab"
-                                aria-controls="provider-tab-pane" aria-selected="false">
-                            Providers
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="partner-tab" data-bs-toggle="tab"
-                                data-bs-target="#partner-tab-pane" type="button" role="tab" aria-controls="partner-tab-pane"
-                                aria-selected="false">
-                            Partners
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="access-tab" data-bs-toggle="tab" data-bs-target="#access-tab-pane"
-                                type="button" role="tab" aria-controls="access-tab-pane" aria-selected="false">
-                            Access
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="record-tab" data-bs-toggle="tab" data-bs-target="#record-tab-pane"
-                                type="button" role="tab" aria-controls="record-tab-pane" aria-selected="false">
-                            Records
-                        </button>
-                    </li>
-                </ul>
+        <div class="col-6 col-md-4 col-lg-2 d-flex mb-2 mb-lg-0 flex-column status-tab align-items-center"
+             data-bs-toggle="tab" data-bs-target="#ActiveTab" type="button" role="tab" aria-controls="ActiveTab" aria-selected="true">
+            <div class="py-2 ps-2 w-100 status-active">
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                         fill="currentcolor">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    <span class="ms-2 text-uppercase">active</span>
+                </div>
+                @* <span class="fw-bold">@Model.countRequestViewModel.activeCount</span> *@
             </div>
-        </div>
-    </nav>
 
+            <svg class="d-none" fill="#228c20" height="10px" width="20px" viewBox="0 0 200 100">
+                <polygon points="0,0 100,100 200,0 " />
+            </svg>
 
-    <!-- tab content -->
-    <div class="tab-content" id="myTabContent">
-        <!-- tab1 dashboard-->
-        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-             tabindex="0">
+        </div>
 
+        <div class="col-6 col-md-4 col-lg-2 d-flex mb-2 mb-lg-0 flex-column status-tab align-items-center"
+             data-bs-toggle="tab" data-bs-target="#concludeTab" type="button" role="tab" aria-controls="concludeTab" aria-selected="true">
+            <div class="py-2 ps-2 w-100 status-conclude">
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                         fill="currentcolor">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    <span class="ms-2 text-uppercase">conclude</span>
+                </div>
+                @* <span class="fw-bold">@Model.countRequestViewModel.concludeCount</span> *@
+            </div>
 
-            <partial name="_allrequest" />
+            <svg class="d-none" fill="#da0f82" height="10px" width="20px" viewBox="0 0 200 100">
+                <polygon points="0,0 100,100 200,0 " />
+            </svg>
+
         </div>
-        <!-- tab2  pending -->
-        <div class="tab-pane fade" id="provider-location-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
-             tabindex="0">
-            provider-location......
+
+        <div class="col-6 col-md-4 col-lg-2 d-flex mb-2 mb-lg-0 flex-column status-tab align-items-center"
+             data-bs-toggle="tab" data-bs-target="#toCloseTab" type="button" role="tab" aria-controls="toCloseTab" aria-selected="true">
+            <div class="py-2 ps-2 w-100 status-to-close">
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                         fill="currentcolor">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    <span class="ms-2 text-uppercase">to close</span>
+                </div>
+                @* <span class="fw-bold">@Model.countRequestViewModel.closeCount</span> *@
+            </div>
+
+            <svg class="d-none" fill="#0370d7" height="10px" width="20px" viewBox="0 0 200 100">
+                <polygon points="0,0 100,100 200,0 " />
+            </svg>
+
         </div>
-        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            Profile......
+
+        <div class="col-6 col-md-4 col-lg-2 d-flex mb-2 mb-lg-0 flex-column status-tab align-items-center"
+             data-bs-toggle="tab" data-bs-target="#unpaidTab" type="button" role="tab" aria-controls="unpaidTab" aria-selected="true">
+            <div class="py-2 ps-2 w-100 status-unpaid">
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                         fill="currentcolor">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    <span class="ms-2 text-uppercase">unpaid</span>
+                </div>
+                @* <span class="fw-bold">@Model.countRequestViewModel.unpaidCount</span> *@
+            </div>
+
+            <svg class="d-none" fill="#9966cd" height="10px" width="20px" viewBox="0 0 200 100">
+                <polygon points="0,0 100,100 200,0 " />
+            </svg>
+
         </div>
-        <div class="tab-pane fade" id="provider-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            provider......
-        </div>
-        <div class="tab-pane fade" id="partner-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            partner......
-        </div>
-        <div class="tab-pane fade" id="access-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            access......
-        </div>
-        <div class="tab-pane fade" id="record-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            record......
-        </div>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
+    <div class="d-flex align-items-center justify-content-between mt-3">
 
-            // Hide all tab content
-            tabcontent = document.getElementsByClassName("statustabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
+        <div class="d-flex align-items-center">
+            <h6 class="d-none d-md-block fs-6">Patients(New)</h6>
+            <h6 class="d-md-none" style="font-size: 12px;">Patients(New)</h6>
+        </div>
 
-            // Deactivate all tab links
-            tablinks = document.getElementsByClassName("statustablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
+        <div class="d-flex align-items-center">
 
-            // Show the specific tab content
-            document.getElementById(tabName).style.display = "block";
+            <button type="submit" class="mx-1 px-2 py-1 btn btn-primary" style="background-color:#10bce9">
+                <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="white"
+                     class="bi bi-reply">
+                    <path transform="scale(-1, 1) translate(-20,0)"
+                          d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
+                </svg>
+                <span class="d-none d-lg-inline ms-1 text-white">Send Link</span>
+            </button>
 
-            // Activate the clicked tab link
-            evt.currentTarget.className += " active";
+            <button type="submit" class="mx-1 px-2 py-1 btn btn-primary" style="background-color:#10bce9">
+                <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="white"
+                     class="bi bi-reply">
+                    <path transform="scale(-1, 1) translate(-20,0)"
+                          d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
+                </svg>
+                <span class="d-none d-lg-inline ms-1 text-white">Create Request</span>
+            </button>
+
+            <button type="submit" class="mx-1 px-2 py-1 btn btn-primary" style="background-color:#10bce9">
+                <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="white"
+                     class="bi bi-reply">
+                    <path transform="scale(-1, 1) translate(-20,0)"
+                          d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
+                </svg>
+                <span class="d-none d-lg-inline ms-1 text-white">Export</span>
+            </button>
+
+            <button type="submit" class="mx-1 px-2 py-1 btn btn-primary" style="background-color:#10bce9">
+                <svg width="20px" height="20px" viewBox="0 0 20 20" fill="white">
+                    <path transform="scale(-1, 1) translate(-20,0)"
+                          d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
+                    <text x="10" y="18" style="font-size: 5px;fill: white">ALL</text>
+                </svg>
+                <span class="d-none d-lg-inline ms-1 text-white">Export All</span>
+            </button>
+
+            <button type="submit" class="mx-1 px-2 py-1 btn btn-primary" style="background-color:#10bce9">
+                <svg width="20px" height="20px" viewBox="0 0 20 20" fill="white">
+                    <path transform="scale(-1, 1) translate(-20,0)"
+                          d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
+                    <text x="10" y="18" style="font-size: 5px;fill: white">ALL</text>
+                </svg>
+                <span class="d-none d-lg-inline ms-1 text-white">Request DTY Support</span>
+            </button>
+        </div>
+
+    </div>
+    <form method="post" asp-action="Dashboard">
+
+        <div class="d-block d-lg-flex mt-3 align-items-center justify-content-between">
+
+            <div class="d-md-flex mb-3 mb-lg-0">
+
+                <div class="d-flex normal-input rounded align-items-center ps-2 me-md-2 mb-2 mb-md-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50">
+                        <path d="M 21 3 C 11.654545 3 4 10.654545 4 20 C 4 29.345455 11.654545 37 21 37 C 24.701287 37 28.127393 35.786719 30.927734 33.755859 L 44.085938 46.914062 L 46.914062 44.085938 L 33.875 31.046875 C 36.43682 28.068316 38 24.210207 38 20 C 38 10.654545 30.345455 3 21 3 z M 21 5 C 29.254545 5 36 11.745455 36 20 C 36 28.254545 29.254545 35 21 35 C 12.745455 35 6 28.254545 6 20 C 6 11.745455 12.745455 5 21 5 z">
+                        </path>
+                    </svg>
+                    @* <input type="search" asp-for="searchViewModel.Name" class="form-control border border-0" placeholder="Search Patients"> *@
+                </div>
+
+                <div class="d-flex normal-input rounded align-items-center ms-lg-2 ps-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50">
+                        <path d="M 21 3 C 11.654545 3 4 10.654545 4 20 C 4 29.345455 11.654545 37 21 37 C 24.701287 37 28.127393 35.786719 30.927734 33.755859 L 44.085938 46.914062 L 46.914062 44.085938 L 33.875 31.046875 C 36.43682 28.068316 38 24.210207 38 20 C 38 10.654545 30.345455 3 21 3 z M 21 5 C 29.254545 5 36 11.745455 36 20 C 36 28.254545 29.254545 35 21 35 C 12.745455 35 6 28.254545 6 20 C 6 11.745455 12.745455 5 21 5 z">
+                        </path>
+                    </svg>
+                    <select class="form-select border-0" aria-label="Default select example">
+                        <option selected>All Regions</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+
+                <a class="d-none d-lg-flex  align-items-center  px-lg-2 py-1 border rounded">
+                    <span>All</span>
+                </a>
+
+                <a class="px-lg-1 py-1 rounded d-md-flex align-items-center ms-2">
+                    <svg height="15" width="15" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle fill="#5fbc61" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
+                    </svg>
+                    <h6 class="fs-6 ms-lg-2 m-auto">Patient</h6>
+                </a>
+
+                <a class=" px-lg-1 py-1 rounded d-md-flex align-items-center ms-2">
+                    <svg height="15" width="15" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle fill="#ed9124" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
+                    </svg>
+                    <h6 class="fs-6 ms-lg-2  m-auto">Family</h6>
+                </a>
+                <a class=" px-lg-1 py-1 rounded d-md-flex align-items-center ms-2">
+                    <svg height="15" width="15" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle fill="#e26277" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
+                    </svg>
+                    <h6 class="fs-6 ms-lg-2  m-auto">Business</h6>
+                </a>
+                <a class="px-lg-1 py-1 rounded d-md-flex align-items-center ms-2">
+                    <svg height="15" width="15" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle fill="#007fc6" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
+                    </svg>
+                    <h6 class="fs-6 ms-lg-2 m-auto">Concierge</h6>
+                </a>
+                <a class=" px-lg-1 py-1 rounded d-md-flex align-items-center ms-2">
+                    <svg height="15" width="15" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle fill="#9966cd" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
+                    </svg>
+                    <h6 class="fs-6 ms-lg-2 m-auto">VIP</h6>
+                </a>
+
+            </div>
+        </div>
+        <div class="tab-content  mt-3 ">
+            <div class="tab-pane fade show active overflow-auto" id="newTab" role="tabpanel" aria-labelledby="newTab" tabindex="0">
+                <partial name="_newRequestView" />
+            </div>
+            <div class="tab-pane fade show overflow-auto" id="pendingTab" role="tabpanel" aria-labelledby="pendingTab" tabindex="0">
+                <partial name="_pendingRequestView" />
+            </div>
+            <div class="tab-pane fade show overflow-auto" id="ActiveTab" role="tabpanel" aria-labelledby="ActiveTab" tabindex="0">
+                <partial name="_activeRequestView" />
+            </div>
+            <div class="tab-pane fade show overflow-auto" id="concludeTab" role="tabpanel" aria-labelledby="concludeTab" tabindex="0">
+                <partial name="_concludeReqView" />
+            </div>
+            <div class="tab-pane fade show overflow-auto" id="toCloseTab" role="tabpanel" aria-labelledby="toCloseTab" tabindex="0">
+                <partial name="_closeReqView" />
+            </div>
+            <div class="tab-pane fade show overflow-auto" id="unpaidTab" role="tabpanel" aria-labelledby="unpaidTab" tabindex="0">
+                <partial name="_unpaidReqView" />
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+</script>
+<script src="~/js/admin.js"></script>
+<script type="text/javascript">
+    $(".status-tab").click(function () {
+        $(this).addClass("active");
+        $(this).children("svg").addClass('d-lg-block');
+        $('.status-tab').not(this).removeClass("active");
+        $('.status-tab').not(this).children("svg").removeClass("d-lg-block");
+    });
+
+    $("#status-new-tab").click();
+</script>
+
+
+@*  <script type="text/javascript">
+
+        document.getElementById("search").onchange = function () {
+            console.log("hi")
+            var serch = {
+                Name: document.getElementById("search").value
+            };
+            $.ajax({
+                type: "POST",
+                url: "/AdminDashboard/Search",
+                data: { search: search },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () {
+                    console.log("success")
+                },
+                failure: function () {
+                    alert("faile");
+                },
+                error: function () {
+                    alert("error");
+                }
+            })
         }
+    </script> *@
 
-        $(document).ready(function () {
-            // Convert table rows to accordions in mobile view
-            if ($(window).width() < 768) {
-                $('.data-table tbody tr').each(function () {
-                    var name = $(this).find('td:eq(0)').text();
-                    var address = $(this).find('td:eq(5)').text();
-                    var requestor = $(this).find('td:eq(2)').text();
-
-                    var accordionItem = `
-                                                                    <div class="accordion-item">
-
-                                                                        <div class="accordion-content">
-                                                                            <p><strong>Name:</strong> ${name}</p>
-                                                                            <p><strong>Address:</strong> ${address}</p>
-                                                                            <p><strong>Requestor:</strong> ${requestor}</p>
-                                                                        </div>
-                                                                    </div>
-                                                                `;
-
-                    $('#accordionFlushExample').append(accordionItem);
-                });
-            }
-        });
-
-        // Resize event listener to update accordion on window resize
-        $(window).resize(function () {
-            $('#accordionFlushExample').empty();
-            if ($(window).width() < 768) {
-                $('.data-table tbody tr').each(function () {
-                    var name = $(this).find('td:eq(0)').text();
-                    var address = $(this).find('td:eq(5)').text();
-                    var requestor = $(this).find('td:eq(2)').text();
-
-
-                    var accordionItem = `
-                                                                    <div class="accordion-item">
-
-                                                                        <div class="accordion-content">
-                                                                            <p><strong>Name:</strong> ${name}</p>
-                                                                            <p><strong>Address:</strong> ${address}</p>
-                                                                            <p><strong>Requestor:</strong> ${requestor}</p>
-                                                                        </div>
-                                                                    </div>
-                                                                `;
-
-                    $('#accordionFlushExample').append(accordionItem);
-                });
-            }
-        });
-
-
-    </script>
-
-
-</body>
-
-
-
-</html>

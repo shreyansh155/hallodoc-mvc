@@ -11,6 +11,6 @@ namespace BusinessLogic.Interface
     {
         bool AdminLogin(AdminLogin adminLogin);
         void CreateAdminAccount(CreateAdminAccount createNewAccount);
-        List<AdminDashboard> GetRequestsByStatus();
+        AdminDashboard AdminDashboard();
     }
 }

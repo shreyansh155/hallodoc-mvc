@@ -33,12 +33,24 @@
       "PackagePath": "staticwebassets\\UploadedFiles\\55\\Fig68. View Documents.jpg"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\60\\Fig1. Platform login page.jpg",
+      "PackagePath": "staticwebassets\\UploadedFiles\\60\\Fig1. Platform login page.jpg"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\edfc7db6-00df-4068-820e-e4b762d93d25\\Fig Contact your Provider.jpg",
+      "PackagePath": "staticwebassets\\UploadedFiles\\edfc7db6-00df-4068-820e-e4b762d93d25\\Fig Contact your Provider.jpg"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\AdminDashboard.css",
       "PackagePath": "staticwebassets\\css\\Admin\\AdminDashboard.css"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\AdminLogin.css",
       "PackagePath": "staticwebassets\\css\\Admin\\AdminLogin.css"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\ViewNotes.css",
+      "PackagePath": "staticwebassets\\css\\Admin\\ViewNotes.css"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\common.css",
@@ -677,6 +689,10 @@
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig9. Admin dashboard in Unpaid state.jpg"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\admin.svg",
+      "PackagePath": "staticwebassets\\images\\admin.svg"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\back.png",
       "PackagePath": "staticwebassets\\images\\back.png"
     },
@@ -689,12 +705,28 @@
       "PackagePath": "staticwebassets\\images\\darkmode.png"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\doctor.svg",
+      "PackagePath": "staticwebassets\\images\\doctor.svg"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\envelope.svg",
+      "PackagePath": "staticwebassets\\images\\envelope.svg"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\lightmode.png",
       "PackagePath": "staticwebassets\\images\\lightmode.png"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\personal_injury.svg",
+      "PackagePath": "staticwebassets\\images\\personal_injury.svg"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\transfer-horizontal.svg",
+      "PackagePath": "staticwebassets\\images\\transfer-horizontal.svg"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\warning-icon.svg",

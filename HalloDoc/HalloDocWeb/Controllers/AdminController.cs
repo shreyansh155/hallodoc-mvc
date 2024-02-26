@@ -20,6 +20,7 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult AdminLogin()
         {
+
             return View();
         }
 
@@ -52,7 +53,8 @@ namespace HalloDocWeb.Controllers
             {
                 if (_adminService.AdminLogin(adminLogin))
                 {
-
+                    Admin admin = _context.Admins.FirstOrDefault(x => x.Email == adminLogin.Email);
+                    HttpContext.Session.SetInt32("adminId", admin.Adminid);
                     return RedirectToAction("AdminDashboard");
                 }
             }
@@ -61,8 +63,19 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult AdminDashboard()
         {
-            var list = _adminService.GetRequestsByStatus();
-            return View(list);
+            int? adminId = HttpContext.Session.GetInt32("adminId");
+            var data = _adminService.AdminDashboard();
+            return View(data);
         }
+
+        public IActionResult ViewCase()
+        {
+            return View();
+        }
+        public IActionResult ViewNotes()
+        {
+            return View();
+        }
+
     }
 }

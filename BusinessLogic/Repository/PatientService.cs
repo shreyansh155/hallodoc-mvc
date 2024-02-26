@@ -148,6 +148,14 @@ namespace BusinessLogic.Repository
             {
                 Requestid = request.Requestid,
                 Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Phonenumber = userDetails.Phone,
+                Notes = userDetails.Symptoms,
+                Strmonth = userDetails.DateOfBirth?.ToString("MMM"),
+                Intdate = userDetails.DateOfBirth?.Day,
+                Intyear=userDetails.DateOfBirth?.Year,
+
             };
             _context.Requestclients.Add(requestclient);
             _context.SaveChanges();
@@ -264,9 +272,15 @@ namespace BusinessLogic.Repository
             Requestclient requestclient = new()
             {
                 Requestid = request.Requestid,
-                Firstname = userDetails.PatientFirstName,
-                Lastname = userDetails.PatientLastName,
-                Email = userDetails.Email
+                Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Phonenumber = userDetails.Phone,
+                Notes = userDetails.Symptoms,
+                Strmonth = userDetails.DateOfBirth.ToString("MMM"),
+                Intdate = userDetails.DateOfBirth.Day,
+                Intyear = userDetails.DateOfBirth.Year,
+
             };
             _context.Requestclients.Add(requestclient);
             _context.SaveChanges();
@@ -665,7 +679,7 @@ namespace BusinessLogic.Repository
             _context.SaveChanges();
 
             Request request = _context.Requests.Where(x => x.Userid == user.Userid).FirstOrDefault();
-            request.Requesttypeid = 2;
+            //request.Requesttypeid = 2;
             request.Firstname = profile.FirstName;
             request.Lastname = profile.LastName;
             request.Email = profile.Email;
