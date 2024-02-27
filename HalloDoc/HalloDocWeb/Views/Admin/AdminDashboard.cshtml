@@ -21,7 +21,7 @@
                     </svg>
                     <span class="ms-2 text-uppercase">new</span>
                 </div>
-                @* <span class="fw-bold">@Model.countRequestViewModel.newCount</span> *@
+                <span class="fw-bold">@Model.CountRequestViewModel.newCount</span>
             </div>
 
             <svg class="d-none" fill="#203f9a" height="10px" width="20px" viewBox="0 0 200 100">
@@ -41,7 +41,7 @@
                     </svg>
                     <span class="ms-2 text-uppercase">pending</span>
                 </div>
-                @* <span class="fw-bold">@Model.countRequestViewModel.pendingCount</span> *@
+                <span class="fw-bold">@Model.CountRequestViewModel.pendingCount</span>
             </div>
 
             <svg class="d-none" fill="#00adef" height="10px" width="20px" viewBox="0 0 200 100">
@@ -61,7 +61,7 @@
                     </svg>
                     <span class="ms-2 text-uppercase">active</span>
                 </div>
-                @* <span class="fw-bold">@Model.countRequestViewModel.activeCount</span> *@
+                <span class="fw-bold">@Model.CountRequestViewModel.activeCount</span>
             </div>
 
             <svg class="d-none" fill="#228c20" height="10px" width="20px" viewBox="0 0 200 100">
@@ -81,7 +81,7 @@
                     </svg>
                     <span class="ms-2 text-uppercase">conclude</span>
                 </div>
-                @* <span class="fw-bold">@Model.countRequestViewModel.concludeCount</span> *@
+                <span class="fw-bold">@Model.CountRequestViewModel.concludeCount</span>
             </div>
 
             <svg class="d-none" fill="#da0f82" height="10px" width="20px" viewBox="0 0 200 100">
@@ -101,7 +101,7 @@
                     </svg>
                     <span class="ms-2 text-uppercase">to close</span>
                 </div>
-                @* <span class="fw-bold">@Model.countRequestViewModel.closeCount</span> *@
+                <span class="fw-bold">@Model.CountRequestViewModel.closeCount</span>
             </div>
 
             <svg class="d-none" fill="#0370d7" height="10px" width="20px" viewBox="0 0 200 100">
@@ -121,7 +121,7 @@
                     </svg>
                     <span class="ms-2 text-uppercase">unpaid</span>
                 </div>
-                @* <span class="fw-bold">@Model.countRequestViewModel.unpaidCount</span> *@
+                <span class="fw-bold">@Model.CountRequestViewModel.unpaidCount</span>
             </div>
 
             <svg class="d-none" fill="#9966cd" height="10px" width="20px" viewBox="0 0 200 100">
@@ -199,7 +199,8 @@
                         <path d="M 21 3 C 11.654545 3 4 10.654545 4 20 C 4 29.345455 11.654545 37 21 37 C 24.701287 37 28.127393 35.786719 30.927734 33.755859 L 44.085938 46.914062 L 46.914062 44.085938 L 33.875 31.046875 C 36.43682 28.068316 38 24.210207 38 20 C 38 10.654545 30.345455 3 21 3 z M 21 5 C 29.254545 5 36 11.745455 36 20 C 36 28.254545 29.254545 35 21 35 C 12.745455 35 6 28.254545 6 20 C 6 11.745455 12.745455 5 21 5 z">
                         </path>
                     </svg>
-                    @* <input type="search" asp-for="searchViewModel.Name" class="form-control border border-0" placeholder="Search Patients"> *@
+                    @* asp-for="SearchViewModel.Name" *@ @* //add this in below input tag later *@
+                    <input type="search" class="form-control border border-0" placeholder="Search Patients"/>  
                 </div>
 
                 <div class="d-flex normal-input rounded align-items-center ms-lg-2 ps-2">
@@ -255,7 +256,7 @@
 
             </div>
         </div>
-        <div class="tab-content  mt-3 ">
+        <div class="tab-content mt-3 ">
             <div class="tab-pane fade show active overflow-auto" id="newTab" role="tabpanel" aria-labelledby="newTab" tabindex="0">
                 <partial name="_newRequestView" />
             </div>
@@ -295,7 +296,26 @@
 
     $("#status-new-tab").click();
 </script>
+<script>
+    //active nav links
+    var navLinks = document.querySelectorAll('nav a');
 
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            this.classList.add('active');
+        });
+    });
+
+
+    const patientPhone = document.querySelector(".patientPhone");
+    var phoneInput = window.intlTelInput(patientPhone,
+        {
+            utilsScript:
+                "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+</script>
 
 @*  <script type="text/javascript">
 

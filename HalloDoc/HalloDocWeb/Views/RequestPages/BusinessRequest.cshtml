@@ -100,28 +100,37 @@
                 <!-- Email -->
                 <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
 
-                    <input asp-for="PatientEmail" type="email" class="form-control" id="floatingInput">
-                    <label for="floatingInput">Email</label>
+                    <input asp-for="PatientEmail" type="email" class="form-control" id="floatingInputemail">
+                    <label for="floatingInputemail">Email</label>
 
                 </div>
-
-                <div id="passwordSection" class="col-6 " style="display:none">
-                    <div class="input-div form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput" class="hidenpass">Password</label>
-                    </div>
-                </div>
-                <div id="confirmPasswordSec" class="col-6" style="display:none">
-                    <div class="input-div form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput" class="hidenpass">Confirm Password</label>
-                    </div>
-                </div>
-
                 <!-- Phone Number -->
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group mt-3 form-floating">
-                    <input asp-for="PatientPhone" type="tel" class="form-control phone" id="patient-phone" placeholder="(555) 555-5555">
+                <div class=" col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
+                    <input asp-for="PatientPhone" type="tel" class="form-control" id="floatingInput">
+                    <label for="floatingInput">Number</label>
                 </div>
+
+                <div class="row" id="hiddendiv" style="display:none">
+
+                    <div class="col-md-6 col-12">
+                        <div class="form-floating mt-3">
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Leave a comment here"
+                                   id="floatingTextarea2" />
+                            <label for="floatingTextarea2">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-12">
+                        <div class="form-floating mt-3">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Leave a comment here"
+                                   id="floatingTextarea2" />
+                            <label for="floatingTextarea2">Confirm Password</label>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+
 
                 <!-- Patient Location -->
 
@@ -185,23 +194,24 @@
     });
 </script>
 
-<script>
-    $('#email').focusout(function () {
-        var email = $(this).val();
-        $.ajax({
-            url: '/Patient/CheckEmailExists',
-            type: 'GET',
-            contentType: 'application/json',
-            data: { email: email },
-            success: function (response) {
-                if (response.emailExists) {
-                    $('#passwordSection').hide();
-                    $('#confirmPasswordSec').hide();
-                } else {
-                    $('#passwordSection').show();
-                    $('#confirmPasswordSec').show();
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#floatingInputemail').on('blur', function () {
+            var email = $(this).val();
+            $.ajax({
+                url: '/RequestPages/PatientCheckEmail',
+                type: 'POST',
+                data: { email: email },
+                success: function (data) {
+                    if (!data.exists) {
+                        $('#hiddendiv').show();
+                    }
+                    else {
+                        $('#hiddendiv').hide();
+                    }
                 }
-            }
+            });
         });
     });
 </script>

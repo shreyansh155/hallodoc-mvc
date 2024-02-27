@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,9 @@ namespace DataAccess.ViewModels
 {
     public class AdminLogin
     {
+        [Required]
         public string? Email { get; set; }
+        [Required]
         public string? Password { get; set; }
     }
 
@@ -27,22 +30,22 @@ namespace DataAccess.ViewModels
     }
     public class AdminDashboard
     {
-        public countRequestViewModel? countRequestViewModel { get; set; }
+        public CountRequestViewModel? CountRequestViewModel { get; set; }
 
-        //public searchViewModel searchViewModel { get; set; }
+        //public SearchViewModel SearchViewModel { get; set; }
 
-        public IEnumerable<newReqViewModel>? newReqViewModel { get; set; }
+        public IEnumerable<NewReqViewModel>? NewReqViewModel { get; set; }
 
-        public IEnumerable<pendingReqViewModel>? pendingReqViewModel { get; set; }
+        public IEnumerable<PendingReqViewModel>? PendingReqViewModel { get; set; }
 
-        public IEnumerable<concludeReqViewModel>? concludeReqViewModel { get; set; }
+        public IEnumerable<ConcludeReqViewModel>? ConcludeReqViewModel { get; set; }
 
-        public IEnumerable<closeReqViewModel>? closeReqViewModels { get; set; }
+        public IEnumerable<CloseReqViewModel>? CloseReqViewModels { get; set; }
 
-        public IEnumerable<unpaidReqViewModel>? unpaidReqViewModels { get; set; }
-        public IEnumerable<activeReqViewModel>? activeReqViewModels { get; set; }
+        public IEnumerable<UnpaidReqViewModel>? UnpaidReqViewModels { get; set; }
+        public IEnumerable<ActiveReqViewModel>? ActiveReqViewModels { get; set; }
     }
-    public class concludeReqViewModel
+    public class ConcludeReqViewModel
     {
         public int reqClientId { get; set; }
         public string? Firstname { get; set; }
@@ -87,7 +90,7 @@ namespace DataAccess.ViewModels
 
         public string? physicianName { get; set; }
     }
-    public class closeReqViewModel
+    public class CloseReqViewModel
     {
         public int reqClientId { get; set; }
         public string? Firstname { get; set; }
@@ -132,7 +135,7 @@ namespace DataAccess.ViewModels
 
         public string? physicianName { get; set; }
     }
-    public class activeReqViewModel
+    public class ActiveReqViewModel
     {
         public string? Firstname { get; set; }
 
@@ -177,7 +180,7 @@ namespace DataAccess.ViewModels
         public string? physicianName { get; set; }
         public int reqClientId { get; set; }
     }
-    public class countRequestViewModel
+    public class CountRequestViewModel
     {
         public int newCount { get; set; }
 
@@ -189,7 +192,52 @@ namespace DataAccess.ViewModels
         public int closeCount { get; set; }
         public int unpaidCount { get; set; }
     }
-    public class newReqViewModel
+    public class NewReqViewModel
+    {
+        public int? reqClientId { get; set; }
+        public string? Firstname { get; set; }
+
+        public string? Lastname { get; set; }
+
+        public string? reqFirstname { get; set; }
+
+        public string? reqLastname { get; set; }
+
+        public string? Phonenumber { get; set; }
+
+        public string? ConciergePhonenumber { get; set; }
+
+        public string? BusinessPhonenumber { get; set; }
+
+        public string? FamilyPhonenumber { get; set; }
+
+        public string? Email { get; set; }
+
+        public int? Regionid { get; set; }
+
+        public short Status { get; set; }
+
+        public int? Physicianid { get; set; }
+
+        public DateTime Createddate { get; set; }
+
+        public string? Notes { get; set; }
+
+        public string? Strmonth { get; set; }
+
+        public string? Street { get; set; }
+
+        public string? City { get; set; }
+
+        public string? State { get; set; }
+
+        public string? Zipcode { get; set; }
+
+        public int? reqTypeId { get; set; }
+
+        public string? physicianName { get; set; }
+    }
+    public class PendingReqViewModel
     {
         public int reqClientId { get; set; }
         public string? Firstname { get; set; }
@@ -234,7 +282,7 @@ namespace DataAccess.ViewModels
 
         public string? physicianName { get; set; }
     }
-    public class pendingReqViewModel
+    public class UnpaidReqViewModel
     {
         public int reqClientId { get; set; }
         public string? Firstname { get; set; }
@@ -279,82 +327,32 @@ namespace DataAccess.ViewModels
 
         public string? physicianName { get; set; }
     }
-    public class unpaidReqViewModel
-    {
-        public int reqClientId { get; set; }
-        public string? Firstname { get; set; }
-
-        public string? Lastname { get; set; }
-
-        public string? reqFirstname { get; set; }
-
-        public string? reqLastname { get; set; }
-
-        public string? Phonenumber { get; set; }
-
-        public string? ConciergePhonenumber { get; set; }
-
-        public string? BusinessPhonenumber { get; set; }
-
-        public string? FamilyPhonenumber { get; set; }
-
-        public string? Email { get; set; }
-
-        public int? Regionid { get; set; }
-
-        public short Status { get; set; }
-
-        public int? Physicianid { get; set; }
-
-        public DateTime Createddate { get; set; }
-
-        public string? Notes { get; set; }
-
-        public string? Strmonth { get; set; }
-
-        public string? Street { get; set; }
-
-        public string? City { get; set; }
-
-        public string? State { get; set; }
-
-        public string? Zipcode { get; set; }
-
-        public int? reqTypeId { get; set; }
-
-        public string? physicianName { get; set; }
-    }
-    public class viewCaseViewModel
+    public class ViewCaseViewModel
     {
         public int Requestclientid { get; set; }
-
         public int? Requestid { get; set; }
-
-        public string Firstname { get; set; } = null!;
-
+        public string? Firstname { get; set; } = null!;
         public string? Lastname { get; set; }
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string? Phonenumber { get; set; }
-
         public string? Address { get; set; }
-
         public int? Regionid { get; set; }
-
         public string? Notes { get; set; }
-
         public string? Email { get; set; }
-
         public string? Strmonth { get; set; }
-
         public string? Street { get; set; }
-
         public string? City { get; set; }
-
         public string? State { get; set; }
-
         public string? Zipcode { get; set; }
         public string? Room { get; set; }
-
-        public String confirmationNumber { get; set; }
+        public string? ConfirmationNumber { get; set; }
+    }
+    public class ViewNotes
+    {
+        public int Requestclientid { get; set; }
+        public string? PhysicianNotes { get; set; }
+        public string? AdminNotes { get; set; }
+        public string? TransferNotes { get; set; }
+        public string? TextBox { get; set; }
     }
 }

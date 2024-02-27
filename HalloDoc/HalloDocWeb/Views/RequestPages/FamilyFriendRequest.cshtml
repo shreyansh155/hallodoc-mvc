@@ -102,19 +102,41 @@
             <!-- Email -->
             <div class="col-lg-6 col-md-12 col sm-12 col-12 form-group mt-3 form-floating">
 
-                <input asp-for="PatientEmail" type="email" class="form-control" id="floatingInput patientPhone">
-                <label for="floatingInput">Patient's Email</label>
+                <input asp-for="PatientEmail" type="email" class="form-control" id="floatingInputemail">
+                <label for="floatingInputemail">Patient's Email</label>
                 <span class="text-danger" asp-validation-for="PatientEmail"></span>
 
 
             </div>
-
             <!-- Phone Number -->
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 form-group mt-3 form-floating">
                 <input asp-for="PatientPhone" type="tel" class="form-control phone" id="floatingInput" placeholder="(555) 555-5555">
                 <span class="text-danger" asp-validation-for="PatientPhone"></span>
 
             </div>
+
+            <div class="row" id="hiddendiv" style="display:none">
+
+                <div class="col-md-6 col-12">
+                    <div class="form-floating mt-3">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Leave a comment here"
+                               id="floatingTextarea2" />
+                        <label for="floatingTextarea2">Password</label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-12">
+                    <div class="form-floating mt-3">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Leave a comment here"
+                               id="floatingTextarea2" />
+                        <label for="floatingTextarea2">Confirm Password</label>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+
 
             <!-- Patient Location -->
 
@@ -173,4 +195,25 @@
     window.intlTelInput(input, {
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/utils.js",
     });
-</script> 
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#floatingInputemail').on('blur', function () {
+            var email = $(this).val();
+            $.ajax({
+                url: '/RequestPages/PatientCheckEmail',
+                type: 'POST',
+                data: { email: email },
+                success: function (data) {
+                    if (!data.exists) {
+                        $('#hiddendiv').show();
+                    }
+                    else {
+                        $('#hiddendiv').hide();
+                    }
+                }
+            });
+        });
+    });
+</script>

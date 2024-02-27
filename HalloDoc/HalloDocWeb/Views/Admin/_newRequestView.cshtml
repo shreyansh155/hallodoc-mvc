@@ -11,10 +11,10 @@
             <td>Notes</td>
             <td>Chat With</td>
             <td>Actions</td>
-        </tr>   
+        </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.newReqViewModel)
+        @foreach (var item in Model.NewReqViewModel)
         {
             var bg = "";
             @switch (item.reqTypeId)
@@ -109,7 +109,7 @@
                     }
                 </td>
                 <td style="background-color: @bg;">
-                   @item.Street, @item.City, @item.State, @item.Zipcode
+                    @item.Street, @item.City, @item.State, @item.Zipcode
                 </td>
                 <td style="background-color: @bg;">
                     -
@@ -128,7 +128,7 @@
                         <li><a class="dropdown-item" href="">Assign Case</a></li>
                         <li><a class="dropdown-item" href="#">Cancel Case</a></li>
                         <li><a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a></li>
-                        <li><a class="dropdown-item" href="#">View Notes</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("ViewNotes", new {reqClientId = item.reqClientId})">View Notes</a></li>
                         <li><a class="dropdown-item" href="#">Block Patient</a></li>
                     </ul>
                 </td>

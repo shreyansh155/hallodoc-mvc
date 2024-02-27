@@ -68,13 +68,16 @@ namespace HalloDocWeb.Controllers
             return View(data);
         }
 
-        public IActionResult ViewCase()
+        public IActionResult ViewCase(int reqClientId)
         {
-            return View();
+            var obj = _adminService.ViewCaseViewModel(reqClientId);
+            
+            return View(obj);
         }
-        public IActionResult ViewNotes()
+        public IActionResult ViewNotes(int reqClientId)
         {
-            return View();
+            var obj=_adminService.ViewNotes(reqClientId);
+            return View(obj);
         }
 
     }

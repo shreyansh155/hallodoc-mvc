@@ -108,9 +108,9 @@ namespace BusinessLogic.Repository
                         Zip = userDetails.ZipCode,
                         Createdby = "admin",
                         Createddate = DateTime.Now,
-                        Strmonth = userDetails.DateOfBirth?.ToString("MMMM"),
-                        Intdate = userDetails.DateOfBirth?.Day,
-                        Intyear = userDetails.DateOfBirth?.Year,
+                        Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                        Intdate = userDetails.DateOfBirth.Day,
+                        Intyear = userDetails.DateOfBirth.Year,
                     };
                     _context.Users.Add(user1);
                     _context.SaveChanges();
@@ -122,12 +122,13 @@ namespace BusinessLogic.Repository
 
             Request request = new()
             {
-                Requesttypeid = 2,
+                Requesttypeid = 1,
                 Userid = user2.Userid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
                 Status = 1,
+                Physicianid = 1,
                 Createddate = DateTime.Now,
                 Isurgentemailsent = true
             };
@@ -138,7 +139,7 @@ namespace BusinessLogic.Repository
             Requeststatuslog requeststatuslog = new()
             {
                 Requestid = request.Requestid,
-                Status = 4,
+                Status = 1,
                 Createddate = DateTime.Now
             };
             _context.Requeststatuslogs.Add(requeststatuslog);
@@ -146,15 +147,16 @@ namespace BusinessLogic.Repository
 
             Requestclient requestclient = new()
             {
+
                 Requestid = request.Requestid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
                 Phonenumber = userDetails.Phone,
                 Notes = userDetails.Symptoms,
-                Strmonth = userDetails.DateOfBirth?.ToString("MMM"),
-                Intdate = userDetails.DateOfBirth?.Day,
-                Intyear=userDetails.DateOfBirth?.Year,
+                Strmonth = userDetails.DateOfBirth.ToString("MMM"),
+                Intdate = userDetails.DateOfBirth.Day,
+                Intyear = userDetails.DateOfBirth.Year,
 
             };
             _context.Requestclients.Add(requestclient);
@@ -257,16 +259,27 @@ namespace BusinessLogic.Repository
 
             Request request = new()
             {
-                Requesttypeid = 3,
+                Requesttypeid = 2,
                 Userid = user1.Userid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
                 Status = 1,
+                Physicianid = 1,
+
                 Createddate = DateTime.Now,
                 Isurgentemailsent = true
             };
             _context.Requests.Add(request);
+            _context.SaveChanges();
+
+            Requeststatuslog requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 1,
+                Createddate = DateTime.Now
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
             _context.SaveChanges();
 
             Requestclient requestclient = new()
@@ -372,16 +385,26 @@ namespace BusinessLogic.Repository
 
             Request request = new()
             {
-                Requesttypeid = 4,
+                Requesttypeid = 3,
                 Userid = user1.Userid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
-                Status = 4,
+                Status = 1,
+                Physicianid = 1,
                 Createddate = DateTime.Now,
                 Isurgentemailsent = true
             };
             _context.Requests.Add(request);
+            _context.SaveChanges();
+
+            Requeststatuslog requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 1,
+                Createddate = DateTime.Now
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
             _context.SaveChanges();
 
             Concierge concierge = new()
@@ -394,6 +417,30 @@ namespace BusinessLogic.Repository
                 Createddate = DateTime.Now
             };
             _context.Concierges.Add(concierge);
+            _context.SaveChanges();
+            Requestconcierge requestconcierge = new()
+            {
+                Requestid = request.Requestid,
+                Conciergeid = concierge.Conciergeid,
+
+            };
+            _context.Requestconcierges.Add(requestconcierge);
+            _context.SaveChanges();
+
+            Requestclient requestclient = new()
+            {
+                Requestid = request.Requestid,
+                Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Phonenumber = userDetails.Phone,
+                Notes = userDetails.Symptoms,
+                Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                Intdate = userDetails.DateOfBirth.Day,
+                Intyear = userDetails.DateOfBirth.Year,
+
+            };
+            _context.Requestclients.Add(requestclient);
             _context.SaveChanges();
 
             if (userDetails.File != null && userDetails.File.Length > 0)
@@ -494,11 +541,13 @@ namespace BusinessLogic.Repository
 
             Request request = new()
             {
-                Requesttypeid = 1,
+
+                Requesttypeid = 4,
                 Userid = user1.Userid,
                 Firstname = userDetails.FirstName,
                 Lastname = userDetails.LastName,
                 Email = userDetails.Email,
+                Physicianid = 1,
                 Status = 1,
                 Createddate = DateTime.Now,
                 Isurgentemailsent = true
@@ -519,10 +568,25 @@ namespace BusinessLogic.Repository
             Requeststatuslog requeststatuslog = new()
             {
                 Requestid = request.Requestid,
-                Status = 4,
+                Status = request.Status,
                 Createddate = DateTime.Now
             };
             _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.SaveChanges();
+            Requestclient requestclient = new()
+            {
+                Requestid = request.Requestid,
+                Firstname = userDetails.FirstName,
+                Lastname = userDetails.LastName,
+                Email = userDetails.Email,
+                Phonenumber = userDetails.Phone,
+                Notes = userDetails.Symptoms,
+                Strmonth = userDetails.PatientDateOfBirth.ToString("MMM"),
+                Intdate = userDetails.PatientDateOfBirth.Day,
+                Intyear = userDetails.PatientDateOfBirth.Year,
+
+            };
+            _context.Requestclients.Add(requestclient);
             _context.SaveChanges();
             if (userDetails.File != null && userDetails.File.Length > 0)
             {
@@ -651,7 +715,7 @@ namespace BusinessLogic.Repository
         {
             User? user = _context.Users.FirstOrDefault(u => u.Userid == userId);
 
-            Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(x=>x.Id==user.Aspnetuserid);
+            Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(x => x.Id == user.Aspnetuserid);
 
             obj.Email = profile.Email;
             obj.Modifieddate = DateTime.Now;

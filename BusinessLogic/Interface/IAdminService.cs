@@ -12,5 +12,7 @@ namespace BusinessLogic.Interface
         bool AdminLogin(AdminLogin adminLogin);
         void CreateAdminAccount(CreateAdminAccount createNewAccount);
         AdminDashboard AdminDashboard();
+        ViewCaseViewModel ViewCaseViewModel(int reqClientId);
+        ViewNotes ViewNotes(int reqClientId);
     }
 }

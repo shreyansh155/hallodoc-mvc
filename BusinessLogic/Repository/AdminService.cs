@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using DataAccess.DataContext;
 using System.Security.Cryptography;
 using DataAccess.DataModels;
+using Microsoft.AspNetCore.Components.Forms;
+using System.Globalization;
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
@@ -98,7 +100,7 @@ namespace BusinessLogic.Repository
                                where t1.Status == 13
                                select t1
                             ).Count();
-            var count = new countRequestViewModel
+            var count = new CountRequestViewModel
             {
                 newCount = newCount,
                 pendingCount = pendingCount,
@@ -111,7 +113,7 @@ namespace BusinessLogic.Repository
             var newReqData = (from req in _context.Requests
                               join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                               where req.Status == 1
-                              select new newReqViewModel
+                              select new NewReqViewModel
                               {
                                   reqClientId = rc.Requestclientid,
                                   Firstname = rc.Firstname,
@@ -135,7 +137,7 @@ namespace BusinessLogic.Repository
                                  join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                  join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
                                  where req.Status == 2
-                                 select new pendingReqViewModel
+                                 select new PendingReqViewModel
                                  {
                                      reqClientId = rc.Requestclientid,
                                      Firstname = rc.Firstname,
@@ -160,7 +162,7 @@ namespace BusinessLogic.Repository
                                join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
                                where req.Status == 5
-                               select new closeReqViewModel
+                               select new CloseReqViewModel
                                {
                                    reqClientId = rc.Requestclientid,
                                    Firstname = rc.Firstname,
@@ -185,7 +187,7 @@ namespace BusinessLogic.Repository
                                   join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                   join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
                                   where req.Status == 4
-                                  select new concludeReqViewModel
+                                  select new ConcludeReqViewModel
                                   {
                                       reqClientId = rc.Requestclientid,
                                       Firstname = rc.Firstname,
@@ -210,7 +212,7 @@ namespace BusinessLogic.Repository
                                 join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                 join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
                                 where req.Status == 13
-                                select new unpaidReqViewModel
+                                select new UnpaidReqViewModel
                                 {
                                     reqClientId = rc.Requestclientid,
                                     Firstname = rc.Firstname,
@@ -234,8 +236,8 @@ namespace BusinessLogic.Repository
             var activeReqData = from req in _context.Requests
                                 join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                 join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
-                                where req.Status == 8
-                                select new activeReqViewModel
+                                where req.Status == 8   
+                                select new ActiveReqViewModel
                                 {
                                     reqClientId = rc.Requestclientid,
                                     Firstname = rc.Firstname,
@@ -262,46 +264,49 @@ namespace BusinessLogic.Repository
 
             var data = new AdminDashboard
             {
-                countRequestViewModel = count,
-                newReqViewModel = newReqData,
-                concludeReqViewModel = concludeReqData,
-                closeReqViewModels = closeReqData,
-                activeReqViewModels = activeReqData,
-                pendingReqViewModel = pendingReqData,
-                unpaidReqViewModels = unpaidReqData
+                CountRequestViewModel = count,
+                NewReqViewModel = newReqData,
+                ConcludeReqViewModel = concludeReqData,
+                CloseReqViewModels = closeReqData,
+                ActiveReqViewModels = activeReqData,
+                PendingReqViewModel = pendingReqData,
+                UnpaidReqViewModels = unpaidReqData
 
             };
             return data;
         }
 
-        public viewCaseViewModel viewCase(int reqClientId)
+        public ViewCaseViewModel ViewCase(int reqClientId)
         {
             var data = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
             var cNumber = _context.Requests.FirstOrDefault(x => x.Requestid == data.Requestid);
+            var user = _context.Users.FirstOrDefault(x => x.Userid == cNumber.Userid);
             var confirm = cNumber.Confirmationnumber;
 
-            var viewdata = new viewCaseViewModel
+            var viewdata = new ViewCaseViewModel
             {
                 Requestclientid = reqClientId,
                 Firstname = data.Firstname,
                 Lastname = data.Lastname,
                 Strmonth = data.Strmonth,
-                confirmationNumber = confirm,
+                ConfirmationNumber = confirm,
                 Notes = data.Notes,
                 Address = data.Address,
                 Email = data.Email,
                 Phonenumber = data.Phonenumber,
-                City = data.City,
-                State = data.State,
-                Street = data.Street,
-                Zipcode = data.Zipcode,
+                City = user.City,
+                State = user.State,
+                Street = user.Street,
+                Zipcode = user.Zip,
                 Regionid = data.Regionid,
+                
+
             };
 
             return viewdata;
         }
 
-        public bool ViewCase(viewCaseViewModel obj)
+        public bool ViewCase(ViewCaseViewModel obj)
         {
             try
             {
@@ -366,5 +371,35 @@ namespace BusinessLogic.Repository
             }
         }
 
+        public ViewCaseViewModel ViewCaseViewModel(int reqClientId)
+        {
+            Requestclient obj = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            ViewCaseViewModel viewCaseViewModel = new()
+            {
+                Firstname = obj.Firstname,
+                Lastname = obj.Lastname,
+                Email = obj.Email,
+                Phonenumber = obj.Phonenumber,
+                Notes = obj.Notes,
+                Street = obj.Street,
+                City = obj.City,
+                State = obj.State,
+                Zipcode = obj.Zipcode,
+                Room = obj.Address,
+                DateOfBirth = new DateTime((int)obj.Intyear, DateTime.ParseExact(obj.Strmonth, "MMM", CultureInfo.InvariantCulture).Month, (int)obj.Intdate),
+            };
+            return viewCaseViewModel;
+        }
+        public ViewNotes ViewNotes(int reqClientId)
+        {
+            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid== reqClientId);
+            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid==req.Requestid);
+            ViewNotes viewNote = new() 
+            {
+                AdminNotes=obj.Adminnotes,
+                PhysicianNotes=obj.Physiciannotes,
+            };
+            return viewNote;
+        }
     }
 }
