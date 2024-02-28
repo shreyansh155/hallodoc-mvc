@@ -1,4 +1,4 @@
-﻿    @model ViewCaseViewModel;
+﻿@model ViewCaseViewModel;
 
 @{
     Layout = "_AdminDashboardLayout";
@@ -170,7 +170,7 @@
                 Assign
             </button>
 
-            <button id="viewNotesBtn" type="button" href="@Url.Action("ViewNotes", new {reqClientId = Model.Requestclientid})" class="btn py-2 px-4 mx-2" style="background-color: #10bce9; color: white;">
+            <button id="viewNotesBtn" type="button" onclick="location.href='@Url.Action("ViewNotes", new {reqClientId = Model.Requestclientid})'" class="btn py-2 px-4 mx-2" style="background-color: #10bce9; color: white;">
                 View Notes
             </button>
 

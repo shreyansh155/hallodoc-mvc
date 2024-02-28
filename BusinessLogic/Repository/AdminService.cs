@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using DataAccess.DataContext;
 using System.Security.Cryptography;
 using DataAccess.DataModels;
@@ -236,7 +235,7 @@ namespace BusinessLogic.Repository
             var activeReqData = from req in _context.Requests
                                 join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                 join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
-                                where req.Status == 8   
+                                where req.Status == 8
                                 select new ActiveReqViewModel
                                 {
                                     reqClientId = rc.Requestclientid,
@@ -276,100 +275,7 @@ namespace BusinessLogic.Repository
             return data;
         }
 
-        public ViewCaseViewModel ViewCase(int reqClientId)
-        {
-            var data = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
-            var cNumber = _context.Requests.FirstOrDefault(x => x.Requestid == data.Requestid);
-            var user = _context.Users.FirstOrDefault(x => x.Userid == cNumber.Userid);
-            var confirm = cNumber.Confirmationnumber;
 
-            var viewdata = new ViewCaseViewModel
-            {
-                Requestclientid = reqClientId,
-                Firstname = data.Firstname,
-                Lastname = data.Lastname,
-                Strmonth = data.Strmonth,
-                ConfirmationNumber = confirm,
-                Notes = data.Notes,
-                Address = data.Address,
-                Email = data.Email,
-                Phonenumber = data.Phonenumber,
-                City = user.City,
-                State = user.State,
-                Street = user.Street,
-                Zipcode = user.Zip,
-                Regionid = data.Regionid,
-                
-
-            };
-
-            return viewdata;
-        }
-
-        public bool ViewCase(ViewCaseViewModel obj)
-        {
-            try
-            {
-                var rcId = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == obj.Requestclientid);
-                var rId = rcId.Requestid;
-                var rRow = _context.Requests.FirstOrDefault(x => x.Requestid == rId);
-                var uid = rRow.Userid;
-                var uRow = _context.Users.FirstOrDefault(x => x.Userid == uid);
-                var aspId = uRow.Aspnetuserid;
-                var aspRow = _context.Aspnetusers.FirstOrDefault(x => x.Id == aspId);
-
-                var email = aspRow.Email;
-
-
-                uRow.Firstname = obj.Firstname;
-                uRow.Lastname = obj.Lastname;
-                uRow.Email = obj.Email;
-                uRow.Mobile = obj.Phonenumber;
-                uRow.Strmonth = obj.Strmonth;
-
-                _context.Users.Update(uRow);
-                _context.SaveChanges();
-
-
-                aspRow.Email = obj.Email;
-                aspRow.Username = obj.Email;
-                aspRow.Phonenumber = obj.Phonenumber;
-                aspRow.Modifieddate = DateTime.UtcNow;
-
-                _context.Aspnetusers.Update(aspRow);
-                _context.SaveChanges();
-
-                _context.Requestclients.Where(x => x.Email == email).ToList().ForEach(item =>
-                {
-                    item.Firstname = obj.Firstname;
-                    item.Lastname = obj.Lastname;
-                    item.Email = obj.Email;
-                    item.Phonenumber = obj.Phonenumber;
-                    item.Address = obj.Address;
-                    item.Strmonth = obj.Strmonth;
-
-                    _context.Requestclients.Update(item);
-                    _context.SaveChanges();
-                });
-
-                _context.Requests.Where(x => x.Email == email).ToList().ForEach(item =>
-                {
-                    item.Firstname = obj.Firstname;
-                    item.Lastname = obj.Lastname;
-                    item.Email = obj.Email;
-                    item.Phonenumber = obj.Phonenumber;
-                    item.Modifieddate = DateTime.UtcNow;
-                    _context.Requests.Update(item);
-                    _context.SaveChanges();
-                });
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
 
         public ViewCaseViewModel ViewCaseViewModel(int reqClientId)
         {
@@ -387,17 +293,23 @@ namespace BusinessLogic.Repository
                 Zipcode = obj.Zipcode,
                 Room = obj.Address,
                 DateOfBirth = new DateTime((int)obj.Intyear, DateTime.ParseExact(obj.Strmonth, "MMM", CultureInfo.InvariantCulture).Month, (int)obj.Intdate),
+                Requestclientid = reqClientId,
             };
             return viewCaseViewModel;
         }
         public ViewNotes ViewNotes(int reqClientId)
         {
-            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid== reqClientId);
-            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid==req.Requestid);
-            ViewNotes viewNote = new() 
+            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
+            Physician physician = _context.Physicians.First(x => x.Physicianid == 1);
+            var requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
+             
+
+            ViewNotes viewNote = new()
             {
-                AdminNotes=obj.Adminnotes,
-                PhysicianNotes=obj.Physiciannotes,
+                AdminNotes = obj.Adminnotes,
+                PhysicianNotes = obj.Physiciannotes,
+                Statuslogs=requeststatuslog,
             };
             return viewNote;
         }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DataAccess.ViewModels;
 using DataAccess.DataContext;
-using BusinessLogic.Repository;
 using BusinessLogic.Interface;
 using DataAccess.DataModels;
 
@@ -17,10 +16,8 @@ namespace HalloDocWeb.Controllers
             _adminService = adminService;
         }
 
-
         public IActionResult AdminLogin()
         {
-
             return View();
         }
 
@@ -70,13 +67,16 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult ViewCase(int reqClientId)
         {
+            int? adminId = HttpContext.Session.GetInt32("adminId");
+
             var obj = _adminService.ViewCaseViewModel(reqClientId);
             
             return View(obj);
         }
         public IActionResult ViewNotes(int reqClientId)
         {
-            var obj=_adminService.ViewNotes(reqClientId);
+            int? adminId = HttpContext.Session.GetInt32("adminId");
+            var obj =_adminService.ViewNotes(reqClientId);
             return View(obj);
         }
 

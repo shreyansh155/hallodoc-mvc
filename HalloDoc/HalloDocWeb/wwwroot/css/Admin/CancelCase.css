@@ -1,0 +1,23 @@
+﻿
+#closebtn {
+    float: right;
+    width: 60px;
+}
+
+.btn:hover {
+    background-color: #e3e3e3;
+}
+
+.modal-dialog {
+    height: 90%;
+    margin: 150px 300px;
+}
+
+
+#closebtn {
+    color: #10bce9;
+}
+
+    #closebtn:hover {
+        color: #fff
+    }

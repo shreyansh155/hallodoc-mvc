@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LfDdnTYu3bVPnfuul44WaFjZ2It8V+pjFudIXvS9cJE=",
+  "Hash": "I8T/6oM+3KuuiVkRugzUvHBIey2RlxWM3NCiZd7lPNU=",
   "Source": "HalloDocWeb",
   "BasePath": "_content/HalloDocWeb",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\AdminLogin.css"
+    },
+    {
+      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\CancelCase.css",
+      "SourceId": "HalloDocWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
+      "BasePath": "_content/HalloDocWeb",
+      "RelativePath": "css/Admin/CancelCase.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Admin\\CancelCase.css"
     },
     {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\ViewNotes.css",

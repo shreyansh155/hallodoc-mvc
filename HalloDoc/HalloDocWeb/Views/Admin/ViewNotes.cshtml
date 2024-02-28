@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "_AdminDashboardLayout";
 }
+@model ViewNotes;
 <link rel="stylesheet" href="~/css/Admin/ViewNotes.css" />
 
 
@@ -23,38 +24,42 @@
         </div>
 
         <form method="post">
-
             <div class="shadow p-3 dashboard-card mt-4">
-
                 <hr class="mt-3 mb-0" />
-
-
                 <div class="row">
 
-                    <div class="col-md-6 col-12">
-                        <div class="form-floating mt-3 notes">
+                    <div class="col-md-6 col-12 dropdown">
+                        <div class="form-floating mt-3 notes dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="~/images/transfer-horizontal.svg" class="svg" />
                             Transfer Notes
                         </div>
+                        <ul class="dropdown-menu">
+                            @for (var i = 0; i < Model.Statuslogs.Count; i++)
+                            {
+                                <li><a class="dropdown-item">Admin transferred to Dr. @Model.Statuslogs[i].Physicianid on @Model.Statuslogs[i].Createddate.ToString("dd/MMM/yyyy") at @Model.Statuslogs[i].Createddate.ToString("HH:mm:ss") : Test assign</a></li>
+                            }
+                        </ul>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <div class="form-floating mt-3 notes">
                             <img src="~/images/doctor.svg" class="svg" />
                             Physician Notes
+                            <h6>@Model.PhysicianNotes</h6>
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="form-floating mt-3 notes">
                             <img src="~/images/admin.svg" class="svg" />
                             Admin Notes
+                            <h6>@Model.AdminNotes</h6>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
                             <div class="form-floating mt-3">
-                                <textarea style="height:100px" class="form-control" placeholder="Leave a comment here"
+                                <textarea style="height:100px" class="form-control" asp-for="TextBox" placeholder="Leave a comment here"
                                           id="floatingTextarea2"></textarea>
                                 <label for="floatingTextarea2">Admin Notes</label>
                             </div>

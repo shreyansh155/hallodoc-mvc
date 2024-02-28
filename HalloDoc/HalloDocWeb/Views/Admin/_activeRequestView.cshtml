@@ -33,7 +33,7 @@
                     bg = "#f745aa";
                     break;
             }
-            <tr >
+            <tr>
                 <td style="background-color: @bg;">@item.Firstname @item.Lastname</td>
                 <td style="background-color: @bg;">
                     <a class="btn border rounded">
@@ -130,13 +130,23 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
-                            <a class="dropdown-item" >View Case</a>
-                            </li>
-                        <li><a class="dropdown-item" href="#">View Uploads</a></li>
-                        <li><a class="dropdown-item" href="#">View Notes</a></li>
-                        <li><a class="dropdown-item" href="#">Orders</a></li>
-                        <li><a class="dropdown-item" href="#">Doctors Note</a></li>
-                        <li><a class="dropdown-item" href="#">Encounter</a></li>
+                            <a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">View Uploads</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("ViewNotes", new {reqClientId = item.reqClientId})">View Notes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Orders</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Doctors Note</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Encounter</a>
+                        </li>
                     </ul>
                 </td>
             </tr>

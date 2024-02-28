@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess.DataModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -351,8 +352,11 @@ namespace DataAccess.ViewModels
     {
         public int Requestclientid { get; set; }
         public string? PhysicianNotes { get; set; }
+        public string? PhysicianName { get; set; }
         public string? AdminNotes { get; set; }
         public string? TransferNotes { get; set; }
         public string? TextBox { get; set; }
+        public List<Requeststatuslog> Statuslogs { get; set; }
     }
+
 }

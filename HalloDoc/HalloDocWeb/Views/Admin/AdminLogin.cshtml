@@ -20,15 +20,15 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- left -->
+            <!-- left --> 
             <div class="col-lg-6 col-md-6 col-sm-12 left">
                 <img class="w-100 vh-100" src="~/images/11116016_415.jpg" alt="banner">
             </div>
             <!-- right  -->
             <div class="col-lg-6 col-md-6 col-sm-12 right">
-                <img onclick="darkMode()" class="d-mode" src="/images/dark.png" alt="dark">
+                <img onclick="darkMode()" class="d-mode" src="~/images/darkmode.png" alt="dark">
                 <form class="login" method="post">
-                    <img id="logo" src="/images/hallodoc.png" alt="logo">
+                    <img id="logo" src="~/images/logo.png" alt="logo">
                     <h3>Login to your account</h3>
                     <div class="input-div form-floating mb-3">
                         <input asp-for="Email" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -62,7 +62,7 @@
             element.classList.toggle("dark-mode");
 
             var img = element.querySelector(".d-mode");
-            img.src.includes("dark") ? img.src = "../images/light.png" : img.src = "../images/dark.png";
+            img.src.includes("darkmode") ? img.src = "../../images/lightmode.png" : img.src = "../../images/darkmode.png";
         }
     </script>
 </body>

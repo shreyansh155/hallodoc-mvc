@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\css\\Admin\\AdminLogin.css"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\CancelCase.css",
+      "PackagePath": "staticwebassets\\css\\Admin\\CancelCase.css"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\ViewNotes.css",
       "PackagePath": "staticwebassets\\css\\Admin\\ViewNotes.css"
     },

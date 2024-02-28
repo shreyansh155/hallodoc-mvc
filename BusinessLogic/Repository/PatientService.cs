@@ -157,6 +157,10 @@ namespace BusinessLogic.Repository
                 Strmonth = userDetails.DateOfBirth.ToString("MMM"),
                 Intdate = userDetails.DateOfBirth.Day,
                 Intyear = userDetails.DateOfBirth.Year,
+                Street = userDetails.Street,
+                City = userDetails.City,
+                State = userDetails.State,
+                Zipcode = userDetails.ZipCode,
 
             };
             _context.Requestclients.Add(requestclient);
@@ -293,6 +297,10 @@ namespace BusinessLogic.Repository
                 Strmonth = userDetails.DateOfBirth.ToString("MMM"),
                 Intdate = userDetails.DateOfBirth.Day,
                 Intyear = userDetails.DateOfBirth.Year,
+                Street = userDetails.Street,
+                City = userDetails.City,
+                State = userDetails.State,
+                Zipcode = userDetails.ZipCode,
 
             };
             _context.Requestclients.Add(requestclient);
@@ -438,6 +446,10 @@ namespace BusinessLogic.Repository
                 Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
                 Intdate = userDetails.DateOfBirth.Day,
                 Intyear = userDetails.DateOfBirth.Year,
+                Street = userDetails.Street,
+                City = userDetails.City,
+                State = userDetails.State,
+                Zipcode = userDetails.ZipCode,
 
             };
             _context.Requestclients.Add(requestclient);
@@ -584,6 +596,10 @@ namespace BusinessLogic.Repository
                 Strmonth = userDetails.PatientDateOfBirth.ToString("MMM"),
                 Intdate = userDetails.PatientDateOfBirth.Day,
                 Intyear = userDetails.PatientDateOfBirth.Year,
+                Street = userDetails.Street,
+                City = userDetails.City,
+                State = userDetails.State,
+                Zipcode = userDetails.ZipCode,
 
             };
             _context.Requestclients.Add(requestclient);
@@ -743,7 +759,6 @@ namespace BusinessLogic.Repository
             _context.SaveChanges();
 
             Request request = _context.Requests.Where(x => x.Userid == user.Userid).FirstOrDefault();
-            //request.Requesttypeid = 2;
             request.Firstname = profile.FirstName;
             request.Lastname = profile.LastName;
             request.Email = profile.Email;

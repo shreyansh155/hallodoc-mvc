@@ -126,7 +126,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a class="dropdown-item" href="">Assign Case</a></li>
-                        <li><a class="dropdown-item" href="#">Cancel Case</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myModal1">Cancel Case</a></li>
                         <li><a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a></li>
                         <li><a class="dropdown-item" href="@Url.Action("ViewNotes", new {reqClientId = item.reqClientId})">View Notes</a></li>
                         <li><a class="dropdown-item" href="#">Block Patient</a></li>
@@ -136,3 +136,4 @@
         }
     </tbody>
 </table>
+

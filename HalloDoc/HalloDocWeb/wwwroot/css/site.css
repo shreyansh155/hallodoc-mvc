@@ -38,6 +38,15 @@ footer {
 }
 
 
+#adminLogin {
+    background-color: blue;
+    color: white;
+    width: 350px;
+    margin:15px;
+    text-decoration: none;
+}
+
+
 .footer{
     text-align:center;
     color:white;

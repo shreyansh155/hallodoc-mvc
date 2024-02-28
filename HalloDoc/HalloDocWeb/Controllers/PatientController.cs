@@ -7,10 +7,7 @@ using DataAccess.ViewModels;
 using System.Text;
 using System.Security.Cryptography;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Identity;
-using BusinessLogic.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 namespace HalloDocWeb.Controllers
 {
