@@ -36,7 +36,7 @@
                         <ul class="dropdown-menu">
                             @for (var i = 0; i < Model.Statuslogs.Count; i++)
                             {
-                                <li><a class="dropdown-item">Admin transferred to Dr. @Model.Statuslogs[i].Physicianid on @Model.Statuslogs[i].Createddate.ToString("dd/MMM/yyyy") at @Model.Statuslogs[i].Createddate.ToString("HH:mm:ss") : Test assign</a></li>
+                                <li><a class="dropdown-item">Admin transferred to Dr. <span class="text-uppercase">@Model.PhysicianName</span>  on @Model.Statuslogs[i].Createddate.ToString("dd/MMM/yyyy") at @Model.Statuslogs[i].Createddate.ToString("HH:mm:ss") : Test assign</a></li>
                             }
                         </ul>
                     </div>

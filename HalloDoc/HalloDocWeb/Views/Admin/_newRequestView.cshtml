@@ -1,4 +1,4 @@
-﻿<table class="table table-responsive d-table ">
+﻿<table class="table table-responsive d-table">
     <thead>
         <tr class="table-secondary">
             <td>Name</td>
@@ -14,9 +14,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.NewReqViewModel)
+        @foreach (var item in Model)
         {
             var bg = "";
+            var name = item.Firstname + " " + item.Lastname;
             @switch (item.reqTypeId)
             {
                 case 1:
@@ -35,8 +36,9 @@
             <tr>
                 <td style="background-color: @bg;">@item.Firstname @item.Lastname</td>
                 <td style="background-color: @bg;">
-                    <a class="btn border rounded">
+                    <a href="mailto: @item.Email" class="btn border rounded">
                         <img src="~/images/envelope.svg" />
+
                     </a>
                 </td>
                 <td style="background-color: @bg;">
@@ -76,34 +78,38 @@
                     @item.Createddate
                 </td>
                 <td style="background-color: @bg;">
-                    <div class="border rounded d-flex justify-content-center">
+                    <a href="tel:@item.Phonenumber" class="btn border rounded d-flex justify-content-center">
+                        <img src="~/images/telephone.svg" />
                         @item.Phonenumber
-                    </div>
+                    </a>
                     (Patient)
                     @if (item.reqTypeId == 2)
                     {
                         <div>
-                            <div class="border rounded d-flex justify-content-center">
+                            <a href="tel:@item.FamilyPhonenumber" class="btn border rounded d-flex justify-content-center">
+                                <img src="~/images/telephone.svg" />
                                 @item.FamilyPhonenumber
-                            </div>
+                            </a>
                             (Family/Friend)
                         </div>
                     }
                     @if (item.reqTypeId == 3)
                     {
                         <div>
-                            <div class="border rounded d-flex justify-content-center">
+                            <a href="tel:@item.ConciergePhonenumber" class="btn border rounded d-flex justify-content-center">
+                                <img src="~/images/telephone.svg" />
                                 @item.ConciergePhonenumber
-                            </div>
+                            </a>
                             (Concierge)
                         </div>
                     }
                     @if (item.reqTypeId == 4)
                     {
                         <div>
-                            <div class="border rounded d-flex justify-content-center">
+                            <a href="tel:@item.BusinessPhonenumber" class="btn border rounded d-flex justify-content-center">
+                                <img src="~/images/telephone.svg" />
                                 @item.BusinessPhonenumber
-                            </div>
+                            </a>
                             (Business)
                         </div>
                     }
@@ -125,15 +131,47 @@
                         Actions
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a class="dropdown-item" href="">Assign Case</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myModal1">Cancel Case</a></li>
-                        <li><a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a></li>
-                        <li><a class="dropdown-item" href="@Url.Action("ViewNotes", new {reqClientId = item.reqClientId})">View Notes</a></li>
-                        <li><a class="dropdown-item" href="#">Block Patient</a></li>
+                        <li>
+                            <a class="btn dropdown-item" data-bs-toggle="modal">Assign Case</a>
+                        </li>
+
+                        <li>
+                            <a class="btn dropdown-item" id="cancelCase" onclick="cancelCase(item.reqClientId)">Cancel Case</a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("ViewNotes", new {reqClientId = item.reqClientId})">View Notes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Block Patient</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
+
         }
     </tbody>
 </table>
+@* <div id="display">
+    <partial name="_CancelCaseView" />
+</div> *@
+<script>
+    $('#cancelCase').click(function cancelCase(requestClientId) {
 
+        $.ajax({
+            url: "/Admin/CancelCaseModal",
+            data: { requestClientId: reqClientId },
+            type: 'GET',
+            success: function (result) {
+                $('#cancelModalPatientName').text(result);
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    });
+</script>

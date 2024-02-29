@@ -37,7 +37,7 @@ namespace BusinessLogic.Repository
         }
         public bool AdminLogin(AdminLogin adminLogin)
         {
-            string hashPassword = GenerateSHA256(adminLogin.Password);
+            string hashPassword = GenerateSHA256(adminLogin.Password); ;
             return _context.Aspnetusers.Any(Au => Au.Email == adminLogin.Email && Au.Passwordhash == hashPassword);
         }
         public void CreateAdminAccount(CreateAdminAccount newAccount)
@@ -71,10 +71,10 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
             }
         }
-
-
         public AdminDashboard AdminDashboard()
         {
+
+
             var newCount = (from t1 in _context.Requests
                             where t1.Status == 1
                             select t1
@@ -106,7 +106,8 @@ namespace BusinessLogic.Repository
                 activeCount = activeCount,
                 concludeCount = concludeCount,
                 closeCount = closeCount,
-                unpaidCount = unpaidCount
+                unpaidCount = unpaidCount,
+                RegionList = _context.Regions.ToList()
             };
 
             var newReqData = (from req in _context.Requests
@@ -130,7 +131,8 @@ namespace BusinessLogic.Repository
                                   State = rc.State,
                                   Zipcode = rc.Zipcode,
                                   Notes = rc.Notes,
-                                  reqTypeId = req.Requesttypeid
+                                  reqTypeId = req.Requesttypeid,
+                                  Casetags = _context.Casetags.ToList(),
                               });
             var pendingReqData = from req in _context.Requests
                                  join rc in _context.Requestclients on req.Requestid equals rc.Requestid
@@ -269,14 +271,10 @@ namespace BusinessLogic.Repository
                 CloseReqViewModels = closeReqData,
                 ActiveReqViewModels = activeReqData,
                 PendingReqViewModel = pendingReqData,
-                UnpaidReqViewModels = unpaidReqData
-
+                UnpaidReqViewModels = unpaidReqData,
             };
             return data;
         }
-
-
-
         public ViewCaseViewModel ViewCaseViewModel(int reqClientId)
         {
             Requestclient obj = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
@@ -303,15 +301,42 @@ namespace BusinessLogic.Repository
             Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
             Physician physician = _context.Physicians.First(x => x.Physicianid == 1);
             var requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
-             
+
 
             ViewNotes viewNote = new()
             {
+                PhysicianName = physician.Firstname,
                 AdminNotes = obj.Adminnotes,
                 PhysicianNotes = obj.Physiciannotes,
-                Statuslogs=requeststatuslog,
+                Statuslogs = requeststatuslog,
             };
             return viewNote;
+        }
+        public AdminDashboard SearchPatient(SearchViewModel obj, AdminDashboard data)
+        {
+            if (obj.Name == null)
+            {
+                return data;
+            }
+            else
+            {
+                var name = obj.Name.ToUpper();
+                var sortedNew = data.NewReqViewModel.Where(s => s.Firstname.ToUpper().Contains(name) || s.Lastname.ToUpper().Contains(name) || s.reqFirstname.ToUpper().Contains(name) || s.reqLastname.ToUpper().Contains(name));
+                var sortedConclude = data.ConcludeReqViewModel.Where(s => s.Firstname.ToUpper().Contains(name) || s.Lastname.ToUpper().Contains(name) || s.reqFirstname.ToUpper().Contains(name) || s.reqLastname.ToUpper().Contains(name));
+                var sortedClose = data.CloseReqViewModels.Where(s => s.Firstname.ToUpper().Contains(name) || s.Lastname.ToUpper().Contains(name) || s.reqFirstname.ToUpper().Contains(name) || s.reqLastname.ToUpper().Contains(name));
+                var sortedPending = data.PendingReqViewModel.Where(s => s.Firstname.ToUpper().Contains(name) || s.Lastname.ToUpper().Contains(name) || s.reqFirstname.ToUpper().Contains(name) || s.reqLastname.ToUpper().Contains(name));
+                var sortedUnpaid = data.UnpaidReqViewModels.Where(s => s.Firstname.ToUpper().Contains(name) || s.Lastname.ToUpper().Contains(name) || s.reqFirstname.ToUpper().Contains(name) || s.reqLastname.ToUpper().Contains(name));
+                var sortedActive = data.ActiveReqViewModels.Where(s => s.Firstname.ToUpper().Contains(name) || s.Lastname.ToUpper().Contains(name) || s.reqFirstname.ToUpper().Contains(name) || s.reqLastname.ToUpper().Contains(name));
+
+                data.NewReqViewModel = sortedNew;
+                data.ConcludeReqViewModel = sortedConclude;
+                data.CloseReqViewModels = sortedClose;
+                data.PendingReqViewModel = sortedPending;
+                data.ActiveReqViewModels = sortedActive;
+                data.UnpaidReqViewModels = sortedUnpaid;
+
+                return data;
+            }
         }
     }
 }

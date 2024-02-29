@@ -38,10 +38,6 @@ namespace HalloDocWeb.Controllers
             return View();
         }
 
-
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AdminLogin(AdminLogin adminLogin)
@@ -60,9 +56,14 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult AdminDashboard()
         {
-            int? adminId = HttpContext.Session.GetInt32("adminId");
+
             var data = _adminService.AdminDashboard();
-            return View(data);
+            int? adminId = HttpContext.Session.GetInt32("adminId");
+            var dashData = new AdminDashboard
+            {
+                CountRequestViewModel = data.CountRequestViewModel,
+            };
+            return View(dashData);
         }
 
         public IActionResult ViewCase(int reqClientId)
@@ -80,5 +81,100 @@ namespace HalloDocWeb.Controllers
             return View(obj);
         }
 
+
+        [HttpPost]
+        public IActionResult PartialTable(int status, SearchViewModel obj)
+        {
+            var data = _adminService.AdminDashboard();
+
+            if (obj.Name != null || obj.Sorting != null)
+            {
+                var searchData = _adminService.SearchPatient(obj, data);
+                if (status == 1)
+                {
+                    var parseData = searchData.NewReqViewModel;
+                    return PartialView("_newRequestView", parseData);
+                }
+                else if (status == 2)
+                {
+                    var parseData = searchData.PendingReqViewModel;
+                    return PartialView("_PendingRequestView", parseData);
+                }
+                else if (status == 8)
+                {
+                    var parseData = searchData.ActiveReqViewModels;
+                    return PartialView("_activeRequestView", parseData);
+                }
+                else if (status == 4)
+                {
+                    var parseData = searchData.ConcludeReqViewModel;
+                    return PartialView("_concludeReqView", parseData);
+                }
+                else if (status == 5)
+                {
+                    var parseData = searchData.CloseReqViewModels;
+                    return PartialView("_closeReqView", parseData);
+                }
+                else
+                {
+                    var parseData = searchData.UnpaidReqViewModels;
+                    return PartialView("_unpaidReqView", parseData);
+                }
+            }
+
+            if (status == 1)
+            {
+                var parseData = data.NewReqViewModel;
+                return PartialView("_newRequestView", parseData);
+            }
+            else if (status == 2)
+            {
+                var parseData = data.PendingReqViewModel;
+                return PartialView("_PendingRequestView", parseData);
+            }
+            else if (status == 8)
+            {
+                var parseData = data.ActiveReqViewModels;
+                return PartialView("_activeRequestView", parseData);
+            }
+            else if (status == 4)
+            {
+                var parseData = data.ConcludeReqViewModel;
+                return PartialView("_concludeReqView", parseData);
+            }
+            else if (status == 5)
+            {
+                var parseData = data.CloseReqViewModels;
+                return PartialView("_closeReqView", parseData);
+            }
+            else
+            {
+                var parseData = data.UnpaidReqViewModels;
+                return PartialView("_unpaidReqView", parseData);
+            }
+
+
+        }
+        [HttpPost]
+        public IActionResult AdminDashboard(SearchViewModel? obj)
+        {
+            //ViewBag.AdminName = HttpContext.Session.GetString("adminToken").ToString();
+            ViewBag.AdminId = HttpContext.Session.GetInt32("adminId");
+            var data = _adminService.AdminDashboard();
+
+            var searchedData = _adminService.SearchPatient(obj, data);
+
+            var dashData = new AdminDashboard
+            {
+                CountRequestViewModel = searchedData.CountRequestViewModel,
+            };
+
+            return View(dashData);
+
+        }
+        public IActionResult CancelCaseModal(int id)
+        {
+            return PartialView("_CancelCaseView",id);
+        }
     }
 }

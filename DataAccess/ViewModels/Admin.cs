@@ -33,8 +33,9 @@ namespace DataAccess.ViewModels
     {
         public CountRequestViewModel? CountRequestViewModel { get; set; }
 
-        //public SearchViewModel SearchViewModel { get; set; }
-
+        public SearchViewModel? SearchViewModel { get; set; }
+        public string? Name { get; set; }
+        public string? Sorting { get; set; }
         public IEnumerable<NewReqViewModel>? NewReqViewModel { get; set; }
 
         public IEnumerable<PendingReqViewModel>? PendingReqViewModel { get; set; }
@@ -192,6 +193,8 @@ namespace DataAccess.ViewModels
         public int concludeCount { get; set; }
         public int closeCount { get; set; }
         public int unpaidCount { get; set; }
+        public IEnumerable<Region>? RegionList { get; set; }
+
     }
     public class NewReqViewModel
     {
@@ -203,6 +206,7 @@ namespace DataAccess.ViewModels
         public string? reqFirstname { get; set; }
 
         public string? reqLastname { get; set; }
+        public IEnumerable<Casetag>? Casetags { get; set; }
 
         public string? Phonenumber { get; set; }
 
@@ -356,7 +360,29 @@ namespace DataAccess.ViewModels
         public string? AdminNotes { get; set; }
         public string? TransferNotes { get; set; }
         public string? TextBox { get; set; }
-        public List<Requeststatuslog> Statuslogs { get; set; }
+        public List<Requeststatuslog>? Statuslogs { get; set; }
+    }
+    public class SearchViewModel
+    {
+        public string? Name { get; set; }
+
+        public string? Sorting { get; set; }
+    }
+    public class CancelCase
+    {
+        public int? ReqClientid { get; set; }
+        public string? Name { get; set; }
+        public int? CaseTagId { get; set; }
+        public IEnumerable<Casetag>? Casetags { get; set; }
+        public string? AddOnNotes { get; set; }
+    }
+    public class AssignCase
+    {
+        public string? ReqClientid { get; set; }
+        public string? Name { get; set; }
+        public IEnumerable<Region>? Region { get; set; }
+        public IEnumerable<Physician>? Physicians{ get; set; }
+        public string? Description { get; set; }
     }
 
 }
