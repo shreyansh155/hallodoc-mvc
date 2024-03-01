@@ -4,15 +4,8 @@ using DataAccess.DataModels;
 using DataAccess.ViewModels;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using System.Runtime.Intrinsics.X86;
-using Microsoft.AspNetCore.Http;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 
 namespace BusinessLogic.Repository
 {
@@ -114,101 +107,164 @@ namespace BusinessLogic.Repository
                     };
                     _context.Users.Add(user1);
                     _context.SaveChanges();
+
+                    Request request = new()
+                    {
+                        Requesttypeid = 2,
+                        Userid = user1.Userid,
+                        Firstname = userDetails.FirstName,
+                        Lastname = userDetails.LastName,
+                        Email = userDetails.Email,
+                        Status = 1,
+                        Physicianid = 1,
+                        Createddate = DateTime.Now,
+                        Isurgentemailsent = true
+                    };
+                    _context.Requests.Add(request);
+                    _context.SaveChanges();
+
+                    Requestclient requestclient = new()
+                    {
+
+                        Requestid = request.Requestid,
+                        Firstname = userDetails.FirstName,
+                        Lastname = userDetails.LastName,
+                        Email = userDetails.Email,
+                        Phonenumber = userDetails.Phone,
+                        Notes = userDetails.Symptoms,
+                        Strmonth = userDetails.DateOfBirth.ToString("MMM"),
+                        Intdate = userDetails.DateOfBirth.Day,
+                        Intyear = userDetails.DateOfBirth.Year,
+                        Street = userDetails.Street,
+                        City = userDetails.City,
+                        State = userDetails.State,
+                        Zipcode = userDetails.ZipCode,
+
+                    };
+                    _context.Requestclients.Add(requestclient);
+                    _context.SaveChanges();
+                    if (userDetails.File != null && userDetails.File.Length > 0)
+                    {
+                        //get file name
+                        var fileName = Path.GetFileName(userDetails.File.FileName);
+
+                        string rootPath = _environment.WebRootPath + "/UploadedFiles";
+
+
+                        string userId = user.Id;
+
+                        string userFolder = Path.Combine(rootPath, userId);
+
+                        if (!Directory.Exists(userFolder))
+                        {
+                            Directory.CreateDirectory(userFolder);
+                        }
+
+
+                        //define path
+                        string filePath = Path.Combine(userFolder, fileName);
+
+
+                        // Copy the file to the desired location
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            userDetails.File.CopyTo(stream)
+        ;
+                        }
+
+
+                        Requestwisefile requestwisefile = new()
+                        {
+                            Filename = fileName,
+                            Requestid = request.Requestid,
+                            Createddate = DateTime.Now
+                        };
+
+                        _context.Requestwisefiles.Add(requestwisefile);
+                        _context.SaveChanges();
+                    }
                 }
             }
-
-
-            User user2 = _context.Users.First(x => x.Email == userDetails.Email);
-
-            Request request = new()
+            else
             {
-                Requesttypeid = 1,
-                Userid = user2.Userid,
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Status = 1,
-                Physicianid = 1,
-                Createddate = DateTime.Now,
-                Isurgentemailsent = true
-            };
-            _context.Requests.Add(request);
-            _context.SaveChanges();
+                User user2 = _context.Users.First(x => x.Email == userDetails.Email);
 
-
-            Requeststatuslog requeststatuslog = new()
-            {
-                Requestid = request.Requestid,
-                Status = 1,
-                Createddate = DateTime.Now
-            };
-            _context.Requeststatuslogs.Add(requeststatuslog);
-            _context.SaveChanges();
-
-            Requestclient requestclient = new()
-            {
-
-                Requestid = request.Requestid,
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Phonenumber = userDetails.Phone,
-                Notes = userDetails.Symptoms,
-                Strmonth = userDetails.DateOfBirth.ToString("MMM"),
-                Intdate = userDetails.DateOfBirth.Day,
-                Intyear = userDetails.DateOfBirth.Year,
-                Street = userDetails.Street,
-                City = userDetails.City,
-                State = userDetails.State,
-                Zipcode = userDetails.ZipCode,
-
-            };
-            _context.Requestclients.Add(requestclient);
-            _context.SaveChanges();
-
-
-
-
-            //uploading files
-            if (userDetails.File != null && userDetails.File.Length > 0)
-            {
-                //get file name
-                var fileName = Path.GetFileName(userDetails.File.FileName);
-
-                string rootPath = _environment.WebRootPath + "/UploadedFiles";
-
-
-                string userId = user.Id;
-
-                string userFolder = Path.Combine(rootPath, userId);
-
-                if (!Directory.Exists(userFolder))
+                Request request = new()
                 {
-                    Directory.CreateDirectory(userFolder);
-                }
-
-
-                //define path
-                string filePath = Path.Combine(userFolder, fileName);
-
-
-                // Copy the file to the desired location
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    userDetails.File.CopyTo(stream)
-;
-                }
-
-
-                Requestwisefile requestwisefile = new()
-                {
-                    Filename = fileName,
-                    Requestid = request.Requestid,
-                    Createddate = DateTime.Now
+                    Requesttypeid = 1,
+                    Userid = user2.Userid,
+                    Firstname = userDetails.FirstName,
+                    Lastname = userDetails.LastName,
+                    Email = userDetails.Email,
+                    Status = 1,
+                    Physicianid = 1,
+                    Createddate = DateTime.Now,
+                    Isurgentemailsent = true
                 };
-
-                _context.Requestwisefiles.Add(requestwisefile);
+                _context.Requests.Add(request);
                 _context.SaveChanges();
+
+                Requestclient requestclient = new()
+                {
+
+                    Requestid = request.Requestid,
+                    Firstname = userDetails.FirstName,
+                    Lastname = userDetails.LastName,
+                    Email = userDetails.Email,
+                    Phonenumber = userDetails.Phone,
+                    Notes = userDetails.Symptoms,
+                    Strmonth = userDetails.DateOfBirth.ToString("MMM"),
+                    Intdate = userDetails.DateOfBirth.Day,
+                    Intyear = userDetails.DateOfBirth.Year,
+                    Street = userDetails.Street,
+                    City = userDetails.City,
+                    State = userDetails.State,
+                    Zipcode = userDetails.ZipCode,
+
+                };
+                _context.Requestclients.Add(requestclient);
+                _context.SaveChanges();
+
+                if (userDetails.File != null && userDetails.File.Length > 0)
+                {
+                    //get file name
+                    var fileName = Path.GetFileName(userDetails.File.FileName);
+
+                    string rootPath = _environment.WebRootPath + "/UploadedFiles";
+
+
+                    string userId = user.Id;
+
+                    string userFolder = Path.Combine(rootPath, userId);
+
+                    if (!Directory.Exists(userFolder))
+                    {
+                        Directory.CreateDirectory(userFolder);
+                    }
+
+
+                    //define path
+                    string filePath = Path.Combine(userFolder, fileName);
+
+
+                    // Copy the file to the desired location
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        userDetails.File.CopyTo(stream)
+    ;
+                    }
+
+
+                    Requestwisefile requestwisefile = new()
+                    {
+                        Filename = fileName,
+                        Requestid = request.Requestid,
+                        Createddate = DateTime.Now
+                    };
+
+                    _context.Requestwisefiles.Add(requestwisefile);
+                    _context.SaveChanges();
+                }
             }
 
             _context.SaveChanges();
@@ -275,15 +331,6 @@ namespace BusinessLogic.Repository
                 Isurgentemailsent = true
             };
             _context.Requests.Add(request);
-            _context.SaveChanges();
-
-            Requeststatuslog requeststatuslog = new()
-            {
-                Requestid = request.Requestid,
-                Status = 1,
-                Createddate = DateTime.Now
-            };
-            _context.Requeststatuslogs.Add(requeststatuslog);
             _context.SaveChanges();
 
             Requestclient requestclient = new()
@@ -354,148 +401,264 @@ namespace BusinessLogic.Repository
             Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == userDetails.PatientEmail);
             if (obj == null)
             {
-                Aspnetuser aspnetuser = new()
+                if (userDetails.Password == userDetails.ConfirmPassword)
                 {
-                    Id = id.ToString(),
-                    Username = userDetails.PatientFirstName,
-                    Createddate = DateTime.Now,
-                    Email = userDetails.PatientFirstName,
-                    Phonenumber = userDetails.PatientPhone,
+                    Aspnetuser aspnetuser = new()
+                    {
+                        Id = id.ToString(),
+                        Username = userDetails.PatientFirstName,
+                        Createddate = DateTime.Now,
+                        Email = userDetails.PatientFirstName,
+                        Phonenumber = userDetails.PatientPhone,
 
-                };
-                _context.Aspnetusers.Add(aspnetuser);
-                _context.SaveChanges();
-                obj = aspnetuser;
+                    };
+                    _context.Aspnetusers.Add(aspnetuser);
+                    _context.SaveChanges();
+                    obj = aspnetuser;
+                    User user1 = new()
+                    {
+                        Aspnetuserid = obj.Id,
+                        Firstname = userDetails.PatientFirstName,
+                        Lastname = userDetails.PatientLastName,
+                        Email = userDetails.PatientEmail,
+                        Mobile = userDetails.PatientPhone,
+                        Street = userDetails.Street,
+                        City = userDetails.City,
+                        State = userDetails.State,
+                        Zip = userDetails.ZipCode,
+                        Strmonth = DateTime.Now.Month.ToString(),
+                        Intyear = DateTime.Now.Year,
+                        Intdate = DateTime.Now.Day,
+                        Createdby = userDetails.FirstName,
+                        Createddate = DateTime.Now,
+                        Modifiedby = userDetails.FirstName + userDetails.LastName,
+                        Modifieddate = DateTime.Now
+                    };
+                    _context.Users.Add(user1);
+                    _context.SaveChanges();
+            
+
+                    Request request = new()
+                    {
+                        Requesttypeid = 3,
+                        Firstname = userDetails.FirstName,
+                        Lastname = userDetails.LastName,
+                        Email = userDetails.Email,
+                        Status = 1,
+                        Physicianid = 1,
+                        Createddate = DateTime.Now,
+                        Isurgentemailsent = true
+                    };
+                    _context.Requests.Add(request);
+                    _context.SaveChanges();
+
+                    Concierge concierge = new()
+                    {
+                        Conciergename = userDetails.FirstName + userDetails.LastName,
+                        Street = userDetails.Street,
+                        City = userDetails.City,
+                        State = userDetails.State,
+                        Zipcode = userDetails.ZipCode,
+                        Createddate = DateTime.Now,
+                        Regionid=1,
+                    };
+                    _context.Concierges.Add(concierge);
+                    _context.SaveChanges();
+                    Requestconcierge requestconcierge = new()
+                    {
+                        Requestid = request.Requestid,
+                        Conciergeid = concierge.Conciergeid,
+
+                    };
+                    _context.Requestconcierges.Add(requestconcierge);
+                    _context.SaveChanges();
+
+                    Requestclient requestclient = new()
+                    {
+                        Requestid = request.Requestid,
+                        Firstname = userDetails.FirstName,
+                        Lastname = userDetails.LastName,
+                        Email = userDetails.Email,
+                        Phonenumber = userDetails.Phone,
+                        Notes = userDetails.Symptoms,
+                        Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                        Intdate = userDetails.DateOfBirth.Day,
+                        Intyear = userDetails.DateOfBirth.Year,
+                        Street = userDetails.Street,
+                        City = userDetails.City,
+                        State = userDetails.State,
+                        Zipcode = userDetails.ZipCode,
+
+                    };
+                    _context.Requestclients.Add(requestclient);
+                    _context.SaveChanges();
+
+                    if (userDetails.File != null && userDetails.File.Length > 0)
+                    {
+                        //get file name
+                        var fileName = Path.GetFileName(userDetails.File.FileName);
+
+                        string rootPath = _environment.WebRootPath + "/UploadedFiles";
+
+                        string userId = user1.Userid.ToString();
+
+                        string userFolder = Path.Combine(rootPath, userId);
+
+                        if (!Directory.Exists(userFolder))
+                        {
+                            Directory.CreateDirectory(userFolder);
+                        }
+
+
+                        //define path
+                        string filePath = Path.Combine(userFolder, fileName);
+
+
+                        // Copy the file to the desired location
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            userDetails.File.CopyTo(stream)
+        ;
+                        }
+
+
+                        Requestwisefile requestwisefile = new()
+                        {
+                            Filename = fileName,
+                            Requestid = request.Requestid,
+                            Createddate = DateTime.Now
+                        };
+
+                        _context.Requestwisefiles.Add(requestwisefile);
+                        _context.SaveChanges();
+                    }
+                    _context.SaveChanges();
+                }
             }
-
-            User user1 = new()
+            else
             {
-                Aspnetuserid = obj.Id,
-                Firstname = userDetails.PatientFirstName,
-                Lastname = userDetails.PatientLastName,
-                Email = userDetails.PatientEmail,
-                Mobile = userDetails.PatientPhone,
-                Street = userDetails.Street,
-                City = userDetails.City,
-                State = userDetails.State,
-                Zip = userDetails.ZipCode,
-                Strmonth = DateTime.Now.Month.ToString(),
-                Intyear = DateTime.Now.Year,
-                Intdate = DateTime.Now.Day,
-                Createdby = userDetails.FirstName,
-                Createddate = DateTime.Now,
-                Modifiedby = userDetails.FirstName + userDetails.LastName,
-                Modifieddate = DateTime.Now
-            };
-            _context.Users.Add(user1);
-            _context.SaveChanges();
+                var user = _context.Aspnetusers.Where(x => x.Email == userDetails.Email).FirstOrDefault();
 
 
-            Request request = new()
-            {
-                Requesttypeid = 3,
-                Userid = user1.Userid,
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Status = 1,
-                Physicianid = 1,
-                Createddate = DateTime.Now,
-                Isurgentemailsent = true
-            };
-            _context.Requests.Add(request);
-            _context.SaveChanges();
-
-            Requeststatuslog requeststatuslog = new()
-            {
-                Requestid = request.Requestid,
-                Status = 1,
-                Createddate = DateTime.Now
-            };
-            _context.Requeststatuslogs.Add(requeststatuslog);
-            _context.SaveChanges();
-
-            Concierge concierge = new()
-            {
-                Conciergename = userDetails.FirstName + userDetails.LastName,
-                Street = userDetails.Street,
-                City = userDetails.City,
-                State = userDetails.State,
-                Zipcode = userDetails.ZipCode,
-                Createddate = DateTime.Now
-            };
-            _context.Concierges.Add(concierge);
-            _context.SaveChanges();
-            Requestconcierge requestconcierge = new()
-            {
-                Requestid = request.Requestid,
-                Conciergeid = concierge.Conciergeid,
-
-            };
-            _context.Requestconcierges.Add(requestconcierge);
-            _context.SaveChanges();
-
-            Requestclient requestclient = new()
-            {
-                Requestid = request.Requestid,
-                Firstname = userDetails.FirstName,
-                Lastname = userDetails.LastName,
-                Email = userDetails.Email,
-                Phonenumber = userDetails.Phone,
-                Notes = userDetails.Symptoms,
-                Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
-                Intdate = userDetails.DateOfBirth.Day,
-                Intyear = userDetails.DateOfBirth.Year,
-                Street = userDetails.Street,
-                City = userDetails.City,
-                State = userDetails.State,
-                Zipcode = userDetails.ZipCode,
-
-            };
-            _context.Requestclients.Add(requestclient);
-            _context.SaveChanges();
-
-            if (userDetails.File != null && userDetails.File.Length > 0)
-            {
-                //get file name
-                var fileName = Path.GetFileName(userDetails.File.FileName);
-
-                string rootPath = _environment.WebRootPath + "/UploadedFiles";
-
-                string userId = user1.Userid.ToString();
-
-                string userFolder = Path.Combine(rootPath, userId);
-
-                if (!Directory.Exists(userFolder))
+                User user1 = new()
                 {
-                    Directory.CreateDirectory(userFolder);
-                }
+                    Aspnetuserid = user.Id,
+                    Firstname = userDetails.FirstName,
+                    Lastname = userDetails.LastName,
+                    Email = userDetails.Email,
+                    Mobile = userDetails.Phone,
+                    Street = userDetails.Street,
+                    City = userDetails.City,
+                    State = userDetails.State,
+                    Zip = userDetails.ZipCode,
+                    Createdby = "admin",
+                    Createddate = DateTime.Now,
+                    Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                    Intdate = userDetails.DateOfBirth.Day,
+                    Intyear = userDetails.DateOfBirth.Year,
+                };
+
+                _context.Users.Add(user1);
+                _context.SaveChanges();
 
 
-                //define path
-                string filePath = Path.Combine(userFolder, fileName);
-
-
-                // Copy the file to the desired location
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                Request request = new()
                 {
-                    userDetails.File.CopyTo(stream)
-;
-                }
+                    Requesttypeid = 3,
+                    Userid = user1.Userid,
+                    Firstname = userDetails.FirstName,
+                    Lastname = userDetails.LastName,
+                    Email = userDetails.Email,
+                    Status = 1,
+                    Physicianid = 1,
+                    Createddate = DateTime.Now,
+                    Isurgentemailsent = true
+                };
+                _context.Requests.Add(request);
+                _context.SaveChanges();
 
-
-                Requestwisefile requestwisefile = new()
+                Concierge concierge = new()
                 {
-                    Filename = fileName,
-                    Requestid = request.Requestid,
+                    Conciergename = userDetails.FirstName + userDetails.LastName,
+                    Street = userDetails.Street,
+                    City = userDetails.City,
+                    State = userDetails.State,
+                    Zipcode = userDetails.ZipCode,
                     Createddate = DateTime.Now
                 };
-
-                _context.Requestwisefiles.Add(requestwisefile);
+                _context.Concierges.Add(concierge);
                 _context.SaveChanges();
-            }
-            _context.SaveChanges();
+                Requestconcierge requestconcierge = new()
+                {
+                    Requestid = request.Requestid,
+                    Conciergeid = concierge.Conciergeid,
 
+                };
+                _context.Requestconcierges.Add(requestconcierge);
+                _context.SaveChanges();
+
+                Requestclient requestclient = new()
+                {
+                    Requestid = request.Requestid,
+                    Firstname = userDetails.FirstName,
+                    Lastname = userDetails.LastName,
+                    Email = userDetails.Email,
+                    Phonenumber = userDetails.Phone,
+                    Notes = userDetails.Symptoms,
+                    Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                    Intdate = userDetails.DateOfBirth.Day,
+                    Intyear = userDetails.DateOfBirth.Year,
+                    Street = userDetails.Street,
+                    City = userDetails.City,
+                    State = userDetails.State,
+                    Zipcode = userDetails.ZipCode,
+
+                };
+                _context.Requestclients.Add(requestclient);
+                _context.SaveChanges();
+
+                if (userDetails.File != null && userDetails.File.Length > 0)
+                {
+                    //get file name
+                    var fileName = Path.GetFileName(userDetails.File.FileName);
+
+                    string rootPath = _environment.WebRootPath + "/UploadedFiles";
+
+                    string userId = user1.Userid.ToString();
+
+                    string userFolder = Path.Combine(rootPath, userId);
+
+                    if (!Directory.Exists(userFolder))
+                    {
+                        Directory.CreateDirectory(userFolder);
+                    }
+
+
+                    //define path
+                    string filePath = Path.Combine(userFolder, fileName);
+
+
+                    // Copy the file to the desired location
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        userDetails.File.CopyTo(stream)
+    ;
+                    }
+
+
+                    Requestwisefile requestwisefile = new()
+                    {
+                        Filename = fileName,
+                        Requestid = request.Requestid,
+                        Createddate = DateTime.Now
+                    };
+
+                    _context.Requestwisefiles.Add(requestwisefile);
+                    _context.SaveChanges();
+                }
+                _context.SaveChanges();
+
+            }
         }
         public void BusinessRequest(BusinessSubmitRequest userDetails)
         {
@@ -577,14 +740,6 @@ namespace BusinessLogic.Repository
             _context.Requestbusinesses.Add(requestbusiness);
             _context.SaveChanges();
 
-            Requeststatuslog requeststatuslog = new()
-            {
-                Requestid = request.Requestid,
-                Status = request.Status,
-                Createddate = DateTime.Now
-            };
-            _context.Requeststatuslogs.Add(requeststatuslog);
-            _context.SaveChanges();
             Requestclient requestclient = new()
             {
                 Requestid = request.Requestid,

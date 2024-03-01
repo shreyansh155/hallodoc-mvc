@@ -29,24 +29,6 @@ namespace DataAccess.ViewModels
         public string ConfirmPassword { get; set; } = null!;
 
     }
-    public class AdminDashboard
-    {
-        public CountRequestViewModel? CountRequestViewModel { get; set; }
-
-        public SearchViewModel? SearchViewModel { get; set; }
-        public string? Name { get; set; }
-        public string? Sorting { get; set; }
-        public IEnumerable<NewReqViewModel>? NewReqViewModel { get; set; }
-
-        public IEnumerable<PendingReqViewModel>? PendingReqViewModel { get; set; }
-
-        public IEnumerable<ConcludeReqViewModel>? ConcludeReqViewModel { get; set; }
-
-        public IEnumerable<CloseReqViewModel>? CloseReqViewModels { get; set; }
-
-        public IEnumerable<UnpaidReqViewModel>? UnpaidReqViewModels { get; set; }
-        public IEnumerable<ActiveReqViewModel>? ActiveReqViewModels { get; set; }
-    }
     public class ConcludeReqViewModel
     {
         public int reqClientId { get; set; }
@@ -198,6 +180,7 @@ namespace DataAccess.ViewModels
     }
     public class NewReqViewModel
     {
+
         public int? reqClientId { get; set; }
         public string? Firstname { get; set; }
 
@@ -207,7 +190,6 @@ namespace DataAccess.ViewModels
 
         public string? reqLastname { get; set; }
         public IEnumerable<Casetag>? Casetags { get; set; }
-
         public string? Phonenumber { get; set; }
 
         public string? ConciergePhonenumber { get; set; }
@@ -373,16 +355,39 @@ namespace DataAccess.ViewModels
         public int? ReqClientid { get; set; }
         public string? Name { get; set; }
         public int? CaseTagId { get; set; }
-        public IEnumerable<Casetag>? Casetags { get; set; }
+        public IEnumerable<Casetag> Casetags { get; set; }
         public string? AddOnNotes { get; set; }
     }
     public class AssignCase
     {
-        public string? ReqClientid { get; set; }
+        public int? ReqClientid { get; set; }
         public string? Name { get; set; }
-        public IEnumerable<Region>? Region { get; set; }
-        public IEnumerable<Physician>? Physicians{ get; set; }
+        public IEnumerable<Region> Region { get; set; }
+        public IEnumerable<Physician> Physicians { get; set; }
         public string? Description { get; set; }
     }
+    public class BlockCase
+    {
+        public int? ReqClientid { get; set; }
+        public string? Name { get; set; }
+        public string? BlockReason { get; set; }
+    }
+    public class AdminDashboard
+    {
+        public CountRequestViewModel? CountRequestViewModel { get; set; }
 
+        public SearchViewModel? SearchViewModel { get; set; }
+        public string? Name { get; set; }
+        public string? Sorting { get; set; }
+        public IEnumerable<NewReqViewModel>? NewReqViewModel { get; set; }
+
+        public IEnumerable<PendingReqViewModel>? PendingReqViewModel { get; set; }
+
+        public IEnumerable<ConcludeReqViewModel>? ConcludeReqViewModel { get; set; }
+
+        public IEnumerable<CloseReqViewModel>? CloseReqViewModels { get; set; }
+
+        public IEnumerable<UnpaidReqViewModel>? UnpaidReqViewModels { get; set; }
+        public IEnumerable<ActiveReqViewModel>? ActiveReqViewModels { get; set; }
+    }
 }

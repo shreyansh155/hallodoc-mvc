@@ -23,10 +23,12 @@
 
         </div>
 
-        <form method="post">
+        <form method="post" action="@Url.Action("ViewNotesUpdate","Admin")">
             <div class="shadow p-3 dashboard-card mt-4">
                 <hr class="mt-3 mb-0" />
                 <div class="row">
+
+                    <input asp-for="Requestclientid" hidden/>
 
                     <div class="col-md-6 col-12 dropdown">
                         <div class="form-floating mt-3 notes dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,10 +36,10 @@
                             Transfer Notes
                         </div>
                         <ul class="dropdown-menu">
-                            @for (var i = 0; i < Model.Statuslogs.Count; i++)
+                          @*   @for (var i = 0; i < Model.Statuslogs.Count; i++)
                             {
                                 <li><a class="dropdown-item">Admin transferred to Dr. <span class="text-uppercase">@Model.PhysicianName</span>  on @Model.Statuslogs[i].Createddate.ToString("dd/MMM/yyyy") at @Model.Statuslogs[i].Createddate.ToString("HH:mm:ss") : Test assign</a></li>
-                            }
+                            } *@
                         </ul>
                     </div>
 
@@ -61,9 +63,8 @@
                             <div class="form-floating mt-3">
                                 <textarea style="height:100px" class="form-control" asp-for="TextBox" placeholder="Leave a comment here"
                                           id="floatingTextarea2"></textarea>
-                                <label for="floatingTextarea2">Admin Notes</label>
+                                <label for="floatingTextarea2">Write Admin Note Here:</label>
                             </div>
-
                         </div>
 
                     </div>

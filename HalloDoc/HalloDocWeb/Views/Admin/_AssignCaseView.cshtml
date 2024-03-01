@@ -1,4 +1,5 @@
-﻿<div class="modal fade" id="AssignModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+﻿@model AssignCase;
+<div class="modal fade" id="assignModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header" style="background-color:#00B7FF">
@@ -15,9 +16,10 @@
                     <div class="mb-3 text-secondary">
                         <div class="form-floating mb-3">
                             <select class="form-select text-secondary" aria-label="Default select example">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach (var items in Model.Region)
+                                {
+                                    <option value="@items.Regionid">@items.Name</option>
+                                }
                             </select>
                             <label for="floatingInput">Narrow Search By Region</label>
                         </div>
@@ -26,16 +28,17 @@
                     <div class="mb-3 text-secondary">
                         <div class="form-floating mb-3">
                             <select class="form-select text-secondary" aria-label="Default select example">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach (var items in Model.Physicians)
+                                {
+                                    <option value="@items.Physicianid">@items.Firstname @items.Lastname</option>
+                                }
                             </select>
                             <label for="floatingInput">Physician Name</label>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <textarea class="form-control" id="message-text" placeholder="Description"></textarea>
+                        <textarea asp-for="Description" class="form-control" id="message-text" placeholder="Description"></textarea>
                     </div>
                 </form>
             </div>

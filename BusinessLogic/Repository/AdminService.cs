@@ -109,11 +109,10 @@ namespace BusinessLogic.Repository
                 unpaidCount = unpaidCount,
                 RegionList = _context.Regions.ToList()
             };
-
             var newReqData = (from req in _context.Requests
                               join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                               where req.Status == 1
-                              select new NewReqViewModel
+                              select new NewReqViewModel    
                               {
                                   reqClientId = rc.Requestclientid,
                                   Firstname = rc.Firstname,
@@ -295,23 +294,6 @@ namespace BusinessLogic.Repository
             };
             return viewCaseViewModel;
         }
-        public ViewNotes ViewNotes(int reqClientId)
-        {
-            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
-            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
-            Physician physician = _context.Physicians.First(x => x.Physicianid == 1);
-            var requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
-
-
-            ViewNotes viewNote = new()
-            {
-                PhysicianName = physician.Firstname,
-                AdminNotes = obj.Adminnotes,
-                PhysicianNotes = obj.Physiciannotes,
-                Statuslogs = requeststatuslog,
-            };
-            return viewNote;
-        }
         public AdminDashboard SearchPatient(SearchViewModel obj, AdminDashboard data)
         {
             if (obj.Name == null)
@@ -337,6 +319,54 @@ namespace BusinessLogic.Repository
 
                 return data;
             }
+        }
+        public void CancelCase(CancelCase cancelCase)
+        {
+            Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == cancelCase.ReqClientid);
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+
+
+            Requeststatuslog? requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 5,
+                Createddate = DateTime.Now,
+                Notes = cancelCase.AddOnNotes,
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+
+            request.Status = 5;
+            request.Modifieddate = DateTime.Now;
+            request.Casetag = cancelCase.CaseTagId.ToString();
+
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+
+        }
+        public ViewNotes ViewNotes(int reqClientId)
+        {
+            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
+            Physician physician = _context.Physicians.First(x => x.Physicianid == 1);
+            //var requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
+
+
+            ViewNotes viewNote = new()
+            {
+                PhysicianName = physician.Firstname,
+                AdminNotes = obj.Adminnotes,
+                PhysicianNotes = obj.Physiciannotes,
+                //Statuslogs = requeststatuslog,
+            };
+            return viewNote;
+        }   
+        public void ViewNotesUpdate(ViewNotes viewNotes)
+        {
+            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == viewNotes.Requestclientid);
+            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
+
+            obj.Adminnotes = viewNotes.TextBox;
+
         }
     }
 }

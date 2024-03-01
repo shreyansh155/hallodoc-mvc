@@ -1,0 +1,26 @@
+﻿@model BlockCase;
+<div class="modal fade" id="blockModal" tabindex="-1" aria-labelledby="newReqModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #01bce9; color:white;">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Cancellation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <input asp-for="ReqClientid" hidden />
+                    <h5>Patient Name: @Model.Name</h5>
+                    <div class="form-floating m-1 form-div">
+                        <textarea class="form-control" asp-for="BlockReason" placeholder="Leave a comment here" id="floatingTextarea2"
+                                  style="height: 100px"></textarea>
+                        <label for="">Reason for Block Request</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn" style="background-color: #01bce9; color:white;" data-bs-dismiss="modal">Confirm</button>
+                <button type="button" class="btn" style="color: #01bce9; border: #01bce9 1px solid;" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -41,6 +41,7 @@ namespace HalloDocWeb.Controllers
             }
             return View(userDetails);
         }
+
         [HttpPost]
         public JsonResult PatientCheckEmail(string email)
         {
@@ -80,6 +81,12 @@ namespace HalloDocWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ConciergeRequest(ConciergeSubmitRequest userDetails)
         {
+            if (ModelState.IsValid)
+            {
+                _patientService.ConciergeRequest(userDetails);
+                return RedirectToAction("Index", "Home");
+
+            }
             return RedirectToAction("Index", "Home");
         }
 

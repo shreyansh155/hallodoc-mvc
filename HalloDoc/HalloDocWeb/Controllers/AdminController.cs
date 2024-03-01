@@ -71,14 +71,26 @@ namespace HalloDocWeb.Controllers
             int? adminId = HttpContext.Session.GetInt32("adminId");
 
             var obj = _adminService.ViewCaseViewModel(reqClientId);
-            
+
             return View(obj);
         }
         public IActionResult ViewNotes(int reqClientId)
         {
             int? adminId = HttpContext.Session.GetInt32("adminId");
-            var obj =_adminService.ViewNotes(reqClientId);
+            var obj = _adminService.ViewNotes(reqClientId);
             return View(obj);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ViewNotesUpdate(ViewNotes viewNotes)
+        {
+            if (ModelState.IsValid)
+            {
+                int? adminId = HttpContext.Session.GetInt32("adminId");
+                _adminService.ViewNotesUpdate(viewNotes);
+                return ViewNotes(viewNotes.Requestclientid);
+            }
+            return View(viewNotes);
         }
 
 
@@ -153,7 +165,6 @@ namespace HalloDocWeb.Controllers
                 return PartialView("_unpaidReqView", parseData);
             }
 
-
         }
         [HttpPost]
         public IActionResult AdminDashboard(SearchViewModel? obj)
@@ -172,9 +183,51 @@ namespace HalloDocWeb.Controllers
             return View(dashData);
 
         }
-        public IActionResult CancelCaseModal(int id)
+        public IActionResult CancelCaseModal(int requestClientId)
         {
-            return PartialView("_CancelCaseView",id);
+            CancelCase cancelCase = new()
+            {
+                ReqClientid = requestClientId,
+                Casetags = _context.Casetags,
+            };
+            return PartialView("_CancelCaseView", cancelCase);
+        }
+        public IActionResult AssignCaseModal(int requestClientId)
+        {
+            AssignCase assignCase = new()
+            {
+                ReqClientid = requestClientId,
+                Region = _context.Regions,
+                Physicians = _context.Physicians
+            };
+            return PartialView("_AssignCaseView", assignCase);
+        }
+        public IActionResult BlockCaseModal(int requestClientId)
+        {
+            BlockCase blockCase = new()
+            {
+                ReqClientid = requestClientId,
+            };
+            return PartialView("_BlockCaseView", blockCase);
+        }
+
+        [HttpPost]
+
+        public IActionResult CancelCase(int ReqClientid, int CaseTagId, string AddOnNotes)
+        {
+            CancelCase cancelCase = new()
+            {
+                ReqClientid = ReqClientid,
+                CaseTagId = CaseTagId,
+                AddOnNotes = AddOnNotes,
+            };
+            if (ModelState.IsValid)
+            {
+                _adminService.CancelCase(cancelCase);
+                //return View("AdminDashboard");
+            }
+
+            return PartialView("_CancelCaseView", cancelCase);
         }
     }
 }
