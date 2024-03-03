@@ -224,7 +224,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _adminService.CancelCase(cancelCase);
-                //return View("AdminDashboard");
+                return RedirectToAction("AdminDashboard");
             }
 
             return PartialView("_CancelCaseView", cancelCase);

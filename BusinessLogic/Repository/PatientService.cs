@@ -110,7 +110,7 @@ namespace BusinessLogic.Repository
 
                     Request request = new()
                     {
-                        Requesttypeid = 2,
+                        Requesttypeid = 1,
                         Userid = user1.Userid,
                         Firstname = userDetails.FirstName,
                         Lastname = userDetails.LastName,

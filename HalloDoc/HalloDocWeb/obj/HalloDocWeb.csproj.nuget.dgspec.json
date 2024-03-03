@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj": {}
+    "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj": {}
   },
   "projects": {
-    "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj": {
+    "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj",
+        "projectUniqueName": "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\pci88\\.nuget\\packages\\",
-        "outputPath": "G:\\HalloDoc DotNet\\BusinessLogic\\obj\\",
+        "projectPath": "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\chauh\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pci88\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\chauh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,15 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj"
+              "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -43,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -89,30 +89,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj": {
+    "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\pci88\\.nuget\\packages\\",
-        "outputPath": "G:\\HalloDoc DotNet\\DataAccess\\obj\\",
+        "projectPath": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\chauh\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pci88\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\chauh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,7 +130,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -133,6 +142,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -183,30 +197,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj": {
+    "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj",
+        "projectUniqueName": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj",
         "projectName": "HalloDocWeb",
-        "projectPath": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj",
-        "packagesPath": "C:\\Users\\pci88\\.nuget\\packages\\",
-        "outputPath": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\obj\\",
+        "projectPath": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\HalloDocWeb.csproj",
+        "packagesPath": "C:\\Users\\chauh\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pci88\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\chauh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -214,18 +238,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj": {
-                "projectPath": "G:\\HalloDoc DotNet\\BusinessLogic\\BusinessLogic.csproj"
+              "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\BusinessLogic.csproj": {
+                "projectPath": "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\BusinessLogic.csproj"
               },
-              "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "G:\\HalloDoc DotNet\\DataAccess\\DataAccess.csproj"
+              "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -234,6 +257,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -280,6 +308,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -288,7 +334,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,971 +1,983 @@
 {
   "Files": [
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HalloDocWeb.bundle.scp.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HalloDocWeb.bundle.scp.css",
       "PackagePath": "staticwebassets\\HalloDocWeb.bundle.scp.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\10\\Fig25. Contact your Provider.jpg",
-      "PackagePath": "staticwebassets\\UploadedFiles\\10\\Fig25. Contact your Provider.jpg"
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\080ed504-f22b-498b-af3e-8eb10eab3a28\\college certy.docx",
+      "PackagePath": "staticwebassets\\UploadedFiles\\080ed504-f22b-498b-af3e-8eb10eab3a28\\college certy.docx"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\3786aa67-6177-43a4-9f16-0692e098a223\\7768657_3763028.jpg",
-      "PackagePath": "staticwebassets\\UploadedFiles\\3786aa67-6177-43a4-9f16-0692e098a223\\7768657_3763028.jpg"
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\4e781c75-ccc4-4c0c-b283-a54033a2a6b8\\certificate.pdf",
+      "PackagePath": "staticwebassets\\UploadedFiles\\4e781c75-ccc4-4c0c-b283-a54033a2a6b8\\certificate.pdf"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\4\\logo.png",
-      "PackagePath": "staticwebassets\\UploadedFiles\\4\\logo.png"
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\7\\college certy.docx",
+      "PackagePath": "staticwebassets\\UploadedFiles\\7\\college certy.docx"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\5\\LesfImage.png",
-      "PackagePath": "staticwebassets\\UploadedFiles\\5\\LesfImage.png"
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\8\\syllabus.pdf",
+      "PackagePath": "staticwebassets\\UploadedFiles\\8\\syllabus.pdf"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\df3f502b-7d68-4250-8902-ce7e11a039df\\back.png",
-      "PackagePath": "staticwebassets\\UploadedFiles\\df3f502b-7d68-4250-8902-ce7e11a039df\\back.png"
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\977b72c0-78bf-4020-a306-e6f97e9001ea\\3170001_syllabus.pdf",
+      "PackagePath": "staticwebassets\\UploadedFiles\\977b72c0-78bf-4020-a306-e6f97e9001ea\\3170001_syllabus.pdf"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\AdminDashboard.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\9\\report_520.pdf",
+      "PackagePath": "staticwebassets\\UploadedFiles\\9\\report_520.pdf"
+    },
+    {
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\acab349b-68b7-453a-95d3-1b46bfd4f1e6\\First Page.docx",
+      "PackagePath": "staticwebassets\\UploadedFiles\\acab349b-68b7-453a-95d3-1b46bfd4f1e6\\First Page.docx"
+    },
+    {
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\d51cde39-a784-4c4c-a08d-8facc4b9ea39\\Whatsaapp chatbot.jpg",
+      "PackagePath": "staticwebassets\\UploadedFiles\\d51cde39-a784-4c4c-a08d-8facc4b9ea39\\Whatsaapp chatbot.jpg"
+    },
+    {
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\AdminDashboard.css",
       "PackagePath": "staticwebassets\\css\\Admin\\AdminDashboard.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\AdminLogin.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\AdminLogin.css",
       "PackagePath": "staticwebassets\\css\\Admin\\AdminLogin.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\CancelCase.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\CancelCase.css",
       "PackagePath": "staticwebassets\\css\\Admin\\CancelCase.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\ViewNotes.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\Admin\\ViewNotes.css",
       "PackagePath": "staticwebassets\\css\\Admin\\ViewNotes.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\common.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\common.css",
       "PackagePath": "staticwebassets\\css\\common.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\footer.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\footer.css",
       "PackagePath": "staticwebassets\\css\\footer.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\header.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\header.css",
       "PackagePath": "staticwebassets\\css\\header.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\CreateNewRequest.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\CreateNewRequest.css",
       "PackagePath": "staticwebassets\\css\\patient\\CreateNewRequest.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientForgotPassword.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientForgotPassword.css",
       "PackagePath": "staticwebassets\\css\\patient\\PatientForgotPassword.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientLogin.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientLogin.css",
       "PackagePath": "staticwebassets\\css\\patient\\PatientLogin.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientSubmitRequest.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\PatientSubmitRequest.css",
       "PackagePath": "staticwebassets\\css\\patient\\PatientSubmitRequest.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\dashboard.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\patient\\dashboard.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\phone.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\phone.css",
       "PackagePath": "staticwebassets\\css\\patient\\phone.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\reviewagreement.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\patient\\reviewagreement.css",
       "PackagePath": "staticwebassets\\css\\patient\\reviewagreement.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\site.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\warningModal.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\css\\warningModal.css",
       "PackagePath": "staticwebassets\\css\\warningModal.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\favicon.ico",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\11116016_415.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\11116016_415.jpg",
       "PackagePath": "staticwebassets\\images\\11116016_415.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\7768657_3763028.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\7768657_3763028.jpg",
       "PackagePath": "staticwebassets\\images\\7768657_3763028.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\7774236_3736765.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\7774236_3736765.jpg",
       "PackagePath": "staticwebassets\\images\\7774236_3736765.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Account Access\\Acocunt Access_mobile_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Account Access\\Acocunt Access_mobile_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Account Access\\Acocunt Access_mobile_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Close case\\Close case_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Close case\\Close case_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Close case\\Close case_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create Request_Admin_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create Request_Admin_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create Request_Admin_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create request_Provider_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create request_Provider_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create request_Provider_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Admin_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Admin_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Admin_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Patient_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Patient_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Patient_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Physician_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Physician_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Physician_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create role -all_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create role -all_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create role -all_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pagination.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pagination.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pagination.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Edit Physician Account\\Edit Provider_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Edit Physician Account\\Edit Provider_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Edit Physician Account\\Edit Provider_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\My profile_Provider_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\My profile_Provider_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\My profile_Provider_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\my profile_admin_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\my profile_admin_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\my profile_admin_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Create Business_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Create Business_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Create Business_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Edit Business_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Edit Business_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Edit Business_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Partners_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Partners_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Partners_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Physician_menus_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Physician_menus_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Physician_menus_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider location\\Provider Location_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider location\\Provider Location_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider location\\Provider Location_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider on call\\provider on call_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider on call\\provider on call_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider on call\\provider on call_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Block history_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Block history_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Block history_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient History_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient History_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient History_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient Records_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient Records_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient Records_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_2.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_2.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_2.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Search records_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Search records_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Search records_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Requested Shifts\\Requested shifts_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Requested Shifts\\Requested shifts_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Requested Shifts\\Requested shifts_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_day view_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_day view_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_day view_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_month view_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_month view_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_month view_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_week view_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_week view_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_week view_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Send Order\\Send Order_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Send Order\\Send Order_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Send Order\\Send Order_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\User Access\\Use access_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\User Access\\Use access_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\User Access\\Use access_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Case\\View case_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Case\\View case_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Case\\View case_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Notes\\View Notes_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Notes\\View Notes_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Notes\\View Notes_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Uploads\\View Uploads_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Uploads\\View Uploads_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Uploads\\View Uploads_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Business Request_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Business Request_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Business Request_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Concirge Request_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Concirge Request_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Concirge Request_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Family-friend Request_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Family-friend Request_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Family-friend Request_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Patient Request_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Patient Request_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Patient Request_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Submit Request Screen-mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Submit Request Screen-mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Submit Request Screen-mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Dashboard\\dashboard_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Dashboard\\dashboard_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Dashboard\\dashboard_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_forget password_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_forget password_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_forget password_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_login_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_login_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_login_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_mobile.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_mobile.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_mobile.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\View Documents\\View documents_1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\View Documents\\View documents_1.png",
       "PackagePath": "staticwebassets\\images\\Hallo Doc - Mobile - Screenshots\\Patient Site\\View Documents\\View documents_1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\LesfImage.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\LesfImage.png",
       "PackagePath": "staticwebassets\\images\\LesfImage.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig Contact your Provider.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig Contact your Provider.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig Contact your Provider.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig1. Platform login page.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig1. Platform login page.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig1. Platform login page.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig10. View case.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig10. View case.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig10. View case.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig11. View Notes.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig11. View Notes.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig11. View Notes.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig12. Cancel Case pop-up.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig12. Cancel Case pop-up.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig12. Cancel Case pop-up.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig13. Assign case.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig13. Assign case.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig13. Assign case.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig14. Block case.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig14. Block case.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig14. Block case.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig15.View Uploads-PatientsConclude.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig15.View Uploads-PatientsConclude.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig15.View Uploads-PatientsConclude.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig16. Orders.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig16. Orders.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig16. Orders.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig17.Transfer.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig17.Transfer.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig17.Transfer.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig18.Clear Case.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig18.Clear Case.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig18.Clear Case.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig19.Send Agreement pop-up.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig19.Send Agreement pop-up.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig19.Send Agreement pop-up.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig2. Forgot Password.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig2. Forgot Password.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig2. Forgot Password.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig20.Close case.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig20.Close case.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig20.Close case.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig21. Admin My profile..jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig21. Admin My profile..jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig21. Admin My profile..jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig22 Regions menu.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig22 Regions menu.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig22 Regions menu.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig23.Request Support.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig23.Request Support.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig23.Request Support.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig24. Provider Menu.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig24. Provider Menu.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig24. Provider Menu.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig25. Contact your Provider.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig25. Contact your Provider.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig25. Contact your Provider.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig26. Edit Physician Account.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig26. Edit Physician Account.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig26. Edit Physician Account.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig27. Roles.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig27. Roles.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig27. Roles.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig28. Create Role All.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig28. Create Role All.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig28. Create Role All.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig29. Create Role Admin.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig29. Create Role Admin.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig29. Create Role Admin.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig3. Admin Dashboard.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig3. Admin Dashboard.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig3. Admin Dashboard.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig30. Create Role Physician.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig30. Create Role Physician.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig30. Create Role Physician.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig31. 1 Create Role Patient.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig31. 1 Create Role Patient.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig31. 1 Create Role Patient.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig31.2 Create Role Patient UserAccess.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig31.2 Create Role Patient UserAccess.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig31.2 Create Role Patient UserAccess.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig32. Day wise Scheduling.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig32. Day wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig32. Day wise Scheduling.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig33. Month wise Scheduling.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig33. Month wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig33. Month wise Scheduling.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig34. Week wise Scheduling.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig34. Week wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig34. Week wise Scheduling.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig35. Provider on call (MDs On Call).jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig35. Provider on call (MDs On Call).jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig35. Provider on call (MDs On Call).jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig36. Requested Shift.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig36. Requested Shift.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig36. Requested Shift.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig37. Create Shift.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig37. Create Shift.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig37. Create Shift.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig38. View Shift.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig38. View Shift.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig38. View Shift.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig39. Provider Location.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig39. Provider Location.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig39. Provider Location.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig4. Admin dashboard in New state.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig4. Admin dashboard in New state.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig4. Admin dashboard in New state.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig40. Profession menu Vendors.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig40. Profession menu Vendors.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig40. Profession menu Vendors.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig41.Add business page.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig41.Add business page.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig41.Add business page.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig42.Edit business page.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig42.Edit business page.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig42.Edit business page.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig43. Patient history.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig43. Patient history.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig43. Patient history.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig44. Patient Record Explore.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig44. Patient Record Explore.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig44. Patient Record Explore.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig45. Search Records.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig45. Search Records.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig45. Search Records.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig45.Email Logs.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig45.Email Logs.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig45.Email Logs.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig46. SMS Logs.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig46. SMS Logs.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig46. SMS Logs.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig47. Block History.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig47. Block History.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig47. Block History.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig48. Create Requests.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig48. Create Requests.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig48. Create Requests.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig49. Provider dashboard.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig49. Provider dashboard.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig49. Provider dashboard.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig5. Admin dashboard in pending state.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig5. Admin dashboard in pending state.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig5. Admin dashboard in pending state.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig50.Encounter (Type Of care).png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig50.Encounter (Type Of care).png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig50.Encounter (Type Of care).png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig51.Conclude State  Action  Encounter Form.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig51.Conclude State  Action  Encounter Form.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig51.Conclude State  Action  Encounter Form.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig52. Encounter Finalize popup.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig52. Encounter Finalize popup.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig52. Encounter Finalize popup.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig53. Provider transfer request pop-up.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig53. Provider transfer request pop-up.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig53. Provider transfer request pop-up.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig54. Provider My Profile.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig54. Provider My Profile.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig54. Provider My Profile.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig55. Provider My Profile Request to Admin.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig55. Provider My Profile Request to Admin.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig55. Provider My Profile Request to Admin.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig56. Patient site 1.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig56. Patient site 1.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig56. Patient site 1.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig56. Patient site.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig56. Patient site.png",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig56. Patient site.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig57.Submit request screen.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig57.Submit request screen.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig57.Submit request screen.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig58. Create Patient request.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig58. Create Patient request.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig58. Create Patient request.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig59.1.FamilyFriend Information1.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig59.1.FamilyFriend Information1.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig59.1.FamilyFriend Information1.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig59.FamilyFriend Information2.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig59.FamilyFriend Information2.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig59.FamilyFriend Information2.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig6. Admin dashboard in Active state.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig6. Admin dashboard in Active state.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig6. Admin dashboard in Active state.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig60.Concierge Information.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig60.Concierge Information.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig60.Concierge Information.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig61.Business Information.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig61.Business Information.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig61.Business Information.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig62.Login Patient Account Registered Patient.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig62.Login Patient Account Registered Patient.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig62.Login Patient Account Registered Patient.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig63.Reset Your Password Patient.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig63.Reset Your Password Patient.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig63.Reset Your Password Patient.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig64. Patient Dashboard ,Patient Medical History.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig64. Patient Dashboard ,Patient Medical History.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig64. Patient Dashboard ,Patient Medical History.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig65.Patient Create New Request.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig65.Patient Create New Request.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig65.Patient Create New Request.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig66.Submit Information me.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig66.Submit Information me.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig66.Submit Information me.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig67.Submit Information Some one else.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig67.Submit Information Some one else.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig67.Submit Information Some one else.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig68. View Documents.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig68. View Documents.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig68. View Documents.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig7. Admin dashboard in Conclude state.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig7. Admin dashboard in Conclude state.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig7. Admin dashboard in Conclude state.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig8. Admin dashboard in To Close state.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig8. Admin dashboard in To Close state.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig8. Admin dashboard in To Close state.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig9. Admin dashboard in Unpaid state.jpg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\Reference screenshots\\Fig9. Admin dashboard in Unpaid state.jpg",
       "PackagePath": "staticwebassets\\images\\Reference screenshots\\Fig9. Admin dashboard in Unpaid state.jpg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\admin.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\admin.svg",
       "PackagePath": "staticwebassets\\images\\admin.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\back.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\back.png",
       "PackagePath": "staticwebassets\\images\\back.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\bg-image.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\bg-image.png",
       "PackagePath": "staticwebassets\\images\\bg-image.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\darkmode.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\darkmode.png",
       "PackagePath": "staticwebassets\\images\\darkmode.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\doctor.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\doctor.svg",
       "PackagePath": "staticwebassets\\images\\doctor.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\envelope.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\envelope.svg",
       "PackagePath": "staticwebassets\\images\\envelope.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\lightmode.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\lightmode.png",
       "PackagePath": "staticwebassets\\images\\lightmode.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\logo.png",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\logo.png",
       "PackagePath": "staticwebassets\\images\\logo.png"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\personal_injury.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\personal_injury.svg",
       "PackagePath": "staticwebassets\\images\\personal_injury.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\telephone.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\telephone.svg",
       "PackagePath": "staticwebassets\\images\\telephone.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\transfer-horizontal.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\transfer-horizontal.svg",
       "PackagePath": "staticwebassets\\images\\transfer-horizontal.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\warning-icon.svg",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\images\\warning-icon.svg",
       "PackagePath": "staticwebassets\\images\\warning-icon.svg"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
       "PackagePath": "staticwebassets\\js\\AdminDashboard.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\admin.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\admin.js",
       "PackagePath": "staticwebassets\\js\\admin.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\site.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\warningModal.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\warningModal.js",
       "PackagePath": "staticwebassets\\js\\warningModal.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
