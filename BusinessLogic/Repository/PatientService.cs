@@ -110,7 +110,7 @@ namespace BusinessLogic.Repository
 
                     Request request = new()
                     {
-                        Requesttypeid = 2,
+                        Requesttypeid = 1,
                         Userid = user1.Userid,
                         Firstname = userDetails.FirstName,
                         Lastname = userDetails.LastName,
@@ -135,6 +135,7 @@ namespace BusinessLogic.Repository
                         Strmonth = userDetails.DateOfBirth.ToString("MMM"),
                         Intdate = userDetails.DateOfBirth.Day,
                         Intyear = userDetails.DateOfBirth.Year,
+                        Address = userDetails.Room,
                         Street = userDetails.Street,
                         City = userDetails.City,
                         State = userDetails.State,
@@ -216,6 +217,7 @@ namespace BusinessLogic.Repository
                     Strmonth = userDetails.DateOfBirth.ToString("MMM"),
                     Intdate = userDetails.DateOfBirth.Day,
                     Intyear = userDetails.DateOfBirth.Year,
+                    Address = userDetails.Room,
                     Street = userDetails.Street,
                     City = userDetails.City,
                     State = userDetails.State,
@@ -344,6 +346,7 @@ namespace BusinessLogic.Repository
                 Strmonth = userDetails.DateOfBirth.ToString("MMM"),
                 Intdate = userDetails.DateOfBirth.Day,
                 Intyear = userDetails.DateOfBirth.Year,
+                Address = userDetails.Room,
                 Street = userDetails.Street,
                 City = userDetails.City,
                 State = userDetails.State,
@@ -436,7 +439,7 @@ namespace BusinessLogic.Repository
                     };
                     _context.Users.Add(user1);
                     _context.SaveChanges();
-            
+
 
                     Request request = new()
                     {
@@ -460,7 +463,7 @@ namespace BusinessLogic.Repository
                         State = userDetails.State,
                         Zipcode = userDetails.ZipCode,
                         Createddate = DateTime.Now,
-                        Regionid=1,
+                        Regionid = 1,
                     };
                     _context.Concierges.Add(concierge);
                     _context.SaveChanges();
@@ -481,6 +484,7 @@ namespace BusinessLogic.Repository
                         Email = userDetails.Email,
                         Phonenumber = userDetails.Phone,
                         Notes = userDetails.Symptoms,
+                        Address = userDetails.PatientRoom,
                         Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
                         Intdate = userDetails.DateOfBirth.Day,
                         Intyear = userDetails.DateOfBirth.Year,
@@ -606,6 +610,7 @@ namespace BusinessLogic.Repository
                     Phonenumber = userDetails.Phone,
                     Notes = userDetails.Symptoms,
                     Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                    Address = userDetails.PatientRoom,
                     Intdate = userDetails.DateOfBirth.Day,
                     Intyear = userDetails.DateOfBirth.Year,
                     Street = userDetails.Street,
@@ -751,6 +756,7 @@ namespace BusinessLogic.Repository
                 Strmonth = userDetails.PatientDateOfBirth.ToString("MMM"),
                 Intdate = userDetails.PatientDateOfBirth.Day,
                 Intyear = userDetails.PatientDateOfBirth.Year,
+                Address = userDetails.PatientRoom,
                 Street = userDetails.Street,
                 City = userDetails.City,
                 State = userDetails.State,

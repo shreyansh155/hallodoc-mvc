@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -8,11 +7,9 @@ public partial class Blockrequest
 {
     public int Blockrequestid { get; set; }
 
-    public string Phonenumber { get; set; } = null!;
+    public string? Phonenumber { get; set; }
 
-    public string Email { get; set; } = null!;
-
-    public BitArray? Isactive { get; set; }
+    public string? Email { get; set; }
 
     public string? Reason { get; set; }
 
@@ -23,4 +20,6 @@ public partial class Blockrequest
     public DateTime Createddate { get; set; }
 
     public DateTime? Modifieddate { get; set; }
+
+    public bool? Isactive { get; set; }
 }

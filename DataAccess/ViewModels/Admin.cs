@@ -1,4 +1,5 @@
 ﻿using DataAccess.DataModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -364,6 +365,8 @@ namespace DataAccess.ViewModels
         public string? Name { get; set; }
         public IEnumerable<Region> Region { get; set; }
         public IEnumerable<Physician> Physicians { get; set; }
+        public int? PhysicianId { get; set; }
+        public int? RegionId { get; set; }
         public string? Description { get; set; }
     }
     public class BlockCase
@@ -371,6 +374,15 @@ namespace DataAccess.ViewModels
         public int? ReqClientid { get; set; }
         public string? Name { get; set; }
         public string? BlockReason { get; set; }
+    }
+    public class ViewUploads
+    {
+        public int reqClientId { get; set; }
+        public string? PatientName { get; set; }
+        public string? ConfirmationNumber { get; set; }
+        public IFormFile? File { get; set; }
+        public int RequestId { get; set; }
+        public List<Requestwisefile>? RequestWiseFiles { get; set; }
     }
     public class AdminDashboard
     {

@@ -259,9 +259,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isactive)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isactive");
+            entity.Property(e => e.Isactive).HasColumnName("isactive");
             entity.Property(e => e.Modifieddate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("modifieddate");
@@ -348,10 +346,10 @@ public partial class ApplicationDbContext : DbContext
             entity.ToTable("casetag");
 
             entity.Property(e => e.Casetagid)
-                .UseIdentityAlwaysColumn()
+                .ValueGeneratedNever()
                 .HasColumnName("casetagid");
             entity.Property(e => e.Name)
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .HasColumnName("name");
         });
 
@@ -390,7 +388,6 @@ public partial class ApplicationDbContext : DbContext
 
             entity.HasOne(d => d.Region).WithMany(p => p.Concierges)
                 .HasForeignKey(d => d.Regionid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_concierge");
         });
 
@@ -592,9 +589,7 @@ public partial class ApplicationDbContext : DbContext
 
             entity.ToTable("physician");
 
-            entity.Property(e => e.Physicianid)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("physicianid");
+            entity.Property(e => e.Physicianid).HasColumnName("physicianid");
             entity.Property(e => e.Address1)
                 .HasMaxLength(500)
                 .HasColumnName("address1");
@@ -788,9 +783,7 @@ public partial class ApplicationDbContext : DbContext
 
             entity.ToTable("region");
 
-            entity.Property(e => e.Regionid)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("regionid");
+            entity.Property(e => e.Regionid).HasColumnName("regionid");
             entity.Property(e => e.Abbreviation)
                 .HasMaxLength(50)
                 .HasColumnName("abbreviation");
@@ -989,11 +982,6 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(10)
                 .HasColumnName("zipcode");
 
-            entity.HasOne(d => d.Region).WithMany(p => p.Requestclients)
-                .HasForeignKey(d => d.Regionid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_requestclient1");
-
             entity.HasOne(d => d.Request).WithMany(p => p.Requestclients)
                 .HasForeignKey(d => d.Requestid)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -1064,9 +1052,7 @@ public partial class ApplicationDbContext : DbContext
 
             entity.ToTable("requestnotes");
 
-            entity.Property(e => e.Requestnotesid)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("requestnotesid");
+            entity.Property(e => e.Requestnotesid).HasColumnName("requestnotesid");
             entity.Property(e => e.Administrativenotes)
                 .HasMaxLength(500)
                 .HasColumnName("administrativenotes");
@@ -1156,7 +1142,7 @@ public partial class ApplicationDbContext : DbContext
             entity.ToTable("requesttype");
 
             entity.Property(e => e.Requesttypeid)
-                .UseIdentityAlwaysColumn()
+                .ValueGeneratedNever()
                 .HasColumnName("requesttypeid");
             entity.Property(e => e.Name)
                 .HasMaxLength(50)

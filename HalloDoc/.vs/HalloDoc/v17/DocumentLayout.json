@@ -1,0 +1,135 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|d:\\work\\hallodoc aspnet home\\hallodoc\\hallodocweb\\views\\admin\\_newrequestview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|solutionrelative:hallodocweb\\views\\admin\\_newrequestview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080C2E4F-8F6F-4E5E-BF91-EE83C8A5347E}|..\\BusinessLogic\\BusinessLogic.csproj|d:\\work\\hallodoc aspnet home\\businesslogic\\repository\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15BB28B5-E44B-4956-B38F-4CBC2BBE46E1}|..\\DataAccess\\DataAccess.csproj|d:\\work\\hallodoc aspnet home\\dataaccess\\viewmodels\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|d:\\work\\hallodoc aspnet home\\hallodoc\\hallodocweb\\wwwroot\\js\\admindashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|solutionrelative:hallodocweb\\wwwroot\\js\\admindashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|d:\\work\\hallodoc aspnet home\\hallodoc\\hallodocweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|solutionrelative:hallodocweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|d:\\work\\hallodoc aspnet home\\hallodoc\\hallodocweb\\views\\admin\\_cancelcaseview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|solutionrelative:hallodocweb\\views\\admin\\_cancelcaseview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|d:\\work\\hallodoc aspnet home\\hallodoc\\hallodocweb\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E62FA40F-FD47-4655-BE00-9E1100AA27D3}|HalloDocWeb\\HalloDocWeb.csproj|solutionrelative:hallodocweb\\views\\admin\\admindashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 245,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\ViewModels\\Admin.cs",
+              "RelativeDocumentMoniker": "..\\DataAccess\\ViewModels\\Admin.cs",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\DataAccess\\ViewModels\\Admin.cs",
+              "RelativeToolTip": "..\\DataAccess\\ViewModels\\Admin.cs",
+              "ViewState": "AQIAAL4AAAAAAAAAAAA3wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T15:09:09.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_newRequestView.cshtml",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Views\\Admin\\_newRequestView.cshtml",
+              "RelativeDocumentMoniker": "HalloDocWeb\\Views\\Admin\\_newRequestView.cshtml",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Views\\Admin\\_newRequestView.cshtml",
+              "RelativeToolTip": "HalloDocWeb\\Views\\Admin\\_newRequestView.cshtml",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAAAHMAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-03T15:00:40.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminDashboard.js",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
+              "RelativeDocumentMoniker": "HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
+              "RelativeToolTip": "HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
+              "ViewState": "AQIAAC0AAAAAAAAAAAA1wEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-03T12:38:59.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminDashboard.cshtml",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Views\\Admin\\AdminDashboard.cshtml",
+              "RelativeDocumentMoniker": "HalloDocWeb\\Views\\Admin\\AdminDashboard.cshtml",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Views\\Admin\\AdminDashboard.cshtml",
+              "RelativeToolTip": "HalloDocWeb\\Views\\Admin\\AdminDashboard.cshtml",
+              "ViewState": "AQIAAPMAAAAAAAAAAAAAABgBAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-03T12:38:20.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_CancelCaseView.cshtml",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Views\\Admin\\_CancelCaseView.cshtml",
+              "RelativeDocumentMoniker": "HalloDocWeb\\Views\\Admin\\_CancelCaseView.cshtml",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Views\\Admin\\_CancelCaseView.cshtml",
+              "RelativeToolTip": "HalloDocWeb\\Views\\Admin\\_CancelCaseView.cshtml",
+              "ViewState": "AQIAABwAAAAAAAAAAAAowCoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-03T12:16:01.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminService.cs",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\Repository\\AdminService.cs",
+              "RelativeDocumentMoniker": "..\\BusinessLogic\\Repository\\AdminService.cs",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\BusinessLogic\\Repository\\AdminService.cs",
+              "RelativeToolTip": "..\\BusinessLogic\\Repository\\AdminService.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAowHcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T12:11:49.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "HalloDocWeb\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Work\\HalloDoc AspNet Home\\HalloDoc\\HalloDocWeb\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "HalloDocWeb\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAMEAAAAAAAAAAAAiwOYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-03T12:11:47.892Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

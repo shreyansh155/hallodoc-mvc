@@ -16,6 +16,10 @@ namespace BusinessLogic.Interface
         ViewNotes ViewNotes(int reqClientId);
         public AdminDashboard SearchPatient(SearchViewModel obj, AdminDashboard data);
         void CancelCase(CancelCase cancelCase);
+        void AssignCase(AssignCase assignCase);
+        void BlockCase(BlockCase blockCase);
         void ViewNotesUpdate(ViewNotes viewNotes);
+        ViewUploads ViewUploads(int reqClientId);
+        void UploadFiles(ViewUploads viewUploads);  
     }
 }

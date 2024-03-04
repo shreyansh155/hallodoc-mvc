@@ -10,16 +10,23 @@ using System.Security.Cryptography;
 using DataAccess.DataModels;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Globalization;
+using System.Collections;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Hosting;
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _environment;
 
 
-        public AdminService(ApplicationDbContext context)
+
+        public AdminService(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _environment = webHostEnvironment;
+
 
         }
         public static string GenerateSHA256(string input)
@@ -47,7 +54,7 @@ namespace BusinessLogic.Repository
             if (newAccount.Password == newAccount.ConfirmPassword)
             {
                 var hashedPassword = GenerateSHA256(newAccount.Password);
-                Aspnetuser aspnetuser = new()
+                Aspnetuser? aspnetuser = new()
                 {
                     Id = id.ToString(),
                     Passwordhash = hashedPassword,
@@ -58,7 +65,7 @@ namespace BusinessLogic.Repository
                 };
                 _context.Aspnetusers.Add(aspnetuser);
                 _context.SaveChanges();
-                Admin admin = new()
+                Admin? admin = new()
                 {
                     Aspnetuserid = aspnetuser.Id,
                     Firstname = newAccount.UserName,
@@ -112,7 +119,7 @@ namespace BusinessLogic.Repository
             var newReqData = (from req in _context.Requests
                               join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                               where req.Status == 1
-                              select new NewReqViewModel    
+                              select new NewReqViewModel
                               {
                                   reqClientId = rc.Requestclientid,
                                   Firstname = rc.Firstname,
@@ -276,7 +283,7 @@ namespace BusinessLogic.Repository
         }
         public ViewCaseViewModel ViewCaseViewModel(int reqClientId)
         {
-            Requestclient obj = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Requestclient? obj = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
             ViewCaseViewModel viewCaseViewModel = new()
             {
                 Firstname = obj.Firstname,
@@ -345,28 +352,144 @@ namespace BusinessLogic.Repository
         }
         public ViewNotes ViewNotes(int reqClientId)
         {
-            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
-            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
+            Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Requestnote? obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
             Physician physician = _context.Physicians.First(x => x.Physicianid == 1);
-            //var requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
+            List<Requeststatuslog> requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
 
 
-            ViewNotes viewNote = new()
+            ViewNotes? viewNote = new()
             {
                 PhysicianName = physician.Firstname,
                 AdminNotes = obj.Adminnotes,
                 PhysicianNotes = obj.Physiciannotes,
-                //Statuslogs = requeststatuslog,
+                Statuslogs = requeststatuslog,
             };
             return viewNote;
-        }   
+        }
         public void ViewNotesUpdate(ViewNotes viewNotes)
         {
-            Requestclient req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == viewNotes.Requestclientid);
-            Requestnote obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
+            Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == viewNotes.Requestclientid);
+            Requestnote? obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
 
             obj.Adminnotes = viewNotes.TextBox;
 
         }
+        public void AssignCase(AssignCase assignCase)
+        {
+            Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == assignCase.ReqClientid);
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+
+            Requeststatuslog? requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 2,
+                Createddate = DateTime.Now,
+                Notes = assignCase.Description,
+                Physicianid = assignCase.PhysicianId,
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+
+            request.Status = 2;
+            request.Modifieddate = DateTime.Now;
+
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+
+        }
+        public void BlockCase(BlockCase blockCase)
+        {
+            Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == blockCase.ReqClientid);
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+
+            Blockrequest blockrequest = new()
+            {
+                Phonenumber = request.Phonenumber,
+                Email = request.Email,
+                Isactive = true,
+                Reason = blockCase.BlockReason,
+                Requestid = request.Requestid,
+                Createddate = DateTime.Now,
+            };
+            _context.Blockrequests.Add(blockrequest);
+            _context.SaveChanges();
+
+            Requeststatuslog? requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 11,
+                Createddate = DateTime.Now,
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.SaveChanges();
+
+            request.Status = 11;
+            request.Modifieddate = DateTime.Now;
+
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
+        public ViewUploads ViewUploads(int reqClientId)
+        {
+            Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Request? request = _context.Requests.FirstOrDefault(r => r.Requestid == requestclient.Requestid);
+            User? user = _context.Users.FirstOrDefault(u => u.Userid == request.Userid);
+            List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == request.Requestid).ToList();
+
+            ViewUploads viewUploads = new()
+            {
+                PatientName = user.Firstname + " " + user.Lastname,
+                RequestWiseFiles = fileList,
+                RequestId = request.Requestid,
+                reqClientId = reqClientId,  
+            };
+            return viewUploads;
+        }
+
+        public void UploadFiles(ViewUploads viewUploads)
+        {
+            if (viewUploads.File != null && viewUploads.File.Length > 0)
+            {
+                //get file name
+                var obj = _context.Requests.FirstOrDefault(x => x.Requestid == viewUploads.RequestId);
+                User? user = _context.Users.First(x => x.Userid == obj.Userid);
+                var fileName = Path.GetFileName(viewUploads.File.FileName);
+
+                string rootPath = _environment.WebRootPath + "/UploadedFiles";
+
+
+                string userId = user.Userid.ToString();
+
+                string userFolder = Path.Combine(rootPath, userId);
+
+                if (!Directory.Exists(userFolder))
+                {
+                    Directory.CreateDirectory(userFolder);
+                }
+
+
+                //define path
+                string filePath = Path.Combine(userFolder, fileName);
+
+
+                // Copy the file to the desired location
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    viewUploads.File.CopyTo(stream)
+;
+                }
+
+
+                Requestwisefile requestwisefile = new()
+                {
+                    Filename = fileName,
+                    Requestid = obj.Requestid,
+                    Createddate = DateTime.Now
+                };
+
+                _context.Requestwisefiles.Add(requestwisefile);
+                _context.SaveChanges();
+            }
+        }    
     }
 }

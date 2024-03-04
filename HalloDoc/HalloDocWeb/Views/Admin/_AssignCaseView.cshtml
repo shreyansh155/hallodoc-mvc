@@ -12,10 +12,11 @@
                         <p>To assign this request, search and select another Physician</p>
                     </div>
 
+                    <input id="ReqClientid" value="@Model.ReqClientid" hidden />
 
                     <div class="mb-3 text-secondary">
                         <div class="form-floating mb-3">
-                            <select class="form-select text-secondary" aria-label="Default select example">
+                            <select class="form-select text-secondary" aria-label="Default select example" id="RegionId">
                                 @foreach (var items in Model.Region)
                                 {
                                     <option value="@items.Regionid">@items.Name</option>
@@ -27,7 +28,7 @@
 
                     <div class="mb-3 text-secondary">
                         <div class="form-floating mb-3">
-                            <select class="form-select text-secondary" aria-label="Default select example">
+                            <select class="form-select text-secondary" aria-label="Default select example" id="PhysicianId">
                                 @foreach (var items in Model.Physicians)
                                 {
                                     <option value="@items.Physicianid">@items.Firstname @items.Lastname</option>
@@ -38,14 +39,43 @@
                     </div>
 
                     <div class="mb-3">
-                        <textarea asp-for="Description" class="form-control" id="message-text" placeholder="Description"></textarea>
+                        <textarea id="Description" class="form-control" placeholder="Description"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn text-light" style="background-color:#00B7FF" data-bs-dismiss="modal">Confirm</button>
+                <button type="button" class="btn text-light" id="assign-case-submit-btn" style="background-color:#00B7FF" data-bs-dismiss="modal">Confirm</button>
                 <button type="button" class="btn border border-info" style="color:#00B7FF">Cancel</button>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $('#assign-case-submit-btn').click(function () {
+        var description = $("#Description").val();
+        var regionId = $("#RegionId").val();
+        var physicianId = $("#PhysicianId").val();
+        var reqClientId = $("#ReqClientid").val();
+        console.log("hello")
+
+        $.ajax({
+            url: "/Admin/AssignCase",
+            data: {
+                ReqClientid: reqClientId,
+                PhysicianId: physicianId,
+                RegionId: regionId,
+                Description: description
+            },
+            type: 'POST',
+            success: function (result) {
+                $('#display').html(result);
+                $('#assignModal').modal('show');
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    });
+</script>

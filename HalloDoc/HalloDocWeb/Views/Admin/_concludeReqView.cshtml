@@ -8,7 +8,6 @@
             <td>Date of Service</td>
             <td>Phone</td>
             <td>Address</td>
-            <td>Chat With</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -87,23 +86,30 @@
                 <td style="background-color: @bg;">
                     @item.Street, @item.City, @item.State, @item.Zipcode
                 </td>
-                <td style="background-color: @bg;">
-                    <a class="btn border rounded">
-                        <img src="~/images/personal_injury.svg" />
-                        Provider
-                    </a>
-                </td>
+
                 <td style="background-color: @bg;">
                     <a class="btn border rounded dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Actions
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a></li>
-                        <li><a class="dropdown-item" href="#">View Uploads</a></li>
-                        <li><a class="dropdown-item" href="@Url.Action("ViewNote", new{reqClientId = item.reqClientId})">View Notes</a></li>
-                        <li><a class="dropdown-item" href="#">Orders</a></li>
-                        <li><a class="dropdown-item" href="#">Doctors Note</a></li>
-                        <li><a class="dropdown-item" href="#">Encounter</a></li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("ViewCase", new {reqClientId = item.reqClientId})">View Case</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">View Uploads</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("ViewNote", new{reqClientId = item.reqClientId})">View Notes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Orders</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Doctors Note</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Encounter</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
