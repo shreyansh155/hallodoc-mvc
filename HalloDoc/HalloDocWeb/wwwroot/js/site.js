@@ -10,5 +10,5 @@ myFunction = () => {
     const input = document.querySelector("input[type='tel']");
     window.intlTelInput(input, {
         utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.16/build/js/utils.js",
-    });
+    })
 </script>

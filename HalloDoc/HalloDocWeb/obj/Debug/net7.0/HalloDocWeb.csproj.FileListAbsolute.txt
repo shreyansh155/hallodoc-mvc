@@ -755,3 +755,9 @@ D:\Work\HalloDoc AspNet Home\HalloDoc\HalloDocWeb\obj\Debug\net7.0\refint\HalloD
 D:\Work\HalloDoc AspNet Home\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.pdb
 D:\Work\HalloDoc AspNet Home\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.genruntimeconfig.cache
 D:\Work\HalloDoc AspNet Home\HalloDoc\HalloDocWeb\obj\Debug\net7.0\ref\HalloDocWeb.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\web.config
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

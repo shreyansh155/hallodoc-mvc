@@ -3,6 +3,8 @@ using DataAccess.ViewModels;
 using DataAccess.DataContext;
 using BusinessLogic.Interface;
 using DataAccess.DataModels;
+using System.Net.Mail;
+using System.Net;
 
 namespace HalloDocWeb.Controllers
 {
@@ -10,6 +12,7 @@ namespace HalloDocWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IAdminService _adminService;
+        
         public AdminController(ApplicationDbContext context, IAdminService adminService)
         {
             _context = context;
@@ -275,7 +278,14 @@ namespace HalloDocWeb.Controllers
                 _adminService.UploadFiles(viewUploads);
                 return ViewUploads(viewUploads.reqClientId);
             }
-            return View(viewUploads);   
+            return View(viewUploads);
         }
+
+        public void DeleteFile(int Requestwisefileid)
+        {
+            _adminService.DeleteFile(Requestwisefileid);
+        }
+
+        [HttpPost]        public bool SendFilesViaMail(List<int> fileIds, int requestId)        {            try            {                _adminService.SendFilesViaMail(fileIds, requestId);                return true;            }            catch (Exception e)            {                return false;            }        }
     }
 }

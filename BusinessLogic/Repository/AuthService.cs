@@ -1,21 +1,12 @@
 ﻿using BusinessLogic.Interface;
 using DataAccess.DataModels;
 using DataAccess.ViewModels;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Principal;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
-
-
-
+using System.Security.Cryptography;
 
 namespace BusinessLogic.Repository
 {
@@ -61,6 +52,7 @@ namespace BusinessLogic.Repository
             return _context.Aspnetusers.Any(x => x.Email == patientForgotPassword.Email);
 
         }
+
         public void PatientResetPassword(PatientResetPassword patientResetPassword)
         {
             if (patientResetPassword.Password == patientResetPassword.ConfirmPassword)
@@ -104,5 +96,38 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
             }
         }
+
+        //public static string GenerateJWTAuthetication(string userName, string role)
+        //{
+        //    var claims = new List<Claim>
+        //    {
+        //        new Claim(JwtHeaderParameterNames.Jku, userName),
+        //        new Claim(JwtHeaderParameterNames.Kid, Guid.NewGuid().ToString()),
+        //        new Claim(ClaimTypes.NameIdentifier, userName)
+        //    };
+
+
+        //    claims.Add(new Claim(ClaimTypes.Role, role));
+
+
+        //    var key = new SymmetricSecurityKey(
+        //        Encoding.UTF8.GetBytes(Convert.ToString(ConfigurationManager.AppSettings["config:JwtKey"])));
+        //    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        //    var expires =
+        //        DateTime.Now.AddDays(
+        //            Convert.ToDouble(Convert.ToString(ConfigurationManager.AppSettings["config:JwtExpireDays"])));
+
+        //    var token = new JwtSecurityToken(
+        //        Convert.ToString(ConfigurationManager.AppSettings["config:JwtIssuer"]),
+        //        Convert.ToString(ConfigurationManager.AppSettings["config:JwtAudience"]),
+        //        claims,
+        //        expires: expires,
+        //        signingCredentials: creds
+        //    );
+
+        //    return new JwtSecurityTokenHandler().WriteToken(token);
+
+
+        //}
     }
 }

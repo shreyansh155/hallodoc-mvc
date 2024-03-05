@@ -152,10 +152,9 @@ namespace BusinessLogic.Repository
                         string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
 
-                        string userId = user.Id;
+                        string requestId = request.Requestid.ToString();
 
-                        string userFolder = Path.Combine(rootPath, userId);
-
+                        string userFolder = Path.Combine(rootPath, requestId);
                         if (!Directory.Exists(userFolder))
                         {
                             Directory.CreateDirectory(userFolder);
@@ -235,9 +234,9 @@ namespace BusinessLogic.Repository
                     string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
 
-                    string userId = user.Id;
+                    string requestId = request.Requestid.ToString();
 
-                    string userFolder = Path.Combine(rootPath, userId);
+                    string userFolder = Path.Combine(rootPath, requestId);
 
                     if (!Directory.Exists(userFolder))
                     {
@@ -252,8 +251,7 @@ namespace BusinessLogic.Repository
                     // Copy the file to the desired location
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        userDetails.File.CopyTo(stream)
-    ;
+                        userDetails.File.CopyTo(stream);
                     }
 
 
@@ -363,9 +361,9 @@ namespace BusinessLogic.Repository
 
                 string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
-                string userId = user1.Userid.ToString();
+                string requestId = request.Requestid.ToString();
 
-                string userFolder = Path.Combine(rootPath, userId);
+                string userFolder = Path.Combine(rootPath, requestId);
 
                 if (!Directory.Exists(userFolder))
                 {
@@ -504,9 +502,9 @@ namespace BusinessLogic.Repository
 
                         string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
-                        string userId = user1.Userid.ToString();
+                        string requestId = request.Requestid.ToString();
 
-                        string userFolder = Path.Combine(rootPath, userId);
+                        string userFolder = Path.Combine(rootPath, requestId);
 
                         if (!Directory.Exists(userFolder))
                         {
@@ -629,9 +627,9 @@ namespace BusinessLogic.Repository
 
                     string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
-                    string userId = user1.Userid.ToString();
+                    string requestId = request.Requestid.ToString();
 
-                    string userFolder = Path.Combine(rootPath, userId);
+                    string userFolder = Path.Combine(rootPath, requestId);
 
                     if (!Directory.Exists(userFolder))
                     {
@@ -772,10 +770,9 @@ namespace BusinessLogic.Repository
 
                 string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
-                string userId = user1.Userid.ToString();
+                string requestId = request.Requestid.ToString();
 
-                string userFolder = Path.Combine(rootPath, userId);
-
+                string userFolder = Path.Combine(rootPath, requestId);
                 if (!Directory.Exists(userFolder))
                 {
                     Directory.CreateDirectory(userFolder);

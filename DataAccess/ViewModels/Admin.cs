@@ -17,7 +17,6 @@ namespace DataAccess.ViewModels
         [Required]
         public string? Password { get; set; }
     }
-
     public class CreateAdminAccount
     {
         [Required]
@@ -383,6 +382,7 @@ namespace DataAccess.ViewModels
         public IFormFile? File { get; set; }
         public int RequestId { get; set; }
         public List<Requestwisefile>? RequestWiseFiles { get; set; }
+        public int Requestwisefileid { get; set; }  
     }
     public class AdminDashboard
     {

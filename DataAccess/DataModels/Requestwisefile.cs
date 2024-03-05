@@ -28,9 +28,9 @@ public partial class Requestwisefile
 
     public BitArray? Isfinalize { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
-
     public BitArray? Ispatientrecords { get; set; }
+
+    public bool? Isdeleted { get; set; }
 
     public virtual Admin? Admin { get; set; }
 

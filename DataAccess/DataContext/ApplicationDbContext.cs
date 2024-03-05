@@ -1172,9 +1172,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Iscompensation)
                 .HasColumnType("bit(1)")
                 .HasColumnName("iscompensation");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
             entity.Property(e => e.Isfinalize)
                 .HasColumnType("bit(1)")
                 .HasColumnName("isfinalize");

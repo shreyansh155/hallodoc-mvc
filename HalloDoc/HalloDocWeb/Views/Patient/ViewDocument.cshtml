@@ -31,7 +31,7 @@
                     <form method="post" enctype="multipart/form-data">
                         <div class="row mt-2 mx-1">
                             <input asp-for="RequestId" hidden />
-                            <input asp-for="File" class="form-control" type="file" id="file_input_id" style="opacity:0;height:0;">
+                            <input asp-for="File" class="form-control" type="file" id="file_input_id" style="opacity:0;height:0;" multiple="multiple">
 
                             <div class="input-group mb-3">
                                 <input type="text" id='text_input_id' class="form-control" placeholder="Select File" style="caret-color: transparent" autocomplete="off">

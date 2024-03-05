@@ -13,17 +13,25 @@ using System.Globalization;
 using System.Collections;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Razor.Language;
+using System.Net.Mail;
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
     {
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _environment;
+        private readonly IConfiguration _config;
 
 
 
-        public AdminService(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
+
+        public AdminService(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IConfiguration config)
         {
+            _config = config;
             _context = context;
             _environment = webHostEnvironment;
 
@@ -434,14 +442,15 @@ namespace BusinessLogic.Repository
             Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
             Request? request = _context.Requests.FirstOrDefault(r => r.Requestid == requestclient.Requestid);
             User? user = _context.Users.FirstOrDefault(u => u.Userid == request.Userid);
-            List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == request.Requestid).ToList();
+
+            List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == request.Requestid).Where(x => x.Isdeleted == false || x.Isdeleted == null).ToList();
 
             ViewUploads viewUploads = new()
             {
                 PatientName = user.Firstname + " " + user.Lastname,
                 RequestWiseFiles = fileList,
                 RequestId = request.Requestid,
-                reqClientId = reqClientId,  
+                reqClientId = reqClientId,
             };
             return viewUploads;
         }
@@ -458,9 +467,9 @@ namespace BusinessLogic.Repository
                 string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
 
-                string userId = user.Userid.ToString();
+                string requestId = obj.Requestid.ToString();
 
-                string userFolder = Path.Combine(rootPath, userId);
+                string userFolder = Path.Combine(rootPath, requestId);
 
                 if (!Directory.Exists(userFolder))
                 {
@@ -490,6 +499,54 @@ namespace BusinessLogic.Repository
                 _context.Requestwisefiles.Add(requestwisefile);
                 _context.SaveChanges();
             }
-        }    
+        }
+        public void DeleteFile(int Requestwisefileid)
+        {
+            Requestwisefile requestwisefile = _context.Requestwisefiles.Where(x => x.Requestwisefileid == Requestwisefileid).FirstOrDefault();
+            requestwisefile.Isdeleted = true;
+            _context.Requestwisefiles.Update(requestwisefile);
+            _context.SaveChanges();
+        }
+        public bool SendFilesViaMail(List<int> fileIds, int requestId)
+        {
+            Requestclient reqCli = _context.Requestclients.FirstOrDefault(requestCli => requestCli.Requestid == requestId);
+
+            string senderEmail = _config.GetSection("OutlookSMTP")["Sender"];
+            string senderPassword = _config.GetSection("OutlookSMTP")["Password"];
+
+            SmtpClient client = new SmtpClient("smtp.office365.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(senderEmail, senderPassword),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false
+            };
+
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress(senderEmail, "HalloDoc"),
+                Subject = "Hallodoc documents attachments",
+                IsBodyHtml = true,
+                Body = "<h3>Admin has sent you documents regarding your request.</h3>",
+            };
+
+            MemoryStream memoryStream;
+            foreach (int fileId in fileIds)
+            {
+                Requestwisefile file = _context.Requestwisefiles.FirstOrDefault(reqFile => reqFile.Requestwisefileid == fileId);
+                string documentPath = Path.Combine(_environment.WebRootPath, "UploadedFiles", requestId.ToString(), file.Filename);
+                byte[] fileBytes = System.IO.File.ReadAllBytes(documentPath);
+                memoryStream = new MemoryStream(fileBytes);
+                mailMessage.Attachments.Add(new Attachment(memoryStream, file.Filename));
+            }
+
+            mailMessage.To.Add(reqCli.Email);
+
+            client.Send(mailMessage);
+
+            //TempData["success"] = "Email with selected documents has been successfully sent to " + reqCli.Email;
+            return true;
+        }
     }
 }

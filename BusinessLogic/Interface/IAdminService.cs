@@ -20,6 +20,8 @@ namespace BusinessLogic.Interface
         void BlockCase(BlockCase blockCase);
         void ViewNotesUpdate(ViewNotes viewNotes);
         ViewUploads ViewUploads(int reqClientId);
-        void UploadFiles(ViewUploads viewUploads);  
+        void UploadFiles(ViewUploads viewUploads);
+        void DeleteFile(int Requestwisefileid);
+        bool SendFilesViaMail(List<int> fileIds, int requestId);
     }
 }
