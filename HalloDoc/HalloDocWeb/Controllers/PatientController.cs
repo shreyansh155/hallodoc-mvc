@@ -4,13 +4,13 @@ using DataAccess.DataContext;
 using Microsoft.AspNetCore.Mvc;
 using BusinessLogic.Interface;
 using DataAccess.ViewModels;
-using System.Text;
-using System.Security.Cryptography;
 using System.Diagnostics;
+using BusinessLogic.Repository;
 
 
 namespace HalloDocWeb.Controllers
 {
+    [CustomAuthorize((int)AllowRole.Patient)]
     public class PatientController : Controller
     {
 
@@ -25,22 +25,6 @@ namespace HalloDocWeb.Controllers
             _authService = authService;
             _patientService = patientService;
         }
-        //Generate PasswordHash
-        public static string GenerateSHA256(string input)
-        {
-            var bytes = Encoding.UTF8.GetBytes(input);
-            using (var hashEngine = SHA256.Create())
-            {
-                var hashedBytes = hashEngine.ComputeHash(bytes, 0, bytes.Length);
-                var sb = new StringBuilder();
-                foreach (var b in hashedBytes)
-                {
-                    var hex = b.ToString("x2");
-                    sb.Append(hex);
-                }
-                return sb.ToString();
-            }
-        }
 
         public IActionResult PatientRequest()
         {
@@ -48,26 +32,6 @@ namespace HalloDocWeb.Controllers
         }
         public IActionResult PatientSubmitRequest()
         {
-            return View();
-        }
-        public IActionResult PatientLogin()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult PatientLogin(PatientLogin patientLogin)
-        {
-            if (ModelState.IsValid)
-            {
-                if (_authService.PatientLogin(patientLogin))
-                {
-                    User user = _context.Users.FirstOrDefault(Au => Au.Email == patientLogin.Email);
-                    HttpContext.Session.SetInt32("userId", user.Userid);
-                    return RedirectToAction("Dashboard");
-                }
-            }
             return View();
         }
 
@@ -233,6 +197,11 @@ namespace HalloDocWeb.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("hallodoc");
+            return RedirectToAction("PatientLogin", "Home");
         }
     }
 }

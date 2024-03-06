@@ -23,5 +23,6 @@ namespace BusinessLogic.Interface
         void UploadFiles(ViewUploads viewUploads);
         void DeleteFile(int Requestwisefileid);
         bool SendFilesViaMail(List<int> fileIds, int requestId);
+        Orders Orders(int reqClientId); 
     }
 }

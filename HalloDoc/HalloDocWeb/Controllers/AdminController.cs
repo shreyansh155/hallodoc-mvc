@@ -2,31 +2,29 @@
 using DataAccess.ViewModels;
 using DataAccess.DataContext;
 using BusinessLogic.Interface;
+using BusinessLogic.Repository;
 using DataAccess.DataModels;
 using System.Net.Mail;
 using System.Net;
 
+
 namespace HalloDocWeb.Controllers
 {
+    [CustomAuthorize((int)AllowRole.Admin)]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IAdminService _adminService;
-        
+
         public AdminController(ApplicationDbContext context, IAdminService adminService)
         {
             _context = context;
             _adminService = adminService;
         }
-        public IActionResult AdminLogin()
-        {
-            return View();
-        }
         public IActionResult CreateAdminAccount()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateAdminAccount(CreateAdminAccount newAccount)
@@ -37,22 +35,6 @@ namespace HalloDocWeb.Controllers
                 return RedirectToAction("AdminLogin");
             }
             return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult AdminLogin(AdminLogin adminLogin)
-        {
-            if (ModelState.IsValid)
-            {
-                if (_adminService.AdminLogin(adminLogin))
-                {
-                    Admin admin = _context.Admins.FirstOrDefault(x => x.Email == adminLogin.Email);
-                    HttpContext.Session.SetInt32("adminId", admin.Adminid);
-                    return RedirectToAction("AdminDashboard");
-                }
-            }
-            return View(adminLogin);
         }
         public IActionResult AdminDashboard()
         {
@@ -75,11 +57,10 @@ namespace HalloDocWeb.Controllers
         }
         public IActionResult ViewNotes(int reqClientId)
         {
-            int? adminId = HttpContext.Session.GetInt32("adminId");
+            _ = HttpContext.Session.GetInt32("adminId");
             var obj = _adminService.ViewNotes(reqClientId);
             return View(obj);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult ViewNotesUpdate(ViewNotes viewNotes)
@@ -92,7 +73,6 @@ namespace HalloDocWeb.Controllers
             }
             return View(viewNotes);
         }
-
         [HttpPost]
         public IActionResult PartialTable(int status, SearchViewModel obj)
         {
@@ -165,9 +145,8 @@ namespace HalloDocWeb.Controllers
             }
 
         }
-
         [HttpPost]
-        public IActionResult AdminDashboard(SearchViewModel? obj)
+        public IActionResult AdminDashboard(SearchViewModel obj)
         {
             //ViewBag.AdminName = HttpContext.Session.GetString("adminToken").ToString();
             ViewBag.AdminId = HttpContext.Session.GetInt32("adminId");
@@ -210,7 +189,6 @@ namespace HalloDocWeb.Controllers
             };
             return PartialView("_BlockCaseView", blockCase);
         }
-
         [HttpPost]
         public IActionResult CancelCase(int ReqClientid, int CaseTagId, string AddOnNotes)
         {
@@ -228,7 +206,6 @@ namespace HalloDocWeb.Controllers
 
             return PartialView("_CancelCaseView", cancelCase);
         }
-
         [HttpPost]
         public IActionResult AssignCase(int ReqClientid, int PhysicianId, int RegionId, string Description)
         {
@@ -280,12 +257,19 @@ namespace HalloDocWeb.Controllers
             }
             return View(viewUploads);
         }
-
         public void DeleteFile(int Requestwisefileid)
         {
             _adminService.DeleteFile(Requestwisefileid);
         }
-
-        [HttpPost]        public bool SendFilesViaMail(List<int> fileIds, int requestId)        {            try            {                _adminService.SendFilesViaMail(fileIds, requestId);                return true;            }            catch (Exception e)            {                return false;            }        }
+        [HttpPost]        public bool SendFilesViaMail(List<int> fileIds, int requestId)        {            try            {                _adminService.SendFilesViaMail(fileIds, requestId);                return true;            }            catch            {                return false;            }        }
+        public IActionResult Orders()
+        {
+            return View(); 
+        }
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("hallodoc");
+            return RedirectToAction("AdminLogin","Home");
+        }
     }
 }

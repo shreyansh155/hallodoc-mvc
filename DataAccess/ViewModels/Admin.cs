@@ -402,4 +402,15 @@ namespace DataAccess.ViewModels
         public IEnumerable<UnpaidReqViewModel>? UnpaidReqViewModels { get; set; }
         public IEnumerable<ActiveReqViewModel>? ActiveReqViewModels { get; set; }
     }
+    public class Orders
+    {
+        public int? Requestclientid { get; set; }
+        public List<Healthprofessionaltype> ProfessionTypes { get; set; }
+        public List<Healthprofessional> HealthProfessionals { get; set; }
+        public string? BusinessContact { get; set; }
+        public string? Email { get; set; }
+        public string? FaxNumber { get; set; }
+        public string? Prescription { get; set; }
+        public string? NumberOfRefills { get; set;}
+    }
 }

@@ -26,16 +26,11 @@ namespace BusinessLogic.Repository
         private readonly IWebHostEnvironment _environment;
         private readonly IConfiguration _config;
 
-
-
-
         public AdminService(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment, IConfiguration config)
         {
             _config = config;
             _context = context;
             _environment = webHostEnvironment;
-
-
         }
         public static string GenerateSHA256(string input)
         {
@@ -454,7 +449,6 @@ namespace BusinessLogic.Repository
             };
             return viewUploads;
         }
-
         public void UploadFiles(ViewUploads viewUploads)
         {
             if (viewUploads.File != null && viewUploads.File.Length > 0)
@@ -547,6 +541,11 @@ namespace BusinessLogic.Repository
 
             //TempData["success"] = "Email with selected documents has been successfully sent to " + reqCli.Email;
             return true;
+        }
+        public Orders Orders(int reqClientId)
+        {
+            Orders orders = new() { };
+            return orders;
         }
     }
 }

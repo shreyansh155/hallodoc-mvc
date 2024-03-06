@@ -14,8 +14,6 @@ namespace BusinessLogic.Repository
     {
 
         private readonly DataAccess.DataContext.ApplicationDbContext _context;
-
-
         public AuthService(DataAccess.DataContext.ApplicationDbContext context)
         {
             _context = context;
@@ -97,37 +95,5 @@ namespace BusinessLogic.Repository
             }
         }
 
-        //public static string GenerateJWTAuthetication(string userName, string role)
-        //{
-        //    var claims = new List<Claim>
-        //    {
-        //        new Claim(JwtHeaderParameterNames.Jku, userName),
-        //        new Claim(JwtHeaderParameterNames.Kid, Guid.NewGuid().ToString()),
-        //        new Claim(ClaimTypes.NameIdentifier, userName)
-        //    };
-
-
-        //    claims.Add(new Claim(ClaimTypes.Role, role));
-
-
-        //    var key = new SymmetricSecurityKey(
-        //        Encoding.UTF8.GetBytes(Convert.ToString(ConfigurationManager.AppSettings["config:JwtKey"])));
-        //    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        //    var expires =
-        //        DateTime.Now.AddDays(
-        //            Convert.ToDouble(Convert.ToString(ConfigurationManager.AppSettings["config:JwtExpireDays"])));
-
-        //    var token = new JwtSecurityToken(
-        //        Convert.ToString(ConfigurationManager.AppSettings["config:JwtIssuer"]),
-        //        Convert.ToString(ConfigurationManager.AppSettings["config:JwtAudience"]),
-        //        claims,
-        //        expires: expires,
-        //        signingCredentials: creds
-        //    );
-
-        //    return new JwtSecurityTokenHandler().WriteToken(token);
-
-
-        //}
     }
 }

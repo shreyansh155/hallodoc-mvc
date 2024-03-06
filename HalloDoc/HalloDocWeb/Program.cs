@@ -14,6 +14,7 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("HallodocDbContext")
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 
 builder.Services.AddSession(options =>
@@ -41,8 +42,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
-
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
