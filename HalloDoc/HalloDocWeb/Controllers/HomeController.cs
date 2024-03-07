@@ -26,23 +26,19 @@ namespace HalloDocWeb.Controllers
             _jwtService = jwtService;
             _adminService = adminService;
         }
-
         public IActionResult Index()
         {
             return View();
         }
-
         public IActionResult AccessDenied()
         {
 
             return View();
         }
-
         public IActionResult PatientLogin()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult PatientLogin(PatientLogin patientLogin)
@@ -69,8 +65,6 @@ namespace HalloDocWeb.Controllers
             }
             return View();
         }
-
-
         public IActionResult AdminLogin()
         {
             return View();
@@ -98,8 +92,6 @@ namespace HalloDocWeb.Controllers
             }
             return View(adminLogin);
         }
-
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

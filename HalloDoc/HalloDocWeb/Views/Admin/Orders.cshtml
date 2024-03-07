@@ -2,6 +2,8 @@
     Layout = "_AdminDashboardLayout";
 }
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 @model Orders;
 <div class="mt-3">
     <a asp-controller="Admin" asp-action="AdminDashboard" class="btn btn-outline-info float-end">
@@ -24,46 +26,46 @@
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
                         <select class="form-select text-secondary" aria-label="Default select example" id="Healthprofessionalid">
-                           @*  @foreach (var items in Model.ProfessionTypes)
+                            <option selected>Select Profession </option>
+
+                            @foreach (var items in Model.ProfessionTypes)
                             {
                                 <option value="@items.Healthprofessionalid">@items.Professionname</option>
-                            } *@
+                            }
                         </select>
-                        <label for="floatingInput">Select Profession</label>
+                        <label for="floatingInput">Profession</label>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <div class="dropdown">
-                            <select class="form-select text-secondary" aria-label="Default select example" id="Vendorid">
-                               @*  @foreach (var items in Model.HealthProfessionals)
-                                {
-                                    <option value="@items.Vendorid">@items.Vendorname</option>
-                                } *@
-                            </select>
-                            <label for="floatingInput">Business</label>
-                        </div>
+                        <select class="form-select text-secondary" aria-label="Default select example" id="Vendorid">
+                            <option selected>Business</option>
+                            @foreach (var items in Model.HealthProfessionals)
+                            {
+                                <option value="@items.Vendorid">@items.Vendorname</option>
+                            }
+                        </select>
+                        <label for="floatingInput">Business</label>
                     </div>
                 </div>
-
             </div>
 
 
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <input asp-for="BusinessContact" class="form-control" placeholder="Leave a comment here" type="date"
-                               id="floatingTextarea2">
-                        <label for="floatingTextarea2">Business Contact</label>
+                        <input asp-for="BusinessContact" class="form-control " placeholder="Leave a comment here" type="tel"
+                               id="businessContact">
+                        <label for="contact">Business Contact</label>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
                         <input asp-for="Email" class="form-control" placeholder="Leave a comment here" type="email"
-                               id="floatingTextarea2">
-                        <label for="floatingTextarea2">Email</label>
+                               id="businessEmail">
+                        <label for="email">Email</label>
                     </div>
                 </div>
             </div>
@@ -72,34 +74,96 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <input type="text" class="form-control" id="floatingInputemail" placeholder="name@example.com" asp-for="FaxNumber" />
-                        <label for="floatingInputemail">Fax Number</label>
+                        <input type="text" class="form-control" id="businessFaxNumber" placeholder="name@example.com" asp-for="FaxNumber" />
+                        <label for="fax">Fax Number</label>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12 col sm-12 col-12 ">
-                <textarea asp-for="Prescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <label for="floatingInputemail">Prescription or Order Details</label>
+            <br />
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col sm-12 col-12 ">
+                    <textarea asp-for="Prescription" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Prescription or Order Details"></textarea>
+                </div>
             </div>
-
-
-            <h4 class="mt-4">Location Information</h4>
-
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <div class="dropdown">
-                            <select class="form-select text-secondary" aria-label="Default select example" id="Refill">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                            <label for="floatingInput">Number of Refills</label>
-                        </div>
+
+                        <select class="form-select text-secondary" aria-label="Default select example" id="Refill">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <label for="floatingInput">Number of Refills</label>
+
                     </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+
+                <button type="submit" class="btn py-2 px-4 mx-2" style="background-color: #10bce9; color: white;">
+                    Submit
+                </button>
+
+                <button id="cancelBtn" onclick="" type="button" class="btn py-2 px-4 ms-3 bg-danger" style="background-color: #10bce9; color: white;">
+                    Cancel
+                </button>
             </div>
         </div>
     </form>
 </div>
+<script>
+    $(function () {
+        $("#Healthprofessionalid").change(function () {
+            // console.log("hello");
+            let selectedValue = $('option:selected', this).val();
+            $.ajax({
+                url: '/Admin/FetchVendors',
+                method: 'GET',
+                data: { selectedValue: selectedValue },
+                success: function (response) {
+                    $('#Vendorid').empty();
+                    console.log(response);
+                    $.each(response, function (index, object) {
+                        $('#Vendorid').append($('<option>', {
+                            value: object["businessId"],
+                            text: object["businessName"]
+                        }));
+
+                    });
+                },
+                error: function (error) {
+                    console.error('Error fetching data: ' + error);
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+
+    $('#Vendorid').change(function () {
+        var selectedValue = $('option:selected', this).val();
+
+
+        $.ajax({
+            url: '/Admin/VendorDetails',
+            type: 'GET',
+            data: {
+                selectedValue: selectedValue,
+            },
+            success: function (result) {
+                console.log(result);
+                $('#businessFaxNumber').val(result["faxnumber"]);
+                $('#businessContact').val(result["businesscontact"]);
+                $('#businessEmail').val(result["email"]);
+
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        });
+    });
+</script>

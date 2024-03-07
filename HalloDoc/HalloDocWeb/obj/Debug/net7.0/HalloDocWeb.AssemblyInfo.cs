@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HalloDocWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1731e7536cf57888c7cc1b1b6bfd076d4a044f43")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+654d708dae2564983402b7b0710e464c804f548d")]
 [assembly: System.Reflection.AssemblyProductAttribute("HalloDocWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HalloDocWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

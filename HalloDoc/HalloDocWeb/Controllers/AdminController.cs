@@ -4,8 +4,7 @@ using DataAccess.DataContext;
 using BusinessLogic.Interface;
 using BusinessLogic.Repository;
 using DataAccess.DataModels;
-using System.Net.Mail;
-using System.Net;
+using System.Text.Json.Nodes;
 
 
 namespace HalloDocWeb.Controllers
@@ -262,14 +261,19 @@ namespace HalloDocWeb.Controllers
             _adminService.DeleteFile(Requestwisefileid);
         }
         [HttpPost]        public bool SendFilesViaMail(List<int> fileIds, int requestId)        {            try            {                _adminService.SendFilesViaMail(fileIds, requestId);                return true;            }            catch            {                return false;            }        }
-        public IActionResult Orders()
-        {
-            return View(); 
-        }
         public IActionResult Logout()
         {
             Response.Cookies.Delete("hallodoc");
-            return RedirectToAction("AdminLogin","Home");
+            return RedirectToAction("AdminLogin", "Home");
         }
-    }
+        public IActionResult Orders(int reqclientId)
+        {
+            var obj = _adminService.Orders(reqclientId);
+            return View(obj);
+        }
+
+        [HttpGet]
+        public JsonArray FetchVendors(int selectedValue)        {            var result = _adminService.FetchVendors(selectedValue);            return result;        }
+
+        [HttpGet]        public Healthprofessional VendorDetails(int selectedValue)        {            var result = _adminService.VendorDetails(selectedValue);            return result;        }    }
 }

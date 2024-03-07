@@ -1,8 +1,10 @@
-﻿using DataAccess.ViewModels;
+﻿using DataAccess.DataModels;
+using DataAccess.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.Interface
@@ -24,5 +26,7 @@ namespace BusinessLogic.Interface
         void DeleteFile(int Requestwisefileid);
         bool SendFilesViaMail(List<int> fileIds, int requestId);
         Orders Orders(int reqClientId); 
+        JsonArray FetchVendors(int selectedValue);
+        Healthprofessional VendorDetails(int selectedValue);
     }
 }

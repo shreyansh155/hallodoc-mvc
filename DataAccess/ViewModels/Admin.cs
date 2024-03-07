@@ -382,7 +382,7 @@ namespace DataAccess.ViewModels
         public IFormFile? File { get; set; }
         public int RequestId { get; set; }
         public List<Requestwisefile>? RequestWiseFiles { get; set; }
-        public int Requestwisefileid { get; set; }  
+        public int Requestwisefileid { get; set; }
     }
     public class AdminDashboard
     {
@@ -411,6 +411,6 @@ namespace DataAccess.ViewModels
         public string? Email { get; set; }
         public string? FaxNumber { get; set; }
         public string? Prescription { get; set; }
-        public string? NumberOfRefills { get; set;}
+        public string? NumberOfRefills { get; set; }
     }
 }

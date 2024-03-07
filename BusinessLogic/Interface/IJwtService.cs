@@ -15,5 +15,4 @@ namespace BusinessLogic.Interface
         public bool ValidateToken(string token, out JwtSecurityToken jwtSecurityToken);
 
     }
-
 }

@@ -18,6 +18,7 @@ using System.Net.Mail;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Text.Json.Nodes;
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
@@ -544,8 +545,35 @@ namespace BusinessLogic.Repository
         }
         public Orders Orders(int reqClientId)
         {
-            Orders orders = new() { };
+            Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            var healthprofessionaltype = _context.Healthprofessionaltypes.ToList();
+            var healthprofessionals = _context.Healthprofessionals.ToList();
+
+            Orders orders = new()
+            {
+                ProfessionTypes = healthprofessionaltype,
+                HealthProfessionals = healthprofessionals,
+                Requestclientid = reqClientId,
+            };
             return orders;
         }
+        public JsonArray FetchVendors(int selectedValue)
+        {
+            var result = new JsonArray();
+            IEnumerable<Healthprofessional> businesses = _context.Healthprofessionals.Where(prof => prof.Profession == selectedValue);
+
+            foreach (Healthprofessional business in businesses)
+            {
+                result.Add(new { businessId = business.Vendorid, businessName = business.Vendorname });
+            }
+            return result;
+        }
+        public Healthprofessional VendorDetails(int selectedValue)
+        {
+            Healthprofessional business = _context.Healthprofessionals.First(prof => prof.Vendorid == selectedValue);
+
+            return business;
+        }
+
     }
 }
