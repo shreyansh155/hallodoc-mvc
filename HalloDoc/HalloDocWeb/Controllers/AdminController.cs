@@ -5,6 +5,7 @@ using BusinessLogic.Interface;
 using BusinessLogic.Repository;
 using DataAccess.DataModels;
 using System.Text.Json.Nodes;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 
 namespace HalloDocWeb.Controllers
@@ -13,10 +14,13 @@ namespace HalloDocWeb.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IAdminService _adminService;
+        private readonly IAdminService _adminService; 
+        private readonly INotyfService _notyf;
 
-        public AdminController(ApplicationDbContext context, IAdminService adminService)
+
+        public AdminController(ApplicationDbContext context, IAdminService adminService, INotyfService notyf)
         {
+            _notyf = notyf;
             _context = context;
             _adminService = adminService;
         }
@@ -62,12 +66,13 @@ namespace HalloDocWeb.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ViewNotesUpdate(ViewNotes viewNotes)
+        public IActionResult ViewNotes(ViewNotes viewNotes)
         {
             if (ModelState.IsValid)
             {
                 int? adminId = HttpContext.Session.GetInt32("adminId");
                 _adminService.ViewNotesUpdate(viewNotes);
+                _notyf.Success("Note Updated Successfully", 3);
                 return ViewNotes(viewNotes.Requestclientid);
             }
             return View(viewNotes);
@@ -180,6 +185,16 @@ namespace HalloDocWeb.Controllers
             };
             return PartialView("_AssignCaseView", assignCase);
         }
+        public IActionResult TransferCaseModal(int requestClientId)
+        {
+            TransferCase transferCase = new()
+            {
+                ReqClientid = requestClientId,
+                Region = _context.Regions,
+                Physicians = _context.Physicians
+            };
+            return PartialView("_TransferCaseView", transferCase);
+        }
         public IActionResult BlockCaseModal(int requestClientId)
         {
             BlockCase blockCase = new()
@@ -200,9 +215,11 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _adminService.CancelCase(cancelCase);
+                _notyf.Success("Case has been successfully cancelled",3);
                 return RedirectToAction("AdminDashboard");
             }
-
+            _notyf.Error("Please try again", 3);
+            
             return PartialView("_CancelCaseView", cancelCase);
         }
         [HttpPost]
@@ -218,10 +235,30 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _adminService.AssignCase(assignCase);
+                _notyf.Success("Case has been successfully assigned", 3);
                 return RedirectToAction("AdminDashboard");
             }
 
             return PartialView("_AssignCaseView", assignCase);
+        }
+        [HttpPost]
+        public IActionResult TransferCase(int ReqClientid, int PhysicianId, int RegionId, string Description)
+        {
+            TransferCase transferCase= new()
+            {
+                ReqClientid = ReqClientid,
+                PhysicianId = PhysicianId,
+                RegionId = RegionId,
+                Description = Description
+            };
+            if (ModelState.IsValid)
+            {
+                _adminService.TransferCase(transferCase);
+                _notyf.Success("Case has been successfully transferred", 3);
+                return RedirectToAction("AdminDashboard");
+            }
+
+            return PartialView("_TransferCaseView", transferCase);
         }
         [HttpPost]
         public IActionResult BlockCase(int ReqClientId, string BlockReason)
@@ -234,6 +271,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _adminService.BlockCase(blockCase);
+                _notyf.Success("Case has been successfully blocked", 3);
                 return RedirectToAction("AdminDashboard");
             }
             return PartialView("_BlockCaseView");
@@ -260,20 +298,37 @@ namespace HalloDocWeb.Controllers
         {
             _adminService.DeleteFile(Requestwisefileid);
         }
-        [HttpPost]        public bool SendFilesViaMail(List<int> fileIds, int requestId)        {            try            {                _adminService.SendFilesViaMail(fileIds, requestId);                return true;            }            catch            {                return false;            }        }
+        [HttpPost]        public bool SendFilesViaMail(List<int> fileIds, int requestId)        {            try            {                _adminService.SendFilesViaMail(fileIds, requestId);
+                _notyf.Success("Email has been successfully sent", 3);                return true;            }            catch            {                return false;            }        }
         public IActionResult Logout()
         {
             Response.Cookies.Delete("hallodoc");
             return RedirectToAction("AdminLogin", "Home");
         }
-        public IActionResult Orders(int reqclientId)
+        public IActionResult Orders(int RequestId)
         {
-            var obj = _adminService.Orders(reqclientId);
+            var obj = _adminService.Orders(RequestId);
             return View(obj);
+        }
+        [HttpPost]
+        public IActionResult Orders(Orders orders)
+        {
+            _adminService.SendOrder(orders);
+            _notyf.Success("Order sent", 3);
+            return RedirectToAction("AdminDashboard");
         }
 
         [HttpGet]
         public JsonArray FetchVendors(int selectedValue)        {            var result = _adminService.FetchVendors(selectedValue);            return result;        }
+        [HttpGet]
+        public JsonArray FetchPhysician(int selectedValue)        {            var result = _adminService.FetchPhysician(selectedValue);            return result;        }
 
-        [HttpGet]        public Healthprofessional VendorDetails(int selectedValue)        {            var result = _adminService.VendorDetails(selectedValue);            return result;        }    }
+        [HttpGet]        public Healthprofessional VendorDetails(int selectedValue)        {            var result = _adminService.VendorDetails(selectedValue);            return result;        }        public IActionResult _ClearCaseModal(int requestClientId)
+        {
+            ClearCase obj = new()
+            {
+                ReqClientid = requestClientId,
+            };
+            return View(obj);
+        }    }
 }

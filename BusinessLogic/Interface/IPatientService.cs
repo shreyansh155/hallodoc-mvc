@@ -22,5 +22,6 @@ namespace BusinessLogic.Interface
         PatientDashboard PatientDashboard(int  userId);
         PatientProfile Profile(int userId);
         void ProfileUpdate(PatientProfile profile, int userId);
+        ViewDocument ViewDocument(int requestId, int userId);
     }
 }

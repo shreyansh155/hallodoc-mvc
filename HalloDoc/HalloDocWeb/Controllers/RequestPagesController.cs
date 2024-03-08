@@ -1,27 +1,30 @@
 ﻿
+using AspNetCoreHero.ToastNotification.Abstractions;
 using BusinessLogic.Interface;
 using DataAccess.DataContext;
 using DataAccess.DataModels;
 using DataAccess.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Runtime.Intrinsics.X86;
 
 namespace HalloDocWeb.Controllers
 {
     public class RequestPagesController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IAuthService _authService;
+        private readonly INotyfService _notyf;
         private readonly IPatientService _patientService;
 
 
-        public RequestPagesController(ApplicationDbContext context, IAuthService authService, IPatientService patientService)
+        public RequestPagesController(ApplicationDbContext context, IPatientService patientService,INotyfService notyf)
         {
+            _notyf = notyf;
             _context = context;
-            _authService = authService;
             _patientService = patientService;
+        }
+        public IActionResult PatientSubmitRequest()
+        {
+            return View();
         }
         //GET
         public IActionResult PatientRequest()
@@ -37,6 +40,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _patientService.PatientRequest(userDetails);
+                _notyf.Success("Request Submitted Successfully", 3);
                 return RedirectToAction("Index", "Home");
             }
             return View(userDetails);
@@ -63,6 +67,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _patientService.FamilyFriendRequest(userDetails);
+                _notyf.Success("Request Submitted Successfully", 3);
                 return RedirectToAction("Index", "Home");
 
             }
@@ -84,6 +89,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _patientService.ConciergeRequest(userDetails);
+                _notyf.Success("Request Submitted Successfully", 3);
                 return RedirectToAction("Index", "Home");
 
             }
@@ -104,6 +110,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _patientService.BusinessRequest(userDetails);
+                _notyf.Success("Request Submitted Successfully", 3);
                 return RedirectToAction("Index", "Home");
             }
             return View(userDetails);

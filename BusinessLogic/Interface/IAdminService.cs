@@ -19,6 +19,7 @@ namespace BusinessLogic.Interface
         public AdminDashboard SearchPatient(SearchViewModel obj, AdminDashboard data);
         void CancelCase(CancelCase cancelCase);
         void AssignCase(AssignCase assignCase);
+        void TransferCase(TransferCase transferCase);
         void BlockCase(BlockCase blockCase);
         void ViewNotesUpdate(ViewNotes viewNotes);
         ViewUploads ViewUploads(int reqClientId);
@@ -27,6 +28,8 @@ namespace BusinessLogic.Interface
         bool SendFilesViaMail(List<int> fileIds, int requestId);
         Orders Orders(int reqClientId); 
         JsonArray FetchVendors(int selectedValue);
+        JsonArray FetchPhysician(int selectedValue);
         Healthprofessional VendorDetails(int selectedValue);
+        void SendOrder(Orders orders);
     }
 }

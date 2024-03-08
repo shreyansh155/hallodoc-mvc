@@ -14,7 +14,7 @@
 
 
     <form method="post">
-        <input asp-for="@Model.Requestclientid" hidden />
+        <input asp-for="Requestid" hidden />
         <div class="shadow p-3 dashboard-card mt-4">
 
             <h4>Send Orders</h4>
@@ -25,9 +25,8 @@
 
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <select class="form-select text-secondary" aria-label="Default select example" id="Healthprofessionalid">
+                        <select class="form-select text-secondary" asp-for="Professionid" aria-label="Default select example" id="Healthprofessionalid">
                             <option selected>Select Profession </option>
-
                             @foreach (var items in Model.ProfessionTypes)
                             {
                                 <option value="@items.Healthprofessionalid">@items.Professionname</option>
@@ -39,7 +38,7 @@
 
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <select class="form-select text-secondary" aria-label="Default select example" id="Vendorid">
+                        <select class="form-select text-secondary" asp-for="Vendorid" aria-label="Default select example" id="Vendorid">
                             <option selected>Business</option>
                             @foreach (var items in Model.HealthProfessionals)
                             {
@@ -55,7 +54,7 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-                        <input asp-for="BusinessContact" class="form-control " placeholder="Leave a comment here" type="tel"
+                        <input asp-for="BusinessContact" class="form-control" placeholder="Leave a comment here" type="tel"
                                id="businessContact">
                         <label for="contact">Business Contact</label>
                     </div>
@@ -69,7 +68,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="row">
                 <div class="col-md-6 col-12">
@@ -88,15 +86,13 @@
             <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="form-floating mt-3">
-
-                        <select class="form-select text-secondary" aria-label="Default select example" id="Refill">
-                            <option value="1" selected>1</option>
+                        <select class="form-select text-secondary" asp-for="NumberOfRefills" aria-label="Default select example" id="Refill">
+                            <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
                         <label for="floatingInput">Number of Refills</label>
-
                     </div>
                 </div>
             </div>
@@ -140,8 +136,6 @@
         });
     });
 </script>
-
-
 <script>
 
     $('#Vendorid').change(function () {

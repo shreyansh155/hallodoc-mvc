@@ -191,6 +191,7 @@ namespace BusinessLogic.Repository
                                    State = rc.State,
                                    Zipcode = rc.Zipcode,
                                    Notes = rc.Notes,
+                                   RequestId = req.Requestid,
                                    reqTypeId = req.Requesttypeid,
                                    physicianName = phy.Firstname + " " + phy.Lastname
                                };
@@ -217,6 +218,7 @@ namespace BusinessLogic.Repository
                                       Zipcode = rc.Zipcode,
                                       Notes = rc.Notes,
                                       reqTypeId = req.Requesttypeid,
+                                      RequestId = req.Requestid,
                                       physicianName = phy.Firstname + " " + phy.Lastname
                                   };
             var unpaidReqData = from req in _context.Requests
@@ -266,6 +268,7 @@ namespace BusinessLogic.Repository
                                     State = rc.State,
                                     Zipcode = rc.Zipcode,
                                     Notes = rc.Notes,
+                                    RequestId = req.Requestid,
                                     reqTypeId = req.Requesttypeid,
                                     physicianName = phy.Firstname + " " + phy.Lastname
                                 };
@@ -365,17 +368,19 @@ namespace BusinessLogic.Repository
             ViewNotes? viewNote = new()
             {
                 PhysicianName = physician.Firstname,
-                AdminNotes = obj.Adminnotes,
-                PhysicianNotes = obj.Physiciannotes,
+                AdminNotes = obj?.Adminnotes ?? "",
+                PhysicianNotes = obj?.Physiciannotes ?? "",
                 Statuslogs = requeststatuslog,
+                Requestclientid = reqClientId,
             };
             return viewNote;
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public void ViewNotesUpdate(ViewNotes viewNotes)
         {
             Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == viewNotes.Requestclientid);
             Requestnote? obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
-
             obj.Adminnotes = viewNotes.TextBox;
 
         }
@@ -543,9 +548,9 @@ namespace BusinessLogic.Repository
             //TempData["success"] = "Email with selected documents has been successfully sent to " + reqCli.Email;
             return true;
         }
-        public Orders Orders(int reqClientId)
+        public Orders Orders(int RequestId)
         {
-            Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Request? req = _context.Requests.FirstOrDefault(x => x.Requestid == RequestId);
             var healthprofessionaltype = _context.Healthprofessionaltypes.ToList();
             var healthprofessionals = _context.Healthprofessionals.ToList();
 
@@ -553,7 +558,7 @@ namespace BusinessLogic.Repository
             {
                 ProfessionTypes = healthprofessionaltype,
                 HealthProfessionals = healthprofessionals,
-                Requestclientid = reqClientId,
+                Requestid = RequestId,
             };
             return orders;
         }
@@ -568,12 +573,59 @@ namespace BusinessLogic.Repository
             }
             return result;
         }
+        public JsonArray FetchPhysician(int selectedValue)
+        {
+            var result = new JsonArray();
+            IEnumerable<Physician> physician = _context.Physicians.Where(x => x.Regionid == selectedValue);
+
+            foreach (Physician item in physician)
+            {
+                result.Add(new { physicianId = item.Physicianid, physicianName = item.Firstname });
+            }
+            return result;
+        }
         public Healthprofessional VendorDetails(int selectedValue)
         {
             Healthprofessional business = _context.Healthprofessionals.First(prof => prof.Vendorid == selectedValue);
 
             return business;
         }
+        public void SendOrder(Orders orders)
+        {
+            Orderdetail orderdetail = new()
+            {
+                Requestid = orders.Requestid,
+                Vendorid = orders.Vendorid,
+                Faxnumber = orders.FaxNumber,
+                Businesscontact = orders.BusinessContact,
+                Email = orders.Email,
+                Noofrefill = orders.NumberOfRefills,
+                Prescription = orders.Prescription,
+                Createddate = DateTime.Now,
+                Createdby = "Admin",
+            };
+            _context.Orderdetails.Add(orderdetail);
+            _context.SaveChanges();
+        }
+        public void TransferCase(TransferCase transferCase)
+        {
+            Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == transferCase.ReqClientid);
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
 
+            Requeststatuslog? requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 2,
+                Createddate = DateTime.Now,
+                Notes = transferCase.Description,
+                Physicianid = transferCase.PhysicianId,
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+
+            request.Modifieddate = DateTime.Now;
+
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
     }
 }

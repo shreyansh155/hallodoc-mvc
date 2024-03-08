@@ -72,6 +72,7 @@ namespace DataAccess.ViewModels
 
         public int? reqTypeId { get; set; }
 
+        public int RequestId { get; set; }
         public string? physicianName { get; set; }
     }
     public class CloseReqViewModel
@@ -118,6 +119,7 @@ namespace DataAccess.ViewModels
         public int? reqTypeId { get; set; }
 
         public string? physicianName { get; set; }
+        public int RequestId { get; set; }
     }
     public class ActiveReqViewModel
     {
@@ -163,6 +165,8 @@ namespace DataAccess.ViewModels
 
         public string? physicianName { get; set; }
         public int reqClientId { get; set; }
+        public int RequestId { get; set; }
+
     }
     public class CountRequestViewModel
     {
@@ -404,13 +408,30 @@ namespace DataAccess.ViewModels
     }
     public class Orders
     {
-        public int? Requestclientid { get; set; }
         public List<Healthprofessionaltype> ProfessionTypes { get; set; }
         public List<Healthprofessional> HealthProfessionals { get; set; }
+        public int Requestid { get; set; }
+        public int Professionid { get; set; }
+        public int Vendorid { get; set; }
         public string? BusinessContact { get; set; }
         public string? Email { get; set; }
         public string? FaxNumber { get; set; }
         public string? Prescription { get; set; }
-        public string? NumberOfRefills { get; set; }
+        public int NumberOfRefills { get; set; }
+
+    }
+    public class TransferCase
+    {
+        public int? ReqClientid { get; set; }
+        public string? Name { get; set; }
+        public IEnumerable<Region> Region { get; set; }
+        public IEnumerable<Physician> Physicians { get; set; }
+        public int? PhysicianId { get; set; }
+        public int? RegionId { get; set; }
+        public string? Description { get; set; }
+    }
+    public class ClearCase
+    {
+        public int? ReqClientid { get; set; }
     }
 }

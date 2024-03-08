@@ -79,3 +79,30 @@
         });
     });
 </script>
+<script>
+    $(function () {
+        $("#RegionId").change(function () {
+            // console.log("hello");
+            let selectedValue = $('option:selected', this).val();
+            $.ajax({
+                url: '/Admin/FetchPhysician',
+                method: 'GET',
+                data: { selectedValue: selectedValue },
+                success: function (response) {
+                    $('#PhysicianId').empty();
+                    console.log(response);
+                    $.each(response, function (index, object) {
+                        $('#PhysicianId').append($('<option>', {
+                            value: object["physicianId"],
+                            text: object["physicianName"]
+                        }));
+
+                    });
+                },
+                error: function (error) {
+                    console.error('Error fetching data: ' + error);
+                }
+            });
+        });
+    });
+</script>

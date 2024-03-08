@@ -1,0 +1,36 @@
+﻿<link rel="stylesheet" href="~/css/warningModal.css" asp-append-version="true" />
+@model ClearCase;
+
+
+<div class="modal fade" tabindex="-1" data-bs-backdrop="static" id="clearCaseModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body row">
+                <div class="col-12 align-items-center justify-content-center d-flex">
+                    <div class="warning-icon">
+                        <img src="../../images/warning-icon.svg" alt="" id="warning-icon">
+                    </div>
+                </div>
+                <div class="col-12 justify-content-center d-flex">Confirmation To Clear Case</div><br>
+                <div class="col-12">Are you sure you want to clear this request? Once you clear this request then you won't be able to undo it!</div>
+                <div class="d-flex justify-content-end mt-3">
+                    <input asp-for="ReqClientid" hidden/>
+                    <button id="clearCaseBtn" type="button" onclick="location.href='@Url.Action("ClearCase", new {reqClientId = Model.ReqClientid})'" class="btn py-2 px-4 mx-2" style="background-color: #10bce9; color: white;">
+                        Clear
+                    </button>
+
+                    <button id="cancelBtn" type="button" class="btn py-2 px-4 ms-3 bg-danger" data-dismiss="modal" style="background-color: #10bce9; color: white;">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

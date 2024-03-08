@@ -58,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0NhbmNlbENhc2VWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/_ClearCaseModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0NsZWFyQ2FzZU1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/_closeReqView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX2Nsb3NlUmVxVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -72,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/_pendingRequestView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX3BlbmRpbmdSZXF1ZXN0Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/_TransferCaseView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RyYW5zZmVyQ2FzZVZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/_unpaidReqView.cshtml]
@@ -104,10 +112,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Patient/PatientForgotpassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxQYXRpZW50Rm9yZ290cGFzc3dvcmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Patient/PatientSubmitRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxQYXRpZW50U3VibWl0UmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Patient/Profile.cshtml]
@@ -148,6 +152,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/RequestPages/PatientRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFBhZ2VzXFBhdGllbnRSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/RequestPages/PatientSubmitRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFBhZ2VzXFBhdGllbnRTdWJtaXRSZXF1ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Shared/AdminDashboardHeader.cshtml]

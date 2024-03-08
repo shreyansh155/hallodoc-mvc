@@ -6,6 +6,7 @@ using BusinessLogic.Interface;
 using DataAccess.ViewModels;
 using System.Diagnostics;
 using BusinessLogic.Repository;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 
 namespace HalloDocWeb.Controllers
@@ -17,11 +18,12 @@ namespace HalloDocWeb.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IAuthService _authService;
         private readonly IPatientService _patientService;
+        private readonly INotyfService _notyf;
 
-
-        public PatientController(ApplicationDbContext context, IAuthService authService, IPatientService patientService)
+        public PatientController(ApplicationDbContext context, IAuthService authService, IPatientService patientService, INotyfService notyf)
         {
             _context = context;
+            _notyf = notyf;
             _authService = authService;
             _patientService = patientService;
         }
@@ -30,10 +32,7 @@ namespace HalloDocWeb.Controllers
         {
             return View();
         }
-        public IActionResult PatientSubmitRequest()
-        {
-            return View();
-        }
+
 
         public IActionResult PatientForgotPassword()
         {
@@ -67,8 +66,10 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _authService.PatientResetPassword(patientResetPassword);
+                _notyf.Success("Password Reset Successfully", 3);
                 return RedirectToAction("PatientLogin");
             }
+            _notyf.Error("Please provide correct credentials",3);
             return View();
         }
 
@@ -99,8 +100,8 @@ namespace HalloDocWeb.Controllers
 
             if (user != null)
             {
-               var patientDetails= _patientService.Profile((int)userId);
-                return View("Profile",patientDetails);
+                var patientDetails = _patientService.Profile((int)userId);
+                return View("Profile", patientDetails);
             }
             return RedirectToAction("Error");
         }
@@ -131,6 +132,7 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _authService.CreateNewAccount(newAccount);
+                _notyf.Success("Account Created Successfully", 3);
                 return RedirectToAction("PatientLogin");
             }
             return View();
@@ -162,18 +164,7 @@ namespace HalloDocWeb.Controllers
         public IActionResult ViewDocument(int requestId)
         {
             int? userid = HttpContext.Session.GetInt32("userId");
-            User user = _context.Users.FirstOrDefault(u => u.Userid == userid);
-            Request request = _context.Requests.FirstOrDefault(r => r.Requestid == requestId);
-            List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == requestId).ToList();
-
-            ViewDocument document = new()
-            {
-                requestwisefiles = fileList,
-                RequestId = requestId,
-
-                ConfirmationNumber = request.Confirmationnumber,
-                UserName = user.Firstname + " " + user.Lastname,
-            };
+            var document=_patientService.ViewDocument(requestId,(int)userid);
             return View(document);
         }
         [HttpPost]

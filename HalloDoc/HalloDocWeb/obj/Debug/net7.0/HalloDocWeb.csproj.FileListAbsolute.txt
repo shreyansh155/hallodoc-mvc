@@ -764,3 +764,6 @@ G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\refint\HalloDocWeb.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.pdb
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\HalloDocWeb.genruntimeconfig.cache
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\obj\Debug\net7.0\ref\HalloDocWeb.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\AspNetCoreHero.ToastNotification.Views.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\AspNetCoreHero.ToastNotification.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Newtonsoft.Json.dll

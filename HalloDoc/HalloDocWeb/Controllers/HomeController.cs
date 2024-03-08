@@ -1,11 +1,10 @@
-﻿using BusinessLogic.Interface;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using BusinessLogic.Interface;
 using BusinessLogic.Repository;
 using DataAccess.DataContext;
 using DataAccess.DataModels;
 using DataAccess.ViewModels;
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace HalloDocWeb.Controllers
@@ -17,9 +16,11 @@ namespace HalloDocWeb.Controllers
         private readonly IAuthService _authService;
         private readonly IJwtService _jwtService;
         private readonly IAdminService _adminService;
+        private readonly INotyfService _notyf;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IAuthService auth, IJwtService jwtService, IAdminService adminService)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IAuthService auth, IJwtService jwtService, IAdminService adminService, INotyfService notyf )
         {
+            _notyf = notyf;
             _logger = logger;
             _context = context;
             _authService = auth;
@@ -60,6 +61,7 @@ namespace HalloDocWeb.Controllers
                     //Response.Cookies["userId"].Expires = DateTime.Now.AddDays(-1);
                     Response.Cookies.Delete("hallodoc");
                     Response.Cookies.Append("hallodoc",token);
+                    _notyf.Success("Login Successful",3);
                     return RedirectToAction("Dashboard","Patient");
                 }
             }
@@ -87,8 +89,11 @@ namespace HalloDocWeb.Controllers
                     };
                     var token = _jwtService.GenerateJwtToken(suser);
                     Response.Cookies.Append("hallodoc", token);
+                    _notyf.Success("Login Successful",3);
                     return RedirectToAction("AdminDashboard","Admin");
+
                 }
+
             }
             return View(adminLogin);
         }

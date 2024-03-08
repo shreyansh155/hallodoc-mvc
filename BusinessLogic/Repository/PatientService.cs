@@ -925,5 +925,21 @@ namespace BusinessLogic.Repository
             _context.Requests.Update(request);
             _context.SaveChanges();
         }
+        public ViewDocument ViewDocument(int requestId, int userid)
+        {
+            User user = _context.Users.FirstOrDefault(u => u.Userid == userid);
+            Request request = _context.Requests.FirstOrDefault(r => r.Requestid == requestId);
+            List<Requestwisefile> fileList = _context.Requestwisefiles.Where(reqFile => reqFile.Requestid == requestId).ToList();
+
+            ViewDocument document = new()
+            {
+                requestwisefiles = fileList,
+                RequestId = requestId,
+
+                ConfirmationNumber = request.Confirmationnumber,
+                UserName = user.Firstname + " " + user.Lastname,
+            };
+            return document;
+        }
     }
 }

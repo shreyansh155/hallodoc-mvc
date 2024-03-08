@@ -3,6 +3,8 @@ using DataAccess.DataModels;
 using BusinessLogic.Interface;
 using Microsoft.EntityFrameworkCore;
 using BusinessLogic.Repository;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,7 @@ builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 
-
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = false; config.Position = NotyfPosition.TopRight; });
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".HalloDoc.Session";
@@ -43,7 +45,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
-
+app.UseNotyf();
 
 app.MapControllerRoute(
     name: "default",
