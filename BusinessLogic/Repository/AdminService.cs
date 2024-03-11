@@ -1,19 +1,11 @@
 ﻿using BusinessLogic.Interface;
 using DataAccess.ViewModels;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using DataAccess.DataContext;
 using System.Security.Cryptography;
 using DataAccess.DataModels;
-using Microsoft.AspNetCore.Components.Forms;
 using System.Globalization;
-using System.Collections;
-using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Razor.Language;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
@@ -511,10 +503,10 @@ namespace BusinessLogic.Repository
         {
             Requestclient reqCli = _context.Requestclients.FirstOrDefault(requestCli => requestCli.Requestid == requestId);
 
-            string senderEmail = _config.GetSection("OutlookSMTP")["Sender"];
-            string senderPassword = _config.GetSection("OutlookSMTP")["Password"];
+            string? senderEmail = _config.GetSection("OutlookSMTP")["Sender"];
+            string? senderPassword = _config.GetSection("OutlookSMTP")["Password"];
 
-            SmtpClient client = new SmtpClient("smtp.office365.com")
+            SmtpClient client = new("smtp.office365.com")
             {
                 Port = 587,
                 Credentials = new NetworkCredential(senderEmail, senderPassword),
@@ -534,7 +526,7 @@ namespace BusinessLogic.Repository
             MemoryStream memoryStream;
             foreach (int fileId in fileIds)
             {
-                Requestwisefile file = _context.Requestwisefiles.FirstOrDefault(reqFile => reqFile.Requestwisefileid == fileId);
+                Requestwisefile? file = _context.Requestwisefiles.FirstOrDefault(reqFile => reqFile.Requestwisefileid == fileId);
                 string documentPath = Path.Combine(_environment.WebRootPath, "UploadedFiles", requestId.ToString(), file.Filename);
                 byte[] fileBytes = System.IO.File.ReadAllBytes(documentPath);
                 memoryStream = new MemoryStream(fileBytes);
@@ -626,6 +618,53 @@ namespace BusinessLogic.Repository
 
             _context.Requests.Update(request);
             _context.SaveChanges();
+        }
+        public void ClearCase(int reqClientId)
+        {
+            Requestclient? requestclient = _context.Requestclients.Where(x => x.Requestclientid == reqClientId).FirstOrDefault();
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+            request.Status = 10;
+            request.Modifieddate = DateTime.Now;
+
+            _context.Requests.Update(request);
+            Requeststatuslog? requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 10,
+                Createddate = DateTime.Now,
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.SaveChanges();
+
+        }
+        public void SendAgreementCase(SendAgreementCase sendAgreement)
+        {
+
+            Requestclient reqCli = _context.Requestclients.FirstOrDefault(requestCli => requestCli.Requestclientid == sendAgreement.ReqClientid);
+
+            string? senderEmail = _config.GetSection("OutlookSMTP")["Sender"];
+            string? senderPassword = _config.GetSection("OutlookSMTP")["Password"];
+
+            SmtpClient client = new("smtp.office365.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(senderEmail, senderPassword),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false
+            };
+
+            MailMessage mailMessage = new()
+            {
+                From = new MailAddress(senderEmail, "HalloDoc"),
+                Subject = "Hallodoc review agreement",
+                IsBodyHtml = true,
+                Body = "<h3>Admin has sent you the agreement papers to review. Click on the link below to read the agreement.</h3>",
+            };
+
+            mailMessage.To.Add(reqCli.Email);
+
+            client.Send(mailMessage);
         }
     }
 }

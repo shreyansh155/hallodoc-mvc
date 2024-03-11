@@ -143,10 +143,10 @@
                             <a class="btn dropdown-item" id="transferCase" onclick="transferCase(@item.reqClientId)">Transfer Case</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" onclick="cancelCase(@item.reqClientId)">Clear Case</a>
+                            <a class="btn dropdown-item" onclick="clearCase(@item.reqClientId)">Clear Case</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Send Agreement</a>
+                            <a class="btn dropdown-item" id="sendAgreement" onclick="sendAgreement(@item.reqClientId)">Send Agreement</a>
                         </li>
                     </ul>
                 </td>
@@ -176,7 +176,25 @@
 </script>
 
 <script>
-    function cancelCase(reqClientId) {
+    function sendAgreement(reqClientId) {
+        $.ajax({
+            url: "/Admin/_SendAgreementModal",
+            data: { ReqClientid: reqClientId },
+            type: 'POST',
+            success: function (result) {
+                $('#display').html(result);
+                $('#sendAgreementModal').modal('show');
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    }
+</script>
+
+<script>
+    function clearCase(reqClientId) {
         $.ajax({
             url: "/Admin/_ClearCaseModal",
             data: { requestClientId: reqClientId },

@@ -417,9 +417,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Filepath)
                 .HasColumnType("character varying")
                 .HasColumnName("filepath");
-            entity.Property(e => e.Isemailsent)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isemailsent");
+            entity.Property(e => e.Isemailsent).HasColumnName("isemailsent");
             entity.Property(e => e.Physicianid).HasColumnName("physicianid");
             entity.Property(e => e.Requestid).HasColumnName("requestid");
             entity.Property(e => e.Roleid).HasColumnName("roleid");
@@ -450,9 +448,7 @@ public partial class ApplicationDbContext : DbContext
 
             entity.ToTable("healthprofessionals");
 
-            entity.Property(e => e.Vendorid)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("vendorid");
+            entity.Property(e => e.Vendorid).HasColumnName("vendorid");
             entity.Property(e => e.Address)
                 .HasMaxLength(150)
                 .HasColumnName("address");
@@ -510,18 +506,12 @@ public partial class ApplicationDbContext : DbContext
 
             entity.ToTable("healthprofessionaltype");
 
-            entity.Property(e => e.Healthprofessionalid)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("healthprofessionalid");
+            entity.Property(e => e.Healthprofessionalid).HasColumnName("healthprofessionalid");
             entity.Property(e => e.Createddate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("createddate");
-            entity.Property(e => e.Isactive)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isactive");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.Isactive).HasColumnName("isactive");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
             entity.Property(e => e.Professionname)
                 .HasMaxLength(50)
                 .HasColumnName("professionname");

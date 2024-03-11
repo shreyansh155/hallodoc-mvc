@@ -31,5 +31,7 @@ namespace BusinessLogic.Interface
         JsonArray FetchPhysician(int selectedValue);
         Healthprofessional VendorDetails(int selectedValue);
         void SendOrder(Orders orders);
+        void ClearCase(int reqClientId);
+        void SendAgreementCase(SendAgreementCase sendAgreement);
     }
 }

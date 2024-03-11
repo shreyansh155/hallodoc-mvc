@@ -14,7 +14,7 @@ namespace HalloDocWeb.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IAdminService _adminService; 
+        private readonly IAdminService _adminService;
         private readonly INotyfService _notyf;
 
 
@@ -195,6 +195,14 @@ namespace HalloDocWeb.Controllers
             };
             return PartialView("_TransferCaseView", transferCase);
         }
+        public IActionResult SendAgreement(int requestClientId)
+        {
+            SendAgreementCase sendAgreement = new()
+            {
+                ReqClientid = requestClientId,
+            };
+            return PartialView("_SendAgreementModal", sendAgreement);
+        }
         public IActionResult BlockCaseModal(int requestClientId)
         {
             BlockCase blockCase = new()
@@ -215,11 +223,11 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _adminService.CancelCase(cancelCase);
-                _notyf.Success("Case has been successfully cancelled",3);
+                _notyf.Success("Case has been successfully cancelled", 3);
                 return RedirectToAction("AdminDashboard");
             }
             _notyf.Error("Please try again", 3);
-            
+
             return PartialView("_CancelCaseView", cancelCase);
         }
         [HttpPost]
@@ -244,7 +252,7 @@ namespace HalloDocWeb.Controllers
         [HttpPost]
         public IActionResult TransferCase(int ReqClientid, int PhysicianId, int RegionId, string Description)
         {
-            TransferCase transferCase= new()
+            TransferCase transferCase = new()
             {
                 ReqClientid = ReqClientid,
                 PhysicianId = PhysicianId,
@@ -330,5 +338,28 @@ namespace HalloDocWeb.Controllers
                 ReqClientid = requestClientId,
             };
             return View(obj);
+        }        public IActionResult ClearCase(int reqClientId)
+        {
+            _adminService.ClearCase(reqClientId);
+            _notyf.Success("Case has been cancelled!", 3);
+            return RedirectToAction("AdminDashboard");
+        }        [HttpPost]        public IActionResult _SendAgreementModal(int ReqClientid)
+        {
+            SendAgreementCase sendAgreement = new() { ReqClientid = ReqClientid };
+            return View(sendAgreement);
+        }        [HttpPost]        public IActionResult SendAgreement(int ReqClientid, string PhoneNumber, string Email)
+        {
+            SendAgreementCase sendAgreement = new()
+            {
+                ReqClientid = ReqClientid,
+                PhoneNumber = PhoneNumber,
+                Email = Email
+            };
+            _adminService.SendAgreementCase(sendAgreement);
+            _notyf.Success("Agreement sent to the registered patient");
+            return RedirectToAction("AdminDashboard");
+        }        public IActionResult CloseCase(int reqClientId)
+        {
+            return View();
         }    }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -433,5 +434,22 @@ namespace DataAccess.ViewModels
     public class ClearCase
     {
         public int? ReqClientid { get; set; }
+    }
+    public class SendAgreementCase
+    {
+        public int? ReqClientid { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? Email { get; set; }
+    }
+    public class CloseCase
+    {
+        public int? ReqClientid { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? Email { get; set; }
+        public DateOnly DateOfBirth { get; set; }
+        public List<Requestwisefile>? Files { get; set; }
+        public string? ConfirmationNumber { get; set; }
     }
 }

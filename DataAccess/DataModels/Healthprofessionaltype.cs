@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -12,9 +11,9 @@ public partial class Healthprofessionaltype
 
     public DateTime Createddate { get; set; }
 
-    public BitArray? Isactive { get; set; }
+    public bool? Isactive { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
+    public bool? Isdeleted { get; set; }
 
     public virtual ICollection<Healthprofessional> Healthprofessionals { get; set; } = new List<Healthprofessional>();
 }

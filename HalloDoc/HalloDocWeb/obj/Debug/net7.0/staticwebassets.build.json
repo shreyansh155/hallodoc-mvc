@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bph+J4Vvcc3Am+JsijdxJqH63D52tkL8J7RqwvTIA+w=",
+  "Hash": "HXZpNc5cNgvhQzBTclcND1MGEmhqLlDYlEkeafknfb8=",
   "Source": "HalloDocWeb",
   "BasePath": "_content/HalloDocWeb",
   "Mode": "Default",
@@ -4955,6 +4955,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UploadedFiles\\24\\Fig13. Assign case.jpg"
+    },
+    {
+      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\25\\Fig10. View case.jpg",
+      "SourceId": "HalloDocWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
+      "BasePath": "_content/HalloDocWeb",
+      "RelativePath": "UploadedFiles/25/Fig10. View case.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadedFiles\\25\\Fig10. View case.jpg"
     },
     {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\3\\Fig10. View case.jpg",

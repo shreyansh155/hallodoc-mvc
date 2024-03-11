@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -30,11 +29,11 @@ public partial class Emaillog
 
     public DateTime? Sentdate { get; set; }
 
-    public BitArray? Isemailsent { get; set; }
-
     public int? Senttries { get; set; }
 
     public int? Action { get; set; }
+
+    public bool? Isemailsent { get; set; }
 
     public virtual Admin? Admin { get; set; }
 
