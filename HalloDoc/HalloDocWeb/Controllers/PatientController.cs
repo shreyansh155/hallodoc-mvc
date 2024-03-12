@@ -7,6 +7,7 @@ using DataAccess.ViewModels;
 using System.Diagnostics;
 using BusinessLogic.Repository;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace HalloDocWeb.Controllers
@@ -14,7 +15,6 @@ namespace HalloDocWeb.Controllers
     [CustomAuthorize((int)AllowRole.Patient)]
     public class PatientController : Controller
     {
-
         private readonly ApplicationDbContext _context;
         private readonly IAuthService _authService;
         private readonly IPatientService _patientService;
@@ -176,12 +176,6 @@ namespace HalloDocWeb.Controllers
                 _patientService.ViewDocument(document);
             }
             return ViewDocument(document.RequestId);
-        }
-
-
-        public IActionResult ReviewAgreement()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

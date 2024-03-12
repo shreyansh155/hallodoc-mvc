@@ -11,6 +11,7 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
+using System.Security.Policy;
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
@@ -95,7 +96,7 @@ namespace BusinessLogic.Repository
                                  select t1
                             ).Count();
             var closeCount = (from t1 in _context.Requests
-                              where t1.Status == 5
+                              where t1.Status == 5 || t1.Status == 7
                               select t1
                             ).Count();
             var unpaidCount = (from t1 in _context.Requests
@@ -164,7 +165,7 @@ namespace BusinessLogic.Repository
             var closeReqData = from req in _context.Requests
                                join rc in _context.Requestclients on req.Requestid equals rc.Requestid
                                join phy in _context.Physicians on req.Physicianid equals phy.Physicianid
-                               where req.Status == 5
+                               where req.Status == 5 || req.Status == 7
                                select new CloseReqViewModel
                                {
                                    reqClientId = rc.Requestclientid,
@@ -637,10 +638,11 @@ namespace BusinessLogic.Repository
             _context.SaveChanges();
 
         }
-        public void SendAgreementCase(SendAgreementCase sendAgreement)
+        public void SendAgreementCase(SendAgreementCase sendAgreement, string link)
         {
 
             Requestclient reqCli = _context.Requestclients.FirstOrDefault(requestCli => requestCli.Requestclientid == sendAgreement.ReqClientid);
+
 
             string? senderEmail = _config.GetSection("OutlookSMTP")["Sender"];
             string? senderPassword = _config.GetSection("OutlookSMTP")["Password"];
@@ -659,12 +661,33 @@ namespace BusinessLogic.Repository
                 From = new MailAddress(senderEmail, "HalloDoc"),
                 Subject = "Hallodoc review agreement",
                 IsBodyHtml = true,
-                Body = "<h3>Admin has sent you the agreement papers to review. Click on the link below to read the agreement.</h3>",
+                Body = "<h3>Admin has sent you the agreement papers to review. Click on the link below to read the agreement.</h3><a href=\"" + link + "\">Review Agreement link</a>",
             };
 
-            mailMessage.To.Add(reqCli.Email);
+            mailMessage.To.Add(sendAgreement.Email);
 
             client.Send(mailMessage);
+        }
+        public CloseCase CloseCaseView(int reqClientId)
+        {
+            Requestclient reqCli = _context.Requestclients.FirstOrDefault(requestCli => requestCli.Requestclientid == reqClientId);
+            Request request = _context.Requests.FirstOrDefault(x => x.Requestid == reqCli.Requestid);
+            var FileList = _context.Requestwisefiles.Where(x => x.Requestid == request.Requestid && (x.Isdeleted == null || x.Isdeleted == false)).ToList();
+
+            CloseCase obj = new()
+            {
+                ReqClientid = reqClientId,
+                FirstName = reqCli.Firstname,
+                LastName = reqCli.Lastname,
+                UserId = (int)request.Userid,
+                PhoneNumber = request.Phonenumber,
+                Email = request.Email,
+                DateOfBirth =DateTime.Now,
+                Files = FileList,
+                ConfirmationNumber = ""
+            };
+            return obj;
+
         }
     }
 }

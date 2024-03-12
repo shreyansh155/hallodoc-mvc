@@ -16,6 +16,7 @@ namespace BusinessLogic.Interface
         bool PatientForgotPassword(PatientForgotPassword patientForgotPassword);
         void PatientResetPassword(PatientResetPassword patientResetPassword);
         void CreateNewAccount(CreateNewAccount createNewAccount);
-
+        void ReviewAgreementModal(int ReqClientId);  
+        void CancelAgreementSubmit(int ReqClientId, string Description);
     }
 }

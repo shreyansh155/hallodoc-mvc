@@ -4,7 +4,7 @@ using DataAccess.DataModels;
 
 namespace DataAccess.ViewModels
 {
-    public class PatientSubmitRequest   
+    public class PatientSubmitRequest
     {
         public string? Symptoms { get; set; }
         [Required(ErrorMessage = "Please Enter Your Firstname")]
@@ -78,7 +78,7 @@ namespace DataAccess.ViewModels
         public string? PatientEmail { get; set; }
         public string? Password { get; set; }
         public string? ConfirmPassword { get; set; }
-        public string?   PatientPhone { get; set; }
+        public string? PatientPhone { get; set; }
         public string? Street { get; set; }
         public string? City { get; set; }
         public string? State { get; set; }
@@ -113,7 +113,7 @@ namespace DataAccess.ViewModels
         public string? Password { get; set; }
         public string? ConfirmPassword { get; set; }
         public string? PatientPhone { get; set; }
-        public string?   PatientStreet { get; set; }
+        public string? PatientStreet { get; set; }
         public string? PatientCity { get; set; }
         public string? PatientState { get; set; }
         public string? PatientZipCode { get; set; }
@@ -122,7 +122,7 @@ namespace DataAccess.ViewModels
 
 
     }
-    public class PatientDashboard   
+    public class PatientDashboard
     {
         public int UserId { get; set; }
         public string? UserName { get; set; }
@@ -145,12 +145,21 @@ namespace DataAccess.ViewModels
         public string? ZipCode { get; set; }
         public string? Location { get; set; }
     }
-    public class ViewDocument   
+    public class ViewDocument
     {
         public string? UserName { get; set; }
         public int RequestId { get; set; }
         public string? ConfirmationNumber { get; set; }
         public List<Requestwisefile>? requestwisefiles { get; set; }
         public IFormFile? File { get; set; }
+    }
+    public class ReviewAgreementModal
+    {
+        public int ReqClientId { get; set; }
+    }
+    public class CancelAgreementModal
+    {
+        public int ReqClientId { get; set; }
+        public string? PatientName { get; set; }
     }
 }

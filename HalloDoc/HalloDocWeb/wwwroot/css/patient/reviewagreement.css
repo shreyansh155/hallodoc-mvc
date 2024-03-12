@@ -1,8 +1,7 @@
 ﻿body{
-    background:#a0a0a0
+    background:white;
 }
 .agreement {
-    background: #b2bec2;
     text-align: match-parent;
     font-size: 25px;
     margin: 250px auto;
@@ -10,7 +9,6 @@
     width: 1250px
     /*    height:50px;*/
 }
-
 
 .btns{
     display:flex;

@@ -446,9 +446,10 @@ namespace DataAccess.ViewModels
         public int? ReqClientid { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        public int UserId { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public List<Requestwisefile>? Files { get; set; }
         public string? ConfirmationNumber { get; set; }
     }

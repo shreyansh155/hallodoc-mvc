@@ -112,7 +112,7 @@
                             <a class="dropdown-item" href="@Url.Action("Orders", new {requestId = item.RequestId})">Orders</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="@Url.Action("CloseCase", new {requestId = item.RequestId})">Close Case</a>
+                            <a class="dropdown-item" href="@Url.Action("CloseCase", new {reqClientId = item.reqClientId})">Close Case</a>
                         </li>
                         <li>
                             <a class="btn dropdown-item" onclick="clearCase(@item.reqClientId)">Clear Case</a>

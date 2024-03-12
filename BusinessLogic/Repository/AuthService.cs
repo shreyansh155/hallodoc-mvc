@@ -35,13 +35,11 @@ namespace BusinessLogic.Repository
                 return sb.ToString();
             }
         }
-
         public bool PatientLogin(PatientLogin patientLogin)
         {
             string hashPassword = GenerateSHA256(patientLogin.Password);
             return _context.Aspnetusers.Any(Au => Au.Email == patientLogin.Email && Au.Passwordhash == hashPassword);
         }
-
         public bool PatientForgotPassword(PatientForgotPassword patientForgotPassword)
         {
             Aspnetuser obj = _context.Aspnetusers.FirstOrDefault(rq => rq.Email == patientForgotPassword.Email);
@@ -50,7 +48,6 @@ namespace BusinessLogic.Repository
             return _context.Aspnetusers.Any(x => x.Email == patientForgotPassword.Email);
 
         }
-
         public void PatientResetPassword(PatientResetPassword patientResetPassword)
         {
             if (patientResetPassword.Password == patientResetPassword.ConfirmPassword)
@@ -62,7 +59,6 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
             }
         }
-
         public void CreateNewAccount(CreateNewAccount newAccount)
         {
             Guid id = Guid.NewGuid();
@@ -94,6 +90,44 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
             }
         }
+        public void ReviewAgreementModal(int ReqClientId)
+        {
+            Requestclient? requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == ReqClientId);
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
 
+            Requeststatuslog requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 8,
+                Createddate = DateTime.Now,
+
+            };
+
+            request.Status = 8;
+            request.Modifieddate = DateTime.Now;
+
+            _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
+        public void CancelAgreementSubmit(int ReqClientId, string Description)
+        {
+            Requestclient requestclient = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == ReqClientId);
+            Request request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+
+            Requeststatuslog requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 7,
+                Createddate = DateTime.Now,
+                Notes=Description
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+
+            request.Status = 7; //cancelled by patient
+            request.Modifieddate = DateTime.Now;
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
     }
 }

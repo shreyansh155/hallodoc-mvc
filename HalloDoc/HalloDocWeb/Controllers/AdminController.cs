@@ -345,21 +345,25 @@ namespace HalloDocWeb.Controllers
             return RedirectToAction("AdminDashboard");
         }        [HttpPost]        public IActionResult _SendAgreementModal(int ReqClientid)
         {
-            SendAgreementCase sendAgreement = new() { ReqClientid = ReqClientid };
+            Requestclient request = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == ReqClientid);
+            SendAgreementCase sendAgreement = new() { ReqClientid = ReqClientid,PhoneNumber=request.Phonenumber, Email=request.Email };
             return View(sendAgreement);
         }        [HttpPost]        public IActionResult SendAgreement(int ReqClientid, string PhoneNumber, string Email)
         {
+            var agreementLink = Url.Action("ReviewAgreement", "Home", new { reqClientId = ReqClientid }, Request.Scheme);
+
             SendAgreementCase sendAgreement = new()
             {
                 ReqClientid = ReqClientid,
                 PhoneNumber = PhoneNumber,
                 Email = Email
             };
-            _adminService.SendAgreementCase(sendAgreement);
+            _adminService.SendAgreementCase(sendAgreement, agreementLink);
             _notyf.Success("Agreement sent to the registered patient");
             return RedirectToAction("AdminDashboard");
         }        public IActionResult CloseCase(int reqClientId)
         {
-            return View();
+            var obj= _adminService.CloseCaseView(reqClientId);
+            return View(obj);
         }    }
 }

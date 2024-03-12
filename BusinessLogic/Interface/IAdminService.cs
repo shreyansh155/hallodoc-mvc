@@ -32,6 +32,7 @@ namespace BusinessLogic.Interface
         Healthprofessional VendorDetails(int selectedValue);
         void SendOrder(Orders orders);
         void ClearCase(int reqClientId);
-        void SendAgreementCase(SendAgreementCase sendAgreement);
+        void SendAgreementCase(SendAgreementCase sendAgreement, string link);
+        CloseCase CloseCaseView(int reqClientId);   
     }
 }
