@@ -34,5 +34,9 @@ namespace BusinessLogic.Interface
         void ClearCase(int reqClientId);
         void SendAgreementCase(SendAgreementCase sendAgreement, string link);
         CloseCase CloseCaseView(int reqClientId);   
+        void CloseToUnpaidCase(int reqClientId);
+        void CloseCaseSave(CloseCase closeCase);
+        EncounterModel Encounter(int reqClientId);
+        void EncounterSubmit(EncounterModel encounter);
     }
 }

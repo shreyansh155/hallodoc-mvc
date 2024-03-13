@@ -16,9 +16,9 @@
 
                 <div class="d-flex justify-content-between mt-5">
                     <h4>Documents</h4>
-                    <button onclick="history.go(-1)" class="btn btn-outline-info shadow-none night-mode-btn">
+                    <a href="@Url.Action("AdminDashboard", new{status= @Model.Status})" class="btn btn-outline-info shadow-none night-mode-btn">
                         <span>Back</span>
-                    </button>
+                    </a>
                 </div>
                 <div class="shadow p-3 dashboard-card mt-4">
 

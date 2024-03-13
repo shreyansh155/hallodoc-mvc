@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HXZpNc5cNgvhQzBTclcND1MGEmhqLlDYlEkeafknfb8=",
+  "Hash": "Vok32pYXeeJpzmK49A0+51w9XdGcVWiiLUqDSB97wZo=",
   "Source": "HalloDocWeb",
   "BasePath": "_content/HalloDocWeb",
   "Mode": "Default",
@@ -4708,6 +4708,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UploadedFiles\\14\\Fig9. Admin dashboard in Unpaid state.jpg"
+    },
+    {
+      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\15\\Fig8. Admin dashboard in To Close state.jpg",
+      "SourceId": "HalloDocWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
+      "BasePath": "_content/HalloDocWeb",
+      "RelativePath": "UploadedFiles/15/Fig8. Admin dashboard in To Close state.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadedFiles\\15\\Fig8. Admin dashboard in To Close state.jpg"
     },
     {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\15\\Fig9. Admin dashboard in Unpaid state.jpg",

@@ -39,13 +39,14 @@ namespace HalloDocWeb.Controllers
             }
             return View();
         }
-        public IActionResult AdminDashboard()
+        public IActionResult AdminDashboard(int status)
         {
 
             var data = _adminService.AdminDashboard();
             int? adminId = HttpContext.Session.GetInt32("adminId");
             var dashData = new AdminDashboard
             {
+                Status=status,
                 CountRequestViewModel = data.CountRequestViewModel,
             };
             return View(dashData);
@@ -55,7 +56,7 @@ namespace HalloDocWeb.Controllers
             int? adminId = HttpContext.Session.GetInt32("adminId");
 
             var obj = _adminService.ViewCaseViewModel(reqClientId);
-
+                
             return View(obj);
         }
         public IActionResult ViewNotes(int reqClientId)
@@ -346,7 +347,7 @@ namespace HalloDocWeb.Controllers
         }        [HttpPost]        public IActionResult _SendAgreementModal(int ReqClientid)
         {
             Requestclient request = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == ReqClientid);
-            SendAgreementCase sendAgreement = new() { ReqClientid = ReqClientid,PhoneNumber=request.Phonenumber, Email=request.Email };
+            SendAgreementCase sendAgreement = new() { ReqClientid = ReqClientid, PhoneNumber = request.Phonenumber, Email = request.Email };
             return View(sendAgreement);
         }        [HttpPost]        public IActionResult SendAgreement(int ReqClientid, string PhoneNumber, string Email)
         {
@@ -363,7 +364,33 @@ namespace HalloDocWeb.Controllers
             return RedirectToAction("AdminDashboard");
         }        public IActionResult CloseCase(int reqClientId)
         {
-            var obj= _adminService.CloseCaseView(reqClientId);
+            var obj = _adminService.CloseCaseView(reqClientId);
             return View(obj);
+        }
+        [HttpPost]
+        public IActionResult CloseCase(CloseCase closeCase)
+        {
+            _adminService.CloseCaseSave(closeCase);
+            return CloseCase((int)closeCase.ReqClientid);
+        }        public IActionResult CloseToUnpaidCase(int reqClientId)
+        {
+            _adminService.CloseToUnpaidCase(reqClientId);
+            return RedirectToAction("AdminDashboard");
+        }        public IActionResult Encounter(int reqClientId)
+        {
+            var encounter = _adminService.Encounter(reqClientId);
+            return View(encounter);
+        }
+        [HttpPost]
+        public IActionResult Encounter(EncounterModel encounter)
+        {
+            if (ModelState.IsValid)
+            {
+                _adminService.EncounterSubmit(encounter);
+                _notyf.Success("Details updated Successfully",3);
+                return View(encounter);
+            }
+            _notyf.Error("There has been some error",3);
+            return View(encounter);
         }    }
 }

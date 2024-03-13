@@ -10,123 +10,122 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
+<div class="container">
+    <div class="d-flex justify-content-between mt-5">
+        <h3>
+            Close Case
+        </h3>
+        <a href="@Url.Action("AdminDashboard", new{status= @Model.Status})" class="btn btn-outline-info shadow-none night-mode-btn">
+            <span>Back</span>
+        </a>
+    </div>
+    <div class="p-3 shadow">
+        <div class="d-flex justify-content-between">
+            <div>
+                <span>Patient Name</span>
+                <p>
+                    <span class="fs-4" style="color: #01bce9">@Model.FirstName @Model.LastName </span>(@Model.ConfirmationNumber)
+                </p>
+            </div>
+            <a class="btn btn-outline-info mx-2" style="height:fit-content">
+                <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">Create Invoice Through Quickbooks</span>
+            </a>
+        </div>
 
-<div class="tab-content px-4" id="myTabContent">
-
-    <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-        <div class="mt-5 row justify-content-center container-fluid">
-
-            <div class="col-10">
-
-                <div class="d-flex justify-content-between">
-                    <h3>User Profile</h3>
-
-                    <button onclick="history.go(-1)" class="btn btn-outline-info shadow-none night-mode-btn">
-                        <span>Back</span>
-                    </button>
-                </div>
-
-                <form method="post">
-
-                    <div class="shadow dashboard-card mt-3 p-3">
-
-                        <h4>General Information</h4>
-
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="form-floating mt-3">
-                                    <input asp-for="UserId" hidden />
-                                    <input asp-for="FirstName" class="form-control" placeholder="Leave a comment here" disabled
-                                           id="floatingTextarea2"></input>
-                                    <label for="floatingTextarea2">First Name</label>
-                                </div>
-                            </div>
+        <div>
+            <h5>Documents</h5>
+        </div>
 
 
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="form-floating mt-3">
-                                    <input asp-for="LastName" class="form-control" placeholder="Leave a comment here" disabled
-                                           id="floatingTextarea2"/>
-                                    <label for="floatingTextarea2">Last Name</label>
-                                </div>
-                            </div>
 
-                            <div class="col-lg-4 col-md-6 col-12">
-
-                                <div class="form-floating mt-3">
-                                    <input class="form-control" asp-for="DateOfBirth" type="date" disabled
-                                           id="date-of-birth">
-                                    <label for="floatingTextarea2">Date of Birth:</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <h4 class="mt-3">Contact Information</h4>
-
-                        <div class="row">
-                            
-
-                            <div class="col-lg-4 col-md-4 col-12">
-                                <div class="form-floating mt-3">
-
-
-                                    <input id="patient-phone" asp-for="PhoneNumber" class="form-control" type="tel" placeholder="Leave a comment here" disabled/>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 col-12">
-
-                                <div class="form-floating mt-3">
-
-                                    <input asp-for="Email" class="form-control" placeholder="Leave a comment here" disabled
-                                           id="email">
-                                    <label for="email">Email</label>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                       
-
-                        <div class="d-flex justify-content-end">
-
-                            <button id="editBtn" type="button" onclick="editDetails()" class="btn my-4 py-2 px-4" style="background-color: #10bce9; color: white;">
-                                Edit
-                            </button>
-
-                            <button id="saveBtn" onclick="changeCountryCode()" type="submit" class="btn my-4 py-2 px-4" style="background-color: #10bce9; color: white; display:none;">
-                                Save
-                            </button>
-
-                        </div>
-
+        <table class="table d-none d-md-table">
+            <thead>
+                <tr class="m-0 p-0">
+                    <th colspan="2">File Name</th>
+                    <th>Upload Date &uarr;</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Files)
+                {
+                    @if (item.Isdeleted != true)
+                    {
+                        <tr class="m-0 p-0">
+                            <td colspan="2" class="FileName">@item.Filename</td>
+                            <td>@item.Createddate</td>
+                            <td>
+                                <input value="@item.Requestid" class="ReqClientId" hidden>
+                                <a href="/uploadedFiles/@item.Requestid/@item.Filename" class="btn downloadFile"
+                                   style="color: #01bce9; border: 1px solid #01bce9;" download>
+                                    <svg width="25px" height="25px" viewBox="0 0 20 21" fill="" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.123 9.46486C10.1084 9.44618 10.0897 9.43108 10.0684 9.42069C10.0471 9.41031 10.0237 9.40491 9.99994 9.40491C9.97623 9.40491 9.95283 9.41031 9.93151 9.42069C9.91019 9.43108 9.89151 9.44618 9.8769 9.46486L7.6894 12.2324C7.67136 12.2555 7.66017 12.2831 7.65711 12.3122C7.65404 12.3413 7.65922 12.3706 7.67206 12.3969C7.6849 12.4232 7.70487 12.4453 7.72969 12.4608C7.75452 12.4763 7.7832 12.4845 7.81245 12.4844H9.2558V17.2188C9.2558 17.3047 9.32612 17.375 9.41205 17.375H10.5839C10.6699 17.375 10.7402 17.3047 10.7402 17.2188V12.4863H12.1874C12.3183 12.4863 12.3906 12.336 12.3105 12.2344L10.123 9.46486Z" fill="currentColor" />
+                                        <path d="M15.8477 7.66211C14.9531 5.30273 12.6738 3.625 10.0039 3.625C7.33398 3.625 5.05469 5.30078 4.16016 7.66016C2.48633 8.09961 1.25 9.625 1.25 11.4375C1.25 13.5957 2.99805 15.3438 5.1543 15.3438H5.9375C6.02344 15.3438 6.09375 15.2734 6.09375 15.1875V14.0156C6.09375 13.9297 6.02344 13.8594 5.9375 13.8594H5.1543C4.49609 13.8594 3.87695 13.5977 3.41602 13.123C2.95703 12.6504 2.71289 12.0137 2.73438 11.3535C2.75195 10.8379 2.92773 10.3535 3.24609 9.94531C3.57227 9.5293 4.0293 9.22656 4.53711 9.0918L5.27734 8.89844L5.54883 8.18359C5.7168 7.73828 5.95117 7.32227 6.24609 6.94531C6.53725 6.57169 6.88214 6.24326 7.26953 5.9707C8.07227 5.40625 9.01758 5.10742 10.0039 5.10742C10.9902 5.10742 11.9355 5.40625 12.7383 5.9707C13.127 6.24414 13.4707 6.57227 13.7617 6.94531C14.0566 7.32227 14.291 7.74023 14.459 8.18359L14.7285 8.89648L15.4668 9.0918C16.5254 9.37695 17.2656 10.3398 17.2656 11.4375C17.2656 12.084 17.0137 12.6934 16.5566 13.1504C16.3325 13.3758 16.0659 13.5546 15.7722 13.6763C15.4785 13.798 15.1636 13.8602 14.8457 13.8594H14.0625C13.9766 13.8594 13.9062 13.9297 13.9062 14.0156V15.1875C13.9062 15.2734 13.9766 15.3438 14.0625 15.3438H14.8457C17.002 15.3438 18.75 13.5957 18.75 11.4375C18.75 9.62695 17.5176 8.10352 15.8477 7.66211Z" fill="currentColor" />
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <form method="post">
+            <h4 class="mt-4 mb-4 ms-2">Patient Information</h4>
+            <div class="row g-2 m-1">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input asp-for="ReqClientid" hidden />
+                        <input asp-for="FirstName" type="text" class="form-control" placeholder="" disabled>
+                        <label for="">First Name</label>
                     </div>
-
-                </form>
-
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input asp-for="LastName" type="text" class="form-control" placeholder="" disabled>
+                        <label for="floatingSelectGrid">Last Name</label>
+                    </div>
+                </div>
             </div>
 
+            <div class="row g-2 m-1 ">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="DateOfBirth" type="date" class="form-control" placeholder="" disabled>
+                        <label for="">Date Of Birth</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-floating phone-div w-100 h-100 ">
+                        <input asp-for="PhoneNumber" type="tel" class="patientPhone form-control w-100 h-100 editable" id="disablePhone" placeholder="" disabled>
+                        <label for="">Phone Number</label>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a href="tel:@Model.PhoneNumber" class="btn btn-outline-info mx-2 form-floating d-flex align-items-center justify-content-center rounded h-100 w-100" style="color: #10bce9 ; border: 1px solid #10bce9">
+                        <img src="~/images/telephone.svg" />
+                    </a>
+                </div>
+            </div>
+            <div class="row g-2 m-1">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="Email" type="email" class="form-control editable" id="disableEmail" placeholder="name@example.com" disabled>
+                        <label for="">Email</label>
+                    </div>
+                </div>
 
-        </div>
+            </div>
+            <div>
+                <button type="reset" onclick="cancelEdit()" id="cancelBtn" class="btn btn-outline-danger float-end m-1 d-none">Cancel</button>
+                <button type="submit" id="submitBtn" class="btn btn-outline-info mx-2 float-end m-1 d-none">Submit</button>
+                <a href="@Url.Action("CloseToUnpaidCase", "Admin", new {reqClientId = Model.ReqClientid})" id="CloseCaseBtn" class="btn btn-outline-info mx-2 float-end m-1 d-block">Close Case</a>
+                <button type="button" onclick="editDetails()" id="editBtn" class="btn btn-outline-info mx-2 float-end m-1">Edit</button>
+            </div>
+            <br />
+            <br />
+        </form>
     </div>
 </div>
-
-
-
-<script>
-
-    var profile = document.getElementById("profile-tab");
-    var dashboard = document.getElementById("dashboard-tab");
-
-    profile.classList.add("active");
-    dashboard.classList.remove("active");
-
-</script>
 
 <script>
 
@@ -150,23 +149,15 @@
 <script>
 
 
+    // Edit Details buttons
     function editDetails() {
+        document.getElementById("cancelBtn").classList.remove("d-none");
+        document.getElementById("submitBtn").classList.remove("d-none");
+        document.getElementById("editBtn").classList.add("d-none");
+        document.getElementById("CloseCaseBtn").classList.add("d-none");
 
-        var inputs = document.getElementsByTagName("input");
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = false;
-        }
-
-        var selects = document.getElementsByTagName("select");
-        for (var i = 0; i < selects.length; i++) {
-            selects[i].disabled = false;
-        }
-
-        var editBtn = document.getElementById("editBtn");
-        editBtn.style.display = "none";
-
-        var saveBtn = document.getElementById("saveBtn");
-        saveBtn.style.display = "block";
+        document.getElementById("disableEmail").disabled = false;
+        document.getElementById("disablePhone").disabled = false;
 
     }
 

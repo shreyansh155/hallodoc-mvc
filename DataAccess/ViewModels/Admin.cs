@@ -321,6 +321,7 @@ namespace DataAccess.ViewModels
     }
     public class ViewCaseViewModel
     {
+        public int Status { get; set; }
         public int Requestclientid { get; set; }
         public int? Requestid { get; set; }
         public string? Firstname { get; set; } = null!;
@@ -341,6 +342,8 @@ namespace DataAccess.ViewModels
     }
     public class ViewNotes
     {
+        public int Status { get; set; }
+
         public int Requestclientid { get; set; }
         public string? PhysicianNotes { get; set; }
         public string? PhysicianName { get; set; }
@@ -382,6 +385,7 @@ namespace DataAccess.ViewModels
     public class ViewUploads
     {
         public int reqClientId { get; set; }
+        public int Status { get; set; }
         public string? PatientName { get; set; }
         public string? ConfirmationNumber { get; set; }
         public IFormFile? File { get; set; }
@@ -396,6 +400,7 @@ namespace DataAccess.ViewModels
         public SearchViewModel? SearchViewModel { get; set; }
         public string? Name { get; set; }
         public string? Sorting { get; set; }
+        public int Status { get; set; }
         public IEnumerable<NewReqViewModel>? NewReqViewModel { get; set; }
 
         public IEnumerable<PendingReqViewModel>? PendingReqViewModel { get; set; }
@@ -409,6 +414,7 @@ namespace DataAccess.ViewModels
     }
     public class Orders
     {
+        public int Status { get; set; }
         public List<Healthprofessionaltype> ProfessionTypes { get; set; }
         public List<Healthprofessional> HealthProfessionals { get; set; }
         public int Requestid { get; set; }
@@ -434,15 +440,18 @@ namespace DataAccess.ViewModels
     public class ClearCase
     {
         public int? ReqClientid { get; set; }
+
     }
     public class SendAgreementCase
     {
         public int? ReqClientid { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
+
     }
     public class CloseCase
     {
+        public int Status { get; set; }
         public int? ReqClientid { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -452,5 +461,44 @@ namespace DataAccess.ViewModels
         public DateTime DateOfBirth { get; set; }
         public List<Requestwisefile>? Files { get; set; }
         public string? ConfirmationNumber { get; set; }
+    }
+    public class EncounterModel
+    {
+        public int Status { get; set; }
+        public int? ReqClientid { get; set; }
+        public int? EncounterId { get; set; }
+        public int? Requestid { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public DateOnly Date { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? Email { get; set; }
+        public string? PatientHistory { get; set; }
+        public string? MedicalHistory { get; set; }
+        public string? Medications { get; set; }
+        public string? Allergies { get; set; }
+        public string? Temp { get; set; }
+        public string? Hr { get; set; }
+        public string? Rr { get; set; }
+        public string? BloodPressureS { get; set; }
+        public string? BloodPressureD { get; set; }
+        public string? O2 { get; set; }
+        public string? Pain { get; set; }
+        public string? Heent { get; set; }
+        public string? CV { get; set; }
+        public string? Chest { get; set; }
+        public string? ABD { get; set; }
+        public string? Skin { get; set; }
+        public string? Extr { get; set; }
+        public string? Neuro { get; set; }
+        public string? Other { get; set; }
+        public string? Diagnosis { get; set; }
+        public string? Treatment { get; set; }
+        public string? MedicationsDispensed { get; set; }
+        public string? Procedures { get; set; }
+        public string? Followup { get; set; }
+        public string? Location { get; set; }
+
     }
 }

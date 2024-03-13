@@ -6,7 +6,7 @@
 
 @model Orders;
 <div class="mt-3">
-    <a asp-controller="Admin" asp-action="AdminDashboard" class="btn btn-outline-info float-end">
+    <a href="@Url.Action("AdminDashboard", new{status= @Model.Status})" class="btn btn-outline-info float-end">
         <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">&#60; Back</span>
     </a>
 </div>

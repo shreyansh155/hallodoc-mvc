@@ -284,8 +284,10 @@ namespace BusinessLogic.Repository
         public ViewCaseViewModel ViewCaseViewModel(int reqClientId)
         {
             Requestclient? obj = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
+            Request request = _context.Requests.FirstOrDefault(x => x.Requestid == obj.Requestid);
             ViewCaseViewModel viewCaseViewModel = new()
             {
+                Status = request.Status,
                 Firstname = obj.Firstname,
                 Lastname = obj.Lastname,
                 Email = obj.Email,
@@ -354,12 +356,14 @@ namespace BusinessLogic.Repository
         {
             Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == reqClientId);
             Requestnote? obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == req.Requestid);
             Physician physician = _context.Physicians.First(x => x.Physicianid == 1);
             List<Requeststatuslog> requeststatuslog = _context.Requeststatuslogs.Where(x => x.Requestid == req.Requestid).ToList();
 
 
             ViewNotes? viewNote = new()
             {
+                Status = request.Status,
                 PhysicianName = physician.Firstname,
                 AdminNotes = obj?.Adminnotes ?? "",
                 PhysicianNotes = obj?.Physiciannotes ?? "",
@@ -368,13 +372,30 @@ namespace BusinessLogic.Repository
             };
             return viewNote;
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public void ViewNotesUpdate(ViewNotes viewNotes)
         {
             Requestclient? req = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == viewNotes.Requestclientid);
             Requestnote? obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
-            obj.Adminnotes = viewNotes.TextBox;
+            if (obj == null)
+            {
+                Requestnote reqNoteDb = new ()
+                {
+                    Requestid = req.Requestid,
+                    Adminnotes = viewNotes.TextBox,
+                    Createddate = DateTime.Now,
+                    Createdby = "admin"
+                };
+                _context.Requestnotes.Add(reqNoteDb);
+                _context.SaveChanges();
+            }
+            else
+            {
+                obj.Adminnotes = viewNotes.TextBox ?? "";
+                obj.Modifieddate = DateTime.Now;
+                obj.Modifiedby = "admin";
+                _context.Requestnotes.Update(obj);
+                _context.SaveChanges();
+            }
 
         }
         public void AssignCase(AssignCase assignCase)
@@ -441,6 +462,7 @@ namespace BusinessLogic.Repository
 
             ViewUploads viewUploads = new()
             {
+                Status = request.Status,
                 PatientName = user.Firstname + " " + user.Lastname,
                 RequestWiseFiles = fileList,
                 RequestId = request.Requestid,
@@ -549,6 +571,7 @@ namespace BusinessLogic.Repository
 
             Orders orders = new()
             {
+                Status = req.Status,
                 ProfessionTypes = healthprofessionaltype,
                 HealthProfessionals = healthprofessionals,
                 Requestid = RequestId,
@@ -676,18 +699,126 @@ namespace BusinessLogic.Repository
 
             CloseCase obj = new()
             {
+                Status = request.Status,
                 ReqClientid = reqClientId,
                 FirstName = reqCli.Firstname,
                 LastName = reqCli.Lastname,
                 UserId = (int)request.Userid,
                 PhoneNumber = request.Phonenumber,
                 Email = request.Email,
-                DateOfBirth =DateTime.Now,
+                DateOfBirth = DateTime.Now,
                 Files = FileList,
                 ConfirmationNumber = ""
             };
             return obj;
 
         }
+        public void CloseToUnpaidCase(int reqClientId)
+        {
+            Requestclient? requestclient = _context.Requestclients.Where(x => x.Requestclientid == reqClientId).FirstOrDefault();
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+            request.Status = 13;
+            request.Modifieddate = DateTime.Now;
+
+            _context.Requests.Update(request);
+            Requeststatuslog? requeststatuslog = new()
+            {
+                Requestid = request.Requestid,
+                Status = 13,
+                Createddate = DateTime.Now,
+            };
+            _context.Requeststatuslogs.Add(requeststatuslog);
+            _context.SaveChanges();
+        }
+        public void CloseCaseSave(CloseCase closeCase)
+        {
+            Requestclient? requestclient = _context.Requestclients.Where(x => x.Requestclientid == closeCase.ReqClientid).FirstOrDefault();
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+
+            requestclient.Phonenumber = closeCase.PhoneNumber;
+            requestclient.Email = closeCase.Email;
+
+            request.Phonenumber = closeCase.PhoneNumber;
+            request.Email = closeCase.Email;
+
+
+            _context.Requestclients.Update(requestclient);
+            _context.Requests.Update(request);
+            _context.SaveChanges();
+        }
+        public EncounterModel Encounter(int reqClientId)
+        {
+            Requestclient? requestclient = _context.Requestclients.Where(x => x.Requestclientid == reqClientId).FirstOrDefault();
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == requestclient.Requestid);
+
+            EncounterModel encounter = new()
+            {
+                Status = request.Status,
+                ReqClientid = reqClientId,
+                Requestid = request.Requestid
+            };
+            return encounter;
+        }
+        public void EncounterSubmit(EncounterModel encounter)
+        {
+            Requestclient? requestclient = _context.Requestclients.Where(x => x.Requestclientid == encounter.ReqClientid).FirstOrDefault();
+            Request? request = _context.Requests.FirstOrDefault(x => x.Requestid == encounter.Requestid);
+
+            Encounter obj = _context.Encounters.First(x => x.Requestid == encounter.Requestid);
+            if (obj == null)
+            {
+                Encounter user = new()
+                {
+
+                    Requestid = (int)encounter.Requestid,
+                    Firstname = encounter.FirstName,
+                    LastName = encounter.LastName,
+                    Location = encounter.Location,
+                    Strmonth = encounter.DateOfBirth.Month.ToString("MMM"),
+                    Intyear = encounter.DateOfBirth.Year,
+                    Intdate = encounter.DateOfBirth.Day,
+                    Servicedate = DateTime.Now,
+                    Phonenumber = encounter.PhoneNumber,
+                    Email = encounter.Email,
+                    PresentIllnessHistory = encounter.PatientHistory,
+                    MedicalHistory = encounter.MedicalHistory,
+                    Medications = encounter.Medications,
+                    Allergies = encounter.Allergies,
+                    Temperature = encounter.Temp,
+                    HeartRate = encounter.Hr,
+                    RespirationRate = encounter.Rr,
+                    BloodPressureSystolic = encounter.BloodPressureS,
+                    BloodPressureDiastolic = encounter.BloodPressureD,
+                    OxygenLevel = encounter.O2,
+                    Pain = encounter.Pain,
+                    Heent = encounter.Heent,
+                    Cardiovascular = encounter.CV,
+                    Chest = encounter.Chest,
+                    Abdomen = encounter.ABD,
+                    Extremities = encounter.Extr,
+                    Skin = encounter.Skin,
+                    Neuro = encounter.Neuro,
+                    Other = encounter.Other,
+                    Diagnosis = encounter.Diagnosis,
+                    TreatmentPlan = encounter.Treatment,
+                    MedicationsDispensed = encounter.MedicationsDispensed,
+                    Procedures = encounter.Procedures,
+                    FollowUp = encounter.Followup,
+                    CreatedDate = DateTime.Now,
+
+                    Isfinalized = true,
+                    FinalizedDate = DateTime.Now,
+                };
+                _context.Encounters.Add(user);
+                _context.SaveChanges();
+            }
+            else
+            {
+                obj.ModifiedDate = DateTime.Now;
+            }
+            _context.Encounters.Add(obj);
+            _context.SaveChanges();
+        }
+
     }
 }
