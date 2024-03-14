@@ -378,7 +378,7 @@ namespace BusinessLogic.Repository
             Requestnote? obj = _context.Requestnotes.FirstOrDefault(x => x.Requestid == req.Requestid);
             if (obj == null)
             {
-                Requestnote reqNoteDb = new ()
+                Requestnote reqNoteDb = new()
                 {
                     Requestid = req.Requestid,
                     Adminnotes = viewNotes.TextBox,
@@ -819,6 +819,35 @@ namespace BusinessLogic.Repository
             _context.Encounters.Add(obj);
             _context.SaveChanges();
         }
+        public AdminProfile ProfileInfo(int adminId)
+        {
+            Admin? obj = _context.Admins.FirstOrDefault(x => x.Adminid == adminId);
 
+            var region = _context.Regions.FirstOrDefault(x => x.Regionid == obj.Regionid).Name;
+            var regionList = _context.Regions.ToList();
+
+            AdminProfile profile = new()
+            {
+                UserName = obj.Firstname + obj.Lastname,
+                AdminId = adminId.ToString(),
+                //AdminPassword=obj.,
+                Status = obj.Status,
+                Role = obj.Roleid.ToString() ?? "",
+                FirstName = obj.Firstname,
+                LastName = obj.Lastname,
+                AdminPhone = obj.Mobile,
+                Email = obj.Email,
+                ConfirmEmail = obj.Email,
+                Address1 = obj.Address1,
+                Address2 = obj.Address2,
+                City = region,
+                State = region,
+                Zip = obj.Zip,
+                BillingPhone = obj.Altphone,
+                RegionList=regionList,
+            };
+
+            return profile;
+        }
     }
 }

@@ -66,6 +66,11 @@ namespace BusinessLogic.Repository
                 }
             }
             var roleClaim = jwtToken.Claims.FirstOrDefault(claims => claims.Type == "roleId");
+            var userIdClaim = jwtToken.Claims.FirstOrDefault(claims => claims.Type == "userId");
+            var userNameClaim = jwtToken.Claims.FirstOrDefault(claims => claims.Type == "userName");
+            context.HttpContext.Request.Headers.Add("userId", userIdClaim.Value);
+            context.HttpContext.Request.Headers.Add("userName", userNameClaim.Value);
+
 
             if (roleClaim == null)
             {

@@ -6,6 +6,7 @@ using BusinessLogic.Repository;
 using DataAccess.DataModels;
 using System.Text.Json.Nodes;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Newtonsoft.Json.Linq;
 
 
 namespace HalloDocWeb.Controllers
@@ -15,8 +16,7 @@ namespace HalloDocWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IAdminService _adminService;
-        private readonly INotyfService _notyf;
-
+        private readonly INotyfService _notyf; 
 
         public AdminController(ApplicationDbContext context, IAdminService adminService, INotyfService notyf)
         {
@@ -46,7 +46,7 @@ namespace HalloDocWeb.Controllers
             int? adminId = HttpContext.Session.GetInt32("adminId");
             var dashData = new AdminDashboard
             {
-                Status=status,
+                Status = status,
                 CountRequestViewModel = data.CountRequestViewModel,
             };
             return View(dashData);
@@ -56,7 +56,7 @@ namespace HalloDocWeb.Controllers
             int? adminId = HttpContext.Session.GetInt32("adminId");
 
             var obj = _adminService.ViewCaseViewModel(reqClientId);
-                
+
             return View(obj);
         }
         public IActionResult ViewNotes(int reqClientId)
@@ -387,10 +387,23 @@ namespace HalloDocWeb.Controllers
             if (ModelState.IsValid)
             {
                 _adminService.EncounterSubmit(encounter);
-                _notyf.Success("Details updated Successfully",3);
+                _notyf.Success("Details updated Successfully", 3);
                 return View(encounter);
             }
-            _notyf.Error("There has been some error",3);
+            _notyf.Error("There has been some error", 3);
             return View(encounter);
-        }    }
+        }
+
+        ///////////////////////Admin Profile////////////////////////////////////////////////////
+        public IActionResult AdminProfile()
+        {
+            int adminId = Convert.ToInt32(HttpContext.Request.Headers.Where(x => x.Key == "userId").FirstOrDefault().Value);            var obj = _adminService.ProfileInfo(adminId);
+            return View(obj);
+        }
+        [HttpPost]
+        public IActionResult AdminProfile(AdminProfile profile)
+        {
+
+            return RedirectToAction("AdminProfile");
+        }    }
 }

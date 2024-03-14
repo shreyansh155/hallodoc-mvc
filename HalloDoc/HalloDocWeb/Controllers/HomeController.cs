@@ -79,7 +79,7 @@ namespace HalloDocWeb.Controllers
                 {
                     Admin admin = _context.Admins.FirstOrDefault(x => x.Email == adminLogin.Email);
                     HttpContext.Session.SetInt32("adminId", admin.Adminid);
-                    SessionUser suser = new SessionUser
+                    SessionUser suser = new ()
                     {
                         Email = admin.Email,
                         RoleId = (int)AllowRole.Admin,
@@ -109,6 +109,8 @@ namespace HalloDocWeb.Controllers
             };
             return View(modal);
         }
+
+
         [HttpPost]
         public IActionResult ReviewAgreement(ReviewAgreementModal model)
         {
