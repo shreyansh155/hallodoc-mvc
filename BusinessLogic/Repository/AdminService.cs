@@ -844,10 +844,38 @@ namespace BusinessLogic.Repository
                 State = region,
                 Zip = obj.Zip,
                 BillingPhone = obj.Altphone,
-                RegionList=regionList,
+                RegionList = regionList,
             };
 
             return profile;
+        }
+
+        public ProviderMenu ProviderMenu()
+        {
+
+            var providerMenu = from phy in _context.Physicians
+                               join role in _context.Roles on phy.Roleid equals role.Roleid
+                               select new ProviderList
+                               {
+                                   PhysicianId=phy.Physicianid,
+                                   FirstName=phy.Firstname,
+                                   LastName=phy.Lastname,
+                                   Status=phy.Status,
+                                   Role=role.Name,
+                                   OnCallStatus=""
+
+                               };
+
+            var obj = new ProviderMenu()
+            {
+               ProviderLists = providerMenu,
+            };
+            return obj;
+        }
+
+        public void ContactProvider(ContactYourProvider contactYourProvider)
+        {
+
         }
     }
 }

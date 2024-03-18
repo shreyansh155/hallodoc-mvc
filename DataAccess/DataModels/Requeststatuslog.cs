@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -24,7 +23,7 @@ public partial class Requeststatuslog
 
     public string? Ip { get; set; }
 
-    public BitArray? Transtoadmin { get; set; }
+    public bool? Transtoadmin { get; set; }
 
     public virtual Admin? Admin { get; set; }
 

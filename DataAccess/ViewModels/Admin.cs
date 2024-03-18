@@ -445,6 +445,7 @@ namespace DataAccess.ViewModels
     public class SendAgreementCase
     {
         public int? ReqClientid { get; set; }
+        public int? ReqTypeId { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
 
@@ -524,6 +525,29 @@ namespace DataAccess.ViewModels
         public string Zip { get; set; }
         public string BillingPhone { get; set; }
 
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    public class ProviderMenu
+    {
+        public IEnumerable<ProviderList>? ProviderLists { get; set; }
+    }
+    public class ProviderList
+    {
+        public int PhysicianId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Role { get; set; }
+        public string OnCallStatus { get; set; }
+        public short? Status { get; set; }
+
+    }
+    public class ContactYourProvider
+    {
+        public int? PhysicianId { get; set; }
+        public string? Message { get; set; }
     }
 
 }

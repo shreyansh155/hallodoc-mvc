@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -36,8 +35,6 @@ public partial class Requestclient
 
     public int? Intdate { get; set; }
 
-    public BitArray? Ismobile { get; set; }
-
     public string? Street { get; set; }
 
     public string? City { get; set; }
@@ -61,6 +58,8 @@ public partial class Requestclient
     public decimal? Latitude { get; set; }
 
     public decimal? Longitude { get; set; }
+
+    public bool? Ismobile { get; set; }
 
     public virtual Request Request { get; set; } = null!;
 }

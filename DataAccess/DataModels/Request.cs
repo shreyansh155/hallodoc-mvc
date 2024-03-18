@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -28,19 +27,13 @@ public partial class Request
 
     public DateTime Createddate { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
-
     public DateTime? Modifieddate { get; set; }
 
     public string? Declinedby { get; set; }
 
     public DateTime? Lastwellnessdate { get; set; }
 
-    public BitArray? Ismobile { get; set; }
-
     public short? Calltype { get; set; }
-
-    public BitArray? Completedbyphysician { get; set; }
 
     public DateTime? Lastreservationdate { get; set; }
 
@@ -61,6 +54,12 @@ public partial class Request
     public int? Createduserid { get; set; }
 
     public bool Isurgentemailsent { get; set; }
+
+    public bool? Completedbyphysician { get; set; }
+
+    public bool? Isdeleted { get; set; }
+
+    public bool? Ismobile { get; set; }
 
     public virtual ICollection<Emaillog> Emaillogs { get; set; } = new List<Emaillog>();
 

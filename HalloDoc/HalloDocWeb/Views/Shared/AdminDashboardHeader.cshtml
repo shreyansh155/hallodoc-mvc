@@ -14,61 +14,62 @@
 <hr class="m-0">
 
 <ul class="nav nav-pills ps-4 shadow" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-
-        <a asp-controller="Admin" asp-action="AdminDashboard" class="nav-link px-0 admin-tab" id="dashboard-tab">
+    <li class="nav-item active" role="presentation">
+        <a class="nav-link px-0 admin-tab" asp-controller="Admin" asp-action="AdminDashboard" id="dashboard-tab">
             <span class="tabHeader py-2 px-3">Dashboard</span>
         </a>
     </li>
     <li class="nav-item" role="presentation">
-        <a asp-controller="Admin" asp-action="ProviderLocation" class="nav-link px-0 admin-tab" id="provider-location-tab">
+        <a class="nav-link px-0 admin-tab" asp-controller="Admin" asp-action="ProviderLocation" id="provider-location-tab">
             <span class="tabHeader py-2 px-3">Provider Location</span>
         </a>
     </li>
     <li class="nav-item" role="presentation">
-        <a asp-controller="Admin" asp-action="AdminProfile" class="nav-link px-0 admin-tab" id="profile-tab">
+        <a class="nav-link px-0 admin-tab" asp-controller="Admin" asp-action="AdminProfile" id="profile-tab">
             <span class="tabHeader py-2 px-3">My Profile</span>
         </a>
     </li>
     <li class="nav-item" role="presentation">
-        <a asp-controller="Admin" asp-action="Providers" class="nav-link px-0 admin-tab" id="provider-tab">
-            <span class="tabHeader py-2 px-3">Providers</span>
-        </a>
+        <div class="dropdown">
+            <button class="nav-link dropdown-toggle text-black" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Providers
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="dropdown-item" asp-controller="Admin" asp-action="ProviderMenu">Provider</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-controller="Admin" asp-action="AdminProfile">Scheduling</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-controller="Admin" asp-action="AdminProfile">Invoicing</a>
+                </li>
+            </ul>
+        </div>
     </li>
     <li class="nav-item" role="presentation">
-        <a asp-controller="Admin" asp-action="Partners" class="nav-link px-0 admin-tab" id="partner-tab">
+        <a class="nav-link px-0 admin-tab" asp-controller="Admin" asp-action="Partners" id="partner-tab">
             <span class="tabHeader py-2 px-3">Partners</span>
         </a>
     </li>
     <li class="nav-item" role="presentation">
-        <a asp-controller="Admin" asp-action="Access" class="nav-link px-0 admin-tab" id="access-tab">
+        <a class="nav-link px-0 admin-tab" asp-controller="Admin" asp-action="Access" id="access-tab">
             <span class="tabHeader py-2 px-3">Access</span>
         </a>
     </li>
     <li class="nav-item" role="presentation">
-        <a asp-controller="Admin" asp-action="Records" class="nav-link px-0 admin-tab" id="record-tab">
+        <a class="nav-link px-0 admin-tab" asp-controller="Admin" asp-action="Records"  id="record-tab">
             <span class="tabHeader py-2 px-3">Records</span>
         </a>
     </li>
 </ul>
 
-<script>
 
-    $(document).ready(function () {
-        $('.nav-link').on('click', function () {
-            // Remove the active class from all nav links
-            $('.nav-link').removeClass('active');
-
-            // Add the active class to the clicked nav link
-            $(this).addClass('active');
-        });
-    });
-</script>
 <script>
-myFunction = () => {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-    var img = element.querySelector(".lightmode")
-    img.src.includes("darkmode") ? img.src = "../../images/lightmode.png" : img.src = "../../images/darkmode.png";
-}
+    myFunction = () => {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+        var img = element.querySelector(".lightmode")
+        img.src.includes("darkmode") ? img.src = "../../images/lightmode.png" : img.src = "../../images/darkmode.png";
+    }
 </script>

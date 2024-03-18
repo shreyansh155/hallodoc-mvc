@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -12,7 +11,7 @@ public partial class Shiftdetailregion
 
     public int Regionid { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
+    public bool? Isdeleted { get; set; }
 
     public virtual Region Region { get; set; } = null!;
 

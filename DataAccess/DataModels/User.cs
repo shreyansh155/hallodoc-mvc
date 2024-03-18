@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -17,8 +16,6 @@ public partial class User
     public string Email { get; set; } = null!;
 
     public string? Mobile { get; set; }
-
-    public BitArray? Ismobile { get; set; }
 
     public string? Street { get; set; }
 
@@ -46,11 +43,13 @@ public partial class User
 
     public short? Status { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
-
     public string? Ip { get; set; }
 
-    public BitArray? Isrequestwithemail { get; set; }
+    public bool? Ismobile { get; set; }
+
+    public bool? Isrequestwithemail { get; set; }
+
+    public bool? Isdeleted { get; set; }
 
     public virtual Aspnetuser Aspnetuser { get; set; } = null!;
 

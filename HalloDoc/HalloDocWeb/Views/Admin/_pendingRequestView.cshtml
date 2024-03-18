@@ -146,7 +146,7 @@
                             <a class="btn dropdown-item" onclick="clearCase(@item.reqClientId)">Clear Case</a>
                         </li>
                         <li>
-                            <a class="btn dropdown-item" id="sendAgreement" onclick="sendAgreement(@item.reqClientId)">Send Agreement</a>
+                            <a class="btn dropdown-item" id="sendAgreement" onclick="sendAgreement(@item.reqClientId,@item.reqTypeId)">Send Agreement</a>
                         </li>
                     </ul>
                 </td>
@@ -176,10 +176,14 @@
 </script>
 
 <script>
-    function sendAgreement(reqClientId) {
+    function sendAgreement(reqClientId, reqTypeId) {
+        
         $.ajax({
             url: "/Admin/_SendAgreementModal",
-            data: { ReqClientid: reqClientId },
+            data: {
+                ReqClientid: reqClientId,
+                ReqTypeId: reqTypeId
+            },
             type: 'POST',
             success: function (result) {
                 $('#display').html(result);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -24,8 +23,6 @@ public partial class Business
 
     public string? Faxnumber { get; set; }
 
-    public BitArray? Isregistered { get; set; }
-
     public string? Createdby { get; set; }
 
     public DateTime Createddate { get; set; }
@@ -36,9 +33,11 @@ public partial class Business
 
     public short? Status { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
-
     public string? Ip { get; set; }
+
+    public bool? Isregistered { get; set; }
+
+    public bool? Isdeleted { get; set; }
 
     public virtual Aspnetuser? CreatedbyNavigation { get; set; }
 

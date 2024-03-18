@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -20,7 +19,7 @@ public partial class Role
 
     public DateTime? Modifieddate { get; set; }
 
-    public BitArray Isdeleted { get; set; } = null!;
-
     public string? Ip { get; set; }
+
+    public bool? Isdeleted { get; set; }
 }

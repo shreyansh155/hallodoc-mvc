@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Vok32pYXeeJpzmK49A0+51w9XdGcVWiiLUqDSB97wZo=",
+  "Hash": "rTGjGly+e7UtaVmCEYADifgKc/5CXvppVX4vxe/Sq7o=",
   "Source": "HalloDocWeb",
   "BasePath": "_content/HalloDocWeb",
   "Mode": "Default",
@@ -3475,25 +3475,6 @@
       "OriginalItemSpec": "wwwroot\\images\\warning-icon.svg"
     },
     {
-      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\admin.js",
-      "SourceId": "HalloDocWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
-      "BasePath": "_content/HalloDocWeb",
-      "RelativePath": "js/admin.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\admin.js"
-    },
-    {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\AdminDashboard.js",
       "SourceId": "HalloDocWeb",
       "SourceType": "Discovered",
@@ -3530,25 +3511,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
-    },
-    {
-      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\warningModal.js",
-      "SourceId": "HalloDocWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
-      "BasePath": "_content/HalloDocWeb",
-      "RelativePath": "js/warningModal.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\warningModal.js"
     },
     {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

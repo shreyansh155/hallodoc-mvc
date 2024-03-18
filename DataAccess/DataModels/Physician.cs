@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -23,14 +22,6 @@ public partial class Physician
     public string? Photo { get; set; }
 
     public string? Adminnotes { get; set; }
-
-    public BitArray? Isagreementdoc { get; set; }
-
-    public BitArray? Isbackgrounddoc { get; set; }
-
-    public BitArray? Istrainingdoc { get; set; }
-
-    public BitArray? Isnondisclosuredoc { get; set; }
 
     public string? Address1 { get; set; }
 
@@ -58,21 +49,29 @@ public partial class Physician
 
     public string Businesswebsite { get; set; } = null!;
 
-    public BitArray? Isdeleted { get; set; }
-
     public int? Roleid { get; set; }
 
     public string? Npinumber { get; set; }
 
-    public BitArray? Islicensedoc { get; set; }
-
     public string? Signature { get; set; }
 
-    public BitArray? Iscredentialdoc { get; set; }
-
-    public BitArray? Istokengenerate { get; set; }
-
     public string? Syncemailaddress { get; set; }
+
+    public bool? Iscredentialdoc { get; set; }
+
+    public bool? Istokengenerate { get; set; }
+
+    public bool? Islicensedoc { get; set; }
+
+    public bool? Isdeleted { get; set; }
+
+    public bool? Isagreementdoc { get; set; }
+
+    public bool? Isbackgrounddoc { get; set; }
+
+    public bool? Isnondisclosuredoc { get; set; }
+
+    public bool? Istrainingdoc { get; set; }
 
     public virtual Aspnetuser? Aspnetuser { get; set; }
 

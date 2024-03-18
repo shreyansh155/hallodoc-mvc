@@ -2,7 +2,7 @@
 
 
 
-<div class="modal fade" tabindex="-1" data-bs-backdrop="static">
+<div class="modal fade" id="warningModal" tabindex="-1" data-backdrop="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body row">
@@ -14,9 +14,7 @@
                 <div class="col-12 justify-content-center d-flex">Information</div><br>
                 <div class="col-12">When submitting a request, you must provide the correct contact information about the patient or the responsible party. Failure to provide correct phone number and email will delay service or be declined.</div>
                 <div class="col-12 justify-content-center d-flex">
-                    <button class="btn btn-outline-info" id="closebtn" data-dismiss="modal" onclick="closeModal()">
-                        OK
-                    </button>
+                    <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">OK</button>
                 </div>
             </div>
 
@@ -24,8 +22,14 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> *@
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script>
+    $(".closeBtn").click(function () {
+
+        $("#warningModal").modal('hide');
+    })
+</script>

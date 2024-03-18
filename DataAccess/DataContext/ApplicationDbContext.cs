@@ -127,9 +127,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Firstname)
                 .HasMaxLength(100)
                 .HasColumnName("firstname");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
             entity.Property(e => e.Lastname)
                 .HasMaxLength(100)
                 .HasColumnName("lastname");
@@ -304,12 +302,8 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
-            entity.Property(e => e.Isregistered)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isregistered");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
+            entity.Property(e => e.Isregistered).HasColumnName("isregistered");
             entity.Property(e => e.Modifiedby)
                 .HasColumnType("character varying")
                 .HasColumnName("modifiedby");
@@ -593,9 +587,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
             entity.Property(e => e.Modifieddate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("modifieddate");
@@ -739,30 +731,14 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Firstname)
                 .HasMaxLength(100)
                 .HasColumnName("firstname");
-            entity.Property(e => e.Isagreementdoc)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isagreementdoc");
-            entity.Property(e => e.Isbackgrounddoc)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isbackgrounddoc");
-            entity.Property(e => e.Iscredentialdoc)
-                .HasColumnType("bit(1)")
-                .HasColumnName("iscredentialdoc");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
-            entity.Property(e => e.Islicensedoc)
-                .HasColumnType("bit(1)")
-                .HasColumnName("islicensedoc");
-            entity.Property(e => e.Isnondisclosuredoc)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isnondisclosuredoc");
-            entity.Property(e => e.Istokengenerate)
-                .HasColumnType("bit(1)")
-                .HasColumnName("istokengenerate");
-            entity.Property(e => e.Istrainingdoc)
-                .HasColumnType("bit(1)")
-                .HasColumnName("istrainingdoc");
+            entity.Property(e => e.Isagreementdoc).HasColumnName("isagreementdoc");
+            entity.Property(e => e.Isbackgrounddoc).HasColumnName("isbackgrounddoc");
+            entity.Property(e => e.Iscredentialdoc).HasColumnName("iscredentialdoc");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
+            entity.Property(e => e.Islicensedoc).HasColumnName("islicensedoc");
+            entity.Property(e => e.Isnondisclosuredoc).HasColumnName("isnondisclosuredoc");
+            entity.Property(e => e.Istokengenerate).HasColumnName("istokengenerate");
+            entity.Property(e => e.Istrainingdoc).HasColumnName("istrainingdoc");
             entity.Property(e => e.Lastname)
                 .HasMaxLength(100)
                 .HasColumnName("lastname");
@@ -856,13 +832,11 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
-            entity.Property(e => e.Isnotificationstopped)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isnotificationstopped");
-            entity.Property(e => e.Pysicianid).HasColumnName("pysicianid");
+            entity.Property(e => e.Isnotificationstopped).HasColumnName("isnotificationstopped");
+            entity.Property(e => e.Physicianid).HasColumnName("physicianid");
 
-            entity.HasOne(d => d.Pysician).WithMany(p => p.Physiciannotifications)
-                .HasForeignKey(d => d.Pysicianid)
+            entity.HasOne(d => d.Physician).WithMany(p => p.Physiciannotifications)
+                .HasForeignKey(d => d.Physicianid)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_physiciannotification");
         });
@@ -927,9 +901,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Casetagphysician)
                 .HasMaxLength(50)
                 .HasColumnName("casetagphysician");
-            entity.Property(e => e.Completedbyphysician)
-                .HasColumnType("bit(1)")
-                .HasColumnName("completedbyphysician");
+            entity.Property(e => e.Completedbyphysician).HasColumnName("completedbyphysician");
             entity.Property(e => e.Confirmationnumber)
                 .HasMaxLength(20)
                 .HasColumnName("confirmationnumber");
@@ -949,12 +921,8 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
-            entity.Property(e => e.Ismobile)
-                .HasColumnType("bit(1)")
-                .HasColumnName("ismobile");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
+            entity.Property(e => e.Ismobile).HasColumnName("ismobile");
             entity.Property(e => e.Isurgentemailsent).HasColumnName("isurgentemailsent");
             entity.Property(e => e.Lastname)
                 .HasMaxLength(100)
@@ -1049,9 +1017,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Ismobile)
-                .HasColumnType("bit(1)")
-                .HasColumnName("ismobile");
+            entity.Property(e => e.Ismobile).HasColumnName("ismobile");
             entity.Property(e => e.Isreservationremindersent).HasColumnName("isreservationremindersent");
             entity.Property(e => e.Issetfollowupsent).HasColumnName("issetfollowupsent");
             entity.Property(e => e.Lastname)
@@ -1227,9 +1193,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Physicianid).HasColumnName("physicianid");
             entity.Property(e => e.Requestid).HasColumnName("requestid");
             entity.Property(e => e.Status).HasColumnName("status");
-            entity.Property(e => e.Transtoadmin)
-                .HasColumnType("bit(1)")
-                .HasColumnName("transtoadmin");
+            entity.Property(e => e.Transtoadmin).HasColumnName("transtoadmin");
             entity.Property(e => e.Transtophysicianid).HasColumnName("transtophysicianid");
 
             entity.HasOne(d => d.Admin).WithMany(p => p.Requeststatuslogs)
@@ -1284,19 +1248,11 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Iscompensation)
-                .HasColumnType("bit(1)")
-                .HasColumnName("iscompensation");
+            entity.Property(e => e.Iscompensation).HasColumnName("iscompensation");
             entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
-            entity.Property(e => e.Isfinalize)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isfinalize");
-            entity.Property(e => e.Isfrontside)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isfrontside");
-            entity.Property(e => e.Ispatientrecords)
-                .HasColumnType("bit(1)")
-                .HasColumnName("ispatientrecords");
+            entity.Property(e => e.Isfinalize).HasColumnName("isfinalize");
+            entity.Property(e => e.Isfrontside).HasColumnName("isfrontside");
+            entity.Property(e => e.Ispatientrecords).HasColumnName("ispatientrecords");
             entity.Property(e => e.Physicianid).HasColumnName("physicianid");
             entity.Property(e => e.Requestid).HasColumnName("requestid");
 
@@ -1333,9 +1289,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
             entity.Property(e => e.Modifiedby)
                 .HasMaxLength(128)
                 .HasColumnName("modifiedby");
@@ -1383,9 +1337,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isrepeat)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isrepeat");
+            entity.Property(e => e.Isrepeat).HasColumnName("isrepeat");
             entity.Property(e => e.Physicianid).HasColumnName("physicianid");
             entity.Property(e => e.Repeatupto).HasColumnName("repeatupto");
             entity.Property(e => e.Startdate).HasColumnName("startdate");
@@ -1420,12 +1372,8 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Eventid)
                 .HasMaxLength(100)
                 .HasColumnName("eventid");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
-            entity.Property(e => e.Issync)
-                .HasColumnType("bit(1)")
-                .HasColumnName("issync");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
+            entity.Property(e => e.Issync).HasColumnName("issync");
             entity.Property(e => e.Lastrunningdate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("lastrunningdate");
@@ -1462,9 +1410,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Shiftdetailregionid)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("shiftdetailregionid");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
             entity.Property(e => e.Regionid).HasColumnName("regionid");
             entity.Property(e => e.Shiftdetailid).HasColumnName("shiftdetailid");
 
@@ -1496,9 +1442,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Createdate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("createdate");
-            entity.Property(e => e.Issmssent)
-                .HasColumnType("bit(1)")
-                .HasColumnName("issmssent");
+            entity.Property(e => e.Issmssent).HasColumnName("issmssent");
             entity.Property(e => e.Mobilenumber)
                 .HasMaxLength(50)
                 .HasColumnName("mobilenumber");
@@ -1546,15 +1490,9 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Ip)
                 .HasMaxLength(20)
                 .HasColumnName("ip");
-            entity.Property(e => e.Isdeleted)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isdeleted");
-            entity.Property(e => e.Ismobile)
-                .HasColumnType("bit(1)")
-                .HasColumnName("ismobile");
-            entity.Property(e => e.Isrequestwithemail)
-                .HasColumnType("bit(1)")
-                .HasColumnName("isrequestwithemail");
+            entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
+            entity.Property(e => e.Ismobile).HasColumnName("ismobile");
+            entity.Property(e => e.Isrequestwithemail).HasColumnName("isrequestwithemail");
             entity.Property(e => e.Lastname)
                 .HasMaxLength(100)
                 .HasColumnName("lastname");

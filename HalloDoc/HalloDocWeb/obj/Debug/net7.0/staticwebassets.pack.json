@@ -889,16 +889,8 @@
       "PackagePath": "staticwebassets\\js\\AdminDashboard.js"
     },
     {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\admin.js",
-      "PackagePath": "staticwebassets\\js\\admin.js"
-    },
-    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
-      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\js\\warningModal.js",
-      "PackagePath": "staticwebassets\\js\\warningModal.js"
     },
     {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\lib\\bootstrap\\LICENSE",

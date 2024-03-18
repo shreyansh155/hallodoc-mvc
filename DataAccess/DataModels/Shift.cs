@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -12,8 +11,6 @@ public partial class Shift
 
     public DateOnly Startdate { get; set; }
 
-    public BitArray Isrepeat { get; set; } = null!;
-
     public string? Weekdays { get; set; }
 
     public int? Repeatupto { get; set; }
@@ -23,6 +20,8 @@ public partial class Shift
     public DateTime Createddate { get; set; }
 
     public string? Ip { get; set; }
+
+    public bool Isrepeat { get; set; }
 
     public virtual Aspnetuser CreatedbyNavigation { get; set; } = null!;
 

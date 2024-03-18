@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -30,13 +29,13 @@ public partial class Healthprofessional
 
     public string? Phonenumber { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
-
     public string? Ip { get; set; }
 
     public string? Email { get; set; }
 
     public string? Businesscontact { get; set; }
+
+    public bool? Isdeleted { get; set; }
 
     public virtual ICollection<Orderdetail> Orderdetails { get; set; } = new List<Orderdetail>();
 

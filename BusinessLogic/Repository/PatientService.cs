@@ -483,7 +483,7 @@ namespace BusinessLogic.Repository
                         Phonenumber = userDetails.Phone,
                         Notes = userDetails.Symptoms,
                         Address = userDetails.PatientRoom,
-                        Strmonth = userDetails.DateOfBirth.ToString("MMMM"),
+                        Strmonth = userDetails.DateOfBirth.ToString("MMM"),
                         Intdate = userDetails.DateOfBirth.Day,
                         Intyear = userDetails.DateOfBirth.Year,
                         Street = userDetails.Street,
@@ -882,6 +882,7 @@ namespace BusinessLogic.Repository
                 Street = user.Street,
                 City = user.City,
                 State = user.State,
+               
             };
             return model;
         }

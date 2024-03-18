@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -26,9 +25,9 @@ public partial class Smslog
 
     public DateTime? Sentdate { get; set; }
 
-    public BitArray? Issmssent { get; set; }
-
     public int Senttries { get; set; }
 
     public int? Action { get; set; }
+
+    public bool? Issmssent { get; set; }
 }

@@ -7,11 +7,35 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
+                @{
+                    var bg = "";
+                    var reqType = "";
+                    @switch (Model.ReqTypeId)
+                    {
+                        case 1:
+                            bg = "#5fbc61";
+                            reqType = "Patient";
+                            break;
+                        case 2:
+                            bg = "#ed9124";
+                            reqType = "Family/Friend";
+                            break;
+                        case 3:
+                            bg = "#007fc6";
+                            reqType = "Concierge";
+                            break;
+                        case 4:
+                            bg = "#e26277";
+                            reqType = "Business";
+                            break;
+                    }
+                }
+
                 <div class="px-lg-1 py-1 rounded d-md-flex align-items-center ms-2">
                     <svg height="15" width="15" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle fill="#5fbc61" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
+                        <circle fill="@bg" r="45" cx="50" cy="50" stroke="grey" stroke-width="3" />
                     </svg>
-                    <h6 class="fs-6 ms-lg-2 m-auto">Patient</h6>
+                    <h6 class="fs-6 ms-lg-2 m-auto">@reqType</h6>
                 </div>
                 <div class="mb-3 text-secondary">
                     <p>To send agreement, please make sure that you are updating the correct contact information below for the responsible party</p>

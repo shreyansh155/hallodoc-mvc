@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -20,17 +19,17 @@ public partial class Requestwisefile
 
     public short? Doctype { get; set; }
 
-    public BitArray? Isfrontside { get; set; }
-
-    public BitArray? Iscompensation { get; set; }
-
     public string? Ip { get; set; }
 
-    public BitArray? Isfinalize { get; set; }
-
-    public BitArray? Ispatientrecords { get; set; }
-
     public bool? Isdeleted { get; set; }
+
+    public bool? Isfrontside { get; set; }
+
+    public bool? Iscompensation { get; set; }
+
+    public bool? Isfinalize { get; set; }
+
+    public bool? Ispatientrecords { get; set; }
 
     public virtual Admin? Admin { get; set; }
 

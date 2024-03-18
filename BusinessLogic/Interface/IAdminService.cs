@@ -38,6 +38,15 @@ namespace BusinessLogic.Interface
         void CloseCaseSave(CloseCase closeCase);
         EncounterModel Encounter(int reqClientId);
         void EncounterSubmit(EncounterModel encounter);
+        
+        
+        /// AdminProfile
         AdminProfile ProfileInfo(int adminId);
+
+        /////////////ProviderMenu/////////////////////
+        ProviderMenu ProviderMenu();
+        void ContactProvider(ContactYourProvider contactYourProvider);
+
+
     }
 }

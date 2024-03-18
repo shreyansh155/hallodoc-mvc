@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -20,8 +19,6 @@ public partial class Shiftdetail
 
     public short Status { get; set; }
 
-    public BitArray Isdeleted { get; set; } = null!;
-
     public string? Modifiedby { get; set; }
 
     public DateTime? Modifieddate { get; set; }
@@ -30,7 +27,9 @@ public partial class Shiftdetail
 
     public string? Eventid { get; set; }
 
-    public BitArray? Issync { get; set; }
+    public bool? Isdeleted { get; set; }
+
+    public bool? Issync { get; set; }
 
     public virtual Aspnetuser? ModifiedbyNavigation { get; set; }
 

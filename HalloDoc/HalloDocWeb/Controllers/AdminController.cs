@@ -7,6 +7,8 @@ using DataAccess.DataModels;
 using System.Text.Json.Nodes;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using Newtonsoft.Json.Linq;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Text;
 
 
 namespace HalloDocWeb.Controllers
@@ -16,7 +18,7 @@ namespace HalloDocWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IAdminService _adminService;
-        private readonly INotyfService _notyf; 
+        private readonly INotyfService _notyf;
 
         public AdminController(ApplicationDbContext context, IAdminService adminService, INotyfService notyf)
         {
@@ -39,6 +41,9 @@ namespace HalloDocWeb.Controllers
             }
             return View();
         }
+
+        /////////////////////////////AdminDashboard//////////////////////////////////////
+
         public IActionResult AdminDashboard(int status)
         {
 
@@ -344,10 +349,16 @@ namespace HalloDocWeb.Controllers
             _adminService.ClearCase(reqClientId);
             _notyf.Success("Case has been cancelled!", 3);
             return RedirectToAction("AdminDashboard");
-        }        [HttpPost]        public IActionResult _SendAgreementModal(int ReqClientid)
+        }        [HttpPost]        public IActionResult _SendAgreementModal(int ReqClientid, int ReqTypeId)
         {
             Requestclient request = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == ReqClientid);
-            SendAgreementCase sendAgreement = new() { ReqClientid = ReqClientid, PhoneNumber = request.Phonenumber, Email = request.Email };
+            SendAgreementCase sendAgreement = new()
+            {
+                ReqClientid = ReqClientid,
+                PhoneNumber = request.Phonenumber,
+                Email = request.Email,
+                ReqTypeId = ReqTypeId,
+            };
             return View(sendAgreement);
         }        [HttpPost]        public IActionResult SendAgreement(int ReqClientid, string PhoneNumber, string Email)
         {
@@ -394,6 +405,17 @@ namespace HalloDocWeb.Controllers
             return View(encounter);
         }
 
+
+        [HttpPost]  
+        public FileResult Export(string GridHtml)
+        {
+            return File(Encoding.ASCII.GetBytes(GridHtml), "application/vnd.ms-excel", "Grid.xls");
+        }
+
+
+
+
+
         ///////////////////////Admin Profile////////////////////////////////////////////////////
         public IActionResult AdminProfile()
         {
@@ -405,5 +427,38 @@ namespace HalloDocWeb.Controllers
         {
 
             return RedirectToAction("AdminProfile");
-        }    }
+        }        public IActionResult _RequestSupport()
+        {
+            return View();
+        }
+        public IActionResult RequestSupportModal(string Message)
+        {
+            return View();
+        }
+
+
+        //////////////////////////Provider//////////////////////////////////////
+
+
+        public IActionResult ProviderMenu()
+        {
+            var obj = _adminService.ProviderMenu();
+            return View(obj.ProviderLists);
+        }
+
+        public IActionResult _ContactYourProvider(int PhysicianId)
+        {
+            var obj = new ContactYourProvider
+            {
+                PhysicianId= PhysicianId,
+            };
+            return View(obj);
+        }
+        [HttpPost]
+        public IActionResult _ContactYourProvider(ContactYourProvider model)
+        {
+            _adminService.ContactProvider(model);
+            return View();
+        }
+    }
 }

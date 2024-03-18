@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace DataAccess.DataModels;
@@ -38,9 +37,9 @@ public partial class Admin
 
     public short? Status { get; set; }
 
-    public BitArray? Isdeleted { get; set; }
-
     public int? Roleid { get; set; }
+
+    public bool? Isdeleted { get; set; }
 
     public virtual ICollection<Adminregion> Adminregions { get; set; } = new List<Adminregion>();
 
