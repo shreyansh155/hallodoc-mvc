@@ -1,0 +1,59 @@
+﻿@model CancelCase;
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="newReqModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #01bce9; color:white;">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Cancellation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="@Url.Action("CancelCase","Admin")">
+                <div class="modal-body">
+                    <div class="dropdown">
+                        <input id="ReqClientid" value="@Model.ReqClientid" hidden />
+                        <h5>Patient Name: @Model.Name</h5>
+                        <select class="form-select form-select mb-3" aria-label="Large select example" id="CaseTagId">
+                            @foreach (var items in Model.Casetags)
+                            {
+                                <option value="@items.Casetagid">@items.Name</option>
+                            }
+                        </select>
+                        <div class="form-floating m-1 form-div">
+                            <textarea class="form-control" id="AddOnNotes" placeholder="Leave a comment here"
+                                      style="height: 100px"></textarea>
+                            <label for="">Provide Additional Notes</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" id="cancel-case-submit-btn" style="background-color: #01bce9; color:white;">Confirm</button>
+                    <button type="button" class="btn" id="CloseModal" style="color: #01bce9; border: #01bce9 1px solid;" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    //console.log("hello")
+    $('#cancel-case-submit-btn').click(function () {
+        var addNote = $("#AddOnNotes").val();
+        var casetag = $("#CaseTagId").val();
+        var reqClientId = $("#ReqClientid").val();
+        console.log("hello");
+
+        $.ajax({
+            url: "/Admin/CancelCase",
+            data: { ReqClientid: reqClientId, CaseTagId: casetag, AddOnNotes: addNote },
+            type: 'POST',
+            success: function (result) {
+                $('#display').html(result);
+                $('#cancelModal').modal('show');
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    });
+</script>

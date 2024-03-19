@@ -920,8 +920,14 @@ G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\ru\Microsoft.CodeAnalys
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\EPPlus.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\EPPlus.Interfaces.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\EPPlus.System.Drawing.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\HtmlAgilityPack.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\Microsoft.IO.RecyclableMemoryStream.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+G:\HalloDoc DotNet\HalloDoc\HalloDocWeb\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll

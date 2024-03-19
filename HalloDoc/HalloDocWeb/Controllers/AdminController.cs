@@ -6,9 +6,9 @@ using BusinessLogic.Repository;
 using DataAccess.DataModels;
 using System.Text.Json.Nodes;
 using AspNetCoreHero.ToastNotification.Abstractions;
-using Newtonsoft.Json.Linq;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Text;
+using OfficeOpenXml;
+using System.Reflection;
 
 
 namespace HalloDocWeb.Controllers
@@ -46,7 +46,6 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult AdminDashboard(int status)
         {
-
             var data = _adminService.AdminDashboard();
             int? adminId = HttpContext.Session.GetInt32("adminId");
             var dashData = new AdminDashboard
@@ -54,7 +53,7 @@ namespace HalloDocWeb.Controllers
                 Status = status,
                 CountRequestViewModel = data.CountRequestViewModel,
             };
-            return View(dashData);
+            return View("Dashboard/AdminDashboard", dashData);
         }
         public IActionResult ViewCase(int reqClientId)
         {
@@ -62,16 +61,15 @@ namespace HalloDocWeb.Controllers
 
             var obj = _adminService.ViewCaseViewModel(reqClientId);
 
-            return View(obj);
+            return View("Pages/ViewCase", obj);
         }
         public IActionResult ViewNotes(int reqClientId)
         {
             _ = HttpContext.Session.GetInt32("adminId");
             var obj = _adminService.ViewNotes(reqClientId);
-            return View(obj);
+            return View("Pages/ViewNotes", obj);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult ViewNotes(ViewNotes viewNotes)
         {
             if (ModelState.IsValid)
@@ -81,7 +79,7 @@ namespace HalloDocWeb.Controllers
                 _notyf.Success("Note Updated Successfully", 3);
                 return ViewNotes(viewNotes.Requestclientid);
             }
-            return View(viewNotes);
+            return View("Pages/ViewNotes", viewNotes);
         }
         [HttpPost]
         public IActionResult PartialTable(int status, SearchViewModel obj)
@@ -94,64 +92,64 @@ namespace HalloDocWeb.Controllers
                 if (status == 1)
                 {
                     var parseData = searchData.NewReqViewModel;
-                    return PartialView("_newRequestView", parseData);
+                    return PartialView("PartialTable/_newRequestView", parseData);
                 }
                 else if (status == 2)
                 {
                     var parseData = searchData.PendingReqViewModel;
-                    return PartialView("_PendingRequestView", parseData);
+                    return PartialView("PartialTable/_PendingRequestView", parseData);
                 }
                 else if (status == 8)
                 {
                     var parseData = searchData.ActiveReqViewModels;
-                    return PartialView("_activeRequestView", parseData);
+                    return PartialView("PartialTable/_activeRequestView", parseData);
                 }
                 else if (status == 4)
                 {
                     var parseData = searchData.ConcludeReqViewModel;
-                    return PartialView("_concludeReqView", parseData);
+                    return PartialView("PartialTable/_concludeReqView", parseData);
                 }
                 else if (status == 5)
                 {
                     var parseData = searchData.CloseReqViewModels;
-                    return PartialView("_closeReqView", parseData);
+                    return PartialView("PartialTable/_closeReqView", parseData);
                 }
                 else
                 {
                     var parseData = searchData.UnpaidReqViewModels;
-                    return PartialView("_unpaidReqView", parseData);
+                    return PartialView("PartialTable/_unpaidReqView", parseData);
                 }
             }
 
             if (status == 1)
             {
                 var parseData = data.NewReqViewModel;
-                return PartialView("_newRequestView", parseData);
+                return PartialView("PartialTable/_newRequestView", parseData);
             }
             else if (status == 2)
             {
                 var parseData = data.PendingReqViewModel;
-                return PartialView("_PendingRequestView", parseData);
+                return PartialView("PartialTable/_PendingRequestView", parseData);
             }
             else if (status == 8)
             {
                 var parseData = data.ActiveReqViewModels;
-                return PartialView("_activeRequestView", parseData);
+                return PartialView("PartialTable/_activeRequestView", parseData);
             }
             else if (status == 4)
             {
                 var parseData = data.ConcludeReqViewModel;
-                return PartialView("_concludeReqView", parseData);
+                return PartialView("PartialTable/_concludeReqView", parseData);
             }
             else if (status == 5)
             {
                 var parseData = data.CloseReqViewModels;
-                return PartialView("_closeReqView", parseData);
+                return PartialView("PartialTable/_closeReqView", parseData);
             }
             else
             {
                 var parseData = data.UnpaidReqViewModels;
-                return PartialView("_unpaidReqView", parseData);
+                return PartialView("PartialTable/_unpaidReqView", parseData);
             }
 
         }
@@ -169,7 +167,7 @@ namespace HalloDocWeb.Controllers
                 CountRequestViewModel = searchedData.CountRequestViewModel,
             };
 
-            return View(dashData);
+            return View("Dashboard/AdminDashboard", dashData);
 
         }
         public IActionResult CancelCaseModal(int requestClientId)
@@ -179,7 +177,7 @@ namespace HalloDocWeb.Controllers
                 ReqClientid = requestClientId,
                 Casetags = _context.Casetags,
             };
-            return PartialView("_CancelCaseView", cancelCase);
+            return PartialView("PopUpModals/_CancelCaseView", cancelCase);
         }
         public IActionResult AssignCaseModal(int requestClientId)
         {
@@ -189,7 +187,7 @@ namespace HalloDocWeb.Controllers
                 Region = _context.Regions,
                 Physicians = _context.Physicians
             };
-            return PartialView("_AssignCaseView", assignCase);
+            return PartialView("PopUpModals/_AssignCaseView", assignCase);
         }
         public IActionResult TransferCaseModal(int requestClientId)
         {
@@ -199,7 +197,7 @@ namespace HalloDocWeb.Controllers
                 Region = _context.Regions,
                 Physicians = _context.Physicians
             };
-            return PartialView("_TransferCaseView", transferCase);
+            return PartialView("PopUpModals/_TransferCaseView", transferCase);
         }
         public IActionResult SendAgreement(int requestClientId)
         {
@@ -207,7 +205,7 @@ namespace HalloDocWeb.Controllers
             {
                 ReqClientid = requestClientId,
             };
-            return PartialView("_SendAgreementModal", sendAgreement);
+            return PartialView("PopUpModals/_SendAgreementModal", sendAgreement);
         }
         public IActionResult BlockCaseModal(int requestClientId)
         {
@@ -215,7 +213,7 @@ namespace HalloDocWeb.Controllers
             {
                 ReqClientid = requestClientId,
             };
-            return PartialView("_BlockCaseView", blockCase);
+            return PartialView("PopUpModals/_BlockCaseView", blockCase);
         }
         [HttpPost]
         public IActionResult CancelCase(int ReqClientid, int CaseTagId, string AddOnNotes)
@@ -234,7 +232,7 @@ namespace HalloDocWeb.Controllers
             }
             _notyf.Error("Please try again", 3);
 
-            return PartialView("_CancelCaseView", cancelCase);
+            return PartialView("PopUpModals/_CancelCaseView", cancelCase);
         }
         [HttpPost]
         public IActionResult AssignCase(int ReqClientid, int PhysicianId, int RegionId, string Description)
@@ -253,7 +251,7 @@ namespace HalloDocWeb.Controllers
                 return RedirectToAction("AdminDashboard");
             }
 
-            return PartialView("_AssignCaseView", assignCase);
+            return PartialView("PopUpModals/_AssignCaseView", assignCase);
         }
         [HttpPost]
         public IActionResult TransferCase(int ReqClientid, int PhysicianId, int RegionId, string Description)
@@ -272,7 +270,7 @@ namespace HalloDocWeb.Controllers
                 return RedirectToAction("AdminDashboard");
             }
 
-            return PartialView("_TransferCaseView", transferCase);
+            return PartialView("PopUpModals/_TransferCaseView", transferCase);
         }
         [HttpPost]
         public IActionResult BlockCase(int ReqClientId, string BlockReason)
@@ -288,14 +286,14 @@ namespace HalloDocWeb.Controllers
                 _notyf.Success("Case has been successfully blocked", 3);
                 return RedirectToAction("AdminDashboard");
             }
-            return PartialView("_BlockCaseView");
+            return PartialView("PopUpModals/_BlockCaseView");
         }
         public IActionResult ViewUploads(int reqClientId)
         {
             int? adminId = HttpContext.Session.GetInt32("adminId");
             var obj = _adminService.ViewUploads(reqClientId);
 
-            return View(obj);
+            return View("Pages/ViewUploads", obj);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -306,7 +304,7 @@ namespace HalloDocWeb.Controllers
                 _adminService.UploadFiles(viewUploads);
                 return ViewUploads(viewUploads.reqClientId);
             }
-            return View(viewUploads);
+            return View("Pages/ViewUploads", viewUploads);
         }
         public void DeleteFile(int Requestwisefileid)
         {
@@ -322,7 +320,7 @@ namespace HalloDocWeb.Controllers
         public IActionResult Orders(int RequestId)
         {
             var obj = _adminService.Orders(RequestId);
-            return View(obj);
+            return View("Pages/Orders", obj);
         }
         [HttpPost]
         public IActionResult Orders(Orders orders)
@@ -343,13 +341,15 @@ namespace HalloDocWeb.Controllers
             {
                 ReqClientid = requestClientId,
             };
-            return View(obj);
+            return View("PopUpModals/_ClearCaseModal", obj);
         }        public IActionResult ClearCase(int reqClientId)
         {
             _adminService.ClearCase(reqClientId);
             _notyf.Success("Case has been cancelled!", 3);
             return RedirectToAction("AdminDashboard");
-        }        [HttpPost]        public IActionResult _SendAgreementModal(int ReqClientid, int ReqTypeId)
+        }
+
+        public IActionResult _SendAgreementModal(int ReqClientid, int ReqTypeId)
         {
             Requestclient request = _context.Requestclients.FirstOrDefault(x => x.Requestclientid == ReqClientid);
             SendAgreementCase sendAgreement = new()
@@ -359,7 +359,7 @@ namespace HalloDocWeb.Controllers
                 Email = request.Email,
                 ReqTypeId = ReqTypeId,
             };
-            return View(sendAgreement);
+            return View("PopUpModals/_SendAgreementModal", sendAgreement);
         }        [HttpPost]        public IActionResult SendAgreement(int ReqClientid, string PhoneNumber, string Email)
         {
             var agreementLink = Url.Action("ReviewAgreement", "Home", new { reqClientId = ReqClientid }, Request.Scheme);
@@ -371,12 +371,12 @@ namespace HalloDocWeb.Controllers
                 Email = Email
             };
             _adminService.SendAgreementCase(sendAgreement, agreementLink);
-            _notyf.Success("Agreement sent to the registered patient");
+            //_notyf.Success("Agreement sent to the registered patient");
             return RedirectToAction("AdminDashboard");
         }        public IActionResult CloseCase(int reqClientId)
         {
             var obj = _adminService.CloseCaseView(reqClientId);
-            return View(obj);
+            return View("Pages/CloseCase", obj);
         }
         [HttpPost]
         public IActionResult CloseCase(CloseCase closeCase)
@@ -390,7 +390,7 @@ namespace HalloDocWeb.Controllers
         }        public IActionResult Encounter(int reqClientId)
         {
             var encounter = _adminService.Encounter(reqClientId);
-            return View(encounter);
+            return View("Pages/Encounter", encounter);
         }
         [HttpPost]
         public IActionResult Encounter(EncounterModel encounter)
@@ -399,19 +399,23 @@ namespace HalloDocWeb.Controllers
             {
                 _adminService.EncounterSubmit(encounter);
                 _notyf.Success("Details updated Successfully", 3);
-                return View(encounter);
+                return View("Pages/Encounter", encounter);
             }
             _notyf.Error("There has been some error", 3);
-            return View(encounter);
+            return View("Pages/Encounter", encounter);
         }
 
 
-        [HttpPost]  
+        [HttpPost]
         public FileResult Export(string GridHtml)
         {
             return File(Encoding.ASCII.GetBytes(GridHtml), "application/vnd.ms-excel", "Grid.xls");
         }
+        public FileResult ExportAll(int status)            {            byte[] excelBytes;            if (status == 8)            {                IEnumerable<ActiveReqViewModel> data = _adminService.AdminDashboard().ActiveReqViewModels.ToList();
+                excelBytes = fileToExcel(data);            }            else if (status == 2)            {                IEnumerable<PendingReqViewModel> data = _adminService.AdminDashboard().PendingReqViewModel.ToList();                excelBytes = fileToExcel(data);            }            else if (status == 4)            {                IEnumerable<ConcludeReqViewModel> data = _adminService.AdminDashboard().ConcludeReqViewModel.ToList();
+                excelBytes = fileToExcel(data);            }            else if (status == 5)            {                IEnumerable<CloseReqViewModel> data = _adminService.AdminDashboard().CloseReqViewModels.ToList();                excelBytes = fileToExcel(data);            }            else if (status == 13)            {                IEnumerable<UnpaidReqViewModel> data = _adminService.AdminDashboard().UnpaidReqViewModels.ToList();                excelBytes = fileToExcel(data);            }            else            {                IEnumerable<NewReqViewModel> data = _adminService.AdminDashboard().NewReqViewModel.ToList();                excelBytes = fileToExcel(data);            }            return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "sheet.xlsx");        }
 
+        public byte[] fileToExcel<T>(IEnumerable<T> data)        {            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;            using (ExcelPackage package = new ExcelPackage())            {                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Data");                PropertyInfo[] properties = typeof(T).GetProperties();                for (int i = 0; i < properties.Length; i++)                {                    worksheet.Cells[1, i + 1].Value = properties[i].Name;                }                int row = 2;                foreach (var item in data)                {                    for (int i = 0; i < properties.Length; i++)                    {                        worksheet.Cells[row, i + 1].Value = properties[i].GetValue(item);                    }                    row++;                }                byte[] excelBytes = package.GetAsByteArray();                return excelBytes;            }        }
 
 
 
@@ -419,17 +423,19 @@ namespace HalloDocWeb.Controllers
         ///////////////////////Admin Profile////////////////////////////////////////////////////
         public IActionResult AdminProfile()
         {
-            int adminId = Convert.ToInt32(HttpContext.Request.Headers.Where(x => x.Key == "userId").FirstOrDefault().Value);            var obj = _adminService.ProfileInfo(adminId);
-            return View(obj);
+            int adminId = Convert.ToInt32(HttpContext.Request.Headers.Where(x => x.Key == "userId").FirstOrDefault().Value);
+            var obj = _adminService.ProfileInfo(adminId);
+            return View("Profile/AdminProfile", obj);
         }
         [HttpPost]
         public IActionResult AdminProfile(AdminProfile profile)
         {
 
-            return RedirectToAction("AdminProfile");
-        }        public IActionResult _RequestSupport()
+            return RedirectToAction("Profile/AdminProfile");
+        }
+        public IActionResult _RequestSupport()
         {
-            return View();
+            return View("PopUpModals/_RequestSupport");
         }
         public IActionResult RequestSupportModal(string Message)
         {
@@ -443,22 +449,22 @@ namespace HalloDocWeb.Controllers
         public IActionResult ProviderMenu()
         {
             var obj = _adminService.ProviderMenu();
-            return View(obj.ProviderLists);
+            return View("ProviderMenu/ProviderMenu", obj.ProviderLists);
         }
 
         public IActionResult _ContactYourProvider(int PhysicianId)
         {
             var obj = new ContactYourProvider
             {
-                PhysicianId= PhysicianId,
+                PhysicianId = PhysicianId,
             };
-            return View(obj);
+            return View("PopUpModals/_ContactYourProvider", obj);
         }
         [HttpPost]
         public IActionResult _ContactYourProvider(ContactYourProvider model)
         {
             _adminService.ContactProvider(model);
-            return View();
+            return View("PopUpModals/_ContactYourProvider");
         }
     }
 }

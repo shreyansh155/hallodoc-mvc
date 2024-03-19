@@ -1,0 +1,51 @@
+﻿@model BlockCase;
+<div class="modal fade" id="blockModal" tabindex="-1" aria-labelledby="newReqModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #01bce9; color:white;">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Cancellation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input id="ReqClientid" value="@Model.ReqClientid" hidden />
+                    <h5>Patient Name: @Model.Name</h5>
+                    <div class="form-floating m-1 form-div">
+                        <textarea class="form-control" id="BlockReason" placeholder="Leave a comment here" id="floatingTextarea2"
+                                  style="height: 100px"></textarea>
+                        <label for="">Reason for Block Request</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="block-case-submit-btn" class="btn" style="background-color: #01bce9; color:white;" data-bs-dismiss="modal">Confirm</button>
+                <button type="button" class="btn" style="color: #01bce9; border: #01bce9 1px solid;" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#block-case-submit-btn').click(function () {
+        var blockReason = $("#BlockReason").val();
+        var reqClientId = $("#ReqClientid").val();
+        console.log("hello")
+
+        $.ajax({
+            url: "/Admin/BlockCase",
+            data: {
+                ReqClientid: reqClientId,
+                BlockReason: blockReason
+            },
+            type: 'POST',
+            success: function (result) {
+                $('#display').html(result);
+                $('#blockModal').modal('show');
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    });
+</script>

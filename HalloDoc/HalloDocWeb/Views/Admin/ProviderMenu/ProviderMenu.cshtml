@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "_AdminDashboardLayout";
+    ViewData["Title"] = "Provider Menu";
+}
+
+<div class="container mt-2">
+    <div class="justify-content-between d-flex container-fluid mb-2 position-relative ">
+        <div class="">
+            <h3> Provider Information <span class="badge badge-success p-2">Success</span> </h3>
+        </div>
+        <div>
+            <a asp-action="AdminDashboard" class="btn btn-outline-info"> ❮  Back </a>
+        </div>
+    </div>
+    <div class="card border-0 shadow p-4 mb-5 rounded">
+        <div class="row justify-content-between">
+            <div class="d-inline-flex normal-input border border-0 rounded align-items-center ps-2 me-md-2 mb-2 mb-md-0 col-2 ">
+                <input type="search" id="search" class="form-control" placeholder="All Regions">
+            </div>
+            <div class="d-flex col-3 mr-0">
+                <a class="btn btn-outline-info mx-2" style="width:fit-content">
+                    <span>Create Provider Account</span>
+                </a>
+            </div>
+        </div>
+        <div class="w-100 my-3"></div>
+        <table class="table table-hover table-responsive" style="height:75px; text-align:match-parent">
+            <thead>
+                <tr class="table-secondary">
+                    <td>Stop Notification</td>
+                    <td>Provider Name &uarr;</td>
+                    <td>Role</td>
+                    <td>OnCall Status</td>
+                    <td>Status</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" style="height:15px;width:15px" class="btn-outline-info" />
+                        </td>
+                        <td>
+                            @item.FirstName @item.LastName
+                        </td>
+                        <td>
+                            @item.Role
+                        </td>
+                        <td>
+                            @item.OnCallStatus
+                        </td>
+                        <td>
+                            @item.Status
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-info" onclick="contactProvider(@item.PhysicianId)">Contact</button>
+                            <button class="btn btn-outline-info">Edit</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="display"></div>
+
+
+<script>
+    function contactProvider(physicianId) {
+        $.ajax({
+            url: "/Admin/_ContactYourProvider",
+            data: { PhysicianId: physicianId },
+            type: 'GET',
+            success: function (result) {
+                $('#display').html(result);
+                $('#contactYourProvider').modal('show');
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    }
+</script>

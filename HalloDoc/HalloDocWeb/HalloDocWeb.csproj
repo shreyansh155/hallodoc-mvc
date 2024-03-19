@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="EPPlus" Version="7.0.10" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.15" />
@@ -35,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Admin\PopUpModals\" />
     <Folder Include="wwwroot\js\NewFolder\" />
     <Folder Include="wwwroot\UploadedFiles\" />
   </ItemGroup>

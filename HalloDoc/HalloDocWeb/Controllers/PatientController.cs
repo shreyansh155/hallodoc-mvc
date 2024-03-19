@@ -30,13 +30,13 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult PatientRequest()
         {
-            return View();
+            return View("Pages/PatientRequest");
         }
 
 
         public IActionResult PatientForgotPassword()
         {
-            return View();
+            return View("Pages/PatientForgotPassword");
         }
 
         [HttpPost]
@@ -51,12 +51,12 @@ namespace HalloDocWeb.Controllers
                     return RedirectToAction("ResetPassword", user);
                 }
             }
-            return View(model);
+            return View("Pages/PatientForgotPassword",model);
         }
 
         public IActionResult ResetPassword(PatientResetPassword model)
         {
-            return View(model);
+            return View("Pages/ResetPassword", model);
         }
 
         [HttpPost, ActionName("ResetPassword")]
@@ -70,12 +70,12 @@ namespace HalloDocWeb.Controllers
                 return RedirectToAction("PatientLogin");
             }
             _notyf.Error("Please provide correct credentials",3);
-            return View();
+            return View("Pages/ResetPassword");
         }
 
         public IActionResult SubmitInfoAboutMe()
         {
-            return View();
+            return View("PopUpModals/SubmitInfoAboutMe");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -85,12 +85,12 @@ namespace HalloDocWeb.Controllers
             {
                 _patientService.PatientRequest(userDetails);
             }
-            return View();
+            return View("PopUpModals/SubmitInfoAboutMe");
         }
 
         public IActionResult SomeoneElseInfo()
         {
-            return View();
+            return View("PopUpModals/SomeoneElseInfo");
         }
 
         public IActionResult Profile()
@@ -101,7 +101,7 @@ namespace HalloDocWeb.Controllers
             if (user != null)
             {
                 var patientDetails = _patientService.Profile((int)userId);
-                return View("Profile", patientDetails);
+                return View("Dashboard/Profile", patientDetails);
             }
             return RedirectToAction("Error");
         }
@@ -116,13 +116,13 @@ namespace HalloDocWeb.Controllers
             {
                 _patientService.ProfileUpdate(profile, (int)userId);
             }
-            return View();
+            return View("Dashboard/Profile");
         }
 
 
         public IActionResult CreateNewAccount()
         {
-            return View();
+            return View("Pages/CreateNewAccount");
         }
 
         [HttpPost]
@@ -135,7 +135,7 @@ namespace HalloDocWeb.Controllers
                 _notyf.Success("Account Created Successfully", 3);
                 return RedirectToAction("PatientLogin");
             }
-            return View();
+            return View("Pages/CreateNewAccount");
         }
 
 
@@ -153,7 +153,7 @@ namespace HalloDocWeb.Controllers
             if (user != null)
             {
                 var dashboardVM = _patientService.PatientDashboard((int)userId);
-                return View("Dashboard", dashboardVM);
+                return View("Dashboard/Dashboard", dashboardVM);
             }
 
             return View("Error");
@@ -165,7 +165,7 @@ namespace HalloDocWeb.Controllers
         {
             int? userid = HttpContext.Session.GetInt32("userId");
             var document=_patientService.ViewDocument(requestId,(int)userid);
-            return View(document);
+            return View("Dashboard/ViewDocument",document);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
