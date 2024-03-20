@@ -542,12 +542,46 @@ namespace DataAccess.ViewModels
         public string Role { get; set; }
         public string OnCallStatus { get; set; }
         public short? Status { get; set; }
+        public bool Notification { get; set; }
 
     }
     public class ContactYourProvider
     {
         public int? PhysicianId { get; set; }
         public string? Message { get; set; }
+    }
+
+
+    public class EditPhysicianAccount
+    {
+        public int? PhysicianId { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        //public int Status { get; set; }
+        //public int Role { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string MedicalLicenseNumber { get; set; }
+        public string NPINumber { get; set; }
+        public string SyncEmail { get; set; }
+        public List<Region> RegionList { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string Phone { get; set; }
+        public string BusinessName { get; set; }
+        public string BusinessWebsite { get; set; }
+        public IFormFile Photo { get; set; }
+        public IFormFile Signature { get; set; }
+        public IFormFile ICA { get; set; }
+        public IFormFile BGCheck { get; set; }
+        public IFormFile HIPAACompliance { get; set; }
+        public IFormFile NDA { get; set; }
+        public IFormFile LicenseDoc { get; set; }
     }
 
 }

@@ -411,7 +411,8 @@ namespace HalloDocWeb.Controllers
         {
             return File(Encoding.ASCII.GetBytes(GridHtml), "application/vnd.ms-excel", "Grid.xls");
         }
-        public FileResult ExportAll(int status)            {            byte[] excelBytes;            if (status == 8)            {                IEnumerable<ActiveReqViewModel> data = _adminService.AdminDashboard().ActiveReqViewModels.ToList();
+        public FileResult ExportAll(int status)
+        {            byte[] excelBytes;            if (status == 8)            {                IEnumerable<ActiveReqViewModel> data = _adminService.AdminDashboard().ActiveReqViewModels.ToList();
                 excelBytes = fileToExcel(data);            }            else if (status == 2)            {                IEnumerable<PendingReqViewModel> data = _adminService.AdminDashboard().PendingReqViewModel.ToList();                excelBytes = fileToExcel(data);            }            else if (status == 4)            {                IEnumerable<ConcludeReqViewModel> data = _adminService.AdminDashboard().ConcludeReqViewModel.ToList();
                 excelBytes = fileToExcel(data);            }            else if (status == 5)            {                IEnumerable<CloseReqViewModel> data = _adminService.AdminDashboard().CloseReqViewModels.ToList();                excelBytes = fileToExcel(data);            }            else if (status == 13)            {                IEnumerable<UnpaidReqViewModel> data = _adminService.AdminDashboard().UnpaidReqViewModels.ToList();                excelBytes = fileToExcel(data);            }            else            {                IEnumerable<NewReqViewModel> data = _adminService.AdminDashboard().NewReqViewModel.ToList();                excelBytes = fileToExcel(data);            }            return File(excelBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "sheet.xlsx");        }
 
@@ -446,6 +447,11 @@ namespace HalloDocWeb.Controllers
         //////////////////////////Provider//////////////////////////////////////
 
 
+        public IActionResult ProviderLocation()
+        {
+
+            return View("ProviderLocation/ProviderLocation");
+        }
         public IActionResult ProviderMenu()
         {
             var obj = _adminService.ProviderMenu();
@@ -465,6 +471,18 @@ namespace HalloDocWeb.Controllers
         {
             _adminService.ContactProvider(model);
             return View("PopUpModals/_ContactYourProvider");
+        }
+
+        [HttpPost]
+        public void StopNotification(int PhysicianId)
+        {
+            _adminService.StopProviderNotif(PhysicianId);
+        }
+
+
+        public IActionResult PhysicianAccount()
+        {
+            return View("ProviderMenu/PhysicianAccount");
         }
     }
 }

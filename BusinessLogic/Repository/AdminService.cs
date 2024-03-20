@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Identity;
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
@@ -855,20 +856,22 @@ namespace BusinessLogic.Repository
 
             var providerMenu = from phy in _context.Physicians
                                join role in _context.Roles on phy.Roleid equals role.Roleid
+                               join phyid in _context.Physiciannotifications on phy.Physicianid equals phyid.Physicianid
+                               orderby phy.Physicianid
                                select new ProviderList
                                {
-                                   PhysicianId=phy.Physicianid,
-                                   FirstName=phy.Firstname,
-                                   LastName=phy.Lastname,
-                                   Status=phy.Status,
-                                   Role=role.Name,
-                                   OnCallStatus=""
-
+                                   PhysicianId = phy.Physicianid,
+                                   FirstName = phy.Firstname,
+                                   LastName = phy.Lastname,
+                                   Status = phy.Status,
+                                   Role = role.Name,
+                                   OnCallStatus = "",
+                                   Notification=phyid.Isnotificationstopped
                                };
 
             var obj = new ProviderMenu()
             {
-               ProviderLists = providerMenu,
+                ProviderLists = providerMenu,
             };
             return obj;
         }
@@ -876,6 +879,38 @@ namespace BusinessLogic.Repository
         public void ContactProvider(ContactYourProvider contactYourProvider)
         {
 
+        }
+
+        public void StopProviderNotif(int PhysicianId)
+        {
+            Physiciannotification user = _context.Physiciannotifications.FirstOrDefault(x => x.Physicianid == PhysicianId);
+
+            if (user != null)
+            {
+                if (user.Isnotificationstopped)
+                {
+                    user.Isnotificationstopped = false;
+                }
+                else
+                {
+                    user.Isnotificationstopped = true;
+                }
+
+                _context.Physiciannotifications.Update(user);
+                _context.SaveChanges();
+                return;
+            }
+            else
+            {
+                Physiciannotification obj = new()
+                {
+                    Physicianid = PhysicianId,
+                    Isnotificationstopped = true
+                };
+                _context.Physiciannotifications.Add(obj);
+                _context.SaveChanges();
+                return;
+            }
         }
     }
 }

@@ -3,6 +3,7 @@
     ViewData["Title"] = "AdminProfile";
 }
 @model AdminProfile;
+<link rel="stylesheet" href="~/css/Admin/AdminDashboard.css" asp-append-version="true" />
 
 <div class="">
     <div class="container-fluid d-flex justify-content-between mt-4" style="max-width:1000px">
@@ -163,10 +164,14 @@
         </form>
     </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
 </script>
+<script>
+    $('.admin-tab').removeClass("active");
+    $('#profile-tab').addClass("active");
+</script>
+
 <script>
     var editBtn1 = document.getElementById("editBtn1");
     var saveBtn1 = document.getElementById("saveBtn1");

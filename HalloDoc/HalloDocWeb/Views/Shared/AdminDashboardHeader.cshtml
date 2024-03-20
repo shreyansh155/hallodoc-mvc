@@ -1,4 +1,80 @@
 ﻿<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/Admin/AdminDashboard.css" asp-append-version="true" />
+
+<style>
+
+    #provider-tab:hover {
+        cursor: pointer;
+    }
+
+        #provider-tab:hover .dropdown-menu {
+            display: block;
+        }
+
+</style>
 
 
+<header>
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <img src="../../images/logo.png" alt="logo_icon" id="logo-icon" />
+        <div class="d-flex justify-content-evenly align-items-center">
+            <p class="m-2">Welcome <strong> @ViewData["User Name"] </strong></p>
+            <a class="btn btn-outline-info mx-2" asp-controller="Admin" asp-action="Logout">
+                <span class="h6 p-0 m-0 text-center" style="color: #10bce9;">Logout</span>
+            </a>
+            <img src="../../images/darkmode.png" alt="" onclick="myFunction()" class="lightmode" id="togglebtn-icon" />
+        </div>
+    </div>
+</header>
+<hr class="m-0">
 
+<ul class="nav nav-pills ps-4 shadow" id="myTab" role="tablist">
+    <li class="nav-item admin-tab" role="presentation" id="dashboard-tab">
+        <a class="nav-link px-0" asp-controller="Admin" asp-action="AdminDashboard">
+            <span class="tabHeader py-2 px-3">Dashboard</span>
+        </a>
+    </li>
+    <li class="nav-item admin-tab" role="presentation" id="provider-location-tab">
+        <a class="nav-link px-0" asp-controller="Admin" asp-action="ProviderLocation">
+            <span class="tabHeader py-2 px-3">Provider Location</span>
+        </a>
+    </li>
+    <li class="nav-item admin-tab" role="presentation" id="profile-tab">
+        <a class="nav-link px-0" asp-controller="Admin" asp-action="AdminProfile">
+            <span class="tabHeader py-2 px-3">My Profile</span>
+        </a>
+    </li>
+    <li class="nav-item admin-tab" role="presentation" id="provider-tab">
+
+        <a class="nav-link text-black" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+            Providers
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+                <a class="dropdown-item" asp-controller="Admin" asp-action="ProviderMenu">Provider</a>
+            </li>
+            <li>
+                <a class="dropdown-item" asp-controller="Admin" asp-action="Scheduling">Scheduling</a>
+            </li>
+            <li>
+                <a class="dropdown-item" asp-controller="Admin" asp-action="Invoicing">Invoicing</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item admin-tab" role="presentation" id="partner-tab">
+        <a class="nav-link px-0" asp-controller="Admin" asp-action="Partners">
+            <span class="tabHeader py-2 px-3">Partners</span>
+        </a>
+    </li>
+    <li class="nav-item admin-tab" role="presentation" id="access-tab">
+        <a class="nav-link px-0" asp-controller="Admin" asp-action="Access">
+            <span class="tabHeader py-2 px-3">Access</span>
+        </a>
+    </li>
+    <li class="nav-item admin-tab" role="presentation" id="record-tab">
+        <a class="nav-link px-0" asp-controller="Admin" asp-action="Records">
+            <span class="tabHeader py-2 px-3">Records</span>
+        </a>
+    </li>
+</ul>

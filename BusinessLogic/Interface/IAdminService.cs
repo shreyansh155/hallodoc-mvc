@@ -46,7 +46,7 @@ namespace BusinessLogic.Interface
         /////////////ProviderMenu/////////////////////
         ProviderMenu ProviderMenu();
         void ContactProvider(ContactYourProvider contactYourProvider);
-
+        void StopProviderNotif(int PhysicianId);
 
     }
 }

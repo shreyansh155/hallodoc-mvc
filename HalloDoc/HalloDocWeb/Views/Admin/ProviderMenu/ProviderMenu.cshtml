@@ -3,6 +3,9 @@
     ViewData["Title"] = "Provider Menu";
 }
 
+<link rel="stylesheet" href="~/css/Admin/AdminDashboard.css" asp-append-version="true" />
+
+
 <div class="container mt-2">
     <div class="justify-content-between d-flex container-fluid mb-2 position-relative ">
         <div class="">
@@ -14,8 +17,12 @@
     </div>
     <div class="card border-0 shadow p-4 mb-5 rounded">
         <div class="row justify-content-between">
-            <div class="d-inline-flex normal-input border border-0 rounded align-items-center ps-2 me-md-2 mb-2 mb-md-0 col-2 ">
-                <input type="search" id="search" class="form-control" placeholder="All Regions">
+            <div class="d-flex normal-input rounded align-items-center ml-auto col-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="current" viewBox="0 0 50 50">
+                    <path d="M 21 3 C 11.654545 3 4 10.654545 4 20 C 4 29.345455 11.654545 37 21 37 C 24.701287 37 28.127393 35.786719 30.927734 33.755859 L 44.085938 46.914062 L 46.914062 44.085938 L 33.875 31.046875 C 36.43682 28.068316 38 24.210207 38 20 C 38 10.654545 30.345455 3 21 3 z M 21 5 C 29.254545 5 36 11.745455 36 20 C 36 28.254545 29.254545 35 21 35 C 12.745455 35 6 28.254545 6 20 C 6 11.745455 12.745455 5 21 5 z">
+                    </path>
+                </svg>
+                <input type="search" id="search" class="form-control border border-0" placeholder="All">
             </div>
             <div class="d-flex col-3 mr-0">
                 <a class="btn btn-outline-info mx-2" style="width:fit-content">
@@ -40,7 +47,14 @@
                 {
                     <tr>
                         <td>
-                            <input type="checkbox" style="height:15px;width:15px" class="btn-outline-info" />
+                            @if (item.Notification == true)
+                            {
+                                <input type="checkbox" style="height:15px;width:15px" checked class="btn-outline-info" onchange="stopNotification(@item.PhysicianId)" />
+                            }
+                            else
+                            {
+                                <input type="checkbox" style="height:15px;width:15px" class="btn-outline-info" onchange="stopNotification(@item.PhysicianId)" />
+                            }
                         </td>
                         <td>
                             @item.FirstName @item.LastName
@@ -56,7 +70,7 @@
                         </td>
                         <td>
                             <button class="btn btn-outline-info" onclick="contactProvider(@item.PhysicianId)">Contact</button>
-                            <button class="btn btn-outline-info">Edit</button>
+                            <button class="btn btn-outline-info" onclick="location.href='@Url.Action("PhysicianAccount","Admin")'">Edit</button>
                         </td>
                     </tr>
                 }
@@ -83,4 +97,26 @@
             },
         });
     }
+</script>
+<script>
+    function stopNotification(physicianId) {
+        $.ajax({
+            url: "/Admin/StopNotification",
+            data: { PhysicianId: physicianId },
+            type: 'POST',
+            success: function (result) {
+
+            },
+            error: function (error) {
+                console.log(error);
+                alert('Error Fetching Request')
+            },
+        });
+    }
+</script>
+
+
+<script>
+    $('.admin-tab').removeClass("active");
+    $('#provider-tab').addClass("active");
 </script>
