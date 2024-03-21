@@ -431,8 +431,8 @@ namespace HalloDocWeb.Controllers
         [HttpPost]
         public IActionResult AdminProfile(AdminProfile profile)
         {
-
-            return RedirectToAction("Profile/AdminProfile");
+            _adminService.UpdateProfile(profile);
+            return RedirectToAction("AdminProfile");
         }
         public IActionResult _RequestSupport()
         {
@@ -480,9 +480,59 @@ namespace HalloDocWeb.Controllers
         }
 
 
-        public IActionResult PhysicianAccount()
+        public IActionResult PhysicianAccount(int physicianId)
         {
-            return View("ProviderMenu/PhysicianAccount");
+            var obj = _adminService.EditPhysician(physicianId);
+            return View("ProviderMenu/PhysicianAccount", obj);
+        }
+
+        [HttpPost]
+        public IActionResult PhysicianAccount(EditPhysicianAccount obj)
+        {
+            int physicianId = obj.PhysicianId;
+            return RedirectToAction("PhysicianAccount",physicianId);
+        }
+
+
+
+
+        /////////////////User Access/////////////////////
+        public IActionResult Access()
+        {
+            return View("Partners/Partners");
+        }
+
+
+
+
+
+
+
+        /////////////Partners/////////////////////
+        public IActionResult Partners()
+        {
+            return View("Access/UserAccess");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /////////////Records/////////////////////
+
+        public IActionResult Records()
+        {
+            return View("Records/Records");
         }
     }
 }

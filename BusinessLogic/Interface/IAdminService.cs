@@ -42,11 +42,14 @@ namespace BusinessLogic.Interface
         
         /// AdminProfile
         AdminProfile ProfileInfo(int adminId);
+        void UpdateProfile(AdminProfile profile);
 
         /////////////ProviderMenu/////////////////////
         ProviderMenu ProviderMenu();
         void ContactProvider(ContactYourProvider contactYourProvider);
         void StopProviderNotif(int PhysicianId);
+
+        EditPhysicianAccount EditPhysician(int PhysicianId);
 
     }
 }

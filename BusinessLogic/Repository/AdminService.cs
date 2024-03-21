@@ -8,11 +8,10 @@ using System.Globalization;
 using Microsoft.AspNetCore.Hosting;
 using System.Net.Mail;
 using System.Net;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
-using System.Security.Policy;
-using Microsoft.AspNetCore.Identity;
+
+
 namespace BusinessLogic.Repository
 {
     public class AdminService : IAdminService
@@ -482,6 +481,7 @@ namespace BusinessLogic.Repository
 
                 string rootPath = _environment.WebRootPath + "/UploadedFiles";
 
+                //    /UploadedFiles/123/ABC
 
                 string requestId = obj.Requestid.ToString();
 
@@ -825,12 +825,18 @@ namespace BusinessLogic.Repository
             Admin? obj = _context.Admins.FirstOrDefault(x => x.Adminid == adminId);
 
             var region = _context.Regions.FirstOrDefault(x => x.Regionid == obj.Regionid).Name;
-            var regionList = _context.Regions.ToList();
+
+
+            var regions = _context.Regions.ToList();
+
+
+            IEnumerable<int> adminRegions = _context.Adminregions.Where(region => region.Adminid == adminId).ToList().Select(x => x.Regionid);
+
 
             AdminProfile profile = new()
             {
-                UserName = obj.Firstname + obj.Lastname,
-                AdminId = adminId.ToString(),
+                UserName = obj.Firstname + " " + obj.Lastname,
+                AdminId = adminId,
                 //AdminPassword=obj.,
                 Status = obj.Status,
                 Role = obj.Roleid.ToString() ?? "",
@@ -845,10 +851,50 @@ namespace BusinessLogic.Repository
                 State = region,
                 Zip = obj.Zip,
                 BillingPhone = obj.Altphone,
-                RegionList = regionList,
+                RegionList = regions,
+                AdminRegion = adminRegions.ToList(),
             };
 
             return profile;
+        }
+
+        public void UpdateProfile(AdminProfile obj)
+        {
+            int adminId = obj.AdminId;
+            Admin? adminRow = _context.Admins.Where(x => x.Adminid == adminId).FirstOrDefault();
+            Aspnetuser user = _context.Aspnetusers.FirstOrDefault(x => x.Id == adminRow.Aspnetuserid);
+
+            switch (obj.FormId)
+            {
+                case 1:
+                    user.Passwordhash = GenerateSHA256(obj.AdminPassword);
+                    adminRow.Status = obj.Status;
+                    adminRow.Modifieddate = DateTime.Now;
+                    user.Username = obj.UserName;
+                    break;
+
+
+                case 2:
+                    adminRow.Firstname = obj.FirstName;
+                    adminRow.Lastname = obj.LastName;
+                    adminRow.Email = obj.Email;
+                    adminRow.Mobile = obj.AdminPhone;
+                    adminRow.Modifieddate = DateTime.Now;
+                    break;
+
+
+                case 3:
+                    adminRow.Altphone = obj.BillingPhone;
+                    adminRow.Address1 = obj.Address1;
+                    adminRow.Address2 = obj.Address2;
+                    adminRow.Modifieddate = DateTime.Now;
+                    adminRow.Zip = obj.Zip;
+                    break;
+            };
+
+            _context.Admins.Update(adminRow);
+            _context.Aspnetusers.Update(user);
+            _context.SaveChanges();
         }
 
         public ProviderMenu ProviderMenu()
@@ -866,7 +912,7 @@ namespace BusinessLogic.Repository
                                    Status = phy.Status,
                                    Role = role.Name,
                                    OnCallStatus = "",
-                                   Notification=phyid.Isnotificationstopped
+                                   Notification = phyid.Isnotificationstopped
                                };
 
             var obj = new ProviderMenu()
@@ -911,6 +957,37 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
                 return;
             }
+        }
+
+        public EditPhysicianAccount EditPhysician(int physicianId)
+        {
+            var phy = _context.Physicians.FirstOrDefault(x => x.Physicianid == physicianId);
+            var aspnetuser = _context.Aspnetusers.FirstOrDefault(x => x.Id == phy.Aspnetuserid);
+            var region = _context.Regions.FirstOrDefault(x => x.Regionid == phy.Regionid).Name;
+            EditPhysicianAccount obj = new()
+            {
+                PhysicianId = physicianId,
+                UserName = aspnetuser.Username,
+                FirstName = phy.Firstname,
+                LastName = phy.Lastname,
+                Email = phy.Email,
+                PhoneNumber = phy.Mobile,
+                MedicalLicenseNumber = phy.Medicallicense,
+                NPINumber = phy.Npinumber,
+                SyncEmail = phy.Syncemailaddress,
+                Address1 = phy.Address1,
+                Address2 = phy.Address2,
+                City = phy.City,
+                State = region,
+                Zip = phy.Zip,
+                Phone = phy.Altphone,
+                BusinessName = phy.Businessname,
+                BusinessWebsite = phy.Businesswebsite,
+                //Photo=phy.Photo,
+                //Signature = phy.Signature,
+            };
+
+            return obj;
         }
     }
 }

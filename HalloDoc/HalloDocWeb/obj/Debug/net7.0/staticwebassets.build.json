@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TCpRCvX/am//BSbjdksrx5W1itbhgs3UNU2F/nZ6wNY=",
+  "Hash": "KmLnwx/NTVAODgbvKyModlupYrSyB0segzmIWjXxqNo=",
   "Source": "HalloDocWeb",
   "BasePath": "_content/HalloDocWeb",
   "Mode": "Default",
@@ -4653,6 +4653,25 @@
       "OriginalItemSpec": "wwwroot\\UploadedFiles\\13\\Fig4. Admin dashboard in New state.jpg"
     },
     {
+      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\14\\.net-Whole-Plane-2024.pdf",
+      "SourceId": "HalloDocWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
+      "BasePath": "_content/HalloDocWeb",
+      "RelativePath": "UploadedFiles/14/.net-Whole-Plane-2024.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadedFiles\\14\\.net-Whole-Plane-2024.pdf"
+    },
+    {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\14\\Fig9. Admin dashboard in Unpaid state.jpg",
       "SourceId": "HalloDocWeb",
       "SourceType": "Discovered",
@@ -4860,6 +4879,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UploadedFiles\\19\\Fig2. Forgot Password.jpg"
+    },
+    {
+      "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\20\\7768657_3763028.jpg",
+      "SourceId": "HalloDocWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\",
+      "BasePath": "_content/HalloDocWeb",
+      "RelativePath": "UploadedFiles/20/7768657_3763028.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadedFiles\\20\\7768657_3763028.jpg"
     },
     {
       "Identity": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\20\\Fig10. View case.jpg",

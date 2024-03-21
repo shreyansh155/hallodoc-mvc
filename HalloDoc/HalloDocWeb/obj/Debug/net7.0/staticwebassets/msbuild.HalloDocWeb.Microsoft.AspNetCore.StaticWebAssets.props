@@ -3824,6 +3824,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\13\Fig4. Admin dashboard in New state.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\14\.net-Whole-Plane-2024.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>HalloDocWeb</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HalloDocWeb</BasePath>
+      <RelativePath>UploadedFiles/14/.net-Whole-Plane-2024.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\14\.net-Whole-Plane-2024.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\14\Fig9. Admin dashboard in Unpaid state.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>HalloDocWeb</SourceId>
@@ -3999,6 +4015,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\19\Fig2. Forgot Password.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\20\7768657_3763028.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>HalloDocWeb</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/HalloDocWeb</BasePath>
+      <RelativePath>UploadedFiles/20/7768657_3763028.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\20\7768657_3763028.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UploadedFiles\20\Fig10. View case.jpg))">
       <SourceType>Package</SourceType>

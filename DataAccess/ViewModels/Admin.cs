@@ -507,7 +507,8 @@ namespace DataAccess.ViewModels
     ////////////////////////////////////////////////////////////////////////
     public class AdminProfile
     {
-        public string AdminId { get; set; }
+        public int FormId { get; set; } 
+        public int AdminId { get; set; }
         public string UserName { get; set; }
         public string AdminPassword { get; set; }
         public short? Status { get; set; }
@@ -518,6 +519,7 @@ namespace DataAccess.ViewModels
         public string Email { get; set; }
         public string ConfirmEmail { get; set; }
         public List<Region> RegionList { get; set; }
+        public List<int> AdminRegion { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
@@ -554,7 +556,8 @@ namespace DataAccess.ViewModels
 
     public class EditPhysicianAccount
     {
-        public int? PhysicianId { get; set; }
+        public int FormId { get; set; }
+        public int PhysicianId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         //public int Status { get; set; }

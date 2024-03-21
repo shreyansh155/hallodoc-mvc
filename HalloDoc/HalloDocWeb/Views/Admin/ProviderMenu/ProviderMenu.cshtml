@@ -9,7 +9,7 @@
 <div class="container mt-2">
     <div class="justify-content-between d-flex container-fluid mb-2 position-relative ">
         <div class="">
-            <h3> Provider Information <span class="badge badge-success p-2">Success</span> </h3>
+            <h3> Provider Information</h3>
         </div>
         <div>
             <a asp-action="AdminDashboard" class="btn btn-outline-info"> ❮  Back </a>
@@ -70,7 +70,7 @@
                         </td>
                         <td>
                             <button class="btn btn-outline-info" onclick="contactProvider(@item.PhysicianId)">Contact</button>
-                            <button class="btn btn-outline-info" onclick="location.href='@Url.Action("PhysicianAccount","Admin")'">Edit</button>
+                            <button class="btn btn-outline-info" onclick="location.href='@Url.Action("PhysicianAccount","Admin", new{physicianId=item.PhysicianId})'">Edit</button>
                         </td>
                     </tr>
                 }

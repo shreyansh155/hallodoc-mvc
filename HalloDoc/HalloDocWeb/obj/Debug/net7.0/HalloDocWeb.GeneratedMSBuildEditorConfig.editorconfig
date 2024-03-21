@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = G:\HalloDoc DotNet\HalloDoc\HalloDocWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/Access/UserAccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNjZXNzXFVzZXJBY2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/CreateAdminAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWRtaW5BY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbFRhYmxlXF91bnBhaWRSZXFWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/Partners/Partners.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydG5lcnNcUGFydG5lcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/PopUpModals/_AssignCaseView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUG9wVXBNb2RhbHNcX0Fzc2lnbkNhc2VWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -120,6 +128,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/ProviderMenu/ProviderMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvdmlkZXJNZW51XFByb3ZpZGVyTWVudS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Admin/Records/Records.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3Jkc1xSZWNvcmRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/HalloDoc DotNet/HalloDoc/HalloDocWeb/Views/Home/AccessDenied.cshtml]
