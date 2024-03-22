@@ -50,6 +50,7 @@ namespace BusinessLogic.Interface
         void StopProviderNotif(int PhysicianId);
 
         EditPhysicianAccount EditPhysician(int PhysicianId);
+        void EditPhysicianAccount(EditPhysicianAccount obj);
 
     }
 }

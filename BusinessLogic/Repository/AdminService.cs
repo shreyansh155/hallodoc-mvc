@@ -10,6 +10,8 @@ using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 
 namespace BusinessLogic.Repository
@@ -988,6 +990,90 @@ namespace BusinessLogic.Repository
             };
 
             return obj;
+        }
+        public void EditPhysicianAccount(EditPhysicianAccount obj)
+        {
+            var phy = _context.Physicians.FirstOrDefault(x => x.Physicianid == obj.PhysicianId);
+            var aspnetuser = _context.Aspnetusers.FirstOrDefault(x => x.Id == phy.Aspnetuserid);
+            var region = _context.Regions.FirstOrDefault(x => x.Regionid == phy.Regionid)?.Name;
+
+
+             void FileUpload(IFormFile file){
+                if (file != null && file.Length > 0)
+                {
+                    //get file name
+                    
+                    var fileName = Path.GetFileName(file.FileName);
+
+                    string rootPath = _environment.WebRootPath + "/PhysicianImages";
+
+
+                    string physicianId = phy.Physicianid.ToString();
+
+                    string userFolder = Path.Combine(rootPath, physicianId);
+
+                    if (!Directory.Exists(userFolder))
+                    {
+                        Directory.CreateDirectory(userFolder);
+                    }
+
+
+                    //define path
+                    string filePath = Path.Combine(userFolder, fileName);
+
+
+                    // Copy the file to the desired location
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    _context.Physicians.Update(phy);
+                    _context.SaveChanges();
+                }
+            };
+
+            switch (obj.FormId)
+            {
+                case 1:
+                    aspnetuser.Username = obj.UserName;
+                    aspnetuser.Passwordhash = GenerateSHA256(obj.Password);
+
+                    break;
+
+
+                case 2:
+                    phy.Firstname = obj.FirstName;
+                    phy.Lastname = obj.LastName;
+                    phy.Email= obj.Email;
+                    phy.Mobile = obj.Phone;
+                    phy.Medicallicense = obj.MedicalLicenseNumber;
+                    phy.Npinumber = obj.NPINumber;
+                    phy.Syncemailaddress = obj.SyncEmail;
+
+                    break;
+
+
+                case 3:
+                    phy.Address1 = obj.Address1;
+                    phy.Address2 = obj.Address2;
+                    phy.City= obj.City;
+                    //phy.Region=
+                    phy.Zip = obj.Zip;
+                    phy.Altphone = obj.Phone;
+                    break;
+
+
+                case 4:
+                    FileUpload(obj.Photo);
+                    FileUpload(obj.Signature);
+                    phy.Businessname = obj.BusinessName;
+                    phy.Businesswebsite = obj.BusinessWebsite;
+                    phy.Photo = obj.Photo.FileName;
+                    phy.Signature = obj.Signature.FileName;
+                        break;
+                case 5:
+                    break;
+            };
         }
     }
 }

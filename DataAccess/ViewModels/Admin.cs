@@ -578,6 +578,9 @@ namespace DataAccess.ViewModels
         public string Phone { get; set; }
         public string BusinessName { get; set; }
         public string BusinessWebsite { get; set; }
+        public string AdminNote { get; set; }
+
+
         public IFormFile Photo { get; set; }
         public IFormFile Signature { get; set; }
         public IFormFile ICA { get; set; }
@@ -586,5 +589,11 @@ namespace DataAccess.ViewModels
         public IFormFile NDA { get; set; }
         public IFormFile LicenseDoc { get; set; }
     }
+
+
+    public class CreateAccess
+    {
+        public List<Menu> Menu { get; set; }
+    }   
 
 }

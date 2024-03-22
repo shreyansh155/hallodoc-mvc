@@ -79,7 +79,7 @@ namespace HalloDocWeb.Controllers
                 _notyf.Success("Note Updated Successfully", 3);
                 return ViewNotes(viewNotes.Requestclientid);
             }
-            return View("Pages/ViewNotes", viewNotes);
+            return View("Pages/ViewNotes", viewNotes.Requestclientid);
         }
         [HttpPost]
         public IActionResult PartialTable(int status, SearchViewModel obj)
@@ -489,8 +489,9 @@ namespace HalloDocWeb.Controllers
         [HttpPost]
         public IActionResult PhysicianAccount(EditPhysicianAccount obj)
         {
+            _adminService.EditPhysicianAccount(obj);
             int physicianId = obj.PhysicianId;
-            return RedirectToAction("PhysicianAccount",physicianId);
+            return RedirectToAction("PhysicianAccount", physicianId);
         }
 
 
@@ -499,7 +500,16 @@ namespace HalloDocWeb.Controllers
         /////////////////User Access/////////////////////
         public IActionResult Access()
         {
-            return View("Partners/Partners");
+            return View("Access/UserAccess");
+
+        }
+        public IActionResult CreateAccess()
+        {
+            CreateAccess obj = new()
+            {
+                Menu = _context.Menus.ToList(),
+            };
+            return View("Access/CreateAccess", obj);
         }
 
 
@@ -511,7 +521,7 @@ namespace HalloDocWeb.Controllers
         /////////////Partners/////////////////////
         public IActionResult Partners()
         {
-            return View("Access/UserAccess");
+            return View("Partners/Partners");
         }
 
 

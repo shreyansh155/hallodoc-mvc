@@ -26,6 +26,7 @@
             <form method="post" asp-controller="Admin" asp-action="PhysicianAccount">
                 <input value="1" asp-for="FormId" hidden />
                 <input id="PhysicianId" asp-for="PhysicianId" hidden />
+
                 <h5>Account Information</h5>
                 <div class="row g-2 m-1">
                     <div class="col-md">
@@ -71,7 +72,7 @@
                 <input value="2" asp-for="FormId" hidden />
                 <input id="PhysicianId" asp-for="PhysicianId" hidden />
                 <h5>Physician Information</h5>
-                <fieldset id="fieldset1" disabled>
+                <fieldset id="fieldset2" disabled>
 
                     <div class="row g-2 m-1">
                         <div class="col-md-6">
@@ -131,7 +132,7 @@
                 </fieldset>
 
 
-                <button type="reset" id="editBtn1" class="btn btn-primary float-end me-1 m-1">Edit</button>
+                <button type="reset" id="editBtn1" onclick="" class="btn btn-primary float-end me-1 m-1">Edit</button>
                 <button type="reset" id="cancelBtn1" class="btn btn-danger float-end me-1 d-none">Cancel</button>
                 <button type="submit" id="saveBtn1" class="btn btn-primary float-end me-1 d-none">Save</button><br />
             </form>
@@ -139,7 +140,7 @@
                 <input value="3" asp-for="FormId" hidden />
                 <input id="PhysicianId" asp-for="PhysicianId" hidden />
                 <h5>Mailing & Billing Information</h5>
-                <fieldset disabled id="fieldset2">
+                <fieldset disabled id="fieldset3">
 
                     <div class="row g-2 m-1">
                         <div class="col-md-6">
@@ -185,17 +186,17 @@
                         </div>
                     </div>
 
-                </fieldset>  
-                <button type="reset" id="editBtn3" class="btn btn-primary float-end me-1 m-1">Edit</button>
-                <button type="reset" id="cancelBtn3" class="btn btn-danger float-end me-1 d-none">Cancel</button>
-                <button type="submit" id="saveBtn3" class="btn btn-primary float-end me-1 d-none">Save</button><br />
+                </fieldset>
+                <button type="reset" id="editBtn2" class="btn btn-primary float-end me-1 m-1">Edit</button>
+                <button type="reset" id="cancelBtn2" class="btn btn-danger float-end me-1 d-none">Cancel</button>
+                <button type="submit" id="saveBtn2" class="btn btn-primary float-end me-1 d-none">Save</button><br />
             </form>
-            <form method="post" asp-controller="Admin" asp-action="PhysicianAccount">
+            <form method="post" asp-controller="Admin" asp-action="PhysicianAccount" enctype="multipart/form-data">
                 <input value="4" asp-for="FormId" hidden />
                 <input id="PhysicianId" asp-for="PhysicianId" hidden />
                 <div class="my-3"></div>
                 <h5>Provider Profile</h5>
-                <fieldset id="fieldset3">
+                <fieldset id="fieldset4" disabled>
 
                     <div class="row g-2 m-1">
                         <div class="col-md-6">
@@ -212,20 +213,52 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="file" class="form-control" placeholder="Select Photo">
+                            <div class="input-group m-1 mb-3">
+                                <input asp-for="Photo" type="file" id="actualFileBtn1" class="form-control" hidden>
+                                <span id="fileChoosen1" class="form-control">Select Photo</span>
+                                <label class="input-group-text btn btn-primary" id="uploadFileLabel1" for="actualFileBtn1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708z" />
+                                        <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
+                                    </svg>
+                                    Upload
+                                </label>
+                            </div>
+                            <br />
+                            <img style="height:150px;width:150px" src="/uploadedFiles/ProviderData/@Model.Photo" alt="Photo" />
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group m-1 mb-3">
+                                <input asp-for="Signature" type="file" id="actualFileBtn2" class="form-control" hidden>
+                                <span id="fileChoosen2" class="form-control">Select Signature</span>
+                                <label class="input-group-text btn btn-primary" id="uploadFileLabel2" for="actualFileBtn2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708z" />
+                                        <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
+                                    </svg>
+                                    Upload
+                                </label>
+                            </div>
+                            <br />
+                            <img style="height:150px;width:150px" src="/uploadedFiles/ProviderData/@Model.Signature" alt="Signature" />
+                        </div>
+                        <div class="col-md-1">
+                            <div class="input-group m-1 mb-3">
+
+                                <button type="button" class="btn btn-primary" style="height:fit-content">Create</button>
+                            </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <input type="file" class="form-control" placeholder="Select Signature">
+                        <div class="col-lg-12 col-md-12 col sm-12 col-12 ">
+                            <textarea class="form-control" asp-for="AdminNote" id="exampleFormControlTextarea1" rows="5" placeholder="Admin Notes"></textarea>
                         </div>
-                        <button type="button" class="btn btn-primary float-end m-1 col-1">Create</button>
                     </div>
 
                 </fieldset>
 
-                <button type="reset" id="editBtn2" class="btn btn-primary float-end m-1">Edit</button>
-                <button type="reset" id="cancelBtn2" class="btn btn-danger float-end m-1 d-none">Cancel</button>
-                <button type="submit" id="saveBtn2" class="btn btn-primary float-end m-1 d-none">Save</button><br />
+                <button type="button" id="editBtn3" class="btn btn-primary float-end m-1">Edit</button>
+                <button type="reset" id="cancelBtn3" class="btn btn-danger float-end m-1 d-none">Cancel</button>
+                <button type="submit" id="saveBtn3" class="btn btn-primary float-end m-1 d-none">Save</button><br />
 
 
                 <div class="my-4"></div>
@@ -325,75 +358,65 @@
 </script>
 
 <script>
-    var editBtn1 = document.getElementById("editBtn1");
-    var saveBtn1 = document.getElementById("saveBtn1");
-    var cancelBtn1 = document.getElementById("cancelBtn1");
-
     $("#editBtn1").click(function () {
-        document.getElementById("fieldset1").disabled = false;
-        document.getElementById("userName").disabled = false;
-        document.getElementById("status").disabled = false;
-        document.getElementById("role").disabled = false;
-
-        editBtn1.classList.add('d-none');
-        cancelBtn1.classList.remove('d-none');
-        saveBtn1.classList.remove('d-none');
-
-    });
-
-    $("#cancelBtn1").click(function () {
-        document.getElementById("fieldset1").disabled = true;
-        document.getElementById("userName").disabled = true;
-        document.getElementById("status").disabled = true;
-        document.getElementById("role").disabled = true;
-
-        editBtn1.classList.remove('d-none');
-        cancelBtn1.classList.add('d-none');
-        saveBtn1.classList.add('d-none');
-
-    });
-
-    var editBtn2 = document.getElementById("editBtn2");
-    var saveBtn2 = document.getElementById("saveBtn2");
-    var cancelBtn2 = document.getElementById("cancelBtn2");
-
-    $("#editBtn2").click(function () {
         document.getElementById("fieldset2").disabled = false;
-
-        editBtn2.classList.add('d-none');
-        cancelBtn2.classList.remove('d-none');
-        saveBtn2.classList.remove('d-none');
-
-    });
-
-    $("#cancelBtn2").click(function () {
+        document.getElementById("cancelBtn1").classList.remove("d-none");
+        document.getElementById("saveBtn1").classList.remove("d-none");
+        document.getElementById("editBtn1").classList.add("d-none");
+    })
+    $("#cancelBtn1").click(function () {
         document.getElementById("fieldset2").disabled = true;
-
-        editBtn2.classList.remove('d-none');
-        cancelBtn2.classList.add('d-none');
-        saveBtn2.classList.add('d-none');
-
-    });
-   3
-    var editBtn3 = document.getElementById("editBtn3");
-    var saveBtn3 = document.getElementById("saveBtn3");
-    var cancelBtn3 = document.getElementById("cancelBtn3");
-
-    $("#editBtn3").click(function () {
-        document.getElementById("fieldset3").disabled = false;
-
-        editBtn3.classList.add('d-none');
-        cancelBtn3.classList.remove('d-none')3
-        saveBtn3.classList.remove('d-none');
-
-    });
-
-    $("#cancelBtn3").click(function () {
-        document.getElementById("fieldset3").disabled = true;
-
-        editBtn3.classList.remove('d-none');
-        cancelBtn3.classList.add('d-none');
-        saveBtn3.classList.add('d-none');
-
+        document.getElementById("cancelBtn1").classList.add("d-none");
+        document.getElementById("saveBtn1").classList.add("d-none");
+        document.getElementById("editBtn1").classList.remove("d-none");
     });
 </script>
+<script>
+  
+    $("#editBtn2").click(function () {
+        document.getElementById("fieldset3").disabled = false;
+        document.getElementById("cancelBtn2").classList.remove("d-none");
+        document.getElementById("saveBtn2").classList.remove("d-none");
+        document.getElementById("editBtn2").classList.add("d-none");
+    });
+    $("#cancelBtn2").click(function () {
+        document.getElementById("fieldset3").disabled = true;
+        document.getElementById("cancelBtn2").classList.add("d-none");
+        document.getElementById("saveBtn2").classList.add("d-none");
+        document.getElementById("editBtn2").classList.remove("d-none");
+    });
+</script>
+<script>
+
+    $("#editBtn3").click(function () {
+        document.getElementById("fieldset4").disabled = false;
+        document.getElementById("cancelBtn3").classList.remove("d-none");
+        document.getElementById("saveBtn3").classList.remove("d-none");
+        document.getElementById("editBtn3").classList.add("d-none");
+    });
+    $("#cancelBtn3").click(function () {
+        document.getElementById("fieldset4").disabled = true;
+        document.getElementById("cancelBtn3").classList.add("d-none");
+        document.getElementById("saveBtn3").classList.add("d-none");
+        document.getElementById("editBtn3").classList.remove("d-none");
+    });
+</script>
+
+<script>
+
+    // file upload
+    const actualBtn1 = document.getElementById('actualFileBtn1');
+
+    const fileChosen1 = document.getElementById('fileChoosen1');
+
+    actualBtn1.addEventListener('change', function () {
+        fileChosen1.textContent = this.files[0].name
+    })
+    const actualBtn2 = document.getElementById('actualFileBtn2');
+
+    const fileChosen2 = document.getElementById('fileChoosen2');
+
+    actualBtn2.addEventListener('change', function () {
+        fileChosen2.textContent = this.files[0].name
+    })
+</script> 

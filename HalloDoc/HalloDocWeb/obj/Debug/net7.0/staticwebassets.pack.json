@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\HalloDocWeb.bundle.scp.css"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\1\\7768657_3763028.jpg",
+      "PackagePath": "staticwebassets\\PhysicianImages\\1\\7768657_3763028.jpg"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\1\\back.png",
+      "PackagePath": "staticwebassets\\PhysicianImages\\1\\back.png"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\1\\warning-icon.svg",
+      "PackagePath": "staticwebassets\\PhysicianImages\\1\\warning-icon.svg"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\080ed504-f22b-498b-af3e-8eb10eab3a28\\college certy.docx",
       "PackagePath": "staticwebassets\\UploadedFiles\\080ed504-f22b-498b-af3e-8eb10eab3a28\\college certy.docx"
     },
