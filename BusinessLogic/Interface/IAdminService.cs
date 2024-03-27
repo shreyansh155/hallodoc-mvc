@@ -12,7 +12,6 @@ namespace BusinessLogic.Interface
     public interface IAdminService
     {
         bool AdminLogin(AdminLogin adminLogin);
-        void CreateAdminAccount(CreateAdminAccount createNewAccount);
         AdminDashboard AdminDashboard();
         ViewCaseViewModel ViewCaseViewModel(int reqClientId);
         ViewNotes ViewNotes(int reqClientId);
@@ -52,5 +51,18 @@ namespace BusinessLogic.Interface
         EditPhysicianAccount EditPhysician(int PhysicianId);
         void EditPhysicianAccount(EditPhysicianAccount obj);
 
+
+
+
+        /////////////////////////Access//////////////////////
+        List<AccountAccess> AccountAccess();
+        CreateAccess FetchRole(short selectedValue);
+
+
+        void CreateRole(List<int> menuIds,string roleName, short accountType);
+        void CreateAdminAccount(CreateAdminAccount createNewAccount);
+        void DeleteRole(int roleId);
+
+        void CreateProviderAccount(CreateProviderAccount model);
     }
 }

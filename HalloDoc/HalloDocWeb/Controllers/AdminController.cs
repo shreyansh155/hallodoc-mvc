@@ -26,21 +26,6 @@ namespace HalloDocWeb.Controllers
             _context = context;
             _adminService = adminService;
         }
-        public IActionResult CreateAdminAccount()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult CreateAdminAccount(CreateAdminAccount newAccount)
-        {
-            if (ModelState.IsValid)
-            {
-                _adminService.CreateAdminAccount(newAccount);
-                return RedirectToAction("AdminLogin");
-            }
-            return View();
-        }
 
         /////////////////////////////AdminDashboard//////////////////////////////////////
 
@@ -479,6 +464,20 @@ namespace HalloDocWeb.Controllers
             _adminService.StopProviderNotif(PhysicianId);
         }
 
+        public IActionResult CreateProviderAccount()
+        {
+            return View("ProviderMenu/CreateProviderAccount");
+        }
+        [HttpPost]
+        public IActionResult CreateProviderAccount(CreateProviderAccount model)
+        {
+            if (ModelState.IsValid)
+            {
+                _adminService.CreateProviderAccount(model);
+            }
+            return RedirectToAction("AdminDashboard");
+        }
+
 
         public IActionResult PhysicianAccount(int physicianId)
         {
@@ -498,10 +497,36 @@ namespace HalloDocWeb.Controllers
 
 
         /////////////////User Access/////////////////////
-        public IActionResult Access()
+        public IActionResult AccountAccess()
+        {
+
+            var obj = _adminService.AccountAccess();
+            return View("Access/AccountAccess", obj);
+
+        }
+
+        [HttpPost]
+        public void DeleteRole(int RoleId)
+        {
+            _adminService.DeleteRole(RoleId);
+        }
+        public IActionResult UserAccess()
         {
             return View("Access/UserAccess");
-
+        }
+        public IActionResult CreateAdminAccount()
+        {
+            CreateAdminAccount obj = new()
+            {
+                RegionList = _context.Regions.ToList(),
+            };
+            return View("Access/CreateAdminAccount", obj);
+        }
+        [HttpPost]
+        public IActionResult CreateAdminAccount(CreateAdminAccount model)
+        {
+            _adminService.CreateAdminAccount(model);
+            return RedirectToAction("AdminDashboard");
         }
         public IActionResult CreateAccess()
         {
@@ -512,6 +537,19 @@ namespace HalloDocWeb.Controllers
             return View("Access/CreateAccess", obj);
         }
 
+
+        [HttpPost]
+        public void CreateAccessPost(List<int> MenuIds, string RoleName, short AccountType)
+        {
+            _adminService.CreateRole(MenuIds, RoleName, AccountType);
+        }
+
+        [HttpGet]
+        public CreateAccess FetchRoles(short selectedValue)
+        {
+            var obj = _adminService.FetchRole(selectedValue);
+            return obj;
+        }
 
 
 

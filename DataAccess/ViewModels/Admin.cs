@@ -20,15 +20,23 @@ namespace DataAccess.ViewModels
     }
     public class CreateAdminAccount
     {
-        [Required]
         public string? UserName { get; set; }
-        [Required]
-        public string Email { get; set; } = null!;
-        [Required]
-        public string Password { get; set; } = null!;
-        [Required]
-        public string ConfirmPassword { get; set; } = null!;
-
+        public string? AdminPassword { get; set; }
+        public short? Status { get; set; }
+        public string? Role { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? AdminPhone { get; set; }
+        public string? Email { get; set; }
+        public string? ConfirmEmail { get; set; }
+        public List<Region>? RegionList { get; set; }
+        public IEnumerable<int> AdminRegion { get; set; }
+        public string? Address1 { get; set; }
+        public string? Address2 { get; set; }
+        public string? City { get; set; }
+        public string? State { get; set; }
+        public string? Zip { get; set; }
+        public string? BillingPhone { get; set; }
     }
     public class ConcludeReqViewModel
     {
@@ -589,8 +597,52 @@ namespace DataAccess.ViewModels
         public IFormFile NDA { get; set; }
         public IFormFile LicenseDoc { get; set; }
     }
+    public class CreateProviderAccount
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        //public int Status { get; set; }
+        //public int Role { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string MedicalLicenseNumber { get; set; }
+        public string NPINumber { get; set; }
+        public string SyncEmail { get; set; }
+        public List<Region> RegionList { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string Phone { get; set; }
+        public string BusinessName { get; set; }
+        public string BusinessWebsite { get; set; }
+        public string AdminNote { get; set; }
 
 
+        public IFormFile Photo { get; set; }
+        public IFormFile ICA { get; set; }
+        public IFormFile BGCheck { get; set; }
+        public IFormFile HIPAACompliance { get; set; }
+        public IFormFile NDA { get; set; }
+    }
+    
+
+
+
+
+
+
+    ///////////////////Access/////////////////////
+    public class AccountAccess
+    {
+        public int RoleId { get; set; }
+        public string Name { get; set; }
+        public short AccountType { get; set; }
+
+    }
     public class CreateAccess
     {
         public List<Menu> Menu { get; set; }

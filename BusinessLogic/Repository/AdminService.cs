@@ -10,7 +10,6 @@ using System.Net.Mail;
 using System.Net;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 
 
@@ -41,42 +40,37 @@ namespace BusinessLogic.Repository
             }
             return sb.ToString();
         }
+
+
+        public static void InsertFileAfterRename(IFormFile file, string path, string updateName)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string[] oldfiles = Directory.GetFiles(path, updateName + ".*");
+            foreach (string f in oldfiles)
+            {
+                System.IO.File.Delete(f);
+            }
+
+            string extension = Path.GetExtension(file.FileName);
+
+            string fileName = updateName + extension;
+
+            string fullPath = Path.Combine(path, fileName);
+
+            using FileStream stream = new(fullPath, FileMode.Create);
+            file.CopyTo(stream);
+        }
+
         public bool AdminLogin(AdminLogin adminLogin)
         {
             string hashPassword = GenerateSHA256(adminLogin.Password); ;
             return _context.Aspnetusers.Any(Au => Au.Email == adminLogin.Email && Au.Passwordhash == hashPassword);
         }
-        public void CreateAdminAccount(CreateAdminAccount newAccount)
-        {
-            Guid id = Guid.NewGuid();
 
-            if (newAccount.Password == newAccount.ConfirmPassword)
-            {
-                var hashedPassword = GenerateSHA256(newAccount.Password);
-                Aspnetuser? aspnetuser = new()
-                {
-                    Id = id.ToString(),
-                    Passwordhash = hashedPassword,
-                    Createddate = DateTime.Now,
-                    Username = newAccount.UserName,
-                    Email = newAccount.Email,
-
-                };
-                _context.Aspnetusers.Add(aspnetuser);
-                _context.SaveChanges();
-                Admin? admin = new()
-                {
-                    Aspnetuserid = aspnetuser.Id,
-                    Firstname = newAccount.UserName,
-                    Createdby = "admin",
-                    Createddate = DateTime.Now,
-                    Email = newAccount.Email,
-
-                };
-                _context.Admins.Add(admin);
-                _context.SaveChanges();
-            }
-        }
         public AdminDashboard AdminDashboard()
         {
 
@@ -563,7 +557,6 @@ namespace BusinessLogic.Repository
 
             client.Send(mailMessage);
 
-            //TempData["success"] = "Email with selected documents has been successfully sent to " + reqCli.Email;
             return true;
         }
         public Orders Orders(int RequestId)
@@ -998,11 +991,12 @@ namespace BusinessLogic.Repository
             var region = _context.Regions.FirstOrDefault(x => x.Regionid == phy.Regionid)?.Name;
 
 
-             void FileUpload(IFormFile file){
+            void FileUpload(IFormFile file)
+            {
                 if (file != null && file.Length > 0)
                 {
                     //get file name
-                    
+
                     var fileName = Path.GetFileName(file.FileName);
 
                     string rootPath = _environment.WebRootPath + "/PhysicianImages";
@@ -1044,7 +1038,7 @@ namespace BusinessLogic.Repository
                 case 2:
                     phy.Firstname = obj.FirstName;
                     phy.Lastname = obj.LastName;
-                    phy.Email= obj.Email;
+                    phy.Email = obj.Email;
                     phy.Mobile = obj.Phone;
                     phy.Medicallicense = obj.MedicalLicenseNumber;
                     phy.Npinumber = obj.NPINumber;
@@ -1056,7 +1050,7 @@ namespace BusinessLogic.Repository
                 case 3:
                     phy.Address1 = obj.Address1;
                     phy.Address2 = obj.Address2;
-                    phy.City= obj.City;
+                    phy.City = obj.City;
                     //phy.Region=
                     phy.Zip = obj.Zip;
                     phy.Altphone = obj.Phone;
@@ -1070,10 +1064,245 @@ namespace BusinessLogic.Repository
                     phy.Businesswebsite = obj.BusinessWebsite;
                     phy.Photo = obj.Photo.FileName;
                     phy.Signature = obj.Signature.FileName;
-                        break;
+                    break;
                 case 5:
                     break;
             };
         }
+
+
+
+
+
+        public List<AccountAccess> AccountAccess()
+        {
+            var obj = (from role in _context.Roles
+                       where role.Isdeleted != true
+                       select new AccountAccess
+                       {
+                           Name = role.Name,
+                           RoleId = role.Roleid,
+                           AccountType = role.Accounttype,
+                       }).ToList();
+            return obj;
+        }
+        public void DeleteRole(int roleId)
+        {
+            var role = _context.Roles.FirstOrDefault(x => x.Roleid == roleId);
+            role.Isdeleted = true;
+            _context.Roles.Update(role);
+            _context.SaveChanges();
+        }
+        public CreateAccess FetchRole(short selectedValue)
+        {
+            if (selectedValue == 0)
+            {
+                CreateAccess obj = new()
+                {
+                    Menu = _context.Menus.ToList(),
+                };
+                return obj;
+            }
+            else if (selectedValue == 1 || selectedValue == 2)
+            {
+
+                CreateAccess obj = new()
+                {
+                    Menu = _context.Menus.Where(x => x.Accounttype == selectedValue).ToList(),
+                };
+                return obj;
+            }
+            else
+            {
+                CreateAccess obj = new();
+                return obj;
+            }
+        }
+
+        public void CreateRole(List<int> menuIds, string roleName, short accountType)
+        {
+            Role role = new()
+            {
+                Name = roleName,
+                Accounttype = accountType,
+                Createdby = "Admin",
+                Createddate = DateTime.Now,
+                Isdeleted = false,
+            };
+            _context.Roles.Add(role);
+            _context.SaveChanges();
+
+            foreach (int menuId in menuIds)
+            {
+                Rolemenu rolemenu = new()
+                {
+                    Roleid = role.Roleid,
+                    Menuid = menuId,
+                };
+                _context.Rolemenus.Add(rolemenu);
+                _context.SaveChanges();
+            };
+
+
+        }
+
+
+        public void CreateAdminAccount(CreateAdminAccount obj)
+        {
+            Guid id = Guid.NewGuid();
+            Aspnetuser aspnetuser = new()
+            {
+                Id = id.ToString(),
+                Username = obj.UserName,
+                Passwordhash = GenerateSHA256(obj.AdminPassword),
+                Email = obj.Email,
+                Phonenumber = obj.AdminPhone,
+                Createddate = DateTime.Now,
+
+            };
+            _context.Aspnetusers.Add(aspnetuser);
+            _context.SaveChanges();
+
+            Admin admin = new()
+            {
+                Aspnetuserid = id.ToString(),
+                Firstname = obj.FirstName,
+                Lastname = obj.LastName,
+                Email = obj.Email,
+                Mobile = obj.AdminPhone,
+                Address1 = obj.Address1,
+                Address2 = obj.Address2,
+                Zip = obj.Zip,
+                Altphone = obj.BillingPhone,
+                Createdby = "admin",
+                Createddate = DateTime.Now,
+                Isdeleted = false,
+
+            };
+            _context.Admins.Add(admin);
+            _context.SaveChanges();
+
+
+
+            var AdminRegions = obj.AdminRegion.ToList();
+            for (int i = 0; i < AdminRegions.Count; i++)
+            {
+                Adminregion adminregion = new()
+                {
+                    Adminid = admin.Adminid,
+                    Regionid = _context.Regions.First(x => x.Regionid == AdminRegions[0]).Regionid,
+                };
+
+                _context.Adminregions.Add(adminregion);
+                _context.SaveChanges();
+            }
+
+
+        }
+        public void CreateProviderAccount(CreateProviderAccount model)
+        {
+            List<string> validProfileExtensions = new() { ".jpeg", ".png", ".jpg" };
+            List<string> validDocumentExtensions = new() { ".pdf" };
+
+            try
+            {
+                Guid generatedId = Guid.NewGuid();
+
+                Aspnetuser aspUser = new()
+                {
+                    Id = generatedId.ToString(),
+                    Username = model.UserName,
+                    Passwordhash = GenerateSHA256(model.Password),
+                    Email = model.Email,
+                    Phonenumber = model.Phone,
+                    Createddate = DateTime.Now,
+                };                _context.Aspnetusers.Add(aspUser);
+                _context.SaveChanges();
+
+
+                Physician phy = new()
+                {
+                    Aspnetuserid = generatedId.ToString(),
+                    Firstname = model.FirstName,
+                    Lastname = model.LastName,
+                    Email = model.Email,
+                    Mobile = model.Phone,
+                    Medicallicense = model.MedicalLicenseNumber,
+                    Adminnotes = model.AdminNote,
+                    Address1 = model.Address1,
+                    Address2 = model.Address2,
+                    City = model.City,
+                    //Regionid = model.RegionId,
+                    Zip = model.Zip,
+                    Altphone = model.PhoneNumber,
+                    Createdby = "admin",
+                    Createddate = DateTime.Now,
+                    //Status = (short)model.s,
+                    //Roleid = model.RoleId,
+                    Npinumber = model.NPINumber,
+                    Businessname = model.BusinessName,
+                    Businesswebsite = model.BusinessWebsite,
+                };
+
+                _context.Physicians.Add(phy);
+                _context.SaveChanges();
+
+
+                string path = Path.Combine(_environment.WebRootPath, "PhysicianImages", phy.Physicianid.ToString());
+
+                if (model.Photo != null)
+                {
+                    string fileExtension = Path.GetExtension(model.Photo.FileName);
+                    if (validDocumentExtensions.Contains(fileExtension))
+                    {
+                        phy.Isnondisclosuredoc = true;
+                        InsertFileAfterRename(model.Photo, path, "ProfilePhoto");
+                    }
+                }
+                if (model.ICA != null)
+                {
+                    string fileExtension = Path.GetExtension(model.ICA.FileName);
+                    if (validDocumentExtensions.Contains(fileExtension))
+                    {
+                        phy.Isnondisclosuredoc = true;
+                        InsertFileAfterRename(model.ICA, path, "ICA");
+                    }
+                }
+                if (model.BGCheck != null)
+                {
+                    string fileExtension = Path.GetExtension(model.BGCheck.FileName);
+                    if (validDocumentExtensions.Contains(fileExtension))
+                    {
+                        phy.Isnondisclosuredoc = true;
+                        InsertFileAfterRename(model.BGCheck, path, "BackgroundCheck");
+                    }
+                }
+                if (model.HIPAACompliance != null)
+                {
+                    string fileExtension = Path.GetExtension(model.HIPAACompliance.FileName);
+                    if (validDocumentExtensions.Contains(fileExtension))
+                    {
+                        phy.Isnondisclosuredoc = true;
+                        InsertFileAfterRename(model.HIPAACompliance, path, "HipaaCompliance");
+                    }
+                }
+                if (model.NDA != null)
+                {
+                    string fileExtension = Path.GetExtension(model.NDA.FileName);
+                    if (validDocumentExtensions.Contains(fileExtension))
+                    {
+                        phy.Isnondisclosuredoc = true;
+                        InsertFileAfterRename(model.NDA, path, "NDA");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+            };
+
+
+        }
     }
+
 }
+

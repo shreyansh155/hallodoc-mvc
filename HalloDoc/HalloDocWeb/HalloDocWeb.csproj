@@ -37,7 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Admin\PopUpModals\" />
     <Folder Include="wwwroot\js\NewFolder\" />
     <Folder Include="wwwroot\PhysicianImages\" />
     <Folder Include="wwwroot\UploadedFiles\" />

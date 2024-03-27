@@ -120,7 +120,6 @@
                 data: { selectedValue: selectedValue },
                 success: function (response) {
                     $('#Vendorid').empty();
-                    console.log(response);
                     $.each(response, function (index, object) {
                         $('#Vendorid').append($('<option>', {
                             value: object["businessId"],
