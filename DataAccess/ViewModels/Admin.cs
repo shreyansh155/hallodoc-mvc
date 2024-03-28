@@ -1,4 +1,5 @@
 ﻿using DataAccess.DataModels;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -515,7 +516,7 @@ namespace DataAccess.ViewModels
     ////////////////////////////////////////////////////////////////////////
     public class AdminProfile
     {
-        public int FormId { get; set; } 
+        public int FormId { get; set; }
         public int AdminId { get; set; }
         public string UserName { get; set; }
         public string AdminPassword { get; set; }
@@ -601,16 +602,16 @@ namespace DataAccess.ViewModels
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        //public int Status { get; set; }
-        //public int Role { get; set; }
+        public List<Role> RolesList { get; set; }   
+        public int Role { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string MedicalLicenseNumber { get; set; }
         public string NPINumber { get; set; }
-        public string SyncEmail { get; set; }
         public List<Region> RegionList { get; set; }
+        public List<int> ProviderRegion { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
@@ -628,7 +629,7 @@ namespace DataAccess.ViewModels
         public IFormFile HIPAACompliance { get; set; }
         public IFormFile NDA { get; set; }
     }
-    
+
 
 
 
@@ -646,6 +647,6 @@ namespace DataAccess.ViewModels
     public class CreateAccess
     {
         public List<Menu> Menu { get; set; }
-    }   
+    }
 
 }

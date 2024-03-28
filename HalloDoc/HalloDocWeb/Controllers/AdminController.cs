@@ -138,6 +138,49 @@ namespace HalloDocWeb.Controllers
             }
 
         }
+
+        [HttpPost]
+        public IActionResult SearchedRegion(int status, int regionId)
+        {
+            if (regionId == 0)
+            {
+                return RedirectToAction("AdminDashboard");
+            }
+            var searchData = _adminService.SearchRegion(regionId);
+            if (status == 1)
+            {
+                var parseData = searchData.NewReqViewModel;
+                return PartialView("PartialTable/_newRequestView", parseData);
+            }
+            else if (status == 2)
+            {
+                var parseData = searchData.PendingReqViewModel;
+                return PartialView("PartialTable/_PendingRequestView", parseData);
+            }
+            else if (status == 8)
+            {
+                var parseData = searchData.ActiveReqViewModels;
+                return PartialView("PartialTable/_activeRequestView", parseData);
+            }
+            else if (status == 4)
+            {
+                var parseData = searchData.ConcludeReqViewModel;
+                return PartialView("PartialTable/_concludeReqView", parseData);
+            }
+            else if (status == 5)
+            {
+                var parseData = searchData.CloseReqViewModels;
+                return PartialView("PartialTable/_closeReqView", parseData);
+            }
+            else
+            {
+                var parseData = searchData.UnpaidReqViewModels;
+                return PartialView("PartialTable/_unpaidReqView", parseData);
+            }
+
+
+        }
+
         [HttpPost]
         public IActionResult AdminDashboard(SearchViewModel obj)
         {
@@ -466,15 +509,19 @@ namespace HalloDocWeb.Controllers
 
         public IActionResult CreateProviderAccount()
         {
-            return View("ProviderMenu/CreateProviderAccount");
+            CreateProviderAccount obj = new()
+            {
+                RolesList = _context.Roles.ToList(),
+                RegionList = _context.Regions.ToList()
+            };
+            return View("ProviderMenu/CreateProviderAccount", obj);
         }
         [HttpPost]
         public IActionResult CreateProviderAccount(CreateProviderAccount model)
         {
-            if (ModelState.IsValid)
-            {
-                _adminService.CreateProviderAccount(model);
-            }
+            int? adminId = HttpContext.Session.GetInt32("adminId");
+
+            _adminService.CreateProviderAccount(model, (int)adminId);
             return RedirectToAction("AdminDashboard");
         }
 
@@ -494,7 +541,10 @@ namespace HalloDocWeb.Controllers
         }
 
 
-
+        public IActionResult Scheduling()
+        {
+            return View("ProviderMenu/Scheduling");
+        }
 
         /////////////////User Access/////////////////////
         public IActionResult AccountAccess()

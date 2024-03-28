@@ -17,6 +17,62 @@
       "PackagePath": "staticwebassets\\PhysicianImages\\1\\warning-icon.svg"
     },
     {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\4\\BackgroundCheck.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\4\\BackgroundCheck.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\4\\HipaaCompliance.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\4\\HipaaCompliance.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\4\\ICA.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\4\\ICA.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\4\\NDA.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\4\\NDA.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\5\\BackgroundCheck.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\5\\BackgroundCheck.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\5\\HipaaCompliance.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\5\\HipaaCompliance.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\5\\ICA.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\5\\ICA.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\5\\NDA.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\5\\NDA.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\5\\ProfilePhoto.jpg",
+      "PackagePath": "staticwebassets\\PhysicianImages\\5\\ProfilePhoto.jpg"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\6\\BackgroundCheck.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\6\\BackgroundCheck.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\6\\HipaaCompliance.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\6\\HipaaCompliance.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\6\\ICA.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\6\\ICA.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\6\\NDA.pdf",
+      "PackagePath": "staticwebassets\\PhysicianImages\\6\\NDA.pdf"
+    },
+    {
+      "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\PhysicianImages\\6\\ProfilePhoto.jpg",
+      "PackagePath": "staticwebassets\\PhysicianImages\\6\\ProfilePhoto.jpg"
+    },
+    {
       "Id": "G:\\HalloDoc DotNet\\HalloDoc\\HalloDocWeb\\wwwroot\\UploadedFiles\\080ed504-f22b-498b-af3e-8eb10eab3a28\\college certy.docx",
       "PackagePath": "staticwebassets\\UploadedFiles\\080ed504-f22b-498b-af3e-8eb10eab3a28\\college certy.docx"
     },

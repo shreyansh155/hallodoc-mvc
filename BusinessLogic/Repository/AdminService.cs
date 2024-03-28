@@ -129,6 +129,7 @@ namespace BusinessLogic.Repository
                                   City = rc.City,
                                   State = rc.State,
                                   Zipcode = rc.Zipcode,
+                                  Regionid = rc.Regionid,
                                   Notes = rc.Notes,
                                   reqTypeId = req.Requesttypeid,
                                   Casetags = _context.Casetags.ToList(),
@@ -153,6 +154,7 @@ namespace BusinessLogic.Repository
                                      Street = rc.Street,
                                      City = rc.City,
                                      State = rc.State,
+                                     Regionid = rc.Regionid,
                                      Zipcode = rc.Zipcode,
                                      Notes = rc.Notes,
                                      reqTypeId = req.Requesttypeid,
@@ -178,6 +180,7 @@ namespace BusinessLogic.Repository
                                    Street = rc.Street,
                                    City = rc.City,
                                    State = rc.State,
+                                   Regionid = rc.Regionid,
                                    Zipcode = rc.Zipcode,
                                    Notes = rc.Notes,
                                    RequestId = req.Requestid,
@@ -204,6 +207,7 @@ namespace BusinessLogic.Repository
                                       Street = rc.Street,
                                       City = rc.City,
                                       State = rc.State,
+                                      Regionid = rc.Regionid,
                                       Zipcode = rc.Zipcode,
                                       Notes = rc.Notes,
                                       reqTypeId = req.Requesttypeid,
@@ -230,6 +234,7 @@ namespace BusinessLogic.Repository
                                     Street = rc.Street,
                                     City = rc.City,
                                     State = rc.State,
+                                    Regionid = rc.Regionid,
                                     Zipcode = rc.Zipcode,
                                     Notes = rc.Notes,
                                     reqTypeId = req.Requesttypeid,
@@ -255,6 +260,7 @@ namespace BusinessLogic.Repository
                                     Street = rc.Street,
                                     City = rc.City,
                                     State = rc.State,
+                                    Regionid = rc.Regionid,
                                     Zipcode = rc.Zipcode,
                                     Notes = rc.Notes,
                                     RequestId = req.Requestid,
@@ -324,6 +330,27 @@ namespace BusinessLogic.Repository
 
                 return data;
             }
+        }
+
+        public AdminDashboard SearchRegion(int regionId)
+        {
+            var data = AdminDashboard();
+
+
+            var searchedNew = data.NewReqViewModel.Where(x => x.Regionid == regionId);
+            var searchedConclude = data.ConcludeReqViewModel.Where(x => x.Regionid == regionId);
+            var searchedClose = data.CloseReqViewModels.Where(x => x.Regionid == regionId);
+            var searchedPending = data.PendingReqViewModel.Where(x => x.Regionid == regionId);
+            var searchedActive = data.ActiveReqViewModels.Where(x => x.Regionid == regionId);
+            var searchedUnpaid = data.UnpaidReqViewModels.Where(x => x.Regionid == regionId);
+
+            data.NewReqViewModel = searchedNew;
+            data.ConcludeReqViewModel = searchedConclude;
+            data.CloseReqViewModels = searchedClose;
+            data.PendingReqViewModel = searchedPending;
+            data.ActiveReqViewModels = searchedActive;
+            data.UnpaidReqViewModels = searchedUnpaid;
+            return data;
         }
         public void CancelCase(CancelCase cancelCase)
         {
@@ -1199,8 +1226,9 @@ namespace BusinessLogic.Repository
 
 
         }
-        public void CreateProviderAccount(CreateProviderAccount model)
+        public void CreateProviderAccount(CreateProviderAccount model, int adminId)
         {
+            var admin = _context.Admins.FirstOrDefault(x => x.Adminid == adminId);
             List<string> validProfileExtensions = new() { ".jpeg", ".png", ".jpg" };
             List<string> validDocumentExtensions = new() { ".pdf" };
 
@@ -1235,10 +1263,9 @@ namespace BusinessLogic.Repository
                     //Regionid = model.RegionId,
                     Zip = model.Zip,
                     Altphone = model.PhoneNumber,
-                    Createdby = "admin",
+                    Createdby = admin.Aspnetuserid,
                     Createddate = DateTime.Now,
-                    //Status = (short)model.s,
-                    //Roleid = model.RoleId,
+                    Roleid = model.Role,
                     Npinumber = model.NPINumber,
                     Businessname = model.BusinessName,
                     Businesswebsite = model.BusinessWebsite,
@@ -1248,15 +1275,25 @@ namespace BusinessLogic.Repository
                 _context.SaveChanges();
 
 
+                Physiciannotification physiciannotification = new()
+                {
+                    Physicianid = phy.Physicianid,
+                    Isnotificationstopped = false
+                };
+                _context.Physiciannotifications.Add(physiciannotification);
+                _context.SaveChanges();
+
+
                 string path = Path.Combine(_environment.WebRootPath, "PhysicianImages", phy.Physicianid.ToString());
 
                 if (model.Photo != null)
                 {
                     string fileExtension = Path.GetExtension(model.Photo.FileName);
-                    if (validDocumentExtensions.Contains(fileExtension))
+                    if (validProfileExtensions.Contains(fileExtension))
                     {
-                        phy.Isnondisclosuredoc = true;
                         InsertFileAfterRename(model.Photo, path, "ProfilePhoto");
+                        phy.Photo = Path.GetFileName(model.Photo.FileName);
+
                     }
                 }
                 if (model.ICA != null)
@@ -1264,7 +1301,7 @@ namespace BusinessLogic.Repository
                     string fileExtension = Path.GetExtension(model.ICA.FileName);
                     if (validDocumentExtensions.Contains(fileExtension))
                     {
-                        phy.Isnondisclosuredoc = true;
+                        phy.Isagreementdoc = true;
                         InsertFileAfterRename(model.ICA, path, "ICA");
                     }
                 }
@@ -1273,7 +1310,7 @@ namespace BusinessLogic.Repository
                     string fileExtension = Path.GetExtension(model.BGCheck.FileName);
                     if (validDocumentExtensions.Contains(fileExtension))
                     {
-                        phy.Isnondisclosuredoc = true;
+                        phy.Isbackgrounddoc = true;
                         InsertFileAfterRename(model.BGCheck, path, "BackgroundCheck");
                     }
                 }
@@ -1295,6 +1332,8 @@ namespace BusinessLogic.Repository
                         InsertFileAfterRename(model.NDA, path, "NDA");
                     }
                 }
+                _context.Physicians.Update(phy);
+                _context.SaveChanges();
             }
             catch (Exception e)
             {

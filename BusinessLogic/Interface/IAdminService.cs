@@ -15,7 +15,8 @@ namespace BusinessLogic.Interface
         AdminDashboard AdminDashboard();
         ViewCaseViewModel ViewCaseViewModel(int reqClientId);
         ViewNotes ViewNotes(int reqClientId);
-        public AdminDashboard SearchPatient(SearchViewModel obj, AdminDashboard data);
+        AdminDashboard SearchPatient(SearchViewModel obj, AdminDashboard data);
+        AdminDashboard SearchRegion(int regionId);
         void CancelCase(CancelCase cancelCase);
         void AssignCase(AssignCase assignCase);
         void TransferCase(TransferCase transferCase);
@@ -63,6 +64,6 @@ namespace BusinessLogic.Interface
         void CreateAdminAccount(CreateAdminAccount createNewAccount);
         void DeleteRole(int roleId);
 
-        void CreateProviderAccount(CreateProviderAccount model);
+        void CreateProviderAccount(CreateProviderAccount model, int adminId);
     }
 }
